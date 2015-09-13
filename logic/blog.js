@@ -1,12 +1,14 @@
 module.exports = (app) => {
   return {
     getBlog: (req, res) => {
-      //TODO get blog
-      //TODO response with json
+      app.get('models').Post.findAll()
+      .then((data) => { res.json(data); })
+      .catch((err) => { console.log(err); });
     },
     getPost: (req, res) => {
-      // TODO get post
-      // TODO response with json
+      app.get('models').Post.findById(req.params.id)
+      .then((data) => { res.json(data); })
+      .catch((err) => { console.log(err); });
     }
   }
 }
