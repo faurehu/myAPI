@@ -24,7 +24,7 @@ models.forEach(model => {
 
 sequelize.sync()
   .error(error => {
-    logger.error(error);
+    console.error(error);
     throw error;
   });
 
