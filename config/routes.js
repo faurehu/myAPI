@@ -1,6 +1,6 @@
 module.exports = {
-  blog: '/blog',
-  post: '/blog/:post',
+  blog: '/',
+  post: '/:post',
   api: {
     twitter: '/twitter',
     youtube: '/youtube',
