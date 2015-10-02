@@ -30,6 +30,10 @@
             font-family: 'Chivo', sans-serif;
             margin-left: 5px;
             line-height: 50px;
+
+            @media screen and (max-width: 420px) {
+                display: none;
+            }
         }
 
     }
