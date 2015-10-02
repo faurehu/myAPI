@@ -2,10 +2,17 @@ doctype html
 html
     head
         title title
+        meta(http-equiv="X-UA-Compatible", content="IE Edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+        link(rel="stylesheet", type="text/css", href="/assets/normalize.css")
+        link(rel="stylesheet", type="text/css", href="/assets/octicons/octicons.css")
+        link(rel="stylesheet", type="text/css", href="https://fonts.googleapis.com/css?family=Chivo")
+        link(rel="stylesheet", type="text/css", href="/assets/style.css")
     body
         .header
-            .title-div
-                Home
+            a(href="/")
+                span.mega-octicon.octicon-home
+                .title-div Home
         .postHeader
             h1.postTitle Title
             h2.postSubtitle Subtitle
