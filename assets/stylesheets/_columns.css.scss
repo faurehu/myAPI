@@ -1,0 +1,27 @@
+.column {
+
+  float: left;
+  width: 250px;
+  height: 100%;
+  overflow-x: scroll;
+  position: relative;
+
+  .column-header {
+    position: absolute;
+    z-index: 10;
+  }
+
+  .column-content {
+    height: 100%;
+    overflow-x: scroll;
+  }
+}
+
+.mobile-column {
+  margin-top: 135px;
+  width: 100%;
+
+  @media screen and (min-width: 800px) {
+    display: none;
+  }
+}
