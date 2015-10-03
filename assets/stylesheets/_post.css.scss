@@ -1,7 +1,3 @@
-/** {*/
-    /*border: 1px solid black;*/
-/*}*/
-
 .header {
     width: 100%;
     height: 50px;
@@ -25,11 +21,13 @@
         }
 
         .title-div {
+
             display: inline;
             height: 100%;
             font-family: 'Chivo', sans-serif;
             margin-left: 5px;
             line-height: 50px;
+            font-size: 0.8em;
 
             @media screen and (max-width: 420px) {
                 display: none;
@@ -38,3 +36,30 @@
 
     }
 }
+.content {
+    max-width: 800px;
+    margin: auto;
+
+    .postFooter {
+
+        border: 4px solid #bdc3c7;
+        border-radius: 10px;
+        background-color: #ecf0f1;
+
+        p {
+            font-family: 'Chivo', sans-serif;
+            text-align: justify;
+            margin: 10px;
+            font-size: 1.2em;
+
+            a {
+                 color: #3498db;
+
+                 &:link, &:visited, &:hover, &:active {
+                      text-decoration: none;
+                 }
+            }
+        }
+    }
+}
+

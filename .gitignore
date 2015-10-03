@@ -1,2 +1,6 @@
 config/config.js
 node_modules
+public/assets/bundle.js
+public/assets/bundle.js.map
+public/assets/style.css
+public/assets/style.css.map

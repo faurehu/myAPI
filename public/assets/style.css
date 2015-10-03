@@ -60,9 +60,6 @@ body {
   box-shadow: 5px 5px 5px #888888;
   margin: 20px; }
 
-/** {*/
-/*border: 1px solid black;*/
-/*}*/
 .header {
   width: 100%;
   height: 50px;
@@ -81,6 +78,27 @@ body {
     height: 100%;
     font-family: 'Chivo', sans-serif;
     margin-left: 5px;
-    line-height: 50px; }
+    line-height: 50px;
+    font-size: 0.8em; }
+    @media screen and (max-width: 420px) {
+      .header a .title-div {
+        display: none; } }
+
+.content {
+  max-width: 800px;
+  margin: auto; }
+  .content .postFooter {
+    border: 4px solid #bdc3c7;
+    border-radius: 10px;
+    background-color: #ecf0f1; }
+    .content .postFooter p {
+      font-family: 'Chivo', sans-serif;
+      text-align: justify;
+      margin: 10px;
+      font-size: 1.2em; }
+      .content .postFooter p a {
+        color: #3498db; }
+        .content .postFooter p a:link, .content .postFooter p a:visited, .content .postFooter p a:hover, .content .postFooter p a:active {
+          text-decoration: none; }
 
 /*# sourceMappingURL=style.css.map*/
