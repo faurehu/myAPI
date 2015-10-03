@@ -100,6 +100,18 @@
         border-left: 4px solid #336E7B;
       }
 
+      iframe {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 24px;
+        margin-bottom: 24px;
+
+        @media screen and (max-width: 600px) {
+          max-width: 350px;
+        }
+      }
+
       img {
         border: 4px solid #34495e;
         max-width: 90%;

@@ -127,6 +127,15 @@ body {
     .content .markdown .reference {
       padding-left: 20px;
       border-left: 4px solid #336E7B; }
+    .content .markdown iframe {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 24px;
+      margin-bottom: 24px; }
+      @media screen and (max-width: 600px) {
+        .content .markdown iframe {
+          max-width: 350px; } }
     .content .markdown img {
       border: 4px solid #34495e;
       max-width: 90%;
