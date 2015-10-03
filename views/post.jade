@@ -7,6 +7,7 @@ html
         link(rel="stylesheet", type="text/css", href="/assets/normalize.css")
         link(rel="stylesheet", type="text/css", href="/assets/octicons/octicons.css")
         link(rel="stylesheet", type="text/css", href="https://fonts.googleapis.com/css?family=Cardo:400italic|Chivo")
+        link(rel="stylesheet", type="text/css", href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/xcode.min.css")
         link(rel="stylesheet", type="text/css", href="/assets/style.css")
     body
         .header
@@ -26,3 +27,6 @@ html
                     He's studying Artificial Intelligence and blogs mostly about it. Occassionally will write about
                     his media induced paranoia.
                     Got something to say? Feel free to #[a(href=post.link) tweet].
+        script(src="//cdn.jsdelivr.net/highlight.js/8.8.0/highlight.min.js")
+        script.
+          hljs.initHighlightingOnLoad();
