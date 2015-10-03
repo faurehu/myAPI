@@ -115,6 +115,15 @@ body {
     .content .markdown a:link, .content .markdown a:visited, .content .markdown a:hover, .content .markdown a:active {
       text-decoration: none;
       color: #3498db; }
+    .content .markdown h3, .content .markdown p > strong {
+      color: #336E7B; }
+    .content .markdown img {
+      border: 4px solid #34495e;
+      max-width: 90%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 10px; }
   .content .postFooter {
     border: 4px solid #34495e;
     border-radius: 10px;
