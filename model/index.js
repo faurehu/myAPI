@@ -5,12 +5,12 @@ let env = process.env.NODE_ENV || 'development';
 let config = configFile[env];
 
 let sequelize = new Sequelize(config.db.name, config.db.user, config.db.password, {
-	host: config.db.host,
-	port: config.db.port,
-	maxConcurrentQueries: 100,
-	dialect: config.db.dialect,
-	pool: { maxConnections: 5, maxIdleTime: 30},
-	language: 'en'
+  host: config.db.host,
+  port: config.db.port,
+  maxConcurrentQueries: 100,
+  dialect: config.db.dialect,
+  pool: { maxConnections: 5, maxIdleTime: 30},
+  language: 'en'
 });
 
 let models = [

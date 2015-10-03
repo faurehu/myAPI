@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "DEBUG=boilerplate:* babel-node ./bin/www"
+    "start": "DEBUG=boilerplate:* babel-node --debug ./bin/www"
   },
   "dependencies": {
     "autoprefixer-core": "^5.2.1",
@@ -22,7 +22,9 @@
     "express": "~4.13.1",
     "extract-text-webpack-plugin": "^0.8.2",
     "file-loader": "^0.8.4",
+    "goo.gl": "^0.1.4",
     "jade": "~1.11.0",
+    "marked": "^0.3.5",
     "morgan": "~1.6.1",
     "node-libs-browser": "^0.5.2",
     "node-sass": "^3.2.0",

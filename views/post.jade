@@ -1,7 +1,7 @@
 doctype html
 html
     head
-        title title
+        title #{post.title}
         meta(http-equiv="X-UA-Compatible", content="IE Edge")
         meta(name="viewport", content="width=device-width, initial-scale=1")
         link(rel="stylesheet", type="text/css", href="/assets/normalize.css")
@@ -15,13 +15,14 @@ html
                     .title-div Home
         .content
             .postHeader
-                h1.postTitle How I fell in love with Blogging. Two more words.
-                h2.postSubtitle Ten words to test the subtitles
-                span November 1st 2015
+                h1.postTitle #{post.title}
+                h2.postSubtitle #{post.subtitle} 
+                span #{post.date}
             .markdown
+              != md(post.content)
             .postFooter
                 p.
                     Faure is a Computer Science with Management student at King's College London.
                     He's studying Artificial Intelligence and blogs mostly about it. Occassionally will write about
                     his media induced paranoia.
-                    Got something to say? Feel free to #[a(href="https://twitter.com/intent/tweet?text=Hi @faurehu, here's what I thought about www.google.com:") tweet].
+                    Got something to say? Feel free to #[a(href=post.link) tweet].
