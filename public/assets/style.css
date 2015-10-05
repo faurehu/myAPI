@@ -8,19 +8,41 @@ body {
 .grid-sidebar {
   position: fixed;
   width: 100%;
-  height: 125px;
+  height: 150px;
   box-shadow: 0px 10px 5px #888888;
   background-color: black; }
-  .grid-sidebar .link--mallki {
-    color: #2980b9;
-    text-shadow: 4px 4px 1px #fff;
-    transition: color 0.5s 0.25s, text-shadow 0.5s 0.25s;
-    text-align: center;
-    font-size: 4em; }
-    .grid-sidebar .link--mallki:hover {
-      transition: none;
-      color: transparent;
-      text-shadow: none; }
+  .grid-sidebar .link-limiter {
+    max-width: 292px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    display: block;
+    text-align: center; }
+    .grid-sidebar .link-limiter .link--mallki {
+      color: #2980b9;
+      text-shadow: 2px 2px 1px #fff;
+      transition: color 0.5s 0.25s, text-shadow 0.5s 0.25s;
+      font-size: 4.5em; }
+      .grid-sidebar .link-limiter .link--mallki:hover {
+        transition: none;
+        color: transparent;
+        text-shadow: none; }
+        .grid-sidebar .link-limiter .link--mallki:hover::before {
+          visibility: visible; }
+      .grid-sidebar .link-limiter .link--mallki::before {
+        visibility: hidden; }
+  .grid-sidebar .contact-links {
+    margin-top: 5px;
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; }
+    .grid-sidebar .contact-links a {
+      margin-left: 2px;
+      margin-right: 2px; }
+      .grid-sidebar .contact-links a:hover, .grid-sidebar .contact-links a:visited, .grid-sidebar .contact-links a:active, .grid-sidebar .contact-links a:link {
+        color: #fff;
+        text-shadow: 2px 2px 1px #2980b9; }
   @media screen and (min-width: 800px) {
     .grid-sidebar {
       position: fixed;

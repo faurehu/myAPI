@@ -170,8 +170,36 @@
 	        _reactAddons2['default'].createElement(
 	          'div',
 	          { className: 'grid-sidebar' },
-	          _reactAddons2['default'].createElement('a', { id: 'link', className: 'link link--mallki',
-	            dangerouslySetInnerHTML: { __html: innerHtml } })
+	          _reactAddons2['default'].createElement(
+	            'div',
+	            { className: 'link-limiter' },
+	            _reactAddons2['default'].createElement('a', { id: 'link', className: 'link link--mallki',
+	              dangerouslySetInnerHTML: { __html: innerHtml } })
+	          ),
+	          _reactAddons2['default'].createElement(
+	            'div',
+	            { className: 'contact-links' },
+	            _reactAddons2['default'].createElement(
+	              'a',
+	              { href: 'twitter.com/faurehu' },
+	              _reactAddons2['default'].createElement('i', { className: 'fa fa-twitter-square fa-3x' })
+	            ),
+	            _reactAddons2['default'].createElement(
+	              'a',
+	              { href: 'github.com/faurehu' },
+	              _reactAddons2['default'].createElement('i', { className: 'fa fa-github-square fa-3x' })
+	            ),
+	            _reactAddons2['default'].createElement(
+	              'a',
+	              { href: 'http://pe.linkedin.com/in/faurehu' },
+	              _reactAddons2['default'].createElement('i', { className: 'fa fa-linkedin-square fa-3x' })
+	            ),
+	            _reactAddons2['default'].createElement(
+	              'a',
+	              { href: 'mailto:faurehu@gmail.com' },
+	              _reactAddons2['default'].createElement('i', { className: 'fa fa-envelope-square fa-3x' })
+	            )
+	          )
 	        ),
 	        _reactAddons2['default'].createElement(_ColumnsMobileColumnComponent2['default'], null),
 	        _reactAddons2['default'].createElement(
