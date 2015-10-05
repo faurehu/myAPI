@@ -5,7 +5,6 @@ let router = express.Router();
 
 module.exports = (app) => {
   let blogLogic = blog(app);
-  router.get(routes.blog, blogLogic.getBlog);
   router.get(routes.post, blogLogic.getPost);
   return router;
 }

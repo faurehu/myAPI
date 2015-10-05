@@ -9,9 +9,6 @@ let monthNames = ["January", "February", "March", "April", "May", "June",
 
 module.exports = (app) => {
   return {
-    getBlog: (req, res) => {
-      res.render('post');
-    },
     getPost: (req, res) => {
 
       let response = (data) => {

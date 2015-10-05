@@ -1,7 +1,7 @@
 module.exports = {
-  blog: '/',
   post: '/:post',
-  api: {
+  apiRoute: {
+    blog: '/blog',
     twitter: '/twitter',
     youtube: '/youtube',
     github: '/github',

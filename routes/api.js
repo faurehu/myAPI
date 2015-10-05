@@ -1,15 +1,18 @@
 import express from 'express';
-import { api } from '../config/routes';
+import { apiRoute } from '../config/routes';
+import api from '../logic/api';
 let router = express.Router();
 
-module.exports = () => {
-  router.get(api.twitter, () => {});
-  router.get(api.youtube, () => {});
-  router.get(api.github, () => {});
-  router.get(api.pocket, () => {});
-  router.get(api.soundcloud, () => {});
-  router.get(api.photo, () => {});
-  router.get(api.instagram, () => {});
-  router.get(api.links, () => {});
+module.exports = (app) => {
+  let apiLogic = api(app);
+  router.get(apiRoute.blog, apiLogic.getBlog);
+  router.get(apiRoute.twitter, apiLogic.getBlog);
+  router.get(apiRoute.youtube, () => {});
+  router.get(apiRoute.github, () => {});
+  router.get(apiRoute.pocket, () => {});
+  router.get(apiRoute.soundcloud, () => {});
+  router.get(apiRoute.photo, () => {});
+  router.get(apiRoute.instagram, () => {});
+  router.get(apiRoute.links, () => {});
   return router;
 }
