@@ -1,6 +1,6 @@
 import React from 'react/addons';
 import ColumnComponent from './Columns/ColumnComponent';
-import MobileColumnComponent from './Columns/MobileColumnComponent';
+import BlogColumnComponent from './Columns/BlogColumnComponent';
 // TODO:
 // TwitterColumnComponent,
 // PocketColumnComponent,
@@ -24,12 +24,15 @@ export default class GridComponent extends React.Component {
   }
 
   renderColumns() {
-    let columns = [];
-    [1, 2, 3, 4, 5, 6, 7, 8].forEach((data) => {
-      columns.push(<td key={data}><ColumnComponent data={data}/></td>);
-    });
+    let columns = [
+      <BlogColumnComponent />
+    ];
+    for(var i = 0; i < 7; i++) {
+      columns.push(<ColumnComponent />);
+    }
     return columns;
   }
+
 
   render() {
     let innerHtml = `FaureHu<span data-letters="胡兆华"></span><span data-letters="胡兆华"></span>`
@@ -47,7 +50,6 @@ export default class GridComponent extends React.Component {
                 <a href="mailto:faurehu@gmail.com"><i className="fa fa-envelope-square fa-3x"/></a>
             </div>
         </div>
-        <MobileColumnComponent/>
         <div className="grid-content">
           <table>
             <tr>
