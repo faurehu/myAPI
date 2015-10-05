@@ -163,13 +163,15 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var innerHtml = 'FaureHu<span data-letters="胡兆华"></span><span data-letters="胡兆华"></span>';
 	      return _reactAddons2['default'].createElement(
 	        'div',
 	        { className: 'grid-container' },
 	        _reactAddons2['default'].createElement(
 	          'div',
 	          { className: 'grid-sidebar' },
-	          'The Grid'
+	          _reactAddons2['default'].createElement('a', { id: 'link', className: 'link link--mallki',
+	            dangerouslySetInnerHTML: { __html: innerHtml } })
 	        ),
 	        _reactAddons2['default'].createElement(_ColumnsMobileColumnComponent2['default'], null),
 	        _reactAddons2['default'].createElement(

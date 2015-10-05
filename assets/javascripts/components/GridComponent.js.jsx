@@ -32,10 +32,12 @@ export default class GridComponent extends React.Component {
   }
 
   render() {
+    let innerHtml = `FaureHu<span data-letters="胡兆华"></span><span data-letters="胡兆华"></span>`
     return (
       <div className="grid-container">
         <div className="grid-sidebar">
-          The Grid
+            <a id="link" className="link link--mallki"
+              dangerouslySetInnerHTML={{__html:innerHtml}}/>
         </div>
         <MobileColumnComponent/>
         <div className="grid-content">
