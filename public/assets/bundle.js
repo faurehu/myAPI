@@ -23497,7 +23497,7 @@
 	      var postCards = [];
 	      if (this.state.posts !== undefined) {
 	        this.state.posts.forEach(function (post) {
-	          postCards.push(React.createElement(_CardsBlogCardComponent2['default'], { title: post.title,
+	          postCards.push(React.createElement(_CardsBlogCardComponent2['default'], { title: post.title, id: post.id,
 	            subtitle: post.subtitle, key: _this2.state.posts.indexOf(post) }));
 	        });
 	      }
@@ -28974,7 +28974,8 @@
 	    key: 'propTypes',
 	    value: {
 	      title: _reactAddons2['default'].PropTypes.string,
-	      subtitle: _reactAddons2['default'].PropTypes.string
+	      subtitle: _reactAddons2['default'].PropTypes.string,
+	      id: _reactAddons2['default'].PropTypes.number
 	    },
 	    enumerable: true
 	  }, {
@@ -28984,9 +28985,15 @@
 	  }]);
 	
 	  function BlogCardComponent(props) {
+	    var _this = this;
+	
 	    _classCallCheck(this, BlogCardComponent);
 	
 	    _get(Object.getPrototypeOf(BlogCardComponent.prototype), 'constructor', this).call(this, props);
+	
+	    this.redirect = function () {
+	      window.location = window.location.href + 'blog/' + _this.props.id;
+	    };
 	  }
 	
 	  _createClass(BlogCardComponent, [{
@@ -28994,7 +29001,7 @@
 	    value: function render() {
 	      return _reactAddons2['default'].createElement(
 	        'div',
-	        { className: 'card blog-card' },
+	        { className: 'card blog-card', onClick: this.redirect },
 	        _reactAddons2['default'].createElement(
 	          'h1',
 	          null,
