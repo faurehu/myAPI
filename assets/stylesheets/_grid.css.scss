@@ -62,15 +62,12 @@
 }
 
 .grid-content {
+  padding-top: 145px;
+  display: table;
 
-  padding-top: 160px;
-
-  .column {
-    width: 100%;
-  }
-
-  .desktop-column {
-    display: none;
+  .trow {
+    display: table-row;
+    vertical-align: top;
   }
 
   @media screen and (min-width: 800px) {
@@ -80,19 +77,5 @@
     width: auto;
     overflow-x: auto;
     overflow-y: hidden;
-
-    .desktop-column {
-      display: block;
-    }
-  }
-
-  table {
-
-    width: 100%;
-    height: 100%;
-
-    tr {
-      vertical-align: top;
-    }
   }
 }

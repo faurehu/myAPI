@@ -52,11 +52,11 @@ body {
       box-shadow: 10px 0px 5px #888888; } }
 
 .grid-content {
-  padding-top: 160px; }
-  .grid-content .column {
-    width: 100%; }
-  .grid-content .desktop-column {
-    display: none; }
+  padding-top: 145px;
+  display: table; }
+  .grid-content .trow {
+    display: table-row;
+    vertical-align: top; }
   @media screen and (min-width: 800px) {
     .grid-content {
       margin-left: 310px;
@@ -64,34 +64,33 @@ body {
       height: 100%;
       width: auto;
       overflow-x: auto;
-      overflow-y: hidden; }
-      .grid-content .desktop-column {
-        display: block; } }
-  .grid-content table {
-    width: 100%;
-    height: 100%; }
-    .grid-content table tr {
-      vertical-align: top; }
+      overflow-y: hidden; } }
 
 .column {
+  width: 100%;
   float: left;
-  width: 250px;
   height: 100%;
   overflow-x: scroll;
   position: relative; }
   .column .column-header {
+    display: none;
     position: absolute;
     z-index: 10; }
+    @media screen and (min-width: 800px) {
+      .column .column-header {
+        display: block; } }
   .column .column-content {
     height: 100%;
     overflow-x: scroll; }
-
-.mobile-column {
-  margin-top: 135px;
-  width: 100%; }
   @media screen and (min-width: 800px) {
-    .mobile-column {
-      display: none; } }
+    .column {
+      width: 250px; } }
+
+.desktop-column {
+  display: none; }
+  @media screen and (min-width: 800px) {
+    .desktop-column {
+      display: block; } }
 
 .card {
   border: 1px solid black;

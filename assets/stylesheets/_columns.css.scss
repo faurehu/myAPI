@@ -1,27 +1,35 @@
 .column {
 
+  width: 100%;
   float: left;
-  width: 250px;
   height: 100%;
   overflow-x: scroll;
   position: relative;
 
   .column-header {
+    display: none;
     position: absolute;
     z-index: 10;
+
+    @media screen and (min-width: 800px) {
+      display: block;
+    }
   }
 
   .column-content {
     height: 100%;
     overflow-x: scroll;
   }
-}
-
-.mobile-column {
-  margin-top: 135px;
-  width: 100%;
 
   @media screen and (min-width: 800px) {
-    display: none;
+    width: 250px;
+  }
+}
+
+.desktop-column {
+  display: none;
+
+  @media screen and (min-width: 800px) {
+    display: block;
   }
 }

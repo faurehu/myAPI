@@ -25,10 +25,10 @@ export default class GridComponent extends React.Component {
 
   renderColumns() {
     let columns = [
-      <BlogColumnComponent />
+      <BlogColumnComponent key={0}/>
     ];
-    for(var i = 0; i < 7; i++) {
-      columns.push(<ColumnComponent />);
+    for(var i = 1; i < 8; i++) {
+      columns.push(<ColumnComponent key={i}/>);
     }
     return columns;
   }
@@ -51,11 +51,9 @@ export default class GridComponent extends React.Component {
             </div>
         </div>
         <div className="grid-content">
-          <table>
-            <tr>
-              {this.renderColumns()}
-            </tr>
-          </table>
+          <div className="trow">
+            {this.renderColumns()}
+          </div>
         </div>
       </div>
     );
