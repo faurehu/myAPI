@@ -5,7 +5,7 @@ module.exports = {
     twitter: '/twitter',
     videos: '/videos',
     github: '/github',
-    pocket: '/pocket',
+    pocket: '/pocket/:page',
     soundcloud: '/soundcloud',
     photo: '/photo',
     instagram: '/instagram',

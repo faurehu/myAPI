@@ -6,7 +6,6 @@ let error = (err) => {console.log(err)};
 module.exports = (app) => {
   return {
     getBlog: (req, res) => {
-
       let response = (data) => {
         res.json(data.map((node) => {
           return node.dataValues;
@@ -37,8 +36,6 @@ module.exports = (app) => {
 
       let response = (data) => {
 
-        console.log(data.dataValues.token)
-
         let options = {
           url: `https://api.github.com/user/repos?access_token=${data.dataValues.token}&visibility=public&affiliation=owner,collaborator&sort=updated`,
           headers: {
@@ -52,7 +49,7 @@ module.exports = (app) => {
             return {
               name: repo.name,
               description: repo.description,
-              languager: repo.language,
+              language: repo.language,
               url: repo.html_url
             }
           }));
@@ -64,6 +61,43 @@ module.exports = (app) => {
     },
     getPocket: (req, res) => {
 
+      let response = (data) => {
+
+        let options = {
+          url: `https://getpocket.com/v3/get`,
+          headers: {
+            'Content-Type': 'application/json; charset=UTF-8',
+            'X-Accept': 'application/json'
+          },
+          form: {
+            'consumer_key': keys.pocket.consumerKey,
+            'access_token': data.dataValues.token,
+            'favorite': 1,
+            'sort': 'newest',
+            'detailType': 'simple',
+            'count': 20,
+            'offset': req.params.page*20
+          }
+        }
+
+        request.post(options, (err, httpResponse, body) => {
+          let articles = [];
+          let parsedBody = JSON.parse(body).list;
+          for(var article in parsedBody) {
+            articles.push(parsedBody[article]);
+          }
+          res.json(articles.map((article) => {
+            return {
+              title: article.given_title,
+              excerpt: article.excerpt,
+              url: article.given_url
+            }
+          }));
+        });
+      }
+
+      app.get('models').AccessToken.find({where: {service: 'pocket'}})
+      .then(response).catch(error);
     },
     getSoundcloud: (req, res) => {
 
@@ -92,6 +126,25 @@ module.exports = (app) => {
     },
     getLinks: (req, res) => {
 
+    },
+    pocketLogin: (req, res) => {
+      let saveToken = (data, created) => {
+        app.get('models').AccessToken.findById(data[0].dataValues.id).then((token) => {
+          token.update({token: req.query.token});
+          console.log('Saved new token');
+        });
+        res.json({
+          status: 'SUCCESS'
+        });
+      }
+
+      if(req.query.secret === keys.pocket.myOwnSecret) {
+        app.get('models').AccessToken.findOrCreate({where: {service: 'pocket'}}).then(saveToken).catch(error);
+      } else {
+        res.json({
+          status: 'FAIL'
+        })
+      }
     }
   }
 }

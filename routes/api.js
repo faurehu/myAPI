@@ -9,7 +9,8 @@ module.exports = (app) => {
   router.get(apiRoute.twitter, () => {});
   router.get(apiRoute.videos, () => {});
   router.get(apiRoute.github, apiLogic.getGithub);
-  router.get(apiRoute.pocket, () => {});
+  router.get(apiRoute.pocket, apiLogic.getPocket);
+  router.post(apiRoute.pocket, apiLogic.pocketLogin);
   router.get(apiRoute.soundcloud, () => {});
   router.get(apiRoute.photo, apiLogic.getImages);
   router.get(apiRoute.instagram, apiLogic.getInstagram);
