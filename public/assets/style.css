@@ -178,18 +178,18 @@ body, html {
 .column {
   width: 100%;
   height: 100%;
-  overflow-x: scroll;
-  position: relative; }
+  position: relative;
+  overflow-x: hidden; }
   .column .column-header {
     display: none;
-    position: relative;
+    position: absolute;
     z-index: 10; }
     @media screen and (min-width: 800px) {
       .column .column-header {
         display: block; } }
   .column .column-content {
     height: 100%;
-    margin-top: 20px; }
+    overflow-x: scroll; }
 
 .card {
   border: 1px solid black;

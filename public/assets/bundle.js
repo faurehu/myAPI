@@ -222,12 +222,12 @@
 	            { className: 'contact-links' },
 	            _reactAddons2['default'].createElement(
 	              'a',
-	              { href: 'twitter.com/faurehu' },
+	              { href: 'http://twitter.com/faurehu' },
 	              _reactAddons2['default'].createElement('i', { className: 'fa fa-twitter-square fa-3x' })
 	            ),
 	            _reactAddons2['default'].createElement(
 	              'a',
-	              { href: 'github.com/faurehu' },
+	              { href: 'http://github.com/faurehu' },
 	              _reactAddons2['default'].createElement('i', { className: 'fa fa-github-square fa-3x' })
 	            ),
 	            _reactAddons2['default'].createElement(
