@@ -140,10 +140,21 @@
 	  }]);
 	
 	  function GridComponent(props) {
+	    var _this = this;
+	
 	    _classCallCheck(this, GridComponent);
 	
 	    _get(Object.getPrototypeOf(GridComponent.prototype), 'constructor', this).call(this, props);
-	    this.state = {};
+	
+	    this.toggleCollapse = function () {
+	      _this.setState({
+	        collapsed: !_this.state.collapsed
+	      });
+	    };
+	
+	    this.state = {
+	      collapsed: false
+	    };
 	  }
 	
 	  _createClass(GridComponent, [{
@@ -168,12 +179,20 @@
 	    key: 'render',
 	    value: function render() {
 	      var innerHtml = 'FaureHu<span data-letters="胡兆华"></span><span data-letters="胡兆华"></span>';
+	
+	      var sidebarClass = 'grid-sidebar';
+	      var contentClass = 'grid-content';
+	      if (this.state.collapsed) {
+	        sidebarClass += ' collapsed-sidebar';
+	        contentClass += ' collapsed-content';
+	      }
+	
 	      return _reactAddons2['default'].createElement(
 	        'div',
 	        { className: 'grid-container' },
 	        _reactAddons2['default'].createElement(
 	          'div',
-	          { className: 'grid-sidebar' },
+	          { className: sidebarClass },
 	          _reactAddons2['default'].createElement(
 	            'div',
 	            { className: 'link-limiter' },
@@ -187,6 +206,15 @@
 	              'h1',
 	              null,
 	              'Computer Science with Management U.G. @ KCL'
+	            )
+	          ),
+	          _reactAddons2['default'].createElement(
+	            'div',
+	            { className: 'toggler-container' },
+	            _reactAddons2['default'].createElement(
+	              'a',
+	              { onClick: this.toggleCollapse, className: 'toggle-button' },
+	              _reactAddons2['default'].createElement('i', { className: 'fa fa-chevron-left fa-2x' })
 	            )
 	          ),
 	          _reactAddons2['default'].createElement(
@@ -216,7 +244,7 @@
 	        ),
 	        _reactAddons2['default'].createElement(
 	          'div',
-	          { className: 'grid-content' },
+	          { className: contentClass },
 	          _reactAddons2['default'].createElement(
 	            'table',
 	            null,

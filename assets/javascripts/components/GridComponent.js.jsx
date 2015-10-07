@@ -19,7 +19,9 @@ export default class GridComponent extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      collapsed: false
+    };
   }
 
   renderColumns() {
@@ -35,15 +37,28 @@ export default class GridComponent extends React.Component {
 
   render() {
     let innerHtml = `FaureHu<span data-letters="胡兆华"></span><span data-letters="胡兆华"></span>`
+
+    let sidebarClass = 'grid-sidebar';
+    let contentClass = 'grid-content';
+    if(this.state.collapsed) {
+      sidebarClass += ' collapsed-sidebar';
+      contentClass += ' collapsed-content';
+    }
+
     return (
       <div className="grid-container">
-        <div className="grid-sidebar">
+        <div className={sidebarClass}>
             <div className="link-limiter">
                 <a id="link" className="link link--mallki"
                   dangerouslySetInnerHTML={{__html:innerHtml}}/>
             </div>
             <div className="subs">
               <h1>Computer Science with Management U.G. @ KCL</h1>
+            </div>
+            <div className="toggler-container">
+              <a onClick={this.toggleCollapse} className="toggle-button">
+                <i className="fa fa-chevron-left fa-2x"/>
+              </a>
             </div>
             <div className="contact-links">
                 <a href="twitter.com/faurehu"><i className="fa fa-twitter-square fa-3x"/></a>
@@ -52,7 +67,7 @@ export default class GridComponent extends React.Component {
                 <a href="mailto:faurehu@gmail.com"><i className="fa fa-envelope-square fa-3x"/></a>
             </div>
         </div>
-        <div className="grid-content">
+        <div className={contentClass}>
           <table>
             <tr>
               {this.renderColumns()}
@@ -61,5 +76,11 @@ export default class GridComponent extends React.Component {
         </div>
       </div>
     );
+  }
+
+  toggleCollapse = () => {
+    this.setState({
+      collapsed: !this.state.collapsed
+    })
   }
 }
