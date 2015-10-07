@@ -4,4 +4,5 @@ module.exports = (app) => {
   });
   app.use('/blog', require('./blog')(app));
   app.use('/api', require('./api')(app));
+  app.use('/callback', require('./callback')(app));
 }

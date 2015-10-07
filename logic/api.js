@@ -1,3 +1,5 @@
+import { keys } from '../config/config';
+
 module.exports = (app) => {
   return {
     getBlog: (req, res) => {
@@ -23,7 +25,10 @@ module.exports = (app) => {
       .then(response).catch((err) => { console.log(err); });
     },
     getTwitter: (req, res) => {
-
+      let oauth2 = new OAuth2(
+        keys.twitter.consumerKey,
+        keys.twitter.consumerSecret,
+        'https://api.twitter.com/', null, 'oauth2/token', null);
     },
     getGithub: (req, res) => {
 
@@ -41,7 +46,7 @@ module.exports = (app) => {
 
     },
     getLinks: (req, res) => {
-      
+
     }
   }
 }
