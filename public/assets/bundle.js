@@ -111,6 +111,10 @@
 	
 	var _ColumnsBlogColumnComponent2 = _interopRequireDefault(_ColumnsBlogColumnComponent);
 	
+	var _ColumnsImagesColumnComponent = __webpack_require__(/*! ./Columns/ImagesColumnComponent */ 195);
+	
+	var _ColumnsImagesColumnComponent2 = _interopRequireDefault(_ColumnsImagesColumnComponent);
+	
 	// TODO:
 	//M TwitterColumnComponent,
 	//H PocketColumnComponent,
@@ -163,8 +167,12 @@
 	        'td',
 	        { key: 0 },
 	        _reactAddons2['default'].createElement(_ColumnsBlogColumnComponent2['default'], null)
+	      ), _reactAddons2['default'].createElement(
+	        'td',
+	        { key: 1 },
+	        _reactAddons2['default'].createElement(_ColumnsImagesColumnComponent2['default'], null)
 	      )];
-	      for (var i = 1; i < 8; i++) {
+	      for (var i = 2; i < 8; i++) {
 	        columns.push(_reactAddons2['default'].createElement(
 	          'td',
 	          { key: i, className: 'desktop' },
@@ -29257,6 +29265,192 @@
 	})(_reactAddons2['default'].Component);
 	
 	exports['default'] = CardComponent;
+	module.exports = exports['default'];
+
+/***/ },
+/* 195 */
+/*!****************************************************************************!*\
+  !*** ./assets/javascripts/components/Columns/ImagesColumnComponent.js.jsx ***!
+  \****************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _xhrPromise = __webpack_require__(/*! xhr-promise */ 181);
+	
+	var _xhrPromise2 = _interopRequireDefault(_xhrPromise);
+	
+	var _reactAddons = __webpack_require__(/*! react/addons */ 4);
+	
+	var _reactAddons2 = _interopRequireDefault(_reactAddons);
+	
+	var _ColumnComponent2 = __webpack_require__(/*! ./ColumnComponent */ 178);
+	
+	var _ColumnComponent3 = _interopRequireDefault(_ColumnComponent2);
+	
+	var _CardsImageCardComponent = __webpack_require__(/*! ../Cards/ImageCardComponent */ 196);
+	
+	var _CardsImageCardComponent2 = _interopRequireDefault(_CardsImageCardComponent);
+	
+	var XHR = new _xhrPromise2['default']();
+	
+	var ImageColumnComponent = (function (_ColumnComponent) {
+	  _inherits(ImageColumnComponent, _ColumnComponent);
+	
+	  _createClass(ImageColumnComponent, null, [{
+	    key: 'displayName',
+	    value: 'Image Column Component',
+	    enumerable: true
+	  }]);
+	
+	  function ImageColumnComponent(props) {
+	    _classCallCheck(this, ImageColumnComponent);
+	
+	    _get(Object.getPrototypeOf(ImageColumnComponent.prototype), 'constructor', this).call(this, props);
+	    this.state = {};
+	  }
+	
+	  _createClass(ImageColumnComponent, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this = this;
+	
+	      XHR.send({
+	        method: 'GET',
+	        url: window.location.href + 'api/photo'
+	      }).then(function (response) {
+	        _this.setState({
+	          images: JSON.parse(response.responseText)
+	        });
+	        _this.forceUpdate();
+	      })['catch'](function (error) {
+	        console.log(error);
+	      });
+	    }
+	  }, {
+	    key: 'getColumnClass',
+	    value: function getColumnClass() {
+	      return 'images-column';
+	    }
+	  }, {
+	    key: 'renderCards',
+	    value: function renderCards() {
+	      var _this2 = this;
+	
+	      var imageCards = [];
+	      if (this.state.images !== undefined) {
+	        this.state.images.forEach(function (image) {
+	          imageCards.push(_reactAddons2['default'].createElement(_CardsImageCardComponent2['default'], { caption: image.caption, id: image.id,
+	            url: image.small, key: _this2.state.images.indexOf(image) }));
+	        });
+	      }
+	      return imageCards;
+	    }
+	  }, {
+	    key: 'renderColumnHeader',
+	    value: function renderColumnHeader() {
+	      return _reactAddons2['default'].createElement(
+	        'div',
+	        { className: 'column-header' },
+	        'My Photography'
+	      );
+	    }
+	  }]);
+	
+	  return ImageColumnComponent;
+	})(_ColumnComponent3['default']);
+	
+	exports['default'] = ImageColumnComponent;
+	module.exports = exports['default'];
+
+/***/ },
+/* 196 */
+/*!***********************************************************************!*\
+  !*** ./assets/javascripts/components/Cards/ImageCardComponent.js.jsx ***!
+  \***********************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _reactAddons = __webpack_require__(/*! react/addons */ 4);
+	
+	var _reactAddons2 = _interopRequireDefault(_reactAddons);
+	
+	var ImageCardComponent = (function (_React$Component) {
+	  _inherits(ImageCardComponent, _React$Component);
+	
+	  _createClass(ImageCardComponent, null, [{
+	    key: 'displayName',
+	    value: 'Image Card Component',
+	    enumerable: true
+	  }, {
+	    key: 'propTypes',
+	    value: {
+	      caption: _reactAddons2['default'].PropTypes.string,
+	      url: _reactAddons2['default'].PropTypes.string,
+	      id: _reactAddons2['default'].PropTypes.number
+	    },
+	    enumerable: true
+	  }, {
+	    key: 'defaultProps',
+	    value: {},
+	    enumerable: true
+	  }]);
+	
+	  function ImageCardComponent(props) {
+	    _classCallCheck(this, ImageCardComponent);
+	
+	    _get(Object.getPrototypeOf(ImageCardComponent.prototype), 'constructor', this).call(this, props);
+	  }
+	
+	  _createClass(ImageCardComponent, [{
+	    key: 'render',
+	    value: function render() {
+	      return _reactAddons2['default'].createElement(
+	        'div',
+	        { className: 'card image-card' },
+	        _reactAddons2['default'].createElement('img', { src: this.props.url }),
+	        _reactAddons2['default'].createElement(
+	          'h1',
+	          null,
+	          this.props.caption
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return ImageCardComponent;
+	})(_reactAddons2['default'].Component);
+	
+	exports['default'] = ImageCardComponent;
 	module.exports = exports['default'];
 
 /***/ }

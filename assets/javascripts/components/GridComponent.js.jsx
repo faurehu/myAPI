@@ -1,6 +1,7 @@
 import React from 'react/addons';
 import ColumnComponent from './Columns/ColumnComponent';
 import BlogColumnComponent from './Columns/BlogColumnComponent';
+import ImagesColumnComponent from './Columns/ImagesColumnComponent';
 // TODO:
 //M TwitterColumnComponent,
 //H PocketColumnComponent,
@@ -25,9 +26,10 @@ export default class GridComponent extends React.Component {
 
   renderColumns() {
     let columns = [
-      <td key={0}><BlogColumnComponent/></td>
+      <td key={0}><BlogColumnComponent/></td>,
+      <td key={1}><ImagesColumnComponent/></td>
     ];
-    for(var i = 1; i < 8; i++) {
+    for(var i = 2; i < 8; i++) {
       columns.push(<td key={i} className="desktop"><ColumnComponent/></td>);
     }
     return columns;
