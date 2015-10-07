@@ -50,7 +50,7 @@ module.exports = (app) => {
           let repos = JSON.parse(body);
           res.json(repos.map((repo) => {
             return {
-              name: repo.full_name,
+              name: repo.name,
               description: repo.description,
               languager: repo.language,
               url: repo.html_url
