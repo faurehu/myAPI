@@ -10,6 +10,15 @@ html
         link(rel="stylesheet", type="text/css", href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/xcode.min.css")
         link(rel="stylesheet", type="text/css", href="/assets/style.css")
     body
+        #fb-root
+        script.
+          (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+            fjs.parentNode.insertBefore(js, fjs);
+          }(document, 'script', 'facebook-jssdk'));
         .header
             a(href="/")
                 span.mega-octicon.octicon-home
@@ -21,12 +30,31 @@ html
                 span #{post.date}
             .markdown
               != md(post.content)
+            .share
+              a.twitter-share-button(href='https://twitter.com/intent/tweet', data-size='default', data-count="none")
+              .fb-share-button(data-layout='button', data-href=post.sharelink)
             .postFooter
                 p.
                     Faure is a Computer Science with Management student at King's College London.
                     He's studying Artificial Intelligence and blogs mostly about it. Occassionally will write about
                     his media induced paranoia.
-                    Got something to say? Feel free to #[a(href=post.link) tweet].
+                    Got something to say? Feel free to #[a(href=post.commentlink) tweet].
         script(src="//cdn.jsdelivr.net/highlight.js/8.8.0/highlight.min.js")
         script.
           hljs.initHighlightingOnLoad();
+          window.twttr = (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0],
+            t = window.twttr || {};
+          if (d.getElementById(id)) return t;
+          js = d.createElement(s);
+          js.id = id;
+          js.src = "https://platform.twitter.com/widgets.js";
+          fjs.parentNode.insertBefore(js, fjs);
+         
+          t._e = [];
+          t.ready = function(f) {
+            t._e.push(f);
+          };
+         
+            return t;
+          }(document, "script", "twitter-wjs"));

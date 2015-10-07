@@ -22,7 +22,8 @@ module.exports = (app) => {
             subtitle: data.subtitle,
             content: data.content,
             date: `${monthNames[date.getMonth()]} ${date.getDay()} , ${date.getFullYear()}`,
-            link: `https://twitter.com/intent/tweet?text=Hi @faurehu, here's what I thought about ${shortURL}:`
+            sharelink: link,
+            commentlink: `https://twitter.com/intent/tweet?text=Hi @faurehu, here's what I thought about ${shortURL}:`
           }
           res.render('post', {md: md, post: post});
         })
