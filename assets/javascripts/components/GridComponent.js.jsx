@@ -42,6 +42,9 @@ export default class GridComponent extends React.Component {
                 <a id="link" className="link link--mallki"
                   dangerouslySetInnerHTML={{__html:innerHtml}}/>
             </div>
+            <div className="subs">
+              <h1>Computer Science with Management U.G. @ KCL</h1>
+            </div>
             <div className="contact-links">
                 <a href="twitter.com/faurehu"><i className="fa fa-twitter-square fa-3x"/></a>
                 <a href="github.com/faurehu"><i className="fa fa-github-square fa-3x"/></a>

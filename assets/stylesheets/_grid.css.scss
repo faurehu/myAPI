@@ -26,6 +26,7 @@
               text-shadow: 2px 2px 1px #fff;
               transition: color 0.5s 0.25s, text-shadow 0.5s 0.25s;
               font-size: 4.5em;
+              font-family: 'Share', cursive;
 
               &:hover {
                   transition: none;
@@ -41,6 +42,30 @@
                   visibility: hidden;
               }
           }
+
+          @media screen and (min-width: 800px) {
+            margin-top: 90px;
+            max-width: none;
+
+            .link--mallki {
+              font-size: 5.6em;
+            }
+          }
+      }
+
+      .subs {
+        display: none;
+
+        h1 {
+          text-align: center;
+          color: white;
+          font-family: 'Inconsolata', sans-serif;
+          font-size: 1.5em;
+        }
+
+        @media screen and (min-width: 800px) {
+          display: block;
+        }
       }
 
       .contact-links {
@@ -58,11 +83,26 @@
                   text-shadow: 2px 2px 1px #2980b9;
               }
           }
+
+          @media screen and (min-width: 800px) {
+            position: absolute;
+            width: 100%;
+            bottom: 20px;
+
+            a {
+              margin-left: 5px;
+              margin-right: 5px;
+
+              &:hover {
+                color: red;
+              }
+            }
+          }
       }
 
       @media screen and (min-width: 800px) {
         position: fixed;
-        width: 300px;
+        width: 350px;
         height: 100%;
         box-shadow: 10px 0px 5px #888888;
       }
@@ -98,7 +138,7 @@
       }
 
       @media screen and (min-width: 800px) {
-        margin-left: 310px;
+        margin-left: 360px;
         padding-top: 0px;
         height: 100%;
         overflow-x: scroll;

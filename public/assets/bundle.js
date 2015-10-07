@@ -182,6 +182,15 @@
 	          ),
 	          _reactAddons2['default'].createElement(
 	            'div',
+	            { className: 'subs' },
+	            _reactAddons2['default'].createElement(
+	              'h1',
+	              null,
+	              'Computer Science with Management U.G. @ KCL'
+	            )
+	          ),
+	          _reactAddons2['default'].createElement(
+	            'div',
 	            { className: 'contact-links' },
 	            _reactAddons2['default'].createElement(
 	              'a',
