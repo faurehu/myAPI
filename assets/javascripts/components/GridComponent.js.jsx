@@ -7,7 +7,6 @@ import BlogColumnComponent from './Columns/BlogColumnComponent';
 //E PortfolioColumnComponent,
 //M SoundcloudColumnComponent,
 //M GithubColumnComponent,
-//E MachineLearningColumnComponent,
 //E RecommendedLinksColumnComponent,
 //M InstagramColumnComponent,
 //E RecommendedVideosColumnComponent
@@ -29,7 +28,7 @@ export default class GridComponent extends React.Component {
       <td key={0}><BlogColumnComponent/></td>
     ];
     for(var i = 1; i < 8; i++) {
-      columns.push(<td key={i} className="desktop"><ColumnComponent/>)</td>);
+      columns.push(<td key={i} className="desktop"><ColumnComponent/></td>);
     }
     return columns;
   }

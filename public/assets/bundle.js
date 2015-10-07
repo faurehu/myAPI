@@ -117,7 +117,6 @@
 	//E PortfolioColumnComponent,
 	//M SoundcloudColumnComponent,
 	//M GithubColumnComponent,
-	//E MachineLearningColumnComponent,
 	//E RecommendedLinksColumnComponent,
 	//M InstagramColumnComponent,
 	//E RecommendedVideosColumnComponent
@@ -169,8 +168,7 @@
 	        columns.push(_reactAddons2['default'].createElement(
 	          'td',
 	          { key: i, className: 'desktop' },
-	          _reactAddons2['default'].createElement(_ColumnsColumnComponent2['default'], null),
-	          ')'
+	          _reactAddons2['default'].createElement(_ColumnsColumnComponent2['default'], null)
 	        ));
 	      }
 	      return columns;

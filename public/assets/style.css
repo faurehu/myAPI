@@ -165,9 +165,7 @@ body, html {
         -webkit-transition: margin-left 0.3s;
         transition: margin-left 0.3s;
         padding-top: 0px;
-        height: 100%;
-        overflow-x: scroll;
-        overflow-y: hidden; } }
+        height: 100%; } }
   @media screen and (min-width: 800px) {
     .grid-container .collapsed-content {
       margin-left: 40px;
