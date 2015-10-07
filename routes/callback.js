@@ -6,5 +6,6 @@ import { apiRoute } from '../config/routes';
 module.exports = (app) => {
   let callbackLogic = callback(app);
   router.get(apiRoute.instagram, callbackLogic.loginInstagram);
+  router.get(apiRoute.github, callbackLogic.loginGithub);
   return router;
 }

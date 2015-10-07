@@ -31,6 +31,31 @@ module.exports = (app) => {
         if (err) { console.log(err); }
         app.get('models').AccessToken.findOrCreate({where: {service: 'instagram'}}).then(saveToken).catch(error);
       });
+    },
+    loginGithub: (req, res) => {
+
+      let options = {
+        client_id: keys.github.clientID,
+        client_secret: keys.github.clientSecret,
+        grant_type: 'authorization_code',
+        redirect_uri: 'http://localhost:3000/callback/github',
+        code: req.query.code
+      }
+
+      request.post('https://github.com/login/oauth/access_token', {form: options}, (err, httpResponse, body) => {
+        let saveToken = (data, created) => {
+          app.get('models').AccessToken.findById(data[0].dataValues.id).then((token) => {
+            token.update({token: body.substring(13, body.indexOf('&'))});
+            console.log('Saved new token');
+          });
+          res.json({
+            status: 'SUCCESS'
+          });
+        }
+
+        if (err) { console.log(err); }
+        app.get('models').AccessToken.findOrCreate({where: {service: 'github'}}).then(saveToken).catch(error);
+      });
     }
   }
 }

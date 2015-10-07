@@ -35,6 +35,32 @@ module.exports = (app) => {
     },
     getGithub: (req, res) => {
 
+      let response = (data) => {
+
+        console.log(data.dataValues.token)
+
+        let options = {
+          url: `https://api.github.com/user/repos?access_token=${data.dataValues.token}&visibility=public&affiliation=owner,collaborator&sort=updated`,
+          headers: {
+            'User-Agent': 'faurehu'
+          }
+        }
+        request(options, (err, response, body) => {
+          if (err) { console.log(err); };
+          let repos = JSON.parse(body);
+          res.json(repos.map((repo) => {
+            return {
+              name: repo.full_name,
+              description: repo.description,
+              languager: repo.language,
+              url: repo.html_url
+            }
+          }));
+        });
+      }
+
+      app.get('models').AccessToken.find({where: {service: 'github'}})
+      .then(response).catch(error);
     },
     getPocket: (req, res) => {
 
@@ -57,6 +83,7 @@ module.exports = (app) => {
         }
       );
       }
+
       app.get('models').AccessToken.find({where: {service: 'instagram'}})
       .then(response).catch(error);
     },
