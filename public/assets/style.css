@@ -195,6 +195,9 @@ body, html {
   box-shadow: 5px 5px 5px #888888;
   margin: 20px; }
 
+.instagram-card img {
+  max-width: 250px; }
+
 .header {
   width: 100%;
   height: 50px;

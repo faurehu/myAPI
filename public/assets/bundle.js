@@ -29486,9 +29486,9 @@
 	
 	var _ColumnComponent3 = _interopRequireDefault(_ColumnComponent2);
 	
-	var _CardsImageCardComponent = __webpack_require__(/*! ../Cards/ImageCardComponent */ 196);
+	var _CardsInstagramCardComponent = __webpack_require__(/*! ../Cards/InstagramCardComponent */ 198);
 	
-	var _CardsImageCardComponent2 = _interopRequireDefault(_CardsImageCardComponent);
+	var _CardsInstagramCardComponent2 = _interopRequireDefault(_CardsInstagramCardComponent);
 	
 	var XHR = new _xhrPromise2['default']();
 	
@@ -29538,7 +29538,7 @@
 	      var imageCards = [];
 	      if (this.state.images !== undefined) {
 	        this.state.images.forEach(function (image) {
-	          imageCards.push(React.createElement(_CardsImageCardComponent2['default'], { link: image.link,
+	          imageCards.push(React.createElement(_CardsInstagramCardComponent2['default'], { link: image.link,
 	            url: image.url, key: _this2.state.images.indexOf(image) }));
 	        });
 	      }
@@ -29559,6 +29559,82 @@
 	})(_ColumnComponent3['default']);
 	
 	exports['default'] = InstagramColumnComponent;
+	module.exports = exports['default'];
+
+/***/ },
+/* 198 */
+/*!***************************************************************************!*\
+  !*** ./assets/javascripts/components/Cards/InstagramCardComponent.js.jsx ***!
+  \***************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _reactAddons = __webpack_require__(/*! react/addons */ 4);
+	
+	var _reactAddons2 = _interopRequireDefault(_reactAddons);
+	
+	var InstagramCardComponent = (function (_React$Component) {
+	  _inherits(InstagramCardComponent, _React$Component);
+	
+	  _createClass(InstagramCardComponent, null, [{
+	    key: 'displayName',
+	    value: 'Instagram Card Component',
+	    enumerable: true
+	  }, {
+	    key: 'propTypes',
+	    value: {
+	      link: _reactAddons2['default'].PropTypes.string,
+	      url: _reactAddons2['default'].PropTypes.string
+	    },
+	    enumerable: true
+	  }, {
+	    key: 'defaultProps',
+	    value: {},
+	    enumerable: true
+	  }]);
+	
+	  function InstagramCardComponent(props) {
+	    var _this = this;
+	
+	    _classCallCheck(this, InstagramCardComponent);
+	
+	    _get(Object.getPrototypeOf(InstagramCardComponent.prototype), 'constructor', this).call(this, props);
+	
+	    this.redirect = function () {
+	      window.location = _this.props.link;
+	    };
+	  }
+	
+	  _createClass(InstagramCardComponent, [{
+	    key: 'render',
+	    value: function render() {
+	      return _reactAddons2['default'].createElement(
+	        'div',
+	        { className: 'card instagram-card', onClick: this.redirect },
+	        _reactAddons2['default'].createElement('img', { src: this.props.url })
+	      );
+	    }
+	  }]);
+	
+	  return InstagramCardComponent;
+	})(_reactAddons2['default'].Component);
+	
+	exports['default'] = InstagramCardComponent;
 	module.exports = exports['default'];
 
 /***/ }

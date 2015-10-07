@@ -1,6 +1,6 @@
 import XHRpromise from 'xhr-promise';
 import ColumnComponent from './ColumnComponent';
-import InstagramCardComponent from '../Cards/ImageCardComponent';
+import InstagramCardComponent from '../Cards/InstagramCardComponent';
 let XHR = new XHRpromise;
 
 export default class InstagramColumnComponent extends ColumnComponent {
