@@ -115,14 +115,16 @@
 	
 	var _ColumnsImagesColumnComponent2 = _interopRequireDefault(_ColumnsImagesColumnComponent);
 	
+	var _ColumnsInstagramColumnComponent = __webpack_require__(/*! ./Columns/InstagramColumnComponent */ 197);
+	
+	var _ColumnsInstagramColumnComponent2 = _interopRequireDefault(_ColumnsInstagramColumnComponent);
+	
 	// TODO:
 	//M TwitterColumnComponent,
 	//H PocketColumnComponent,
-	//E PortfolioColumnComponent,
 	//M SoundcloudColumnComponent,
 	//M GithubColumnComponent,
-	//E RecommendedLinksColumnComponent,
-	//M InstagramColumnComponent,
+	//E RecommendedLinksColumnComponent,c
 	//E RecommendedVideosColumnComponent
 	
 	var GridComponent = (function (_React$Component) {
@@ -171,8 +173,12 @@
 	        'td',
 	        { key: 1 },
 	        _reactAddons2['default'].createElement(_ColumnsImagesColumnComponent2['default'], null)
+	      ), _reactAddons2['default'].createElement(
+	        'td',
+	        { key: 2 },
+	        _reactAddons2['default'].createElement(_ColumnsInstagramColumnComponent2['default'], null)
 	      )];
-	      for (var i = 2; i < 8; i++) {
+	      for (var i = 3; i < 8; i++) {
 	        columns.push(_reactAddons2['default'].createElement(
 	          'td',
 	          { key: i, className: 'desktop' },
@@ -29294,10 +29300,6 @@
 	
 	var _xhrPromise2 = _interopRequireDefault(_xhrPromise);
 	
-	var _reactAddons = __webpack_require__(/*! react/addons */ 4);
-	
-	var _reactAddons2 = _interopRequireDefault(_reactAddons);
-	
 	var _ColumnComponent2 = __webpack_require__(/*! ./ColumnComponent */ 178);
 	
 	var _ColumnComponent3 = _interopRequireDefault(_ColumnComponent2);
@@ -29354,7 +29356,7 @@
 	      var imageCards = [];
 	      if (this.state.images !== undefined) {
 	        this.state.images.forEach(function (image) {
-	          imageCards.push(_reactAddons2['default'].createElement(_CardsImageCardComponent2['default'], { caption: image.caption, id: image.id,
+	          imageCards.push(React.createElement(_CardsImageCardComponent2['default'], { caption: image.caption, id: image.id,
 	            url: image.small, key: _this2.state.images.indexOf(image) }));
 	        });
 	      }
@@ -29363,7 +29365,7 @@
 	  }, {
 	    key: 'renderColumnHeader',
 	    value: function renderColumnHeader() {
-	      return _reactAddons2['default'].createElement(
+	      return React.createElement(
 	        'div',
 	        { className: 'column-header' },
 	        'My Photography'
@@ -29451,6 +29453,112 @@
 	})(_reactAddons2['default'].Component);
 	
 	exports['default'] = ImageCardComponent;
+	module.exports = exports['default'];
+
+/***/ },
+/* 197 */
+/*!*******************************************************************************!*\
+  !*** ./assets/javascripts/components/Columns/InstagramColumnComponent.js.jsx ***!
+  \*******************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _xhrPromise = __webpack_require__(/*! xhr-promise */ 181);
+	
+	var _xhrPromise2 = _interopRequireDefault(_xhrPromise);
+	
+	var _ColumnComponent2 = __webpack_require__(/*! ./ColumnComponent */ 178);
+	
+	var _ColumnComponent3 = _interopRequireDefault(_ColumnComponent2);
+	
+	var _CardsImageCardComponent = __webpack_require__(/*! ../Cards/ImageCardComponent */ 196);
+	
+	var _CardsImageCardComponent2 = _interopRequireDefault(_CardsImageCardComponent);
+	
+	var XHR = new _xhrPromise2['default']();
+	
+	var InstagramColumnComponent = (function (_ColumnComponent) {
+	  _inherits(InstagramColumnComponent, _ColumnComponent);
+	
+	  _createClass(InstagramColumnComponent, null, [{
+	    key: 'displayName',
+	    value: 'Instagram Column Component',
+	    enumerable: true
+	  }]);
+	
+	  function InstagramColumnComponent(props) {
+	    _classCallCheck(this, InstagramColumnComponent);
+	
+	    _get(Object.getPrototypeOf(InstagramColumnComponent.prototype), 'constructor', this).call(this, props);
+	    this.state = {};
+	  }
+	
+	  _createClass(InstagramColumnComponent, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this = this;
+	
+	      XHR.send({
+	        method: 'GET',
+	        url: window.location.href + 'api/instagram'
+	      }).then(function (response) {
+	        _this.setState({
+	          images: JSON.parse(response.responseText)
+	        });
+	        _this.forceUpdate();
+	      })['catch'](function (error) {
+	        console.log(error);
+	      });
+	    }
+	  }, {
+	    key: 'getColumnClass',
+	    value: function getColumnClass() {
+	      return 'instagram-column';
+	    }
+	  }, {
+	    key: 'renderCards',
+	    value: function renderCards() {
+	      var _this2 = this;
+	
+	      var imageCards = [];
+	      if (this.state.images !== undefined) {
+	        this.state.images.forEach(function (image) {
+	          imageCards.push(React.createElement(_CardsImageCardComponent2['default'], { link: image.link,
+	            url: image.url, key: _this2.state.images.indexOf(image) }));
+	        });
+	      }
+	      return imageCards;
+	    }
+	  }, {
+	    key: 'renderColumnHeader',
+	    value: function renderColumnHeader() {
+	      return React.createElement(
+	        'div',
+	        { className: 'column-header' },
+	        'Instagram'
+	      );
+	    }
+	  }]);
+	
+	  return InstagramColumnComponent;
+	})(_ColumnComponent3['default']);
+	
+	exports['default'] = InstagramColumnComponent;
 	module.exports = exports['default'];
 
 /***/ }

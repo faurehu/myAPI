@@ -19,7 +19,8 @@ module.exports = (app) => {
 
         let saveToken = (data, created) => {
           app.get('models').AccessToken.findById(data[0].dataValues.id).then((token) => {
-            token.update({token: JSON.parse(body).access_token});
+            let info = JSON.parse(body);
+            token.update({token: info.access_token, userID: info.user.id});
             console.log('Saved new token');
           });
           res.json({

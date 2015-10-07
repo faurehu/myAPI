@@ -8,6 +8,10 @@ module.exports = function(sequelize, DataTypes) {
       autoIncrement: true
     },
 
+    userID: {
+      type: DataTypes.INTEGER
+    },
+
     service: {
       type: DataTypes.STRING
     },

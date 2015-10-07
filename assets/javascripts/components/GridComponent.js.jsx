@@ -2,14 +2,13 @@ import React from 'react/addons';
 import ColumnComponent from './Columns/ColumnComponent';
 import BlogColumnComponent from './Columns/BlogColumnComponent';
 import ImagesColumnComponent from './Columns/ImagesColumnComponent';
+import InstagramColumnComponent from './Columns/InstagramColumnComponent';
 // TODO:
 //M TwitterColumnComponent,
 //H PocketColumnComponent,
-//E PortfolioColumnComponent,
 //M SoundcloudColumnComponent,
 //M GithubColumnComponent,
-//E RecommendedLinksColumnComponent,
-//M InstagramColumnComponent,
+//E RecommendedLinksColumnComponent,c
 //E RecommendedVideosColumnComponent
 
 export default class GridComponent extends React.Component {
@@ -27,9 +26,10 @@ export default class GridComponent extends React.Component {
   renderColumns() {
     let columns = [
       <td key={0}><BlogColumnComponent/></td>,
-      <td key={1}><ImagesColumnComponent/></td>
+      <td key={1}><ImagesColumnComponent/></td>,
+      <td key={2}><InstagramColumnComponent/></td>
     ];
-    for(var i = 2; i < 8; i++) {
+    for(var i = 3; i < 8; i++) {
       columns.push(<td key={i} className="desktop"><ColumnComponent/></td>);
     }
     return columns;

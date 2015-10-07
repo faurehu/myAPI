@@ -1,10 +1,10 @@
 import XHRpromise from 'xhr-promise';
 import ColumnComponent from './ColumnComponent';
-import ImageCardComponent from '../Cards/ImageCardComponent';
+import InstagramCardComponent from '../Cards/ImageCardComponent';
 let XHR = new XHRpromise;
 
-export default class ImageColumnComponent extends ColumnComponent {
-  static displayName = 'Image Column Component';
+export default class InstagramColumnComponent extends ColumnComponent {
+  static displayName = 'Instagram Column Component';
 
   constructor(props) {
     super(props);
@@ -14,7 +14,7 @@ export default class ImageColumnComponent extends ColumnComponent {
   componentDidMount() {
     XHR.send({
       method: 'GET',
-      url: `${window.location.href}api/photo`
+      url: `${window.location.href}api/instagram`
     })
     .then((response) => {
       this.setState({
@@ -28,15 +28,15 @@ export default class ImageColumnComponent extends ColumnComponent {
   }
 
   getColumnClass() {
-    return 'images-column';
+    return 'instagram-column';
   }
 
   renderCards() {
     let imageCards = [];
     if(this.state.images !== undefined) {
       this.state.images.forEach((image) => {
-        imageCards.push(<ImageCardComponent caption={image.caption} id={image.id}
-          url={image.small} key={this.state.images.indexOf(image)}/>);
+        imageCards.push(<InstagramCardComponent link={image.link}
+          url={image.url} key={this.state.images.indexOf(image)}/>);
       });
     }
     return imageCards;
@@ -45,7 +45,7 @@ export default class ImageColumnComponent extends ColumnComponent {
   renderColumnHeader() {
     return (
       <div className="column-header">
-        My Photography
+        Instagram
       </div>
     );
   }
