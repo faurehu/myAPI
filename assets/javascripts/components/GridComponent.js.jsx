@@ -2,16 +2,15 @@ import React from 'react/addons';
 import ColumnComponent from './Columns/ColumnComponent';
 import BlogColumnComponent from './Columns/BlogColumnComponent';
 // TODO:
-// TwitterColumnComponent,
-// PocketColumnComponent,
-// PortfolioColumnComponent,
-// SoundcloudColumnComponent,
-// BlogColumnComponent,
-// GithubColumnComponent,
-// LinksColumnComponent,
-// InstagramColumnComponent,
-// YoutubeColumnComponent,
-// StorehouseColumnComponent
+//M TwitterColumnComponent,
+//H PocketColumnComponent,
+//E PortfolioColumnComponent,
+//M SoundcloudColumnComponent,
+//M GithubColumnComponent,
+//E MachineLearningColumnComponent,
+//E RecommendedLinksColumnComponent,
+//M InstagramColumnComponent,
+//E RecommendedVideosColumnComponent
 
 export default class GridComponent extends React.Component {
   static displayName = 'Grid Component';
@@ -25,10 +24,10 @@ export default class GridComponent extends React.Component {
 
   renderColumns() {
     let columns = [
-      <BlogColumnComponent key={0}/>
+      <td key={0}><BlogColumnComponent/></td>
     ];
     for(var i = 1; i < 8; i++) {
-      columns.push(<ColumnComponent key={i}/>);
+      columns.push(<td key={i} className="desktop"><ColumnComponent/>)</td>);
     }
     return columns;
   }
@@ -51,9 +50,11 @@ export default class GridComponent extends React.Component {
             </div>
         </div>
         <div className="grid-content">
-          <div className="trow">
-            {this.renderColumns()}
-          </div>
+          <table>
+            <tr>
+              {this.renderColumns()}
+            </tr>
+          </table>
         </div>
       </div>
     );

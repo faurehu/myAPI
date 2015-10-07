@@ -8,7 +8,7 @@ export default class ColumnComponent extends React.Component {
   }
 
   getColumnClass() {
-    return 'desktop-column';
+    return '';
   }
 
   renderCards() {

@@ -1,14 +1,13 @@
 .column {
 
   width: 100%;
-  float: left;
   height: 100%;
   overflow-x: scroll;
   position: relative;
 
   .column-header {
     display: none;
-    position: absolute;
+    position: relative;
     z-index: 10;
 
     @media screen and (min-width: 800px) {
@@ -18,18 +17,6 @@
 
   .column-content {
     height: 100%;
-    overflow-x: scroll;
-  }
-
-  @media screen and (min-width: 800px) {
-    width: 250px;
-  }
-}
-
-.desktop-column {
-  display: none;
-
-  @media screen and (min-width: 800px) {
-    display: block;
+    margin-top: 20px;
   }
 }

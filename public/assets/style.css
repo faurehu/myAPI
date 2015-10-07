@@ -1,96 +1,100 @@
-body {
+body, html {
   height: 100%; }
 
 #container {
-  height: 100%;
-  overflow: hidden; }
+  height: 100%; }
 
-.grid-sidebar {
-  position: fixed;
-  width: 100%;
-  height: 150px;
-  box-shadow: 0px 10px 5px #888888;
-  background-color: #607D8B;
-  z-index: 10; }
-  .grid-sidebar .link-limiter {
-    max-width: 292px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 15px;
-    display: block;
-    text-align: center; }
-    .grid-sidebar .link-limiter .link--mallki {
-      color: #2980b9;
-      text-shadow: 2px 2px 1px #fff;
-      transition: color 0.5s 0.25s, text-shadow 0.5s 0.25s;
-      font-size: 4.5em; }
-      .grid-sidebar .link-limiter .link--mallki:hover {
-        transition: none;
-        color: transparent;
-        text-shadow: none; }
-        .grid-sidebar .link-limiter .link--mallki:hover::before {
-          visibility: visible; }
-      .grid-sidebar .link-limiter .link--mallki::before {
-        visibility: hidden; }
-  .grid-sidebar .contact-links {
-    margin-top: 5px;
-    width: 250px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center; }
-    .grid-sidebar .contact-links a {
-      margin-left: 2px;
-      margin-right: 2px; }
-      .grid-sidebar .contact-links a:hover, .grid-sidebar .contact-links a:visited, .grid-sidebar .contact-links a:active, .grid-sidebar .contact-links a:link {
-        color: #fff;
-        text-shadow: 2px 2px 1px #2980b9; }
-  @media screen and (min-width: 800px) {
-    .grid-sidebar {
-      position: fixed;
-      width: 300px;
-      height: 100%;
-      box-shadow: 10px 0px 5px #888888; } }
+::-webkit-scrollbar {
+  display: none; }
 
-.grid-content {
-  padding-top: 145px;
-  display: table; }
-  .grid-content .trow {
-    display: table-row;
-    vertical-align: top; }
-  @media screen and (min-width: 800px) {
-    .grid-content {
-      margin-left: 310px;
-      padding-top: 0px;
-      height: 100%;
-      width: auto;
-      overflow-x: auto;
-      overflow-y: hidden; } }
+.grid-container {
+  height: 100%; }
+  .grid-container .grid-sidebar {
+    position: fixed;
+    width: 100%;
+    height: 150px;
+    box-shadow: 0px 10px 5px #888888;
+    background-color: #607D8B;
+    z-index: 20; }
+    .grid-container .grid-sidebar .link-limiter {
+      max-width: 292px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 15px;
+      display: block;
+      text-align: center; }
+      .grid-container .grid-sidebar .link-limiter .link--mallki {
+        color: #2980b9;
+        text-shadow: 2px 2px 1px #fff;
+        transition: color 0.5s 0.25s, text-shadow 0.5s 0.25s;
+        font-size: 4.5em; }
+        .grid-container .grid-sidebar .link-limiter .link--mallki:hover {
+          transition: none;
+          color: transparent;
+          text-shadow: none; }
+          .grid-container .grid-sidebar .link-limiter .link--mallki:hover::before {
+            visibility: visible; }
+        .grid-container .grid-sidebar .link-limiter .link--mallki::before {
+          visibility: hidden; }
+    .grid-container .grid-sidebar .contact-links {
+      margin-top: 5px;
+      width: 250px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center; }
+      .grid-container .grid-sidebar .contact-links a {
+        margin-left: 2px;
+        margin-right: 2px; }
+        .grid-container .grid-sidebar .contact-links a:hover, .grid-container .grid-sidebar .contact-links a:visited, .grid-container .grid-sidebar .contact-links a:active, .grid-container .grid-sidebar .contact-links a:link {
+          color: #fff;
+          text-shadow: 2px 2px 1px #2980b9; }
+    @media screen and (min-width: 800px) {
+      .grid-container .grid-sidebar {
+        position: fixed;
+        width: 300px;
+        height: 100%;
+        box-shadow: 10px 0px 5px #888888; } }
+  .grid-container .grid-content {
+    width: 100%;
+    height: 100%;
+    padding-top: 145px; }
+    .grid-container .grid-content table {
+      width: 100%;
+      height: 100%; }
+      .grid-container .grid-content table tr {
+        vertical-align: top; }
+        @media screen and (min-width: 800px) {
+          .grid-container .grid-content table tr td {
+            width: 250px;
+            min-width: 250px; } }
+        .grid-container .grid-content table tr .desktop {
+          display: none; }
+          @media screen and (min-width: 800px) {
+            .grid-container .grid-content table tr .desktop {
+              display: table-cell; } }
+    @media screen and (min-width: 800px) {
+      .grid-container .grid-content {
+        margin-left: 310px;
+        padding-top: 0px;
+        height: 100%;
+        overflow-x: scroll;
+        overflow-y: hidden; } }
 
 .column {
   width: 100%;
-  float: left;
   height: 100%;
   overflow-x: scroll;
   position: relative; }
   .column .column-header {
     display: none;
-    position: absolute;
+    position: relative;
     z-index: 10; }
     @media screen and (min-width: 800px) {
       .column .column-header {
         display: block; } }
   .column .column-content {
     height: 100%;
-    overflow-x: scroll; }
-  @media screen and (min-width: 800px) {
-    .column {
-      width: 250px; } }
-
-.desktop-column {
-  display: none; }
-  @media screen and (min-width: 800px) {
-    .desktop-column {
-      display: block; } }
+    margin-top: 20px; }
 
 .card {
   border: 1px solid black;

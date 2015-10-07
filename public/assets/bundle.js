@@ -112,16 +112,15 @@
 	var _ColumnsBlogColumnComponent2 = _interopRequireDefault(_ColumnsBlogColumnComponent);
 	
 	// TODO:
-	// TwitterColumnComponent,
-	// PocketColumnComponent,
-	// PortfolioColumnComponent,
-	// SoundcloudColumnComponent,
-	// BlogColumnComponent,
-	// GithubColumnComponent,
-	// LinksColumnComponent,
-	// InstagramColumnComponent,
-	// YoutubeColumnComponent,
-	// StorehouseColumnComponent
+	//M TwitterColumnComponent,
+	//H PocketColumnComponent,
+	//E PortfolioColumnComponent,
+	//M SoundcloudColumnComponent,
+	//M GithubColumnComponent,
+	//E MachineLearningColumnComponent,
+	//E RecommendedLinksColumnComponent,
+	//M InstagramColumnComponent,
+	//E RecommendedVideosColumnComponent
 	
 	var GridComponent = (function (_React$Component) {
 	  _inherits(GridComponent, _React$Component);
@@ -150,9 +149,18 @@
 	  _createClass(GridComponent, [{
 	    key: 'renderColumns',
 	    value: function renderColumns() {
-	      var columns = [_reactAddons2['default'].createElement(_ColumnsBlogColumnComponent2['default'], { key: 0 })];
+	      var columns = [_reactAddons2['default'].createElement(
+	        'td',
+	        { key: 0 },
+	        _reactAddons2['default'].createElement(_ColumnsBlogColumnComponent2['default'], null)
+	      )];
 	      for (var i = 1; i < 8; i++) {
-	        columns.push(_reactAddons2['default'].createElement(_ColumnsColumnComponent2['default'], { key: i }));
+	        columns.push(_reactAddons2['default'].createElement(
+	          'td',
+	          { key: i, className: 'desktop' },
+	          _reactAddons2['default'].createElement(_ColumnsColumnComponent2['default'], null),
+	          ')'
+	        ));
 	      }
 	      return columns;
 	    }
@@ -201,9 +209,13 @@
 	          'div',
 	          { className: 'grid-content' },
 	          _reactAddons2['default'].createElement(
-	            'div',
-	            { className: 'trow' },
-	            this.renderColumns()
+	            'table',
+	            null,
+	            _reactAddons2['default'].createElement(
+	              'tr',
+	              null,
+	              this.renderColumns()
+	            )
 	          )
 	        )
 	      );
@@ -23284,7 +23296,7 @@
 	  _createClass(ColumnComponent, [{
 	    key: 'getColumnClass',
 	    value: function getColumnClass() {
-	      return 'desktop-column';
+	      return '';
 	    }
 	  }, {
 	    key: 'renderCards',
@@ -29081,7 +29093,7 @@
 	  _createClass(ColumnComponent, [{
 	    key: 'getColumnClass',
 	    value: function getColumnClass() {
-	      return 'desktop-column';
+	      return '';
 	    }
 	  }, {
 	    key: 'renderCards',
