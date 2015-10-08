@@ -127,8 +127,11 @@
 	
 	var _ColumnsPocketColumnComponent2 = _interopRequireDefault(_ColumnsPocketColumnComponent);
 	
+	var _ColumnsTwitterColumnComponent = __webpack_require__(/*! ./Columns/TwitterColumnComponent */ 203);
+	
+	var _ColumnsTwitterColumnComponent2 = _interopRequireDefault(_ColumnsTwitterColumnComponent);
+	
 	// TODO:
-	//M TwitterColumnComponent,
 	//M SoundcloudColumnComponent,
 	//E RecommendedLinksColumnComponent,
 	//E RecommendedVideosColumnComponent
@@ -177,22 +180,26 @@
 	        _reactAddons2['default'].createElement(_ColumnsBlogColumnComponent2['default'], null)
 	      ), _reactAddons2['default'].createElement(
 	        'td',
-	        { key: 1 },
+	        { key: 1, className: 'desktop' },
+	        _reactAddons2['default'].createElement(_ColumnsTwitterColumnComponent2['default'], null)
+	      ), _reactAddons2['default'].createElement(
+	        'td',
+	        { key: 2, className: 'desktop' },
 	        _reactAddons2['default'].createElement(_ColumnsImagesColumnComponent2['default'], null)
 	      ), _reactAddons2['default'].createElement(
 	        'td',
-	        { key: 2 },
+	        { key: 3, className: 'desktop' },
 	        _reactAddons2['default'].createElement(_ColumnsPocketColumnComponent2['default'], null)
 	      ), _reactAddons2['default'].createElement(
 	        'td',
-	        { key: 3 },
+	        { key: 4, className: 'desktop' },
 	        _reactAddons2['default'].createElement(_ColumnsInstagramColumnComponent2['default'], null)
 	      ), _reactAddons2['default'].createElement(
 	        'td',
-	        { key: 4 },
+	        { key: 5, className: 'desktop' },
 	        _reactAddons2['default'].createElement(_ColumnsGithubColumnComponent2['default'], null)
 	      )];
-	      for (var i = 5; i < 8; i++) {
+	      for (var i = 6; i < 9; i++) {
 	        columns.push(_reactAddons2['default'].createElement(
 	          'td',
 	          { key: i, className: 'desktop' },
@@ -30040,6 +30047,200 @@
 	})(_reactAddons2['default'].Component);
 	
 	exports['default'] = PocketCardComponent;
+	module.exports = exports['default'];
+
+/***/ },
+/* 203 */
+/*!*****************************************************************************!*\
+  !*** ./assets/javascripts/components/Columns/TwitterColumnComponent.js.jsx ***!
+  \*****************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _xhrPromise = __webpack_require__(/*! xhr-promise */ 181);
+	
+	var _xhrPromise2 = _interopRequireDefault(_xhrPromise);
+	
+	var _CardsTwitterCardComponent = __webpack_require__(/*! ../Cards/TwitterCardComponent */ 204);
+	
+	var _CardsTwitterCardComponent2 = _interopRequireDefault(_CardsTwitterCardComponent);
+	
+	var _ColumnComponent2 = __webpack_require__(/*! ./ColumnComponent */ 178);
+	
+	var _ColumnComponent3 = _interopRequireDefault(_ColumnComponent2);
+	
+	var XHR = new _xhrPromise2['default']();
+	
+	var TwitterColumnComponent = (function (_ColumnComponent) {
+	  _inherits(TwitterColumnComponent, _ColumnComponent);
+	
+	  _createClass(TwitterColumnComponent, null, [{
+	    key: 'displayName',
+	    value: 'Twitter Column Component',
+	    enumerable: true
+	  }]);
+	
+	  function TwitterColumnComponent(props) {
+	    _classCallCheck(this, TwitterColumnComponent);
+	
+	    _get(Object.getPrototypeOf(TwitterColumnComponent.prototype), 'constructor', this).call(this, props);
+	    this.state = {};
+	  }
+	
+	  _createClass(TwitterColumnComponent, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this = this;
+	
+	      XHR.send({
+	        method: 'GET',
+	        url: window.location.href + 'api/twitter'
+	      }).then(function (response) {
+	        _this.setState({
+	          tweets: JSON.parse(response.responseText)
+	        });
+	        _this.forceUpdate();
+	      })['catch'](function (error) {
+	        console.log(error);
+	      });
+	    }
+	  }, {
+	    key: 'getColumnClass',
+	    value: function getColumnClass() {
+	      return 'twitter-column';
+	    }
+	  }, {
+	    key: 'renderColumnHeader',
+	    value: function renderColumnHeader() {
+	      return React.createElement(
+	        'div',
+	        { className: 'column-header' },
+	        'My Tweets'
+	      );
+	    }
+	  }, {
+	    key: 'renderCards',
+	    value: function renderCards() {
+	      var _this2 = this;
+	
+	      var tweetCards = [];
+	      if (this.state.tweets !== undefined) {
+	        this.state.tweets.forEach(function (tweet) {
+	          tweetCards.push(React.createElement(_CardsTwitterCardComponent2['default'], { text: tweet.text || tweet.myText,
+	            author: tweet.author, media: tweet.imgUrl, key: _this2.state.tweets.indexOf(tweet) }));
+	        });
+	      }
+	      return tweetCards;
+	    }
+	  }]);
+	
+	  return TwitterColumnComponent;
+	})(_ColumnComponent3['default']);
+	
+	exports['default'] = TwitterColumnComponent;
+	module.exports = exports['default'];
+
+/***/ },
+/* 204 */
+/*!*************************************************************************!*\
+  !*** ./assets/javascripts/components/Cards/TwitterCardComponent.js.jsx ***!
+  \*************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _reactAddons = __webpack_require__(/*! react/addons */ 4);
+	
+	var _reactAddons2 = _interopRequireDefault(_reactAddons);
+	
+	var TwitterCardComponent = (function (_React$Component) {
+	  _inherits(TwitterCardComponent, _React$Component);
+	
+	  _createClass(TwitterCardComponent, null, [{
+	    key: 'displayName',
+	    value: 'Twitter Card Component',
+	    enumerable: true
+	  }, {
+	    key: 'propTypes',
+	    value: {
+	      text: _reactAddons2['default'].PropTypes.string,
+	      author: _reactAddons2['default'].PropTypes.string,
+	      media: _reactAddons2['default'].PropTypes.string
+	    },
+	    enumerable: true
+	  }, {
+	    key: 'defaultProps',
+	    value: {},
+	    enumerable: true
+	  }]);
+	
+	  function TwitterCardComponent(props) {
+	    var _this = this;
+	
+	    _classCallCheck(this, TwitterCardComponent);
+	
+	    _get(Object.getPrototypeOf(TwitterCardComponent.prototype), 'constructor', this).call(this, props);
+	
+	    this.redirect = function () {
+	      window.location = 'http://www.twitter.com/' + _this.props.author;
+	    };
+	  }
+	
+	  _createClass(TwitterCardComponent, [{
+	    key: 'render',
+	    value: function render() {
+	      return _reactAddons2['default'].createElement(
+	        'div',
+	        { className: 'card image-card' },
+	        this.props.media && _reactAddons2['default'].createElement('img', { src: this.props.media }),
+	        this.props.author && _reactAddons2['default'].createElement(
+	          'span',
+	          { onClick: this.redirect },
+	          'RT @',
+	          this.props.author
+	        ),
+	        _reactAddons2['default'].createElement(
+	          'p',
+	          null,
+	          this.props.text
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return TwitterCardComponent;
+	})(_reactAddons2['default'].Component);
+	
+	exports['default'] = TwitterCardComponent;
 	module.exports = exports['default'];
 
 /***/ }
