@@ -125,7 +125,17 @@ module.exports = (app) => {
       .then(response).catch(error);
     },
     getSoundcloud: (req, res) => {
-
+      request.get(`http://api.soundcloud.com/users/22982175/favorites?client_id=${keys.soundcloud.clientID}`
+      , (err, response, body) => {
+        res.json(JSON.parse(body).map((node) => {
+          return {
+            title: node.title,
+            user: node.user.username,
+            media: node.artwork_url,
+            id: node.id
+          }
+        }));
+      });
     },
     getInstagram: (req, res) => {
       let response = (data) => {
