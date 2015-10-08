@@ -88,7 +88,7 @@ module.exports = (app) => {
           }
           res.json(articles.map((article) => {
             return {
-              title: article.given_title,
+              title: article.resolved_title,
               excerpt: article.excerpt,
               url: article.given_url
             }

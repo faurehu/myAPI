@@ -123,9 +123,12 @@
 	
 	var _ColumnsGithubColumnComponent2 = _interopRequireDefault(_ColumnsGithubColumnComponent);
 	
+	var _ColumnsPocketColumnComponent = __webpack_require__(/*! ./Columns/PocketColumnComponent */ 201);
+	
+	var _ColumnsPocketColumnComponent2 = _interopRequireDefault(_ColumnsPocketColumnComponent);
+	
 	// TODO:
 	//M TwitterColumnComponent,
-	//H PocketColumnComponent,
 	//M SoundcloudColumnComponent,
 	//E RecommendedLinksColumnComponent,c
 	//E RecommendedVideosColumnComponent
@@ -184,8 +187,12 @@
 	        'td',
 	        { key: 3 },
 	        _reactAddons2['default'].createElement(_ColumnsGithubColumnComponent2['default'], null)
+	      ), _reactAddons2['default'].createElement(
+	        'td',
+	        { key: 4 },
+	        _reactAddons2['default'].createElement(_ColumnsPocketColumnComponent2['default'], null)
 	      )];
-	      for (var i = 4; i < 8; i++) {
+	      for (var i = 5; i < 8; i++) {
 	        columns.push(_reactAddons2['default'].createElement(
 	          'td',
 	          { key: i, className: 'desktop' },
@@ -29841,6 +29848,198 @@
 	})(_reactAddons2['default'].Component);
 	
 	exports['default'] = GithubCardComponent;
+	module.exports = exports['default'];
+
+/***/ },
+/* 201 */
+/*!****************************************************************************!*\
+  !*** ./assets/javascripts/components/Columns/PocketColumnComponent.js.jsx ***!
+  \****************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _xhrPromise = __webpack_require__(/*! xhr-promise */ 181);
+	
+	var _xhrPromise2 = _interopRequireDefault(_xhrPromise);
+	
+	var _CardsPocketCardComponent = __webpack_require__(/*! ../Cards/PocketCardComponent */ 202);
+	
+	var _CardsPocketCardComponent2 = _interopRequireDefault(_CardsPocketCardComponent);
+	
+	var _ColumnComponent2 = __webpack_require__(/*! ./ColumnComponent */ 178);
+	
+	var _ColumnComponent3 = _interopRequireDefault(_ColumnComponent2);
+	
+	var XHR = new _xhrPromise2['default']();
+	
+	var PocketColumnComponent = (function (_ColumnComponent) {
+	  _inherits(PocketColumnComponent, _ColumnComponent);
+	
+	  _createClass(PocketColumnComponent, null, [{
+	    key: 'displayName',
+	    value: 'Pocket Column Component',
+	    enumerable: true
+	  }]);
+	
+	  function PocketColumnComponent(props) {
+	    _classCallCheck(this, PocketColumnComponent);
+	
+	    _get(Object.getPrototypeOf(PocketColumnComponent.prototype), 'constructor', this).call(this, props);
+	    this.state = {};
+	  }
+	
+	  _createClass(PocketColumnComponent, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this = this;
+	
+	      XHR.send({
+	        method: 'GET',
+	        url: window.location.href + 'api/pocket/0'
+	      }).then(function (response) {
+	        _this.setState({
+	          articles: JSON.parse(response.responseText)
+	        });
+	        _this.forceUpdate();
+	      })['catch'](function (error) {
+	        console.log(error);
+	      });
+	    }
+	  }, {
+	    key: 'getColumnClass',
+	    value: function getColumnClass() {
+	      return 'pocket-column';
+	    }
+	  }, {
+	    key: 'renderColumnHeader',
+	    value: function renderColumnHeader() {
+	      return React.createElement(
+	        'div',
+	        { className: 'column-header' },
+	        'My Pocket favorites'
+	      );
+	    }
+	  }, {
+	    key: 'renderCards',
+	    value: function renderCards() {
+	      var _this2 = this;
+	
+	      var pocketCards = [];
+	      if (this.state.articles !== undefined) {
+	        this.state.articles.forEach(function (article) {
+	          pocketCards.push(React.createElement(_CardsPocketCardComponent2['default'], { url: article.url,
+	            title: article.title, excerpt: article.excerpt, key: _this2.state.articles.indexOf(article) }));
+	        });
+	      }
+	      return pocketCards;
+	    }
+	  }]);
+	
+	  return PocketColumnComponent;
+	})(_ColumnComponent3['default']);
+	
+	exports['default'] = PocketColumnComponent;
+	module.exports = exports['default'];
+
+/***/ },
+/* 202 */
+/*!************************************************************************!*\
+  !*** ./assets/javascripts/components/Cards/PocketCardComponent.js.jsx ***!
+  \************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _reactAddons = __webpack_require__(/*! react/addons */ 4);
+	
+	var _reactAddons2 = _interopRequireDefault(_reactAddons);
+	
+	var PocketCardComponent = (function (_React$Component) {
+	  _inherits(PocketCardComponent, _React$Component);
+	
+	  _createClass(PocketCardComponent, null, [{
+	    key: 'displayName',
+	    value: 'Pocket Card Component',
+	    enumerable: true
+	  }, {
+	    key: 'propTypes',
+	    value: {
+	      title: _reactAddons2['default'].PropTypes.string,
+	      excerpt: _reactAddons2['default'].PropTypes.string,
+	      url: _reactAddons2['default'].PropTypes.string
+	    },
+	    enumerable: true
+	  }, {
+	    key: 'defaultProps',
+	    value: {},
+	    enumerable: true
+	  }]);
+	
+	  function PocketCardComponent(props) {
+	    var _this = this;
+	
+	    _classCallCheck(this, PocketCardComponent);
+	
+	    _get(Object.getPrototypeOf(PocketCardComponent.prototype), 'constructor', this).call(this, props);
+	
+	    this.redirect = function () {
+	      window.location = _this.props.url;
+	    };
+	  }
+	
+	  _createClass(PocketCardComponent, [{
+	    key: 'render',
+	    value: function render() {
+	      return _reactAddons2['default'].createElement(
+	        'div',
+	        { className: 'card pocket-card', onClick: this.redirect },
+	        _reactAddons2['default'].createElement(
+	          'h1',
+	          null,
+	          this.props.title
+	        ),
+	        _reactAddons2['default'].createElement(
+	          'p',
+	          null,
+	          this.props.excerpt
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return PocketCardComponent;
+	})(_reactAddons2['default'].Component);
+	
+	exports['default'] = PocketCardComponent;
 	module.exports = exports['default'];
 
 /***/ }
