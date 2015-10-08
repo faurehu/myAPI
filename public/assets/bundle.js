@@ -130,7 +130,7 @@
 	// TODO:
 	//M TwitterColumnComponent,
 	//M SoundcloudColumnComponent,
-	//E RecommendedLinksColumnComponent,c
+	//E RecommendedLinksColumnComponent,
 	//E RecommendedVideosColumnComponent
 	
 	var GridComponent = (function (_React$Component) {
@@ -182,15 +182,15 @@
 	      ), _reactAddons2['default'].createElement(
 	        'td',
 	        { key: 2 },
-	        _reactAddons2['default'].createElement(_ColumnsInstagramColumnComponent2['default'], null)
+	        _reactAddons2['default'].createElement(_ColumnsPocketColumnComponent2['default'], null)
 	      ), _reactAddons2['default'].createElement(
 	        'td',
 	        { key: 3 },
-	        _reactAddons2['default'].createElement(_ColumnsGithubColumnComponent2['default'], null)
+	        _reactAddons2['default'].createElement(_ColumnsInstagramColumnComponent2['default'], null)
 	      ), _reactAddons2['default'].createElement(
 	        'td',
 	        { key: 4 },
-	        _reactAddons2['default'].createElement(_ColumnsPocketColumnComponent2['default'], null)
+	        _reactAddons2['default'].createElement(_ColumnsGithubColumnComponent2['default'], null)
 	      )];
 	      for (var i = 5; i < 8; i++) {
 	        columns.push(_reactAddons2['default'].createElement(

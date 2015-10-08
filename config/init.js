@@ -19,19 +19,22 @@ module.exports = (app) => {
   app.use(cookieParser());
   app.use(express.static(path.join(__dirname, '/../public')));
 
+  let toEncode = `${keys.twitter.consumerKey}:${keys.twitter.consumerSecret}`;
+  let buffer = new Buffer(toEncode);
+
   let options = {
     form: {
-      'consumer_key': keys.pocket.consumerKey,
-      'redirect_uri': 'http://localhost:3000/callback/pocket'
+      'grant_type': 'client_credentials'
     },
     headers: {
-      'Content-Type': 'application/json; charset=UTF-8',
-      'X-Accept': 'application/json'
+      'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+      'User-Agent': 'Faure Hu',
+      'Authorization': `Basic ${buffer.toString('base64')}`
     },
-    url: 'https://getpocket.com/v3/oauth/request/'
+    url: 'https://api.twitter.com/oauth2/token'
   }
 
   request.post(options, (err, httpResponse, body) => {
-    global.pocketSecretKey = body.code;
+    global.twitterToken = JSON.parse(body).access_token;
   })
 }

@@ -6,7 +6,7 @@ let router = express.Router();
 module.exports = (app) => {
   let apiLogic = api(app);
   router.get(apiRoute.blog, apiLogic.getBlog);
-  router.get(apiRoute.twitter, () => {});
+  router.get(apiRoute.twitter, apiLogic.getTwitter);
   router.get(apiRoute.videos, () => {});
   router.get(apiRoute.github, apiLogic.getGithub);
   router.get(apiRoute.pocket, apiLogic.getPocket);

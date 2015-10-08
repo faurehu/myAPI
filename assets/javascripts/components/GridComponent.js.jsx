@@ -8,7 +8,7 @@ import PocketColumnComponent from './Columns/PocketColumnComponent';
 // TODO:
 //M TwitterColumnComponent,
 //M SoundcloudColumnComponent,
-//E RecommendedLinksColumnComponent,c
+//E RecommendedLinksColumnComponent,
 //E RecommendedVideosColumnComponent
 
 export default class GridComponent extends React.Component {
@@ -27,9 +27,9 @@ export default class GridComponent extends React.Component {
     let columns = [
       <td key={0}><BlogColumnComponent/></td>,
       <td key={1}><ImagesColumnComponent/></td>,
-      <td key={2}><InstagramColumnComponent/></td>,
-      <td key={3}><GithubColumnComponent/></td>,
-      <td key={4}><PocketColumnComponent/></td>
+      <td key={2}><PocketColumnComponent/></td>,
+      <td key={3}><InstagramColumnComponent/></td>,
+      <td key={4}><GithubColumnComponent/></td>
     ];
     for(var i = 5; i < 8; i++) {
       columns.push(<td key={i} className="desktop"><ColumnComponent/></td>);
