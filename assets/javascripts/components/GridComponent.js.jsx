@@ -19,8 +19,17 @@ export default class GridComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      collapsed: false
+      collapsed: false,
+      firefox: false
     };
+  }
+
+  componentDidMount() {
+    if(navigator.userAgent.indexOf('Firefox') > -1) {
+      this.setState({
+        firefox: true
+      });
+    }
   }
 
   renderColumns() {
@@ -48,6 +57,9 @@ export default class GridComponent extends React.Component {
       sidebarClass += ' collapsed-sidebar';
       contentClass += ' collapsed-content';
     }
+    if(this.state.firefox) {
+      sidebarClass += ' firefox-sidebar';
+    }
 
     return (
       <div className="grid-container">
@@ -59,11 +71,17 @@ export default class GridComponent extends React.Component {
             <div className="subs">
               <h1>Computer Science with Management U.G. @ KCL</h1>
             </div>
-            <div className="toggler-container">
-              <a onClick={this.toggleCollapse} className="toggle-button">
-                <i className="fa fa-chevron-left fa-2x"/>
-              </a>
-            </div>
+            { !this.state.firefox ?
+              <div className="toggler-container">
+                <a onClick={this.toggleCollapse} className="toggle-button">
+                  <i className="fa fa-chevron-left fa-2x"/>
+                </a>
+              </div>
+              :
+              <div className="firefox-message">
+                Firefox currently not supported
+              </div>
+            }
             <div className="contact-links">
                 <a href="http://twitter.com/faurehu"><i className="fa fa-twitter-square fa-3x"/></a>
                 <a href="http://github.com/faurehu"><i className="fa fa-github-square fa-3x"/></a>
@@ -71,13 +89,15 @@ export default class GridComponent extends React.Component {
                 <a href="mailto:faurehu@gmail.com"><i className="fa fa-envelope-square fa-3x"/></a>
             </div>
         </div>
-        <div className={contentClass}>
-          <table>
-            <tr>
-              {this.renderColumns()}
-            </tr>
-          </table>
-        </div>
+        {!this.state.firefox &&
+          <div className={contentClass}>
+            <table>
+              <tr>
+                {this.renderColumns()}
+              </tr>
+            </table>
+          </div>
+        }
       </div>
     );
   }

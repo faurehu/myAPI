@@ -140,6 +140,28 @@ body, html {
         -moz-transition: transform 0.3s;
         -webkit-transition: transform 0.3s;
         transition: transform 0.3s; } }
+  .grid-container .firefox-sidebar {
+    height: 100%; }
+    .grid-container .firefox-sidebar .link-limiter {
+      margin-top: 40px; }
+    .grid-container .firefox-sidebar .subs {
+      display: block; }
+      .grid-container .firefox-sidebar .subs h1 {
+        font-size: 1.3em; }
+    .grid-container .firefox-sidebar .firefox-message {
+      position: absolute;
+      width: 100%;
+      bottom: 80px;
+      text-align: center;
+      margin-left: 5px;
+      margin-right: 5px; }
+    .grid-container .firefox-sidebar .contact-links {
+      position: absolute;
+      width: 100%;
+      bottom: 20px; }
+    @media screen and (min-width: 800px) {
+      .grid-container .firefox-sidebar {
+        width: 100%; } }
   .grid-container .grid-content {
     width: 100%;
     height: 100%;
