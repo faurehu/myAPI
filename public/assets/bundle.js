@@ -29121,14 +29121,18 @@
 	        'div',
 	        { className: 'card blog-card', onClick: this.redirect },
 	        _reactAddons2['default'].createElement(
-	          'h1',
-	          null,
-	          this.props.title
-	        ),
-	        _reactAddons2['default'].createElement(
-	          'h2',
-	          null,
-	          this.props.subtitle
+	          'div',
+	          { className: 'card-header' },
+	          _reactAddons2['default'].createElement(
+	            'h1',
+	            null,
+	            this.props.title
+	          ),
+	          _reactAddons2['default'].createElement(
+	            'h2',
+	            null,
+	            this.props.subtitle
+	          )
 	        ),
 	        _reactAddons2['default'].createElement(
 	          'p',

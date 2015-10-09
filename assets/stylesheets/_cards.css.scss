@@ -1,12 +1,38 @@
+@import './colors.css.scss';
+
 .card {
   border: 1px solid black;
-  border-bottom: 10px solid black;
-  box-shadow: 5px 5px 5px #888888;
   margin: 20px;
+  background-color: white;
+  font-family: 'Chivo', sans-serif;
+  border: 2px solid $blue-grey;
+
+  .card-header {
+    padding: 5px;
+    background-color: #B0BEC5;
+    text-align: center;
+    color: $dark-blue;
+
+    h1 {
+      margin: 0;
+    }
+
+    h2 {
+      margin-top: 5px;
+      margin: 0;
+    }
+  }
+
+  p {
+    padding: 5px;
+  }
 }
 
 .instagram-card {
   img {
     max-width: 250px;
   }
+}
+
+.blog-card {
 }
