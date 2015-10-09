@@ -65,6 +65,9 @@ export default class GridComponent extends React.Component {
                 <a id="link" className="link link--mallki"
                   dangerouslySetInnerHTML={{__html:innerHtml}}/>
             </div>
+            <div className="header-image">
+              <img src="./assets/picture.png"/>
+            </div>
             <div className="subs">
               <h1>Computer Science with Management U.G. @ KCL</h1>
             </div>

@@ -26,7 +26,7 @@ export default class BlogCardComponent extends React.Component {
       <div className="card blog-card" onClick={this.redirect}>
         <h1>{this.props.title}</h1>
         <h2>{this.props.subtitle}</h2>
-        <p>{`${snippet.substring(0, 300)}...`}</p>
+        <p>{`${snippet.substring(0, 150)}...`}</p>
       </div>
     );
   }

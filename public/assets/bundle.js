@@ -54,8 +54,8 @@
 	
 	// Grid
 	__webpack_require__(/*! expose?GridComponent!./components/GridComponent */ 2);
-	__webpack_require__(/*! expose?ColumnComponent!./components/Columns/ColumnComponent */ 201);
-	__webpack_require__(/*! expose?CardComponent!./components/Cards/CardComponent */ 203);
+	__webpack_require__(/*! expose?ColumnComponent!./components/Columns/ColumnComponent */ 206);
+	__webpack_require__(/*! expose?CardComponent!./components/Cards/CardComponent */ 208);
 
 /***/ },
 /* 1 */
@@ -111,31 +111,31 @@
 	
 	var _ColumnsBlogColumnComponent2 = _interopRequireDefault(_ColumnsBlogColumnComponent);
 	
-	var _ColumnsImagesColumnComponent = __webpack_require__(/*! ./Columns/ImagesColumnComponent */ 191);
+	var _ColumnsImagesColumnComponent = __webpack_require__(/*! ./Columns/ImagesColumnComponent */ 192);
 	
 	var _ColumnsImagesColumnComponent2 = _interopRequireDefault(_ColumnsImagesColumnComponent);
 	
-	var _ColumnsInstagramColumnComponent = __webpack_require__(/*! ./Columns/InstagramColumnComponent */ 193);
+	var _ColumnsInstagramColumnComponent = __webpack_require__(/*! ./Columns/InstagramColumnComponent */ 194);
 	
 	var _ColumnsInstagramColumnComponent2 = _interopRequireDefault(_ColumnsInstagramColumnComponent);
 	
-	var _ColumnsGithubColumnComponent = __webpack_require__(/*! ./Columns/GithubColumnComponent */ 195);
+	var _ColumnsGithubColumnComponent = __webpack_require__(/*! ./Columns/GithubColumnComponent */ 196);
 	
 	var _ColumnsGithubColumnComponent2 = _interopRequireDefault(_ColumnsGithubColumnComponent);
 	
-	var _ColumnsPocketColumnComponent = __webpack_require__(/*! ./Columns/PocketColumnComponent */ 197);
+	var _ColumnsPocketColumnComponent = __webpack_require__(/*! ./Columns/PocketColumnComponent */ 198);
 	
 	var _ColumnsPocketColumnComponent2 = _interopRequireDefault(_ColumnsPocketColumnComponent);
 	
-	var _ColumnsTwitterColumnComponent = __webpack_require__(/*! ./Columns/TwitterColumnComponent */ 199);
+	var _ColumnsTwitterColumnComponent = __webpack_require__(/*! ./Columns/TwitterColumnComponent */ 200);
 	
 	var _ColumnsTwitterColumnComponent2 = _interopRequireDefault(_ColumnsTwitterColumnComponent);
 	
-	var _ColumnsSoundCloudColumnComponent = __webpack_require__(/*! ./Columns/SoundCloudColumnComponent */ 205);
+	var _ColumnsSoundCloudColumnComponent = __webpack_require__(/*! ./Columns/SoundCloudColumnComponent */ 202);
 	
 	var _ColumnsSoundCloudColumnComponent2 = _interopRequireDefault(_ColumnsSoundCloudColumnComponent);
 	
-	var _ColumnsYoutubeColumnComponent = __webpack_require__(/*! ./Columns/YoutubeColumnComponent */ 207);
+	var _ColumnsYoutubeColumnComponent = __webpack_require__(/*! ./Columns/YoutubeColumnComponent */ 204);
 	
 	var _ColumnsYoutubeColumnComponent2 = _interopRequireDefault(_ColumnsYoutubeColumnComponent);
 	
@@ -247,6 +247,11 @@
 	            { className: 'link-limiter' },
 	            _reactAddons2['default'].createElement('a', { id: 'link', className: 'link link--mallki',
 	              dangerouslySetInnerHTML: { __html: innerHtml } })
+	          ),
+	          _reactAddons2['default'].createElement(
+	            'div',
+	            { className: 'header-image' },
+	            _reactAddons2['default'].createElement('img', { src: './assets/picture.png' })
 	          ),
 	          _reactAddons2['default'].createElement(
 	            'div',
@@ -29066,7 +29071,7 @@
 	
 	var _reactAddons2 = _interopRequireDefault(_reactAddons);
 	
-	var _marked = __webpack_require__(/*! marked */ 209);
+	var _marked = __webpack_require__(/*! marked */ 191);
 	
 	var _marked2 = _interopRequireDefault(_marked);
 	
@@ -29128,7 +29133,7 @@
 	        _reactAddons2['default'].createElement(
 	          'p',
 	          null,
-	          snippet.substring(0, 300) + '...'
+	          snippet.substring(0, 150) + '...'
 	        )
 	      );
 	    }
@@ -29142,1554 +29147,6 @@
 
 /***/ },
 /* 191 */
-/*!****************************************************************************!*\
-  !*** ./assets/javascripts/components/Columns/ImagesColumnComponent.js.jsx ***!
-  \****************************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _xhrPromise = __webpack_require__(/*! xhr-promise */ 181);
-	
-	var _xhrPromise2 = _interopRequireDefault(_xhrPromise);
-	
-	var _ColumnComponent2 = __webpack_require__(/*! ./ColumnComponent */ 178);
-	
-	var _ColumnComponent3 = _interopRequireDefault(_ColumnComponent2);
-	
-	var _CardsImageCardComponent = __webpack_require__(/*! ../Cards/ImageCardComponent */ 192);
-	
-	var _CardsImageCardComponent2 = _interopRequireDefault(_CardsImageCardComponent);
-	
-	var XHR = new _xhrPromise2['default']();
-	
-	var ImageColumnComponent = (function (_ColumnComponent) {
-	  _inherits(ImageColumnComponent, _ColumnComponent);
-	
-	  _createClass(ImageColumnComponent, null, [{
-	    key: 'displayName',
-	    value: 'Image Column Component',
-	    enumerable: true
-	  }]);
-	
-	  function ImageColumnComponent(props) {
-	    _classCallCheck(this, ImageColumnComponent);
-	
-	    _get(Object.getPrototypeOf(ImageColumnComponent.prototype), 'constructor', this).call(this, props);
-	    this.state = {};
-	  }
-	
-	  _createClass(ImageColumnComponent, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      var _this = this;
-	
-	      XHR.send({
-	        method: 'GET',
-	        url: window.location.href + 'api/photo'
-	      }).then(function (response) {
-	        _this.setState({
-	          images: JSON.parse(response.responseText)
-	        });
-	        _this.forceUpdate();
-	      })['catch'](function (error) {
-	        console.log(error);
-	      });
-	    }
-	  }, {
-	    key: 'getColumnClass',
-	    value: function getColumnClass() {
-	      return 'images-column';
-	    }
-	  }, {
-	    key: 'renderCards',
-	    value: function renderCards() {
-	      var _this2 = this;
-	
-	      var imageCards = [];
-	      if (this.state.images !== undefined) {
-	        this.state.images.forEach(function (image) {
-	          imageCards.push(React.createElement(_CardsImageCardComponent2['default'], { caption: image.caption, id: image.id,
-	            url: image.small, key: _this2.state.images.indexOf(image) }));
-	        });
-	      }
-	      return imageCards;
-	    }
-	  }, {
-	    key: 'renderColumnHeader',
-	    value: function renderColumnHeader() {
-	      return React.createElement(
-	        'div',
-	        { className: 'column-header' },
-	        'My Photography'
-	      );
-	    }
-	  }]);
-	
-	  return ImageColumnComponent;
-	})(_ColumnComponent3['default']);
-	
-	exports['default'] = ImageColumnComponent;
-	module.exports = exports['default'];
-
-/***/ },
-/* 192 */
-/*!***********************************************************************!*\
-  !*** ./assets/javascripts/components/Cards/ImageCardComponent.js.jsx ***!
-  \***********************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _reactAddons = __webpack_require__(/*! react/addons */ 4);
-	
-	var _reactAddons2 = _interopRequireDefault(_reactAddons);
-	
-	var ImageCardComponent = (function (_React$Component) {
-	  _inherits(ImageCardComponent, _React$Component);
-	
-	  _createClass(ImageCardComponent, null, [{
-	    key: 'displayName',
-	    value: 'Image Card Component',
-	    enumerable: true
-	  }, {
-	    key: 'propTypes',
-	    value: {
-	      caption: _reactAddons2['default'].PropTypes.string,
-	      url: _reactAddons2['default'].PropTypes.string,
-	      id: _reactAddons2['default'].PropTypes.number
-	    },
-	    enumerable: true
-	  }, {
-	    key: 'defaultProps',
-	    value: {},
-	    enumerable: true
-	  }]);
-	
-	  function ImageCardComponent(props) {
-	    _classCallCheck(this, ImageCardComponent);
-	
-	    _get(Object.getPrototypeOf(ImageCardComponent.prototype), 'constructor', this).call(this, props);
-	  }
-	
-	  _createClass(ImageCardComponent, [{
-	    key: 'render',
-	    value: function render() {
-	      return _reactAddons2['default'].createElement(
-	        'div',
-	        { className: 'card image-card' },
-	        _reactAddons2['default'].createElement('img', { src: this.props.url }),
-	        _reactAddons2['default'].createElement(
-	          'h1',
-	          null,
-	          this.props.caption
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return ImageCardComponent;
-	})(_reactAddons2['default'].Component);
-	
-	exports['default'] = ImageCardComponent;
-	module.exports = exports['default'];
-
-/***/ },
-/* 193 */
-/*!*******************************************************************************!*\
-  !*** ./assets/javascripts/components/Columns/InstagramColumnComponent.js.jsx ***!
-  \*******************************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _xhrPromise = __webpack_require__(/*! xhr-promise */ 181);
-	
-	var _xhrPromise2 = _interopRequireDefault(_xhrPromise);
-	
-	var _ColumnComponent2 = __webpack_require__(/*! ./ColumnComponent */ 178);
-	
-	var _ColumnComponent3 = _interopRequireDefault(_ColumnComponent2);
-	
-	var _CardsInstagramCardComponent = __webpack_require__(/*! ../Cards/InstagramCardComponent */ 194);
-	
-	var _CardsInstagramCardComponent2 = _interopRequireDefault(_CardsInstagramCardComponent);
-	
-	var XHR = new _xhrPromise2['default']();
-	
-	var InstagramColumnComponent = (function (_ColumnComponent) {
-	  _inherits(InstagramColumnComponent, _ColumnComponent);
-	
-	  _createClass(InstagramColumnComponent, null, [{
-	    key: 'displayName',
-	    value: 'Instagram Column Component',
-	    enumerable: true
-	  }]);
-	
-	  function InstagramColumnComponent(props) {
-	    _classCallCheck(this, InstagramColumnComponent);
-	
-	    _get(Object.getPrototypeOf(InstagramColumnComponent.prototype), 'constructor', this).call(this, props);
-	    this.state = {};
-	  }
-	
-	  _createClass(InstagramColumnComponent, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      var _this = this;
-	
-	      XHR.send({
-	        method: 'GET',
-	        url: window.location.href + 'api/instagram'
-	      }).then(function (response) {
-	        _this.setState({
-	          images: JSON.parse(response.responseText)
-	        });
-	        _this.forceUpdate();
-	      })['catch'](function (error) {
-	        console.log(error);
-	      });
-	    }
-	  }, {
-	    key: 'getColumnClass',
-	    value: function getColumnClass() {
-	      return 'instagram-column';
-	    }
-	  }, {
-	    key: 'renderCards',
-	    value: function renderCards() {
-	      var _this2 = this;
-	
-	      var imageCards = [];
-	      if (this.state.images !== undefined) {
-	        this.state.images.forEach(function (image) {
-	          imageCards.push(React.createElement(_CardsInstagramCardComponent2['default'], { link: image.link,
-	            url: image.url, key: _this2.state.images.indexOf(image) }));
-	        });
-	      }
-	      return imageCards;
-	    }
-	  }, {
-	    key: 'renderColumnHeader',
-	    value: function renderColumnHeader() {
-	      return React.createElement(
-	        'div',
-	        { className: 'column-header' },
-	        'Instagram'
-	      );
-	    }
-	  }]);
-	
-	  return InstagramColumnComponent;
-	})(_ColumnComponent3['default']);
-	
-	exports['default'] = InstagramColumnComponent;
-	module.exports = exports['default'];
-
-/***/ },
-/* 194 */
-/*!***************************************************************************!*\
-  !*** ./assets/javascripts/components/Cards/InstagramCardComponent.js.jsx ***!
-  \***************************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _reactAddons = __webpack_require__(/*! react/addons */ 4);
-	
-	var _reactAddons2 = _interopRequireDefault(_reactAddons);
-	
-	var InstagramCardComponent = (function (_React$Component) {
-	  _inherits(InstagramCardComponent, _React$Component);
-	
-	  _createClass(InstagramCardComponent, null, [{
-	    key: 'displayName',
-	    value: 'Instagram Card Component',
-	    enumerable: true
-	  }, {
-	    key: 'propTypes',
-	    value: {
-	      link: _reactAddons2['default'].PropTypes.string,
-	      url: _reactAddons2['default'].PropTypes.string
-	    },
-	    enumerable: true
-	  }, {
-	    key: 'defaultProps',
-	    value: {},
-	    enumerable: true
-	  }]);
-	
-	  function InstagramCardComponent(props) {
-	    var _this = this;
-	
-	    _classCallCheck(this, InstagramCardComponent);
-	
-	    _get(Object.getPrototypeOf(InstagramCardComponent.prototype), 'constructor', this).call(this, props);
-	
-	    this.redirect = function () {
-	      window.location = _this.props.link;
-	    };
-	  }
-	
-	  _createClass(InstagramCardComponent, [{
-	    key: 'render',
-	    value: function render() {
-	      return _reactAddons2['default'].createElement(
-	        'div',
-	        { className: 'card instagram-card', onClick: this.redirect },
-	        _reactAddons2['default'].createElement('img', { src: this.props.url })
-	      );
-	    }
-	  }]);
-	
-	  return InstagramCardComponent;
-	})(_reactAddons2['default'].Component);
-	
-	exports['default'] = InstagramCardComponent;
-	module.exports = exports['default'];
-
-/***/ },
-/* 195 */
-/*!****************************************************************************!*\
-  !*** ./assets/javascripts/components/Columns/GithubColumnComponent.js.jsx ***!
-  \****************************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _xhrPromise = __webpack_require__(/*! xhr-promise */ 181);
-	
-	var _xhrPromise2 = _interopRequireDefault(_xhrPromise);
-	
-	var _CardsGithubCardComponent = __webpack_require__(/*! ../Cards/GithubCardComponent */ 196);
-	
-	var _CardsGithubCardComponent2 = _interopRequireDefault(_CardsGithubCardComponent);
-	
-	var _ColumnComponent2 = __webpack_require__(/*! ./ColumnComponent */ 178);
-	
-	var _ColumnComponent3 = _interopRequireDefault(_ColumnComponent2);
-	
-	var XHR = new _xhrPromise2['default']();
-	
-	var GithubColumnComponent = (function (_ColumnComponent) {
-	  _inherits(GithubColumnComponent, _ColumnComponent);
-	
-	  _createClass(GithubColumnComponent, null, [{
-	    key: 'displayName',
-	    value: 'Github Column Component',
-	    enumerable: true
-	  }]);
-	
-	  function GithubColumnComponent(props) {
-	    _classCallCheck(this, GithubColumnComponent);
-	
-	    _get(Object.getPrototypeOf(GithubColumnComponent.prototype), 'constructor', this).call(this, props);
-	    this.state = {};
-	  }
-	
-	  _createClass(GithubColumnComponent, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      var _this = this;
-	
-	      XHR.send({
-	        method: 'GET',
-	        url: window.location.href + 'api/github'
-	      }).then(function (response) {
-	        _this.setState({
-	          repos: JSON.parse(response.responseText)
-	        });
-	        _this.forceUpdate();
-	      })['catch'](function (error) {
-	        console.log(error);
-	      });
-	    }
-	  }, {
-	    key: 'getColumnClass',
-	    value: function getColumnClass() {
-	      return 'github-column';
-	    }
-	  }, {
-	    key: 'renderColumnHeader',
-	    value: function renderColumnHeader() {
-	      return React.createElement(
-	        'div',
-	        { className: 'column-header' },
-	        'My Repos'
-	      );
-	    }
-	  }, {
-	    key: 'renderCards',
-	    value: function renderCards() {
-	      var _this2 = this;
-	
-	      var repos = [];
-	      if (this.state.repos !== undefined) {
-	        this.state.repos.forEach(function (repo) {
-	          repos.push(React.createElement(_CardsGithubCardComponent2['default'], { name: repo.name, url: repo.url,
-	            language: repo.language, description: repo.description,
-	            key: _this2.state.repos.indexOf(repo) }));
-	        });
-	      }
-	      return repos;
-	    }
-	  }]);
-	
-	  return GithubColumnComponent;
-	})(_ColumnComponent3['default']);
-	
-	exports['default'] = GithubColumnComponent;
-	module.exports = exports['default'];
-
-/***/ },
-/* 196 */
-/*!************************************************************************!*\
-  !*** ./assets/javascripts/components/Cards/GithubCardComponent.js.jsx ***!
-  \************************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _reactAddons = __webpack_require__(/*! react/addons */ 4);
-	
-	var _reactAddons2 = _interopRequireDefault(_reactAddons);
-	
-	var GithubCardComponent = (function (_React$Component) {
-	  _inherits(GithubCardComponent, _React$Component);
-	
-	  _createClass(GithubCardComponent, null, [{
-	    key: 'displayName',
-	    value: 'Github Card Component',
-	    enumerable: true
-	  }, {
-	    key: 'propTypes',
-	    value: {
-	      name: _reactAddons2['default'].PropTypes.string,
-	      description: _reactAddons2['default'].PropTypes.string,
-	      url: _reactAddons2['default'].PropTypes.string,
-	      language: _reactAddons2['default'].PropTypes.string
-	    },
-	    enumerable: true
-	  }, {
-	    key: 'defaultProps',
-	    value: {},
-	    enumerable: true
-	  }]);
-	
-	  function GithubCardComponent(props) {
-	    var _this = this;
-	
-	    _classCallCheck(this, GithubCardComponent);
-	
-	    _get(Object.getPrototypeOf(GithubCardComponent.prototype), 'constructor', this).call(this, props);
-	
-	    this.redirect = function () {
-	      window.location = _this.props.url;
-	    };
-	  }
-	
-	  _createClass(GithubCardComponent, [{
-	    key: 'render',
-	    value: function render() {
-	      return _reactAddons2['default'].createElement(
-	        'div',
-	        { className: 'card github-card', onClick: this.redirect },
-	        _reactAddons2['default'].createElement(
-	          'h1',
-	          null,
-	          this.props.name
-	        ),
-	        _reactAddons2['default'].createElement(
-	          'p',
-	          null,
-	          this.props.description
-	        ),
-	        _reactAddons2['default'].createElement(
-	          'span',
-	          null,
-	          this.props.language
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return GithubCardComponent;
-	})(_reactAddons2['default'].Component);
-	
-	exports['default'] = GithubCardComponent;
-	module.exports = exports['default'];
-
-/***/ },
-/* 197 */
-/*!****************************************************************************!*\
-  !*** ./assets/javascripts/components/Columns/PocketColumnComponent.js.jsx ***!
-  \****************************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _xhrPromise = __webpack_require__(/*! xhr-promise */ 181);
-	
-	var _xhrPromise2 = _interopRequireDefault(_xhrPromise);
-	
-	var _CardsPocketCardComponent = __webpack_require__(/*! ../Cards/PocketCardComponent */ 198);
-	
-	var _CardsPocketCardComponent2 = _interopRequireDefault(_CardsPocketCardComponent);
-	
-	var _ColumnComponent2 = __webpack_require__(/*! ./ColumnComponent */ 178);
-	
-	var _ColumnComponent3 = _interopRequireDefault(_ColumnComponent2);
-	
-	var XHR = new _xhrPromise2['default']();
-	
-	var PocketColumnComponent = (function (_ColumnComponent) {
-	  _inherits(PocketColumnComponent, _ColumnComponent);
-	
-	  _createClass(PocketColumnComponent, null, [{
-	    key: 'displayName',
-	    value: 'Pocket Column Component',
-	    enumerable: true
-	  }]);
-	
-	  function PocketColumnComponent(props) {
-	    _classCallCheck(this, PocketColumnComponent);
-	
-	    _get(Object.getPrototypeOf(PocketColumnComponent.prototype), 'constructor', this).call(this, props);
-	    this.state = {};
-	  }
-	
-	  _createClass(PocketColumnComponent, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      var _this = this;
-	
-	      XHR.send({
-	        method: 'GET',
-	        url: window.location.href + 'api/pocket/0'
-	      }).then(function (response) {
-	        _this.setState({
-	          articles: JSON.parse(response.responseText)
-	        });
-	        _this.forceUpdate();
-	      })['catch'](function (error) {
-	        console.log(error);
-	      });
-	    }
-	  }, {
-	    key: 'getColumnClass',
-	    value: function getColumnClass() {
-	      return 'pocket-column';
-	    }
-	  }, {
-	    key: 'renderColumnHeader',
-	    value: function renderColumnHeader() {
-	      return React.createElement(
-	        'div',
-	        { className: 'column-header' },
-	        'My Pocket favorites'
-	      );
-	    }
-	  }, {
-	    key: 'renderCards',
-	    value: function renderCards() {
-	      var _this2 = this;
-	
-	      var pocketCards = [];
-	      if (this.state.articles !== undefined) {
-	        this.state.articles.forEach(function (article) {
-	          pocketCards.push(React.createElement(_CardsPocketCardComponent2['default'], { url: article.url,
-	            title: article.title, excerpt: article.excerpt, key: _this2.state.articles.indexOf(article) }));
-	        });
-	      }
-	      return pocketCards;
-	    }
-	  }]);
-	
-	  return PocketColumnComponent;
-	})(_ColumnComponent3['default']);
-	
-	exports['default'] = PocketColumnComponent;
-	module.exports = exports['default'];
-
-/***/ },
-/* 198 */
-/*!************************************************************************!*\
-  !*** ./assets/javascripts/components/Cards/PocketCardComponent.js.jsx ***!
-  \************************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _reactAddons = __webpack_require__(/*! react/addons */ 4);
-	
-	var _reactAddons2 = _interopRequireDefault(_reactAddons);
-	
-	var PocketCardComponent = (function (_React$Component) {
-	  _inherits(PocketCardComponent, _React$Component);
-	
-	  _createClass(PocketCardComponent, null, [{
-	    key: 'displayName',
-	    value: 'Pocket Card Component',
-	    enumerable: true
-	  }, {
-	    key: 'propTypes',
-	    value: {
-	      title: _reactAddons2['default'].PropTypes.string,
-	      excerpt: _reactAddons2['default'].PropTypes.string,
-	      url: _reactAddons2['default'].PropTypes.string
-	    },
-	    enumerable: true
-	  }, {
-	    key: 'defaultProps',
-	    value: {},
-	    enumerable: true
-	  }]);
-	
-	  function PocketCardComponent(props) {
-	    var _this = this;
-	
-	    _classCallCheck(this, PocketCardComponent);
-	
-	    _get(Object.getPrototypeOf(PocketCardComponent.prototype), 'constructor', this).call(this, props);
-	
-	    this.redirect = function () {
-	      window.location = _this.props.url;
-	    };
-	  }
-	
-	  _createClass(PocketCardComponent, [{
-	    key: 'render',
-	    value: function render() {
-	      return _reactAddons2['default'].createElement(
-	        'div',
-	        { className: 'card pocket-card', onClick: this.redirect },
-	        _reactAddons2['default'].createElement(
-	          'h1',
-	          null,
-	          this.props.title
-	        ),
-	        _reactAddons2['default'].createElement(
-	          'p',
-	          null,
-	          this.props.excerpt
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return PocketCardComponent;
-	})(_reactAddons2['default'].Component);
-	
-	exports['default'] = PocketCardComponent;
-	module.exports = exports['default'];
-
-/***/ },
-/* 199 */
-/*!*****************************************************************************!*\
-  !*** ./assets/javascripts/components/Columns/TwitterColumnComponent.js.jsx ***!
-  \*****************************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _xhrPromise = __webpack_require__(/*! xhr-promise */ 181);
-	
-	var _xhrPromise2 = _interopRequireDefault(_xhrPromise);
-	
-	var _CardsTwitterCardComponent = __webpack_require__(/*! ../Cards/TwitterCardComponent */ 200);
-	
-	var _CardsTwitterCardComponent2 = _interopRequireDefault(_CardsTwitterCardComponent);
-	
-	var _ColumnComponent2 = __webpack_require__(/*! ./ColumnComponent */ 178);
-	
-	var _ColumnComponent3 = _interopRequireDefault(_ColumnComponent2);
-	
-	var XHR = new _xhrPromise2['default']();
-	
-	var TwitterColumnComponent = (function (_ColumnComponent) {
-	  _inherits(TwitterColumnComponent, _ColumnComponent);
-	
-	  _createClass(TwitterColumnComponent, null, [{
-	    key: 'displayName',
-	    value: 'Twitter Column Component',
-	    enumerable: true
-	  }]);
-	
-	  function TwitterColumnComponent(props) {
-	    _classCallCheck(this, TwitterColumnComponent);
-	
-	    _get(Object.getPrototypeOf(TwitterColumnComponent.prototype), 'constructor', this).call(this, props);
-	    this.state = {};
-	  }
-	
-	  _createClass(TwitterColumnComponent, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      var _this = this;
-	
-	      XHR.send({
-	        method: 'GET',
-	        url: window.location.href + 'api/twitter'
-	      }).then(function (response) {
-	        _this.setState({
-	          tweets: JSON.parse(response.responseText)
-	        });
-	        _this.forceUpdate();
-	      })['catch'](function (error) {
-	        console.log(error);
-	      });
-	    }
-	  }, {
-	    key: 'getColumnClass',
-	    value: function getColumnClass() {
-	      return 'twitter-column';
-	    }
-	  }, {
-	    key: 'renderColumnHeader',
-	    value: function renderColumnHeader() {
-	      return React.createElement(
-	        'div',
-	        { className: 'column-header' },
-	        'My Tweets'
-	      );
-	    }
-	  }, {
-	    key: 'renderCards',
-	    value: function renderCards() {
-	      var _this2 = this;
-	
-	      var tweetCards = [];
-	      if (this.state.tweets !== undefined) {
-	        this.state.tweets.forEach(function (tweet) {
-	          tweetCards.push(React.createElement(_CardsTwitterCardComponent2['default'], { text: tweet.text || tweet.myText,
-	            author: tweet.author, media: tweet.imgUrl, key: _this2.state.tweets.indexOf(tweet) }));
-	        });
-	      }
-	      return tweetCards;
-	    }
-	  }]);
-	
-	  return TwitterColumnComponent;
-	})(_ColumnComponent3['default']);
-	
-	exports['default'] = TwitterColumnComponent;
-	module.exports = exports['default'];
-
-/***/ },
-/* 200 */
-/*!*************************************************************************!*\
-  !*** ./assets/javascripts/components/Cards/TwitterCardComponent.js.jsx ***!
-  \*************************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _reactAddons = __webpack_require__(/*! react/addons */ 4);
-	
-	var _reactAddons2 = _interopRequireDefault(_reactAddons);
-	
-	var TwitterCardComponent = (function (_React$Component) {
-	  _inherits(TwitterCardComponent, _React$Component);
-	
-	  _createClass(TwitterCardComponent, null, [{
-	    key: 'displayName',
-	    value: 'Twitter Card Component',
-	    enumerable: true
-	  }, {
-	    key: 'propTypes',
-	    value: {
-	      text: _reactAddons2['default'].PropTypes.string,
-	      author: _reactAddons2['default'].PropTypes.string,
-	      media: _reactAddons2['default'].PropTypes.string
-	    },
-	    enumerable: true
-	  }, {
-	    key: 'defaultProps',
-	    value: {},
-	    enumerable: true
-	  }]);
-	
-	  function TwitterCardComponent(props) {
-	    var _this = this;
-	
-	    _classCallCheck(this, TwitterCardComponent);
-	
-	    _get(Object.getPrototypeOf(TwitterCardComponent.prototype), 'constructor', this).call(this, props);
-	
-	    this.redirect = function () {
-	      window.location = 'http://www.twitter.com/' + _this.props.author;
-	    };
-	  }
-	
-	  _createClass(TwitterCardComponent, [{
-	    key: 'render',
-	    value: function render() {
-	      return _reactAddons2['default'].createElement(
-	        'div',
-	        { className: 'card twitter-card' },
-	        this.props.media && _reactAddons2['default'].createElement('img', { src: this.props.media }),
-	        this.props.author && _reactAddons2['default'].createElement(
-	          'span',
-	          { onClick: this.redirect },
-	          'RT @',
-	          this.props.author
-	        ),
-	        _reactAddons2['default'].createElement(
-	          'p',
-	          null,
-	          this.props.text
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return TwitterCardComponent;
-	})(_reactAddons2['default'].Component);
-	
-	exports['default'] = TwitterCardComponent;
-	module.exports = exports['default'];
-
-/***/ },
-/* 201 */
-/*!********************************************************************************************************!*\
-  !*** ./~/expose-loader?ColumnComponent!./assets/javascripts/components/Columns/ColumnComponent.js.jsx ***!
-  \********************************************************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["ColumnComponent"] = __webpack_require__(/*! -!./~/babel-loader?{"optional":["es7.classProperties","es7.objectRestSpread"]}!./~/eslint-loader!./assets/javascripts/components/Columns/ColumnComponent.js.jsx */ 202);
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
-
-/***/ },
-/* 202 */
-/*!*********************************************************************************************************************************************************************!*\
-  !*** ./~/babel-loader?{"optional":["es7.classProperties","es7.objectRestSpread"]}!./~/eslint-loader!./assets/javascripts/components/Columns/ColumnComponent.js.jsx ***!
-  \*********************************************************************************************************************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _reactAddons = __webpack_require__(/*! react/addons */ 4);
-	
-	var _reactAddons2 = _interopRequireDefault(_reactAddons);
-	
-	var _CardsCardComponent = __webpack_require__(/*! ../Cards/CardComponent */ 179);
-	
-	var _CardsCardComponent2 = _interopRequireDefault(_CardsCardComponent);
-	
-	var ColumnComponent = (function (_React$Component) {
-	  _inherits(ColumnComponent, _React$Component);
-	
-	  _createClass(ColumnComponent, null, [{
-	    key: 'displayName',
-	    value: 'Column Component',
-	    enumerable: true
-	  }]);
-	
-	  function ColumnComponent(props) {
-	    _classCallCheck(this, ColumnComponent);
-	
-	    _get(Object.getPrototypeOf(ColumnComponent.prototype), 'constructor', this).call(this, props);
-	  }
-	
-	  _createClass(ColumnComponent, [{
-	    key: 'getColumnClass',
-	    value: function getColumnClass() {
-	      return '';
-	    }
-	  }, {
-	    key: 'renderCards',
-	    value: function renderCards() {
-	      var cards = [];
-	      [1, 2, 3, 4, 5, 6, 7, 8].forEach(function (data) {
-	        cards.push(_reactAddons2['default'].createElement(_CardsCardComponent2['default'], { num: data, key: data }));
-	      });
-	      return cards;
-	    }
-	  }, {
-	    key: 'renderColumnHeader',
-	    value: function renderColumnHeader() {
-	      return _reactAddons2['default'].createElement(
-	        'div',
-	        { className: 'column-header' },
-	        'Title'
-	      );
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return _reactAddons2['default'].createElement(
-	        'div',
-	        { className: 'column ' + this.getColumnClass() },
-	        this.renderColumnHeader(),
-	        _reactAddons2['default'].createElement(
-	          'div',
-	          { className: 'column-content' },
-	          this.renderCards()
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return ColumnComponent;
-	})(_reactAddons2['default'].Component);
-	
-	exports['default'] = ColumnComponent;
-	module.exports = exports['default'];
-
-/***/ },
-/* 203 */
-/*!**************************************************************************************************!*\
-  !*** ./~/expose-loader?CardComponent!./assets/javascripts/components/Cards/CardComponent.js.jsx ***!
-  \**************************************************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["CardComponent"] = __webpack_require__(/*! -!./~/babel-loader?{"optional":["es7.classProperties","es7.objectRestSpread"]}!./~/eslint-loader!./assets/javascripts/components/Cards/CardComponent.js.jsx */ 204);
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
-
-/***/ },
-/* 204 */
-/*!*****************************************************************************************************************************************************************!*\
-  !*** ./~/babel-loader?{"optional":["es7.classProperties","es7.objectRestSpread"]}!./~/eslint-loader!./assets/javascripts/components/Cards/CardComponent.js.jsx ***!
-  \*****************************************************************************************************************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _reactAddons = __webpack_require__(/*! react/addons */ 4);
-	
-	var _reactAddons2 = _interopRequireDefault(_reactAddons);
-	
-	var CardComponent = (function (_React$Component) {
-	  _inherits(CardComponent, _React$Component);
-	
-	  _createClass(CardComponent, null, [{
-	    key: 'displayName',
-	    value: 'Card Component',
-	    enumerable: true
-	  }, {
-	    key: 'propTypes',
-	    value: {
-	      num: _reactAddons2['default'].PropTypes.number
-	    },
-	    enumerable: true
-	  }, {
-	    key: 'defaultProps',
-	    value: {},
-	    enumerable: true
-	  }]);
-	
-	  function CardComponent(props) {
-	    _classCallCheck(this, CardComponent);
-	
-	    _get(Object.getPrototypeOf(CardComponent.prototype), 'constructor', this).call(this, props);
-	    this.state = {};
-	  }
-	
-	  _createClass(CardComponent, [{
-	    key: 'render',
-	    value: function render() {
-	      return _reactAddons2['default'].createElement(
-	        'div',
-	        { className: 'card' },
-	        _reactAddons2['default'].createElement(
-	          'span',
-	          null,
-	          this.props.num
-	        ),
-	        _reactAddons2['default'].createElement(
-	          'p',
-	          null,
-	          'Content'
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return CardComponent;
-	})(_reactAddons2['default'].Component);
-	
-	exports['default'] = CardComponent;
-	module.exports = exports['default'];
-
-/***/ },
-/* 205 */
-/*!********************************************************************************!*\
-  !*** ./assets/javascripts/components/Columns/SoundCloudColumnComponent.js.jsx ***!
-  \********************************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _xhrPromise = __webpack_require__(/*! xhr-promise */ 181);
-	
-	var _xhrPromise2 = _interopRequireDefault(_xhrPromise);
-	
-	var _ColumnComponent2 = __webpack_require__(/*! ./ColumnComponent */ 178);
-	
-	var _ColumnComponent3 = _interopRequireDefault(_ColumnComponent2);
-	
-	var _CardsSoundCloudCardComponent = __webpack_require__(/*! ../Cards/SoundCloudCardComponent */ 206);
-	
-	var _CardsSoundCloudCardComponent2 = _interopRequireDefault(_CardsSoundCloudCardComponent);
-	
-	var XHR = new _xhrPromise2['default']();
-	
-	var SoundCloudColumnComponent = (function (_ColumnComponent) {
-	  _inherits(SoundCloudColumnComponent, _ColumnComponent);
-	
-	  _createClass(SoundCloudColumnComponent, null, [{
-	    key: 'displayName',
-	    value: 'SoundCloud Column Component',
-	    enumerable: true
-	  }]);
-	
-	  function SoundCloudColumnComponent(props) {
-	    _classCallCheck(this, SoundCloudColumnComponent);
-	
-	    _get(Object.getPrototypeOf(SoundCloudColumnComponent.prototype), 'constructor', this).call(this, props);
-	    this.state = {};
-	  }
-	
-	  _createClass(SoundCloudColumnComponent, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      var _this = this;
-	
-	      XHR.send({
-	        method: 'GET',
-	        url: window.location.href + 'api/soundcloud'
-	      }).then(function (response) {
-	        var tracks = JSON.parse(response.responseText);
-	        _this.setState({
-	          tracks: tracks
-	        });
-	        _this.forceUpdate();
-	      })['catch'](function (error) {
-	        console.log(error);
-	      });
-	    }
-	  }, {
-	    key: 'getColumnClass',
-	    value: function getColumnClass() {
-	      return 'soundcloud-column';
-	    }
-	  }, {
-	    key: 'renderCards',
-	    value: function renderCards() {
-	      var _this2 = this;
-	
-	      var trackCards = [];
-	      if (this.state.tracks !== undefined) {
-	        this.state.tracks.forEach(function (track) {
-	          trackCards.push(React.createElement(_CardsSoundCloudCardComponent2['default'], { title: track.title,
-	            media: track.media, user: track.user, url: track.url,
-	            key: _this2.state.tracks.indexOf(track), id: track.id }));
-	        });
-	      }
-	      return trackCards;
-	    }
-	  }, {
-	    key: 'renderColumnHeader',
-	    value: function renderColumnHeader() {
-	      if (this.state.tracks !== undefined) {
-	        var src = 'https://w.soundcloud.com/player/?url=' + this.state.tracks[0].url + '&amp;auto_play=false&amp;buying=false&amp;liking=false&amp;download=false&amp;sharing=false&amp;show_artwork=false&amp;show_comments=false&amp;show_playcount=false&amp;show_user=true&amp;hide_related=false&amp;visual=false&amp;start_track=0&amp;callback=true';
-	        return React.createElement(
-	          'div',
-	          { className: 'column-header soundcloud-header' },
-	          React.createElement('iframe', { id: 'sc-widget', src: src,
-	            width: '100%', height: '120', scrolling: 'no', frameBorder: 'no' })
-	        );
-	      }
-	    }
-	  }]);
-	
-	  return SoundCloudColumnComponent;
-	})(_ColumnComponent3['default']);
-	
-	exports['default'] = SoundCloudColumnComponent;
-	module.exports = exports['default'];
-
-/***/ },
-/* 206 */
-/*!****************************************************************************!*\
-  !*** ./assets/javascripts/components/Cards/SoundCloudCardComponent.js.jsx ***!
-  \****************************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _reactAddons = __webpack_require__(/*! react/addons */ 4);
-	
-	var _reactAddons2 = _interopRequireDefault(_reactAddons);
-	
-	var SoundCloudCardComponent = (function (_React$Component) {
-	  _inherits(SoundCloudCardComponent, _React$Component);
-	
-	  _createClass(SoundCloudCardComponent, null, [{
-	    key: 'displayName',
-	    value: 'SoundCloud Card Component',
-	    enumerable: true
-	  }, {
-	    key: 'propTypes',
-	    value: {
-	      media: _reactAddons2['default'].PropTypes.string,
-	      url: _reactAddons2['default'].PropTypes.string,
-	      user: _reactAddons2['default'].PropTypes.string,
-	      title: _reactAddons2['default'].PropTypes.string,
-	      id: _reactAddons2['default'].PropTypes.number
-	    },
-	    enumerable: true
-	  }, {
-	    key: 'defaultProps',
-	    value: {},
-	    enumerable: true
-	  }]);
-	
-	  function SoundCloudCardComponent(props) {
-	    var _this = this;
-	
-	    _classCallCheck(this, SoundCloudCardComponent);
-	
-	    _get(Object.getPrototypeOf(SoundCloudCardComponent.prototype), 'constructor', this).call(this, props);
-	
-	    this.changePlayer = function () {
-	      var widgetIframe = document.getElementById('sc-widget');
-	      var widget = SC.Widget(widgetIframe);
-	
-	      widget.getCurrentSound(function (currentSound) {
-	        if (currentSound.id !== _this.props.id) {
-	          widget.load(_this.props.url + '&amp;auto_play=true&amp;buying=false&amp;liking=false&amp;download=false&amp;sharing=false&amp;show_artwork=false&amp;show_comments=false&amp;show_playcount=false&amp;show_user=true&amp;hide_related=false&amp;visual=false&amp;start_track=0&amp;callback=true');
-	        }
-	      });
-	    };
-	  }
-	
-	  _createClass(SoundCloudCardComponent, [{
-	    key: 'render',
-	    value: function render() {
-	      return _reactAddons2['default'].createElement(
-	        'div',
-	        { className: 'card soundcloud-card', onClick: this.changePlayer },
-	        _reactAddons2['default'].createElement('img', { src: this.props.media }),
-	        _reactAddons2['default'].createElement(
-	          'span',
-	          null,
-	          this.props.title
-	        ),
-	        _reactAddons2['default'].createElement(
-	          'span',
-	          null,
-	          this.props.user
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return SoundCloudCardComponent;
-	})(_reactAddons2['default'].Component);
-	
-	exports['default'] = SoundCloudCardComponent;
-	module.exports = exports['default'];
-
-/***/ },
-/* 207 */
-/*!*****************************************************************************!*\
-  !*** ./assets/javascripts/components/Columns/YoutubeColumnComponent.js.jsx ***!
-  \*****************************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _xhrPromise = __webpack_require__(/*! xhr-promise */ 181);
-	
-	var _xhrPromise2 = _interopRequireDefault(_xhrPromise);
-	
-	var _ColumnComponent2 = __webpack_require__(/*! ./ColumnComponent */ 178);
-	
-	var _ColumnComponent3 = _interopRequireDefault(_ColumnComponent2);
-	
-	var _CardsYoutubeCardComponent = __webpack_require__(/*! ../Cards/YoutubeCardComponent */ 208);
-	
-	var _CardsYoutubeCardComponent2 = _interopRequireDefault(_CardsYoutubeCardComponent);
-	
-	var XHR = new _xhrPromise2['default']();
-	
-	var YoutubeColumnComponent = (function (_ColumnComponent) {
-	  _inherits(YoutubeColumnComponent, _ColumnComponent);
-	
-	  _createClass(YoutubeColumnComponent, null, [{
-	    key: 'displayName',
-	    value: 'Image Column Component',
-	    enumerable: true
-	  }]);
-	
-	  function YoutubeColumnComponent(props) {
-	    _classCallCheck(this, YoutubeColumnComponent);
-	
-	    _get(Object.getPrototypeOf(YoutubeColumnComponent.prototype), 'constructor', this).call(this, props);
-	    this.state = {};
-	  }
-	
-	  _createClass(YoutubeColumnComponent, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      var _this = this;
-	
-	      var player = undefined;
-	      var onYouTubeIframeAPIReady = function onYouTubeIframeAPIReady() {
-	        console.log('yo');
-	        player = new YT.Player('player', {
-	          height: '390',
-	          width: '640',
-	          videoId: 'M7lc1UVf-VE',
-	          events: {
-	            'onReady': onPlayerReady,
-	            'onStateChange': onPlayerStateChange
-	          }
-	        });
-	      };
-	      XHR.send({
-	        method: 'GET',
-	        url: window.location.href + 'api/youtube'
-	      }).then(function (response) {
-	        _this.setState({
-	          videos: JSON.parse(response.responseText)
-	        });
-	        _this.forceUpdate();
-	      })['catch'](function (error) {
-	        console.log(error);
-	      });
-	    }
-	  }, {
-	    key: 'getColumnClass',
-	    value: function getColumnClass() {
-	      return 'youtube-column';
-	    }
-	  }, {
-	    key: 'renderCards',
-	    value: function renderCards() {
-	      var _this2 = this;
-	
-	      var videoCards = [];
-	      if (this.state.videos !== undefined) {
-	        this.state.videos.forEach(function (video) {
-	          videoCards.push(React.createElement(_CardsYoutubeCardComponent2['default'], { media: video.media,
-	            id: video.id, title: video.title, key: _this2.state.videos.indexOf(video) }));
-	        });
-	      }
-	      return videoCards;
-	    }
-	  }, {
-	    key: 'renderColumnHeader',
-	    value: function renderColumnHeader() {
-	      return React.createElement(
-	        'div',
-	        { className: 'column-header' },
-	        'My Youtube Playlist'
-	      );
-	    }
-	  }]);
-	
-	  return YoutubeColumnComponent;
-	})(_ColumnComponent3['default']);
-	
-	exports['default'] = YoutubeColumnComponent;
-	module.exports = exports['default'];
-
-/***/ },
-/* 208 */
-/*!*************************************************************************!*\
-  !*** ./assets/javascripts/components/Cards/YoutubeCardComponent.js.jsx ***!
-  \*************************************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-	
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-	
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var _reactAddons = __webpack_require__(/*! react/addons */ 4);
-	
-	var _reactAddons2 = _interopRequireDefault(_reactAddons);
-	
-	var YoutubeCardComponent = (function (_React$Component) {
-	  _inherits(YoutubeCardComponent, _React$Component);
-	
-	  _createClass(YoutubeCardComponent, null, [{
-	    key: 'displayName',
-	    value: 'Youtube Card Component',
-	    enumerable: true
-	  }, {
-	    key: 'propTypes',
-	    value: {
-	      media: _reactAddons2['default'].PropTypes.string,
-	      title: _reactAddons2['default'].PropTypes.string,
-	      id: _reactAddons2['default'].PropTypes.string
-	    },
-	    enumerable: true
-	  }, {
-	    key: 'defaultProps',
-	    value: {},
-	    enumerable: true
-	  }]);
-	
-	  function YoutubeCardComponent(props) {
-	    var _this = this;
-	
-	    _classCallCheck(this, YoutubeCardComponent);
-	
-	    _get(Object.getPrototypeOf(YoutubeCardComponent.prototype), 'constructor', this).call(this, props);
-	
-	    this.redirect = function () {
-	      window.location = 'https://www.youtube.com/watch?v=' + _this.props.id;
-	    };
-	  }
-	
-	  _createClass(YoutubeCardComponent, [{
-	    key: 'render',
-	    value: function render() {
-	      return _reactAddons2['default'].createElement(
-	        'div',
-	        { className: 'card youtube-card', onClick: this.redirect },
-	        _reactAddons2['default'].createElement('img', { src: this.props.media }),
-	        _reactAddons2['default'].createElement(
-	          'h1',
-	          null,
-	          this.props.title
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return YoutubeCardComponent;
-	})(_reactAddons2['default'].Component);
-	
-	exports['default'] = YoutubeCardComponent;
-	module.exports = exports['default'];
-
-/***/ },
-/* 209 */
 /*!********************************!*\
   !*** ./~/marked/lib/marked.js ***!
   \********************************/
@@ -31982,6 +30439,1554 @@
 	}());
 	
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 192 */
+/*!****************************************************************************!*\
+  !*** ./assets/javascripts/components/Columns/ImagesColumnComponent.js.jsx ***!
+  \****************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _xhrPromise = __webpack_require__(/*! xhr-promise */ 181);
+	
+	var _xhrPromise2 = _interopRequireDefault(_xhrPromise);
+	
+	var _ColumnComponent2 = __webpack_require__(/*! ./ColumnComponent */ 178);
+	
+	var _ColumnComponent3 = _interopRequireDefault(_ColumnComponent2);
+	
+	var _CardsImageCardComponent = __webpack_require__(/*! ../Cards/ImageCardComponent */ 193);
+	
+	var _CardsImageCardComponent2 = _interopRequireDefault(_CardsImageCardComponent);
+	
+	var XHR = new _xhrPromise2['default']();
+	
+	var ImageColumnComponent = (function (_ColumnComponent) {
+	  _inherits(ImageColumnComponent, _ColumnComponent);
+	
+	  _createClass(ImageColumnComponent, null, [{
+	    key: 'displayName',
+	    value: 'Image Column Component',
+	    enumerable: true
+	  }]);
+	
+	  function ImageColumnComponent(props) {
+	    _classCallCheck(this, ImageColumnComponent);
+	
+	    _get(Object.getPrototypeOf(ImageColumnComponent.prototype), 'constructor', this).call(this, props);
+	    this.state = {};
+	  }
+	
+	  _createClass(ImageColumnComponent, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this = this;
+	
+	      XHR.send({
+	        method: 'GET',
+	        url: window.location.href + 'api/photo'
+	      }).then(function (response) {
+	        _this.setState({
+	          images: JSON.parse(response.responseText)
+	        });
+	        _this.forceUpdate();
+	      })['catch'](function (error) {
+	        console.log(error);
+	      });
+	    }
+	  }, {
+	    key: 'getColumnClass',
+	    value: function getColumnClass() {
+	      return 'images-column';
+	    }
+	  }, {
+	    key: 'renderCards',
+	    value: function renderCards() {
+	      var _this2 = this;
+	
+	      var imageCards = [];
+	      if (this.state.images !== undefined) {
+	        this.state.images.forEach(function (image) {
+	          imageCards.push(React.createElement(_CardsImageCardComponent2['default'], { caption: image.caption, id: image.id,
+	            url: image.small, key: _this2.state.images.indexOf(image) }));
+	        });
+	      }
+	      return imageCards;
+	    }
+	  }, {
+	    key: 'renderColumnHeader',
+	    value: function renderColumnHeader() {
+	      return React.createElement(
+	        'div',
+	        { className: 'column-header' },
+	        'My Photography'
+	      );
+	    }
+	  }]);
+	
+	  return ImageColumnComponent;
+	})(_ColumnComponent3['default']);
+	
+	exports['default'] = ImageColumnComponent;
+	module.exports = exports['default'];
+
+/***/ },
+/* 193 */
+/*!***********************************************************************!*\
+  !*** ./assets/javascripts/components/Cards/ImageCardComponent.js.jsx ***!
+  \***********************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _reactAddons = __webpack_require__(/*! react/addons */ 4);
+	
+	var _reactAddons2 = _interopRequireDefault(_reactAddons);
+	
+	var ImageCardComponent = (function (_React$Component) {
+	  _inherits(ImageCardComponent, _React$Component);
+	
+	  _createClass(ImageCardComponent, null, [{
+	    key: 'displayName',
+	    value: 'Image Card Component',
+	    enumerable: true
+	  }, {
+	    key: 'propTypes',
+	    value: {
+	      caption: _reactAddons2['default'].PropTypes.string,
+	      url: _reactAddons2['default'].PropTypes.string,
+	      id: _reactAddons2['default'].PropTypes.number
+	    },
+	    enumerable: true
+	  }, {
+	    key: 'defaultProps',
+	    value: {},
+	    enumerable: true
+	  }]);
+	
+	  function ImageCardComponent(props) {
+	    _classCallCheck(this, ImageCardComponent);
+	
+	    _get(Object.getPrototypeOf(ImageCardComponent.prototype), 'constructor', this).call(this, props);
+	  }
+	
+	  _createClass(ImageCardComponent, [{
+	    key: 'render',
+	    value: function render() {
+	      return _reactAddons2['default'].createElement(
+	        'div',
+	        { className: 'card image-card' },
+	        _reactAddons2['default'].createElement('img', { src: this.props.url }),
+	        _reactAddons2['default'].createElement(
+	          'h1',
+	          null,
+	          this.props.caption
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return ImageCardComponent;
+	})(_reactAddons2['default'].Component);
+	
+	exports['default'] = ImageCardComponent;
+	module.exports = exports['default'];
+
+/***/ },
+/* 194 */
+/*!*******************************************************************************!*\
+  !*** ./assets/javascripts/components/Columns/InstagramColumnComponent.js.jsx ***!
+  \*******************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _xhrPromise = __webpack_require__(/*! xhr-promise */ 181);
+	
+	var _xhrPromise2 = _interopRequireDefault(_xhrPromise);
+	
+	var _ColumnComponent2 = __webpack_require__(/*! ./ColumnComponent */ 178);
+	
+	var _ColumnComponent3 = _interopRequireDefault(_ColumnComponent2);
+	
+	var _CardsInstagramCardComponent = __webpack_require__(/*! ../Cards/InstagramCardComponent */ 195);
+	
+	var _CardsInstagramCardComponent2 = _interopRequireDefault(_CardsInstagramCardComponent);
+	
+	var XHR = new _xhrPromise2['default']();
+	
+	var InstagramColumnComponent = (function (_ColumnComponent) {
+	  _inherits(InstagramColumnComponent, _ColumnComponent);
+	
+	  _createClass(InstagramColumnComponent, null, [{
+	    key: 'displayName',
+	    value: 'Instagram Column Component',
+	    enumerable: true
+	  }]);
+	
+	  function InstagramColumnComponent(props) {
+	    _classCallCheck(this, InstagramColumnComponent);
+	
+	    _get(Object.getPrototypeOf(InstagramColumnComponent.prototype), 'constructor', this).call(this, props);
+	    this.state = {};
+	  }
+	
+	  _createClass(InstagramColumnComponent, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this = this;
+	
+	      XHR.send({
+	        method: 'GET',
+	        url: window.location.href + 'api/instagram'
+	      }).then(function (response) {
+	        _this.setState({
+	          images: JSON.parse(response.responseText)
+	        });
+	        _this.forceUpdate();
+	      })['catch'](function (error) {
+	        console.log(error);
+	      });
+	    }
+	  }, {
+	    key: 'getColumnClass',
+	    value: function getColumnClass() {
+	      return 'instagram-column';
+	    }
+	  }, {
+	    key: 'renderCards',
+	    value: function renderCards() {
+	      var _this2 = this;
+	
+	      var imageCards = [];
+	      if (this.state.images !== undefined) {
+	        this.state.images.forEach(function (image) {
+	          imageCards.push(React.createElement(_CardsInstagramCardComponent2['default'], { link: image.link,
+	            url: image.url, key: _this2.state.images.indexOf(image) }));
+	        });
+	      }
+	      return imageCards;
+	    }
+	  }, {
+	    key: 'renderColumnHeader',
+	    value: function renderColumnHeader() {
+	      return React.createElement(
+	        'div',
+	        { className: 'column-header' },
+	        'Instagram'
+	      );
+	    }
+	  }]);
+	
+	  return InstagramColumnComponent;
+	})(_ColumnComponent3['default']);
+	
+	exports['default'] = InstagramColumnComponent;
+	module.exports = exports['default'];
+
+/***/ },
+/* 195 */
+/*!***************************************************************************!*\
+  !*** ./assets/javascripts/components/Cards/InstagramCardComponent.js.jsx ***!
+  \***************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _reactAddons = __webpack_require__(/*! react/addons */ 4);
+	
+	var _reactAddons2 = _interopRequireDefault(_reactAddons);
+	
+	var InstagramCardComponent = (function (_React$Component) {
+	  _inherits(InstagramCardComponent, _React$Component);
+	
+	  _createClass(InstagramCardComponent, null, [{
+	    key: 'displayName',
+	    value: 'Instagram Card Component',
+	    enumerable: true
+	  }, {
+	    key: 'propTypes',
+	    value: {
+	      link: _reactAddons2['default'].PropTypes.string,
+	      url: _reactAddons2['default'].PropTypes.string
+	    },
+	    enumerable: true
+	  }, {
+	    key: 'defaultProps',
+	    value: {},
+	    enumerable: true
+	  }]);
+	
+	  function InstagramCardComponent(props) {
+	    var _this = this;
+	
+	    _classCallCheck(this, InstagramCardComponent);
+	
+	    _get(Object.getPrototypeOf(InstagramCardComponent.prototype), 'constructor', this).call(this, props);
+	
+	    this.redirect = function () {
+	      window.location = _this.props.link;
+	    };
+	  }
+	
+	  _createClass(InstagramCardComponent, [{
+	    key: 'render',
+	    value: function render() {
+	      return _reactAddons2['default'].createElement(
+	        'div',
+	        { className: 'card instagram-card', onClick: this.redirect },
+	        _reactAddons2['default'].createElement('img', { src: this.props.url })
+	      );
+	    }
+	  }]);
+	
+	  return InstagramCardComponent;
+	})(_reactAddons2['default'].Component);
+	
+	exports['default'] = InstagramCardComponent;
+	module.exports = exports['default'];
+
+/***/ },
+/* 196 */
+/*!****************************************************************************!*\
+  !*** ./assets/javascripts/components/Columns/GithubColumnComponent.js.jsx ***!
+  \****************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _xhrPromise = __webpack_require__(/*! xhr-promise */ 181);
+	
+	var _xhrPromise2 = _interopRequireDefault(_xhrPromise);
+	
+	var _CardsGithubCardComponent = __webpack_require__(/*! ../Cards/GithubCardComponent */ 197);
+	
+	var _CardsGithubCardComponent2 = _interopRequireDefault(_CardsGithubCardComponent);
+	
+	var _ColumnComponent2 = __webpack_require__(/*! ./ColumnComponent */ 178);
+	
+	var _ColumnComponent3 = _interopRequireDefault(_ColumnComponent2);
+	
+	var XHR = new _xhrPromise2['default']();
+	
+	var GithubColumnComponent = (function (_ColumnComponent) {
+	  _inherits(GithubColumnComponent, _ColumnComponent);
+	
+	  _createClass(GithubColumnComponent, null, [{
+	    key: 'displayName',
+	    value: 'Github Column Component',
+	    enumerable: true
+	  }]);
+	
+	  function GithubColumnComponent(props) {
+	    _classCallCheck(this, GithubColumnComponent);
+	
+	    _get(Object.getPrototypeOf(GithubColumnComponent.prototype), 'constructor', this).call(this, props);
+	    this.state = {};
+	  }
+	
+	  _createClass(GithubColumnComponent, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this = this;
+	
+	      XHR.send({
+	        method: 'GET',
+	        url: window.location.href + 'api/github'
+	      }).then(function (response) {
+	        _this.setState({
+	          repos: JSON.parse(response.responseText)
+	        });
+	        _this.forceUpdate();
+	      })['catch'](function (error) {
+	        console.log(error);
+	      });
+	    }
+	  }, {
+	    key: 'getColumnClass',
+	    value: function getColumnClass() {
+	      return 'github-column';
+	    }
+	  }, {
+	    key: 'renderColumnHeader',
+	    value: function renderColumnHeader() {
+	      return React.createElement(
+	        'div',
+	        { className: 'column-header' },
+	        'My Repos'
+	      );
+	    }
+	  }, {
+	    key: 'renderCards',
+	    value: function renderCards() {
+	      var _this2 = this;
+	
+	      var repos = [];
+	      if (this.state.repos !== undefined) {
+	        this.state.repos.forEach(function (repo) {
+	          repos.push(React.createElement(_CardsGithubCardComponent2['default'], { name: repo.name, url: repo.url,
+	            language: repo.language, description: repo.description,
+	            key: _this2.state.repos.indexOf(repo) }));
+	        });
+	      }
+	      return repos;
+	    }
+	  }]);
+	
+	  return GithubColumnComponent;
+	})(_ColumnComponent3['default']);
+	
+	exports['default'] = GithubColumnComponent;
+	module.exports = exports['default'];
+
+/***/ },
+/* 197 */
+/*!************************************************************************!*\
+  !*** ./assets/javascripts/components/Cards/GithubCardComponent.js.jsx ***!
+  \************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _reactAddons = __webpack_require__(/*! react/addons */ 4);
+	
+	var _reactAddons2 = _interopRequireDefault(_reactAddons);
+	
+	var GithubCardComponent = (function (_React$Component) {
+	  _inherits(GithubCardComponent, _React$Component);
+	
+	  _createClass(GithubCardComponent, null, [{
+	    key: 'displayName',
+	    value: 'Github Card Component',
+	    enumerable: true
+	  }, {
+	    key: 'propTypes',
+	    value: {
+	      name: _reactAddons2['default'].PropTypes.string,
+	      description: _reactAddons2['default'].PropTypes.string,
+	      url: _reactAddons2['default'].PropTypes.string,
+	      language: _reactAddons2['default'].PropTypes.string
+	    },
+	    enumerable: true
+	  }, {
+	    key: 'defaultProps',
+	    value: {},
+	    enumerable: true
+	  }]);
+	
+	  function GithubCardComponent(props) {
+	    var _this = this;
+	
+	    _classCallCheck(this, GithubCardComponent);
+	
+	    _get(Object.getPrototypeOf(GithubCardComponent.prototype), 'constructor', this).call(this, props);
+	
+	    this.redirect = function () {
+	      window.location = _this.props.url;
+	    };
+	  }
+	
+	  _createClass(GithubCardComponent, [{
+	    key: 'render',
+	    value: function render() {
+	      return _reactAddons2['default'].createElement(
+	        'div',
+	        { className: 'card github-card', onClick: this.redirect },
+	        _reactAddons2['default'].createElement(
+	          'h1',
+	          null,
+	          this.props.name
+	        ),
+	        _reactAddons2['default'].createElement(
+	          'p',
+	          null,
+	          this.props.description
+	        ),
+	        _reactAddons2['default'].createElement(
+	          'span',
+	          null,
+	          this.props.language
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return GithubCardComponent;
+	})(_reactAddons2['default'].Component);
+	
+	exports['default'] = GithubCardComponent;
+	module.exports = exports['default'];
+
+/***/ },
+/* 198 */
+/*!****************************************************************************!*\
+  !*** ./assets/javascripts/components/Columns/PocketColumnComponent.js.jsx ***!
+  \****************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _xhrPromise = __webpack_require__(/*! xhr-promise */ 181);
+	
+	var _xhrPromise2 = _interopRequireDefault(_xhrPromise);
+	
+	var _CardsPocketCardComponent = __webpack_require__(/*! ../Cards/PocketCardComponent */ 199);
+	
+	var _CardsPocketCardComponent2 = _interopRequireDefault(_CardsPocketCardComponent);
+	
+	var _ColumnComponent2 = __webpack_require__(/*! ./ColumnComponent */ 178);
+	
+	var _ColumnComponent3 = _interopRequireDefault(_ColumnComponent2);
+	
+	var XHR = new _xhrPromise2['default']();
+	
+	var PocketColumnComponent = (function (_ColumnComponent) {
+	  _inherits(PocketColumnComponent, _ColumnComponent);
+	
+	  _createClass(PocketColumnComponent, null, [{
+	    key: 'displayName',
+	    value: 'Pocket Column Component',
+	    enumerable: true
+	  }]);
+	
+	  function PocketColumnComponent(props) {
+	    _classCallCheck(this, PocketColumnComponent);
+	
+	    _get(Object.getPrototypeOf(PocketColumnComponent.prototype), 'constructor', this).call(this, props);
+	    this.state = {};
+	  }
+	
+	  _createClass(PocketColumnComponent, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this = this;
+	
+	      XHR.send({
+	        method: 'GET',
+	        url: window.location.href + 'api/pocket/0'
+	      }).then(function (response) {
+	        _this.setState({
+	          articles: JSON.parse(response.responseText)
+	        });
+	        _this.forceUpdate();
+	      })['catch'](function (error) {
+	        console.log(error);
+	      });
+	    }
+	  }, {
+	    key: 'getColumnClass',
+	    value: function getColumnClass() {
+	      return 'pocket-column';
+	    }
+	  }, {
+	    key: 'renderColumnHeader',
+	    value: function renderColumnHeader() {
+	      return React.createElement(
+	        'div',
+	        { className: 'column-header' },
+	        'My Pocket favorites'
+	      );
+	    }
+	  }, {
+	    key: 'renderCards',
+	    value: function renderCards() {
+	      var _this2 = this;
+	
+	      var pocketCards = [];
+	      if (this.state.articles !== undefined) {
+	        this.state.articles.forEach(function (article) {
+	          pocketCards.push(React.createElement(_CardsPocketCardComponent2['default'], { url: article.url,
+	            title: article.title, excerpt: article.excerpt, key: _this2.state.articles.indexOf(article) }));
+	        });
+	      }
+	      return pocketCards;
+	    }
+	  }]);
+	
+	  return PocketColumnComponent;
+	})(_ColumnComponent3['default']);
+	
+	exports['default'] = PocketColumnComponent;
+	module.exports = exports['default'];
+
+/***/ },
+/* 199 */
+/*!************************************************************************!*\
+  !*** ./assets/javascripts/components/Cards/PocketCardComponent.js.jsx ***!
+  \************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _reactAddons = __webpack_require__(/*! react/addons */ 4);
+	
+	var _reactAddons2 = _interopRequireDefault(_reactAddons);
+	
+	var PocketCardComponent = (function (_React$Component) {
+	  _inherits(PocketCardComponent, _React$Component);
+	
+	  _createClass(PocketCardComponent, null, [{
+	    key: 'displayName',
+	    value: 'Pocket Card Component',
+	    enumerable: true
+	  }, {
+	    key: 'propTypes',
+	    value: {
+	      title: _reactAddons2['default'].PropTypes.string,
+	      excerpt: _reactAddons2['default'].PropTypes.string,
+	      url: _reactAddons2['default'].PropTypes.string
+	    },
+	    enumerable: true
+	  }, {
+	    key: 'defaultProps',
+	    value: {},
+	    enumerable: true
+	  }]);
+	
+	  function PocketCardComponent(props) {
+	    var _this = this;
+	
+	    _classCallCheck(this, PocketCardComponent);
+	
+	    _get(Object.getPrototypeOf(PocketCardComponent.prototype), 'constructor', this).call(this, props);
+	
+	    this.redirect = function () {
+	      window.location = _this.props.url;
+	    };
+	  }
+	
+	  _createClass(PocketCardComponent, [{
+	    key: 'render',
+	    value: function render() {
+	      return _reactAddons2['default'].createElement(
+	        'div',
+	        { className: 'card pocket-card', onClick: this.redirect },
+	        _reactAddons2['default'].createElement(
+	          'h1',
+	          null,
+	          this.props.title
+	        ),
+	        _reactAddons2['default'].createElement(
+	          'p',
+	          null,
+	          this.props.excerpt
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return PocketCardComponent;
+	})(_reactAddons2['default'].Component);
+	
+	exports['default'] = PocketCardComponent;
+	module.exports = exports['default'];
+
+/***/ },
+/* 200 */
+/*!*****************************************************************************!*\
+  !*** ./assets/javascripts/components/Columns/TwitterColumnComponent.js.jsx ***!
+  \*****************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _xhrPromise = __webpack_require__(/*! xhr-promise */ 181);
+	
+	var _xhrPromise2 = _interopRequireDefault(_xhrPromise);
+	
+	var _CardsTwitterCardComponent = __webpack_require__(/*! ../Cards/TwitterCardComponent */ 201);
+	
+	var _CardsTwitterCardComponent2 = _interopRequireDefault(_CardsTwitterCardComponent);
+	
+	var _ColumnComponent2 = __webpack_require__(/*! ./ColumnComponent */ 178);
+	
+	var _ColumnComponent3 = _interopRequireDefault(_ColumnComponent2);
+	
+	var XHR = new _xhrPromise2['default']();
+	
+	var TwitterColumnComponent = (function (_ColumnComponent) {
+	  _inherits(TwitterColumnComponent, _ColumnComponent);
+	
+	  _createClass(TwitterColumnComponent, null, [{
+	    key: 'displayName',
+	    value: 'Twitter Column Component',
+	    enumerable: true
+	  }]);
+	
+	  function TwitterColumnComponent(props) {
+	    _classCallCheck(this, TwitterColumnComponent);
+	
+	    _get(Object.getPrototypeOf(TwitterColumnComponent.prototype), 'constructor', this).call(this, props);
+	    this.state = {};
+	  }
+	
+	  _createClass(TwitterColumnComponent, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this = this;
+	
+	      XHR.send({
+	        method: 'GET',
+	        url: window.location.href + 'api/twitter'
+	      }).then(function (response) {
+	        _this.setState({
+	          tweets: JSON.parse(response.responseText)
+	        });
+	        _this.forceUpdate();
+	      })['catch'](function (error) {
+	        console.log(error);
+	      });
+	    }
+	  }, {
+	    key: 'getColumnClass',
+	    value: function getColumnClass() {
+	      return 'twitter-column';
+	    }
+	  }, {
+	    key: 'renderColumnHeader',
+	    value: function renderColumnHeader() {
+	      return React.createElement(
+	        'div',
+	        { className: 'column-header' },
+	        'My Tweets'
+	      );
+	    }
+	  }, {
+	    key: 'renderCards',
+	    value: function renderCards() {
+	      var _this2 = this;
+	
+	      var tweetCards = [];
+	      if (this.state.tweets !== undefined) {
+	        this.state.tweets.forEach(function (tweet) {
+	          tweetCards.push(React.createElement(_CardsTwitterCardComponent2['default'], { text: tweet.text || tweet.myText,
+	            author: tweet.author, media: tweet.imgUrl, key: _this2.state.tweets.indexOf(tweet) }));
+	        });
+	      }
+	      return tweetCards;
+	    }
+	  }]);
+	
+	  return TwitterColumnComponent;
+	})(_ColumnComponent3['default']);
+	
+	exports['default'] = TwitterColumnComponent;
+	module.exports = exports['default'];
+
+/***/ },
+/* 201 */
+/*!*************************************************************************!*\
+  !*** ./assets/javascripts/components/Cards/TwitterCardComponent.js.jsx ***!
+  \*************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _reactAddons = __webpack_require__(/*! react/addons */ 4);
+	
+	var _reactAddons2 = _interopRequireDefault(_reactAddons);
+	
+	var TwitterCardComponent = (function (_React$Component) {
+	  _inherits(TwitterCardComponent, _React$Component);
+	
+	  _createClass(TwitterCardComponent, null, [{
+	    key: 'displayName',
+	    value: 'Twitter Card Component',
+	    enumerable: true
+	  }, {
+	    key: 'propTypes',
+	    value: {
+	      text: _reactAddons2['default'].PropTypes.string,
+	      author: _reactAddons2['default'].PropTypes.string,
+	      media: _reactAddons2['default'].PropTypes.string
+	    },
+	    enumerable: true
+	  }, {
+	    key: 'defaultProps',
+	    value: {},
+	    enumerable: true
+	  }]);
+	
+	  function TwitterCardComponent(props) {
+	    var _this = this;
+	
+	    _classCallCheck(this, TwitterCardComponent);
+	
+	    _get(Object.getPrototypeOf(TwitterCardComponent.prototype), 'constructor', this).call(this, props);
+	
+	    this.redirect = function () {
+	      window.location = 'http://www.twitter.com/' + _this.props.author;
+	    };
+	  }
+	
+	  _createClass(TwitterCardComponent, [{
+	    key: 'render',
+	    value: function render() {
+	      return _reactAddons2['default'].createElement(
+	        'div',
+	        { className: 'card twitter-card' },
+	        this.props.media && _reactAddons2['default'].createElement('img', { src: this.props.media }),
+	        this.props.author && _reactAddons2['default'].createElement(
+	          'span',
+	          { onClick: this.redirect },
+	          'RT @',
+	          this.props.author
+	        ),
+	        _reactAddons2['default'].createElement(
+	          'p',
+	          null,
+	          this.props.text
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return TwitterCardComponent;
+	})(_reactAddons2['default'].Component);
+	
+	exports['default'] = TwitterCardComponent;
+	module.exports = exports['default'];
+
+/***/ },
+/* 202 */
+/*!********************************************************************************!*\
+  !*** ./assets/javascripts/components/Columns/SoundCloudColumnComponent.js.jsx ***!
+  \********************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _xhrPromise = __webpack_require__(/*! xhr-promise */ 181);
+	
+	var _xhrPromise2 = _interopRequireDefault(_xhrPromise);
+	
+	var _ColumnComponent2 = __webpack_require__(/*! ./ColumnComponent */ 178);
+	
+	var _ColumnComponent3 = _interopRequireDefault(_ColumnComponent2);
+	
+	var _CardsSoundCloudCardComponent = __webpack_require__(/*! ../Cards/SoundCloudCardComponent */ 203);
+	
+	var _CardsSoundCloudCardComponent2 = _interopRequireDefault(_CardsSoundCloudCardComponent);
+	
+	var XHR = new _xhrPromise2['default']();
+	
+	var SoundCloudColumnComponent = (function (_ColumnComponent) {
+	  _inherits(SoundCloudColumnComponent, _ColumnComponent);
+	
+	  _createClass(SoundCloudColumnComponent, null, [{
+	    key: 'displayName',
+	    value: 'SoundCloud Column Component',
+	    enumerable: true
+	  }]);
+	
+	  function SoundCloudColumnComponent(props) {
+	    _classCallCheck(this, SoundCloudColumnComponent);
+	
+	    _get(Object.getPrototypeOf(SoundCloudColumnComponent.prototype), 'constructor', this).call(this, props);
+	    this.state = {};
+	  }
+	
+	  _createClass(SoundCloudColumnComponent, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this = this;
+	
+	      XHR.send({
+	        method: 'GET',
+	        url: window.location.href + 'api/soundcloud'
+	      }).then(function (response) {
+	        var tracks = JSON.parse(response.responseText);
+	        _this.setState({
+	          tracks: tracks
+	        });
+	        _this.forceUpdate();
+	      })['catch'](function (error) {
+	        console.log(error);
+	      });
+	    }
+	  }, {
+	    key: 'getColumnClass',
+	    value: function getColumnClass() {
+	      return 'soundcloud-column';
+	    }
+	  }, {
+	    key: 'renderCards',
+	    value: function renderCards() {
+	      var _this2 = this;
+	
+	      var trackCards = [];
+	      if (this.state.tracks !== undefined) {
+	        this.state.tracks.forEach(function (track) {
+	          trackCards.push(React.createElement(_CardsSoundCloudCardComponent2['default'], { title: track.title,
+	            media: track.media, user: track.user, url: track.url,
+	            key: _this2.state.tracks.indexOf(track), id: track.id }));
+	        });
+	      }
+	      return trackCards;
+	    }
+	  }, {
+	    key: 'renderColumnHeader',
+	    value: function renderColumnHeader() {
+	      if (this.state.tracks !== undefined) {
+	        var src = 'https://w.soundcloud.com/player/?url=' + this.state.tracks[0].url + '&amp;auto_play=false&amp;buying=false&amp;liking=false&amp;download=false&amp;sharing=false&amp;show_artwork=false&amp;show_comments=false&amp;show_playcount=false&amp;show_user=true&amp;hide_related=false&amp;visual=false&amp;start_track=0&amp;callback=true';
+	        return React.createElement(
+	          'div',
+	          { className: 'column-header soundcloud-header' },
+	          React.createElement('iframe', { id: 'sc-widget', src: src,
+	            width: '100%', height: '120', scrolling: 'no', frameBorder: 'no' })
+	        );
+	      }
+	    }
+	  }]);
+	
+	  return SoundCloudColumnComponent;
+	})(_ColumnComponent3['default']);
+	
+	exports['default'] = SoundCloudColumnComponent;
+	module.exports = exports['default'];
+
+/***/ },
+/* 203 */
+/*!****************************************************************************!*\
+  !*** ./assets/javascripts/components/Cards/SoundCloudCardComponent.js.jsx ***!
+  \****************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _reactAddons = __webpack_require__(/*! react/addons */ 4);
+	
+	var _reactAddons2 = _interopRequireDefault(_reactAddons);
+	
+	var SoundCloudCardComponent = (function (_React$Component) {
+	  _inherits(SoundCloudCardComponent, _React$Component);
+	
+	  _createClass(SoundCloudCardComponent, null, [{
+	    key: 'displayName',
+	    value: 'SoundCloud Card Component',
+	    enumerable: true
+	  }, {
+	    key: 'propTypes',
+	    value: {
+	      media: _reactAddons2['default'].PropTypes.string,
+	      url: _reactAddons2['default'].PropTypes.string,
+	      user: _reactAddons2['default'].PropTypes.string,
+	      title: _reactAddons2['default'].PropTypes.string,
+	      id: _reactAddons2['default'].PropTypes.number
+	    },
+	    enumerable: true
+	  }, {
+	    key: 'defaultProps',
+	    value: {},
+	    enumerable: true
+	  }]);
+	
+	  function SoundCloudCardComponent(props) {
+	    var _this = this;
+	
+	    _classCallCheck(this, SoundCloudCardComponent);
+	
+	    _get(Object.getPrototypeOf(SoundCloudCardComponent.prototype), 'constructor', this).call(this, props);
+	
+	    this.changePlayer = function () {
+	      var widgetIframe = document.getElementById('sc-widget');
+	      var widget = SC.Widget(widgetIframe);
+	
+	      widget.getCurrentSound(function (currentSound) {
+	        if (currentSound.id !== _this.props.id) {
+	          widget.load(_this.props.url + '&amp;auto_play=true&amp;buying=false&amp;liking=false&amp;download=false&amp;sharing=false&amp;show_artwork=false&amp;show_comments=false&amp;show_playcount=false&amp;show_user=true&amp;hide_related=false&amp;visual=false&amp;start_track=0&amp;callback=true');
+	        }
+	      });
+	    };
+	  }
+	
+	  _createClass(SoundCloudCardComponent, [{
+	    key: 'render',
+	    value: function render() {
+	      return _reactAddons2['default'].createElement(
+	        'div',
+	        { className: 'card soundcloud-card', onClick: this.changePlayer },
+	        _reactAddons2['default'].createElement('img', { src: this.props.media }),
+	        _reactAddons2['default'].createElement(
+	          'span',
+	          null,
+	          this.props.title
+	        ),
+	        _reactAddons2['default'].createElement(
+	          'span',
+	          null,
+	          this.props.user
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return SoundCloudCardComponent;
+	})(_reactAddons2['default'].Component);
+	
+	exports['default'] = SoundCloudCardComponent;
+	module.exports = exports['default'];
+
+/***/ },
+/* 204 */
+/*!*****************************************************************************!*\
+  !*** ./assets/javascripts/components/Columns/YoutubeColumnComponent.js.jsx ***!
+  \*****************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _xhrPromise = __webpack_require__(/*! xhr-promise */ 181);
+	
+	var _xhrPromise2 = _interopRequireDefault(_xhrPromise);
+	
+	var _ColumnComponent2 = __webpack_require__(/*! ./ColumnComponent */ 178);
+	
+	var _ColumnComponent3 = _interopRequireDefault(_ColumnComponent2);
+	
+	var _CardsYoutubeCardComponent = __webpack_require__(/*! ../Cards/YoutubeCardComponent */ 205);
+	
+	var _CardsYoutubeCardComponent2 = _interopRequireDefault(_CardsYoutubeCardComponent);
+	
+	var XHR = new _xhrPromise2['default']();
+	
+	var YoutubeColumnComponent = (function (_ColumnComponent) {
+	  _inherits(YoutubeColumnComponent, _ColumnComponent);
+	
+	  _createClass(YoutubeColumnComponent, null, [{
+	    key: 'displayName',
+	    value: 'Image Column Component',
+	    enumerable: true
+	  }]);
+	
+	  function YoutubeColumnComponent(props) {
+	    _classCallCheck(this, YoutubeColumnComponent);
+	
+	    _get(Object.getPrototypeOf(YoutubeColumnComponent.prototype), 'constructor', this).call(this, props);
+	    this.state = {};
+	  }
+	
+	  _createClass(YoutubeColumnComponent, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this = this;
+	
+	      var player = undefined;
+	      var onYouTubeIframeAPIReady = function onYouTubeIframeAPIReady() {
+	        console.log('yo');
+	        player = new YT.Player('player', {
+	          height: '390',
+	          width: '640',
+	          videoId: 'M7lc1UVf-VE',
+	          events: {
+	            'onReady': onPlayerReady,
+	            'onStateChange': onPlayerStateChange
+	          }
+	        });
+	      };
+	      XHR.send({
+	        method: 'GET',
+	        url: window.location.href + 'api/youtube'
+	      }).then(function (response) {
+	        _this.setState({
+	          videos: JSON.parse(response.responseText)
+	        });
+	        _this.forceUpdate();
+	      })['catch'](function (error) {
+	        console.log(error);
+	      });
+	    }
+	  }, {
+	    key: 'getColumnClass',
+	    value: function getColumnClass() {
+	      return 'youtube-column';
+	    }
+	  }, {
+	    key: 'renderCards',
+	    value: function renderCards() {
+	      var _this2 = this;
+	
+	      var videoCards = [];
+	      if (this.state.videos !== undefined) {
+	        this.state.videos.forEach(function (video) {
+	          videoCards.push(React.createElement(_CardsYoutubeCardComponent2['default'], { media: video.media,
+	            id: video.id, title: video.title, key: _this2.state.videos.indexOf(video) }));
+	        });
+	      }
+	      return videoCards;
+	    }
+	  }, {
+	    key: 'renderColumnHeader',
+	    value: function renderColumnHeader() {
+	      return React.createElement(
+	        'div',
+	        { className: 'column-header' },
+	        'My Youtube Playlist'
+	      );
+	    }
+	  }]);
+	
+	  return YoutubeColumnComponent;
+	})(_ColumnComponent3['default']);
+	
+	exports['default'] = YoutubeColumnComponent;
+	module.exports = exports['default'];
+
+/***/ },
+/* 205 */
+/*!*************************************************************************!*\
+  !*** ./assets/javascripts/components/Cards/YoutubeCardComponent.js.jsx ***!
+  \*************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _reactAddons = __webpack_require__(/*! react/addons */ 4);
+	
+	var _reactAddons2 = _interopRequireDefault(_reactAddons);
+	
+	var YoutubeCardComponent = (function (_React$Component) {
+	  _inherits(YoutubeCardComponent, _React$Component);
+	
+	  _createClass(YoutubeCardComponent, null, [{
+	    key: 'displayName',
+	    value: 'Youtube Card Component',
+	    enumerable: true
+	  }, {
+	    key: 'propTypes',
+	    value: {
+	      media: _reactAddons2['default'].PropTypes.string,
+	      title: _reactAddons2['default'].PropTypes.string,
+	      id: _reactAddons2['default'].PropTypes.string
+	    },
+	    enumerable: true
+	  }, {
+	    key: 'defaultProps',
+	    value: {},
+	    enumerable: true
+	  }]);
+	
+	  function YoutubeCardComponent(props) {
+	    var _this = this;
+	
+	    _classCallCheck(this, YoutubeCardComponent);
+	
+	    _get(Object.getPrototypeOf(YoutubeCardComponent.prototype), 'constructor', this).call(this, props);
+	
+	    this.redirect = function () {
+	      window.location = 'https://www.youtube.com/watch?v=' + _this.props.id;
+	    };
+	  }
+	
+	  _createClass(YoutubeCardComponent, [{
+	    key: 'render',
+	    value: function render() {
+	      return _reactAddons2['default'].createElement(
+	        'div',
+	        { className: 'card youtube-card', onClick: this.redirect },
+	        _reactAddons2['default'].createElement('img', { src: this.props.media }),
+	        _reactAddons2['default'].createElement(
+	          'h1',
+	          null,
+	          this.props.title
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return YoutubeCardComponent;
+	})(_reactAddons2['default'].Component);
+	
+	exports['default'] = YoutubeCardComponent;
+	module.exports = exports['default'];
+
+/***/ },
+/* 206 */
+/*!********************************************************************************************************!*\
+  !*** ./~/expose-loader?ColumnComponent!./assets/javascripts/components/Columns/ColumnComponent.js.jsx ***!
+  \********************************************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["ColumnComponent"] = __webpack_require__(/*! -!./~/babel-loader?{"optional":["es7.classProperties","es7.objectRestSpread"]}!./~/eslint-loader!./assets/javascripts/components/Columns/ColumnComponent.js.jsx */ 207);
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 207 */
+/*!*********************************************************************************************************************************************************************!*\
+  !*** ./~/babel-loader?{"optional":["es7.classProperties","es7.objectRestSpread"]}!./~/eslint-loader!./assets/javascripts/components/Columns/ColumnComponent.js.jsx ***!
+  \*********************************************************************************************************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _reactAddons = __webpack_require__(/*! react/addons */ 4);
+	
+	var _reactAddons2 = _interopRequireDefault(_reactAddons);
+	
+	var _CardsCardComponent = __webpack_require__(/*! ../Cards/CardComponent */ 179);
+	
+	var _CardsCardComponent2 = _interopRequireDefault(_CardsCardComponent);
+	
+	var ColumnComponent = (function (_React$Component) {
+	  _inherits(ColumnComponent, _React$Component);
+	
+	  _createClass(ColumnComponent, null, [{
+	    key: 'displayName',
+	    value: 'Column Component',
+	    enumerable: true
+	  }]);
+	
+	  function ColumnComponent(props) {
+	    _classCallCheck(this, ColumnComponent);
+	
+	    _get(Object.getPrototypeOf(ColumnComponent.prototype), 'constructor', this).call(this, props);
+	  }
+	
+	  _createClass(ColumnComponent, [{
+	    key: 'getColumnClass',
+	    value: function getColumnClass() {
+	      return '';
+	    }
+	  }, {
+	    key: 'renderCards',
+	    value: function renderCards() {
+	      var cards = [];
+	      [1, 2, 3, 4, 5, 6, 7, 8].forEach(function (data) {
+	        cards.push(_reactAddons2['default'].createElement(_CardsCardComponent2['default'], { num: data, key: data }));
+	      });
+	      return cards;
+	    }
+	  }, {
+	    key: 'renderColumnHeader',
+	    value: function renderColumnHeader() {
+	      return _reactAddons2['default'].createElement(
+	        'div',
+	        { className: 'column-header' },
+	        'Title'
+	      );
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _reactAddons2['default'].createElement(
+	        'div',
+	        { className: 'column ' + this.getColumnClass() },
+	        this.renderColumnHeader(),
+	        _reactAddons2['default'].createElement(
+	          'div',
+	          { className: 'column-content' },
+	          this.renderCards()
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return ColumnComponent;
+	})(_reactAddons2['default'].Component);
+	
+	exports['default'] = ColumnComponent;
+	module.exports = exports['default'];
+
+/***/ },
+/* 208 */
+/*!**************************************************************************************************!*\
+  !*** ./~/expose-loader?CardComponent!./assets/javascripts/components/Cards/CardComponent.js.jsx ***!
+  \**************************************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["CardComponent"] = __webpack_require__(/*! -!./~/babel-loader?{"optional":["es7.classProperties","es7.objectRestSpread"]}!./~/eslint-loader!./assets/javascripts/components/Cards/CardComponent.js.jsx */ 209);
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 209 */
+/*!*****************************************************************************************************************************************************************!*\
+  !*** ./~/babel-loader?{"optional":["es7.classProperties","es7.objectRestSpread"]}!./~/eslint-loader!./assets/javascripts/components/Cards/CardComponent.js.jsx ***!
+  \*****************************************************************************************************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _reactAddons = __webpack_require__(/*! react/addons */ 4);
+	
+	var _reactAddons2 = _interopRequireDefault(_reactAddons);
+	
+	var CardComponent = (function (_React$Component) {
+	  _inherits(CardComponent, _React$Component);
+	
+	  _createClass(CardComponent, null, [{
+	    key: 'displayName',
+	    value: 'Card Component',
+	    enumerable: true
+	  }, {
+	    key: 'propTypes',
+	    value: {
+	      num: _reactAddons2['default'].PropTypes.number
+	    },
+	    enumerable: true
+	  }, {
+	    key: 'defaultProps',
+	    value: {},
+	    enumerable: true
+	  }]);
+	
+	  function CardComponent(props) {
+	    _classCallCheck(this, CardComponent);
+	
+	    _get(Object.getPrototypeOf(CardComponent.prototype), 'constructor', this).call(this, props);
+	    this.state = {};
+	  }
+	
+	  _createClass(CardComponent, [{
+	    key: 'render',
+	    value: function render() {
+	      return _reactAddons2['default'].createElement(
+	        'div',
+	        { className: 'card' },
+	        _reactAddons2['default'].createElement(
+	          'span',
+	          null,
+	          this.props.num
+	        ),
+	        _reactAddons2['default'].createElement(
+	          'p',
+	          null,
+	          'Content'
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return CardComponent;
+	})(_reactAddons2['default'].Component);
+	
+	exports['default'] = CardComponent;
+	module.exports = exports['default'];
 
 /***/ }
 /******/ ]);
