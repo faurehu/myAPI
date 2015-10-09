@@ -38,13 +38,13 @@ module.exports = (app) => {
                       headers: {Authorization: 'Bearer ' + global.twitterToken}
                     }
 
-      https.get(options, function(result) {
+      https.get(options, (result) => {
         var buffer = '';
         result.setEncoding('utf8');
-        result.on('data', function(data) {
+        result.on('data', (data) => {
           buffer += data;
         });
-        result.on('end', function() {
+        result.on('end', () => {
           var response = JSON.parse(buffer);
           res.json(response.map((tweet) => {
             return {
@@ -132,7 +132,8 @@ module.exports = (app) => {
             title: node.title,
             user: node.user.username,
             media: node.artwork_url,
-            url: node.permalink_url
+            url: node.permalink_url,
+            id: node.id
           }
         }));
       });

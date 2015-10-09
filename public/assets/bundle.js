@@ -30306,36 +30306,26 @@
 	  }]);
 	
 	  function SoundCloudColumnComponent(props) {
-	    var _this = this;
-	
 	    _classCallCheck(this, SoundCloudColumnComponent);
 	
 	    _get(Object.getPrototypeOf(SoundCloudColumnComponent.prototype), 'constructor', this).call(this, props);
-	
-	    this.changePlayer = function (url) {
-	      _this.setState({
-	        player: url
-	      });
-	    };
-	
 	    this.state = {};
 	  }
 	
 	  _createClass(SoundCloudColumnComponent, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      var _this2 = this;
+	      var _this = this;
 	
 	      XHR.send({
 	        method: 'GET',
 	        url: window.location.href + 'api/soundcloud'
 	      }).then(function (response) {
 	        var tracks = JSON.parse(response.responseText);
-	        _this2.setState({
-	          tracks: tracks,
-	          player: tracks[0].url
+	        _this.setState({
+	          tracks: tracks
 	        });
-	        _this2.forceUpdate();
+	        _this.forceUpdate();
 	      })['catch'](function (error) {
 	        console.log(error);
 	      });
@@ -30348,15 +30338,14 @@
 	  }, {
 	    key: 'renderCards',
 	    value: function renderCards() {
-	      var _this3 = this;
+	      var _this2 = this;
 	
 	      var trackCards = [];
 	      if (this.state.tracks !== undefined) {
 	        this.state.tracks.forEach(function (track) {
 	          trackCards.push(React.createElement(_CardsSoundCloudCardComponent2['default'], { title: track.title,
 	            media: track.media, user: track.user, url: track.url,
-	            key: _this3.state.tracks.indexOf(track),
-	            changePlayer: _this3.changePlayer }));
+	            key: _this2.state.tracks.indexOf(track), id: track.id }));
 	        });
 	      }
 	      return trackCards;
@@ -30365,7 +30354,7 @@
 	    key: 'renderColumnHeader',
 	    value: function renderColumnHeader() {
 	      if (this.state.tracks !== undefined) {
-	        var src = 'https://w.soundcloud.com/player/?url=' + this.state.player + '&amp;auto_play=false&amp;buying=false&amp;liking=false&amp;download=false&amp;sharing=false&amp;show_artwork=false&amp;show_comments=false&amp;show_playcount=false&amp;show_user=true&amp;hide_related=false&amp;visual=false&amp;start_track=0&amp;callback=true';
+	        var src = 'https://w.soundcloud.com/player/?url=' + this.state.tracks[0].url + '&amp;auto_play=false&amp;buying=false&amp;liking=false&amp;download=false&amp;sharing=false&amp;show_artwork=false&amp;show_comments=false&amp;show_playcount=false&amp;show_user=true&amp;hide_related=false&amp;visual=false&amp;start_track=0&amp;callback=true';
 	        return React.createElement(
 	          'div',
 	          { className: 'column-header soundcloud-header' },
@@ -30423,7 +30412,7 @@
 	      url: _reactAddons2['default'].PropTypes.string,
 	      user: _reactAddons2['default'].PropTypes.string,
 	      title: _reactAddons2['default'].PropTypes.string,
-	      changePlayer: _reactAddons2['default'].PropTypes.func
+	      id: _reactAddons2['default'].PropTypes.integer
 	    },
 	    enumerable: true
 	  }, {
@@ -30433,9 +30422,22 @@
 	  }]);
 	
 	  function SoundCloudCardComponent(props) {
+	    var _this = this;
+	
 	    _classCallCheck(this, SoundCloudCardComponent);
 	
 	    _get(Object.getPrototypeOf(SoundCloudCardComponent.prototype), 'constructor', this).call(this, props);
+	
+	    this.changePlayer = function () {
+	      var widgetIframe = document.getElementById('sc-widget');
+	      var widget = SC.Widget(widgetIframe);
+	
+	      widget.getCurrentSound(function (currentSound) {
+	        if (currentSound.id !== _this.props.id) {
+	          widget.load(_this.props.url + '&amp;auto_play=true&amp;buying=false&amp;liking=false&amp;download=false&amp;sharing=false&amp;show_artwork=false&amp;show_comments=false&amp;show_playcount=false&amp;show_user=true&amp;hide_related=false&amp;visual=false&amp;start_track=0&amp;callback=true');
+	        }
+	      });
+	    };
 	  }
 	
 	  _createClass(SoundCloudCardComponent, [{
@@ -30443,7 +30445,7 @@
 	    value: function render() {
 	      return _reactAddons2['default'].createElement(
 	        'div',
-	        { className: 'card -card', onClick: this.props.changePlayer.bind(null, this.props.url) },
+	        { className: 'card -card', onClick: this.changePlayer },
 	        _reactAddons2['default'].createElement('img', { src: this.props.media }),
 	        _reactAddons2['default'].createElement(
 	          'span',

@@ -7,7 +7,7 @@ export default class SoundCloudCardComponent extends React.Component {
     url: React.PropTypes.string,
     user: React.PropTypes.string,
     title: React.PropTypes.string,
-    changePlayer: React.PropTypes.func
+    id: React.PropTypes.integer
   };
 
   static defaultProps = {}
@@ -18,11 +18,22 @@ export default class SoundCloudCardComponent extends React.Component {
 
   render() {
     return (
-      <div className="card -card" onClick={this.props.changePlayer.bind(null, this.props.url)}>
+      <div className="card -card" onClick={this.changePlayer}>
         <img src={this.props.media}/>
         <span>{this.props.title}</span>
         <span>{this.props.user}</span>
       </div>
     );
+  }
+
+  changePlayer = () => {
+    let widgetIframe = document.getElementById('sc-widget');
+    let widget = SC.Widget(widgetIframe);
+
+    widget.getCurrentSound((currentSound) => {
+      if(currentSound.id !== this.props.id) {
+        widget.load(`${this.props.url}&amp;auto_play=true&amp;buying=false&amp;liking=false&amp;download=false&amp;sharing=false&amp;show_artwork=false&amp;show_comments=false&amp;show_playcount=false&amp;show_user=true&amp;hide_related=false&amp;visual=false&amp;start_track=0&amp;callback=true`);
+      }
+    });
   }
 }
