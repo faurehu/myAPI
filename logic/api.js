@@ -157,11 +157,18 @@ module.exports = (app) => {
       app.get('models').AccessToken.find({where: {service: 'instagram'}})
       .then(response).catch(error);
     },
-    getVideos: (req, res) => {
-
-    },
-    getLinks: (req, res) => {
-
+    getYoutube: (req, res) => {
+      request.get(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLKuiYq4-bq_xbGq09B8u76cJCfek0bm9N&key=${keys.google.key}&maxResults=50`,
+      (err, response, body) => {
+        if(err) {console.log(err);}
+        res.json(JSON.parse(body).items.map((node) => {
+          return {
+            title: node.snippet.title,
+            id: node.id,
+            media: node.snippet.thumbnails.medium.url
+          }
+        }));
+      });
     },
     pocketLogin: (req, res) => {
       let saveToken = (data, created) => {

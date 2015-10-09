@@ -3,12 +3,11 @@ module.exports = {
   apiRoute: {
     blog: '/blog',
     twitter: '/twitter',
-    videos: '/videos',
+    youtube: '/youtube',
     github: '/github',
     pocket: '/pocket/:page',
     soundcloud: '/soundcloud',
     photo: '/photo',
-    instagram: '/instagram',
-    links: '/links'
+    instagram: '/instagram'
   }
 }

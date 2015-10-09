@@ -319,7 +319,8 @@ body, html {
     position: relative; }
     .content .share .fb-share-button {
       position: absolute;
-      left: 60px; }
+      left: 60px;
+      top: 0; }
   .content .postFooter {
     border: 4px solid #34495e;
     border-radius: 10px;
