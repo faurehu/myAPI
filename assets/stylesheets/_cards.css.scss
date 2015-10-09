@@ -1,7 +1,6 @@
 @import './colors.css.scss';
 
 .card {
-  border: 1px solid black;
   margin: 20px;
   background-color: white;
   font-family: 'Chivo', sans-serif;
@@ -30,9 +29,28 @@
 
 .instagram-card {
   img {
-    max-width: 250px;
+    max-width: 300px;
   }
 }
 
 .blog-card {
+
+  @media screen and (min-width: 800px) {
+    width: 300px;
+  }
+}
+
+.twitter-card {
+
+  width: 328px;
+
+  .card-header {
+
+    color: $dark-blue;
+
+    img {
+      max-width: 300px;
+      border: 2px solid $dark-blue;
+    }
+  }
 }

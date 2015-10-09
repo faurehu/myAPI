@@ -1,3 +1,5 @@
+@import './colors.css.scss';
+
 .column {
 
   width: 100%;
@@ -5,12 +7,20 @@
   position: relative;
   overflow-x: hidden;
   background-color: #ECEFF1;
+  padding: 5px;
 
   .column-header {
     display: none;
     position: absolute;
     z-index: 10;
-    width: 100%;
+    text-align: center;
+    font-family: 'Share', sans-serif;
+    font-size: 1.5em;
+    padding: 5px;
+    color: $light-blue;
+    background-color: $pastel-background;
+    border: 2px solid #607D8B;
+    border-radius: 5px;
 
     @media screen and (min-width: 800px) {
       display: block;
@@ -28,5 +38,31 @@
     content: '';
     display: block;
     height: 120px;
+  }
+}
+
+.blog-column {
+  .column-header {
+    margin-left: 118px;
+    width: 100px;
+  }
+
+  .column-content::before {
+    content: '';
+    display: block;
+    height: 30px;
+  }
+}
+
+.twitter-column {
+  .column-header {
+    margin-left: 126px;
+    width: 100px;
+  }
+
+  .column-content::before {
+    content: '';
+    display: block;
+    height: 30px;
   }
 }

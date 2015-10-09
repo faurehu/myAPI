@@ -17,11 +17,15 @@ export default class TwitterCardComponent extends React.Component {
   render() {
     return (
       <div className="card twitter-card">
-        {this.props.media &&
-          <img src={this.props.media}/>
-        }
-        {this.props.author &&
-          <span onClick={this.redirect}>RT @{this.props.author}</span>
+        {(this.props.media !== undefined || this.props.author !== undefined) &&  
+          <div className="card-header">
+            {this.props.media &&
+              <img src={this.props.media}/>
+            }
+            {this.props.author &&
+              <span onClick={this.redirect}>RT @{this.props.author}</span>
+            }
+          </div>
         }
         <p>{this.props.text}</p>
       </div>

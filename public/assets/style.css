@@ -224,12 +224,20 @@ body, html {
   height: 100%;
   position: relative;
   overflow-x: hidden;
-  background-color: #ECEFF1; }
+  background-color: #ECEFF1;
+  padding: 5px; }
   .column .column-header {
     display: none;
     position: absolute;
     z-index: 10;
-    width: 100%; }
+    text-align: center;
+    font-family: 'Share', sans-serif;
+    font-size: 1.5em;
+    padding: 5px;
+    color: #2980b9;
+    background-color: #CFD8DC;
+    border: 2px solid #607D8B;
+    border-radius: 5px; }
     @media screen and (min-width: 800px) {
       .column .column-header {
         display: block; } }
@@ -242,8 +250,25 @@ body, html {
   display: block;
   height: 120px; }
 
+.blog-column .column-header {
+  margin-left: 118px;
+  width: 100px; }
+
+.blog-column .column-content::before {
+  content: '';
+  display: block;
+  height: 30px; }
+
+.twitter-column .column-header {
+  margin-left: 126px;
+  width: 100px; }
+
+.twitter-column .column-content::before {
+  content: '';
+  display: block;
+  height: 30px; }
+
 .card {
-  border: 1px solid black;
   margin: 20px;
   background-color: white;
   font-family: 'Chivo', sans-serif;
@@ -262,7 +287,19 @@ body, html {
     padding: 5px; }
 
 .instagram-card img {
-  max-width: 250px; }
+  max-width: 300px; }
+
+@media screen and (min-width: 800px) {
+  .blog-card {
+    width: 300px; } }
+
+.twitter-card {
+  width: 328px; }
+  .twitter-card .card-header {
+    color: #263238; }
+    .twitter-card .card-header img {
+      max-width: 300px;
+      border: 2px solid #263238; }
 
 .header {
   width: 100%;

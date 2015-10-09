@@ -31280,7 +31280,7 @@
 	      return React.createElement(
 	        'div',
 	        { className: 'column-header' },
-	        'My Tweets'
+	        'Twitter'
 	      );
 	    }
 	  }, {
@@ -31371,12 +31371,16 @@
 	      return _reactAddons2['default'].createElement(
 	        'div',
 	        { className: 'card twitter-card' },
-	        this.props.media && _reactAddons2['default'].createElement('img', { src: this.props.media }),
-	        this.props.author && _reactAddons2['default'].createElement(
-	          'span',
-	          { onClick: this.redirect },
-	          'RT @',
-	          this.props.author
+	        (this.props.media !== undefined || this.props.author !== undefined) && _reactAddons2['default'].createElement(
+	          'div',
+	          { className: 'card-header' },
+	          this.props.media && _reactAddons2['default'].createElement('img', { src: this.props.media }),
+	          this.props.author && _reactAddons2['default'].createElement(
+	            'span',
+	            { onClick: this.redirect },
+	            'RT @',
+	            this.props.author
+	          )
 	        ),
 	        _reactAddons2['default'].createElement(
 	          'p',
