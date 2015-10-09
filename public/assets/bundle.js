@@ -30416,7 +30416,7 @@
 	      url: _reactAddons2['default'].PropTypes.string,
 	      user: _reactAddons2['default'].PropTypes.string,
 	      title: _reactAddons2['default'].PropTypes.string,
-	      id: _reactAddons2['default'].PropTypes.integer
+	      id: _reactAddons2['default'].PropTypes.number
 	    },
 	    enumerable: true
 	  }, {
@@ -30529,6 +30529,19 @@
 	    value: function componentDidMount() {
 	      var _this = this;
 	
+	      var player = undefined;
+	      var onYouTubeIframeAPIReady = function onYouTubeIframeAPIReady() {
+	        console.log('yo');
+	        player = new YT.Player('player', {
+	          height: '390',
+	          width: '640',
+	          videoId: 'M7lc1UVf-VE',
+	          events: {
+	            'onReady': onPlayerReady,
+	            'onStateChange': onPlayerStateChange
+	          }
+	        });
+	      };
 	      XHR.send({
 	        method: 'GET',
 	        url: window.location.href + 'api/youtube'
@@ -30616,7 +30629,7 @@
 	    value: {
 	      media: _reactAddons2['default'].PropTypes.string,
 	      title: _reactAddons2['default'].PropTypes.string,
-	      id: _reactAddons2['default'].PropTypes.number
+	      id: _reactAddons2['default'].PropTypes.string
 	    },
 	    enumerable: true
 	  }, {
@@ -30626,9 +30639,15 @@
 	  }]);
 	
 	  function YoutubeCardComponent(props) {
+	    var _this = this;
+	
 	    _classCallCheck(this, YoutubeCardComponent);
 	
 	    _get(Object.getPrototypeOf(YoutubeCardComponent.prototype), 'constructor', this).call(this, props);
+	
+	    this.redirect = function () {
+	      window.location = 'https://www.youtube.com/watch?v=' + _this.props.id;
+	    };
 	  }
 	
 	  _createClass(YoutubeCardComponent, [{
@@ -30636,7 +30655,7 @@
 	    value: function render() {
 	      return _reactAddons2['default'].createElement(
 	        'div',
-	        { className: 'card youtube-card' },
+	        { className: 'card youtube-card', onClick: this.redirect },
 	        _reactAddons2['default'].createElement('img', { src: this.props.media }),
 	        _reactAddons2['default'].createElement(
 	          'h1',

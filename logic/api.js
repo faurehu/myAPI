@@ -164,7 +164,7 @@ module.exports = (app) => {
         res.json(JSON.parse(body).items.map((node) => {
           return {
             title: node.snippet.title,
-            id: node.id,
+            id: node.snippet.resourceId.videoId,
             media: node.snippet.thumbnails.medium.url
           }
         }));

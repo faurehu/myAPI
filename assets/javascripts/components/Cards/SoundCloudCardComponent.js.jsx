@@ -7,7 +7,7 @@ export default class SoundCloudCardComponent extends React.Component {
     url: React.PropTypes.string,
     user: React.PropTypes.string,
     title: React.PropTypes.string,
-    id: React.PropTypes.integer
+    id: React.PropTypes.number
   };
 
   static defaultProps = {}

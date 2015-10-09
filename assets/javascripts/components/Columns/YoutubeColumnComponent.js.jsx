@@ -12,6 +12,19 @@ export default class YoutubeColumnComponent extends ColumnComponent {
   }
 
   componentDidMount() {
+    let player;
+    let onYouTubeIframeAPIReady = () => {
+      console.log('yo');
+      player = new YT.Player('player', {
+        height: '390',
+        width: '640',
+        videoId: 'M7lc1UVf-VE',
+        events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
+        }
+      });
+    }
     XHR.send({
       method: 'GET',
       url: `${window.location.href}api/youtube`

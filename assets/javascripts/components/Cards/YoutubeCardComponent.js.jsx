@@ -5,7 +5,7 @@ export default class YoutubeCardComponent extends React.Component {
   static propTypes = {
     media: React.PropTypes.string,
     title: React.PropTypes.string,
-    id: React.PropTypes.number
+    id: React.PropTypes.string
   };
 
   static defaultProps = {}
@@ -16,10 +16,14 @@ export default class YoutubeCardComponent extends React.Component {
 
   render() {
     return (
-      <div className="card youtube-card">
+      <div className="card youtube-card" onClick={this.redirect}>
         <img src={this.props.media}/>
         <h1>{this.props.title}</h1>
       </div>
     );
+  }
+
+  redirect = () => {
+    window.location = `https://www.youtube.com/watch?v=${this.props.id}`;
   }
 }
