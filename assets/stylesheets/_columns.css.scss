@@ -21,15 +21,19 @@
     background-color: $pastel-background;
     border: 2px solid #607D8B;
     border-radius: 5px;
-
-    @media screen and (min-width: 800px) {
-      display: block;
-    }
   }
 
   .column-content {
     height: 100%;
     overflow-x: scroll;
+  }
+
+  @media screen and (min-width: 800px) {
+    &:hover {
+      .column-header {
+        display: block;
+      }
+    }
   }
 }
 
@@ -43,26 +47,26 @@
 
 .blog-column {
   .column-header {
-    margin-left: 118px;
+    margin-left: 98px;
     width: 100px;
-  }
-
-  .column-content::before {
-    content: '';
-    display: block;
-    height: 30px;
   }
 }
 
 .twitter-column {
   .column-header {
-    margin-left: 126px;
+    margin-left: 111px;
     width: 100px;
   }
+}
 
-  .column-content::before {
-    content: '';
-    display: block;
-    height: 30px;
+.instagram-column {
+  .column-header {
+    margin-left: 155px;
+  }
+}
+
+.pocket-column {
+  .column-header {
+    margin-left: 51px;
   }
 }

@@ -30528,7 +30528,7 @@
 	      if (this.state.images !== undefined) {
 	        this.state.images.forEach(function (image) {
 	          imageCards.push(React.createElement(_CardsImageCardComponent2['default'], { caption: image.caption, id: image.id,
-	            url: image.small, key: _this2.state.images.indexOf(image) }));
+	            url: image.medium, key: _this2.state.images.indexOf(image) }));
 	        });
 	      }
 	      return imageCards;
@@ -30794,11 +30794,7 @@
 	  _createClass(InstagramCardComponent, [{
 	    key: 'render',
 	    value: function render() {
-	      return _reactAddons2['default'].createElement(
-	        'div',
-	        { className: 'card instagram-card', onClick: this.redirect },
-	        _reactAddons2['default'].createElement('img', { src: this.props.url })
-	      );
+	      return _reactAddons2['default'].createElement('img', { className: 'instagram-card', src: this.props.url });
 	    }
 	  }]);
 	
@@ -31180,9 +31176,13 @@
 	        'div',
 	        { className: 'card pocket-card', onClick: this.redirect },
 	        _reactAddons2['default'].createElement(
-	          'h1',
-	          null,
-	          this.props.title
+	          'div',
+	          { className: 'card-header' },
+	          _reactAddons2['default'].createElement(
+	            'h1',
+	            null,
+	            this.props.title
+	          )
 	        ),
 	        _reactAddons2['default'].createElement(
 	          'p',

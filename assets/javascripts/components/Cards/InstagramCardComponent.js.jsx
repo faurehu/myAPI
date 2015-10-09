@@ -15,9 +15,7 @@ export default class InstagramCardComponent extends React.Component {
 
   render() {
     return (
-      <div className="card instagram-card" onClick={this.redirect}>
-        <img src={this.props.url}/>
-      </div>
+      <img className="instagram-card" src={this.props.url}/>
     );
   }
 

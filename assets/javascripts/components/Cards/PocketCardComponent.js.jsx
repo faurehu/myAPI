@@ -17,8 +17,10 @@ export default class PocketCardComponent extends React.Component {
   render() {
     return (
       <div className="card pocket-card" onClick={this.redirect}>
-        <h1>{this.props.title}</h1>
-        <p>{this.props.excerpt}</p>
+        <div className="card-header">
+          <h1>{this.props.title}</h1>
+        </div>
+          <p>{this.props.excerpt}</p>
       </div>
     );
   }

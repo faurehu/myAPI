@@ -238,12 +238,12 @@ body, html {
     background-color: #CFD8DC;
     border: 2px solid #607D8B;
     border-radius: 5px; }
-    @media screen and (min-width: 800px) {
-      .column .column-header {
-        display: block; } }
   .column .column-content {
     height: 100%;
     overflow-x: scroll; }
+  @media screen and (min-width: 800px) {
+    .column:hover .column-header {
+      display: block; } }
 
 .soundcloud-column .column-content::before {
   content: '';
@@ -251,25 +251,21 @@ body, html {
   height: 120px; }
 
 .blog-column .column-header {
-  margin-left: 118px;
+  margin-left: 98px;
   width: 100px; }
-
-.blog-column .column-content::before {
-  content: '';
-  display: block;
-  height: 30px; }
 
 .twitter-column .column-header {
-  margin-left: 126px;
+  margin-left: 111px;
   width: 100px; }
 
-.twitter-column .column-content::before {
-  content: '';
-  display: block;
-  height: 30px; }
+.instagram-column .column-header {
+  margin-left: 155px; }
+
+.pocket-column .column-header {
+  margin-left: 51px; }
 
 .card {
-  margin: 20px;
+  margin: 5px;
   background-color: white;
   font-family: 'Chivo', sans-serif;
   border: 2px solid #CFD8DC; }
@@ -286,8 +282,10 @@ body, html {
   .card p {
     padding: 5px; }
 
-.instagram-card img {
-  max-width: 300px; }
+.instagram-card {
+  max-width: 400px;
+  border: 2px solid #CFD8DC;
+  margin: 5px; }
 
 @media screen and (min-width: 800px) {
   .blog-card {
@@ -300,6 +298,17 @@ body, html {
     .twitter-card .card-header img {
       max-width: 300px;
       border: 2px solid #263238; }
+
+.image-card {
+  position: relative; }
+  .image-card img {
+    max-width: 400px; }
+  .image-card h1 {
+    position: absolute;
+    bottom: 0; }
+
+.pocket-card {
+  width: 300px; }
 
 .header {
   width: 100%;

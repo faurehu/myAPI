@@ -1,7 +1,7 @@
 @import './colors.css.scss';
 
 .card {
-  margin: 20px;
+  margin: 5px;
   background-color: white;
   font-family: 'Chivo', sans-serif;
   border: 2px solid $blue-grey;
@@ -28,9 +28,9 @@
 }
 
 .instagram-card {
-  img {
-    max-width: 300px;
-  }
+  max-width: 400px;
+  border: 2px solid $blue-grey;
+  margin: 5px;
 }
 
 .blog-card {
@@ -53,4 +53,19 @@
       border: 2px solid $dark-blue;
     }
   }
+}
+
+.image-card {
+  position: relative;
+  img {
+    max-width: 400px;
+  }
+  h1 {
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+.pocket-card {
+  width: 300px;
 }

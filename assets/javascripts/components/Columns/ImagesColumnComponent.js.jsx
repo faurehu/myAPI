@@ -36,7 +36,7 @@ export default class ImageColumnComponent extends ColumnComponent {
     if(this.state.images !== undefined) {
       this.state.images.forEach((image) => {
         imageCards.push(<ImageCardComponent caption={image.caption} id={image.id}
-          url={image.small} key={this.state.images.indexOf(image)}/>);
+          url={image.medium} key={this.state.images.indexOf(image)}/>);
       });
     }
     return imageCards;
