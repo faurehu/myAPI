@@ -203,13 +203,19 @@ body, html {
   .column .column-header {
     display: none;
     position: absolute;
-    z-index: 10; }
+    z-index: 10;
+    width: 100%; }
     @media screen and (min-width: 800px) {
       .column .column-header {
         display: block; } }
   .column .column-content {
     height: 100%;
     overflow-x: scroll; }
+
+.soundcloud-column .column-content::before {
+  content: '';
+  display: block;
+  height: 120px; }
 
 .card {
   border: 1px solid black;

@@ -6,8 +6,9 @@ import InstagramColumnComponent from './Columns/InstagramColumnComponent';
 import GithubColumnComponent from './Columns/GithubColumnComponent';
 import PocketColumnComponent from './Columns/PocketColumnComponent';
 import TwitterColumnComponent from './Columns/TwitterColumnComponent';
+import SoundCloudColumnComponent from './Columns/SoundCloudColumnComponent';
+
 // TODO:
-//M SoundcloudColumnComponent,
 //E RecommendedLinksColumnComponent,
 //E RecommendedVideosColumnComponent
 
@@ -33,18 +34,15 @@ export default class GridComponent extends React.Component {
   }
 
   renderColumns() {
-    let columns = [
+    return [
       <td key={0}><BlogColumnComponent/></td>,
       <td key={1} className="desktop"><TwitterColumnComponent/></td>,
       <td key={2} className="desktop"><ImagesColumnComponent/></td>,
       <td key={3} className="desktop"><PocketColumnComponent/></td>,
       <td key={4} className="desktop"><InstagramColumnComponent/></td>,
-      <td key={5} className="desktop"><GithubColumnComponent/></td>
+      <td key={5} className="desktop"><GithubColumnComponent/></td>,
+      <td key={6} className="desktop"><SoundCloudColumnComponent/></td>
     ];
-    for(var i = 6; i < 9; i++) {
-      columns.push(<td key={i} className="desktop"><ColumnComponent/></td>);
-    }
-    return columns;
   }
 
 

@@ -132,7 +132,7 @@ module.exports = (app) => {
             title: node.title,
             user: node.user.username,
             media: node.artwork_url,
-            id: node.id
+            url: node.permalink_url
           }
         }));
       });

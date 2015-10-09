@@ -131,8 +131,11 @@
 	
 	var _ColumnsTwitterColumnComponent2 = _interopRequireDefault(_ColumnsTwitterColumnComponent);
 	
+	var _ColumnsSoundCloudColumnComponent = __webpack_require__(/*! ./Columns/SoundCloudColumnComponent */ 205);
+	
+	var _ColumnsSoundCloudColumnComponent2 = _interopRequireDefault(_ColumnsSoundCloudColumnComponent);
+	
 	// TODO:
-	//M SoundcloudColumnComponent,
 	//E RecommendedLinksColumnComponent,
 	//E RecommendedVideosColumnComponent
 	
@@ -184,7 +187,7 @@
 	  }, {
 	    key: 'renderColumns',
 	    value: function renderColumns() {
-	      var columns = [_reactAddons2['default'].createElement(
+	      return [_reactAddons2['default'].createElement(
 	        'td',
 	        { key: 0 },
 	        _reactAddons2['default'].createElement(_ColumnsBlogColumnComponent2['default'], null)
@@ -208,15 +211,11 @@
 	        'td',
 	        { key: 5, className: 'desktop' },
 	        _reactAddons2['default'].createElement(_ColumnsGithubColumnComponent2['default'], null)
+	      ), _reactAddons2['default'].createElement(
+	        'td',
+	        { key: 6, className: 'desktop' },
+	        _reactAddons2['default'].createElement(_ColumnsSoundCloudColumnComponent2['default'], null)
 	      )];
-	      for (var i = 6; i < 9; i++) {
-	        columns.push(_reactAddons2['default'].createElement(
-	          'td',
-	          { key: i, className: 'desktop' },
-	          _reactAddons2['default'].createElement(_ColumnsColumnComponent2['default'], null)
-	        ));
-	      }
-	      return columns;
 	    }
 	  }, {
 	    key: 'render',
@@ -30258,6 +30257,212 @@
 	})(_reactAddons2['default'].Component);
 	
 	exports['default'] = CardComponent;
+	module.exports = exports['default'];
+
+/***/ },
+/* 205 */
+/*!********************************************************************************!*\
+  !*** ./assets/javascripts/components/Columns/SoundCloudColumnComponent.js.jsx ***!
+  \********************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _xhrPromise = __webpack_require__(/*! xhr-promise */ 181);
+	
+	var _xhrPromise2 = _interopRequireDefault(_xhrPromise);
+	
+	var _ColumnComponent2 = __webpack_require__(/*! ./ColumnComponent */ 178);
+	
+	var _ColumnComponent3 = _interopRequireDefault(_ColumnComponent2);
+	
+	var _CardsSoundCloudCardComponent = __webpack_require__(/*! ../Cards/SoundCloudCardComponent */ 206);
+	
+	var _CardsSoundCloudCardComponent2 = _interopRequireDefault(_CardsSoundCloudCardComponent);
+	
+	var XHR = new _xhrPromise2['default']();
+	
+	var SoundCloudColumnComponent = (function (_ColumnComponent) {
+	  _inherits(SoundCloudColumnComponent, _ColumnComponent);
+	
+	  _createClass(SoundCloudColumnComponent, null, [{
+	    key: 'displayName',
+	    value: 'SoundCloud Column Component',
+	    enumerable: true
+	  }]);
+	
+	  function SoundCloudColumnComponent(props) {
+	    var _this = this;
+	
+	    _classCallCheck(this, SoundCloudColumnComponent);
+	
+	    _get(Object.getPrototypeOf(SoundCloudColumnComponent.prototype), 'constructor', this).call(this, props);
+	
+	    this.changePlayer = function (url) {
+	      _this.setState({
+	        player: url
+	      });
+	    };
+	
+	    this.state = {};
+	  }
+	
+	  _createClass(SoundCloudColumnComponent, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this2 = this;
+	
+	      XHR.send({
+	        method: 'GET',
+	        url: window.location.href + 'api/soundcloud'
+	      }).then(function (response) {
+	        var tracks = JSON.parse(response.responseText);
+	        _this2.setState({
+	          tracks: tracks,
+	          player: tracks[0].url
+	        });
+	        _this2.forceUpdate();
+	      })['catch'](function (error) {
+	        console.log(error);
+	      });
+	    }
+	  }, {
+	    key: 'getColumnClass',
+	    value: function getColumnClass() {
+	      return 'soundcloud-column';
+	    }
+	  }, {
+	    key: 'renderCards',
+	    value: function renderCards() {
+	      var _this3 = this;
+	
+	      var trackCards = [];
+	      if (this.state.tracks !== undefined) {
+	        this.state.tracks.forEach(function (track) {
+	          trackCards.push(React.createElement(_CardsSoundCloudCardComponent2['default'], { title: track.title,
+	            media: track.media, user: track.user, url: track.url,
+	            key: _this3.state.tracks.indexOf(track),
+	            changePlayer: _this3.changePlayer }));
+	        });
+	      }
+	      return trackCards;
+	    }
+	  }, {
+	    key: 'renderColumnHeader',
+	    value: function renderColumnHeader() {
+	      if (this.state.tracks !== undefined) {
+	        var src = 'https://w.soundcloud.com/player/?url=' + this.state.player + '&amp;auto_play=false&amp;buying=false&amp;liking=false&amp;download=false&amp;sharing=false&amp;show_artwork=false&amp;show_comments=false&amp;show_playcount=false&amp;show_user=true&amp;hide_related=false&amp;visual=false&amp;start_track=0&amp;callback=true';
+	        return React.createElement(
+	          'div',
+	          { className: 'column-header soundcloud-header' },
+	          React.createElement('iframe', { id: 'sc-widget', src: src,
+	            width: '100%', height: '120', scrolling: 'no', frameBorder: 'no' })
+	        );
+	      }
+	    }
+	  }]);
+	
+	  return SoundCloudColumnComponent;
+	})(_ColumnComponent3['default']);
+	
+	exports['default'] = SoundCloudColumnComponent;
+	module.exports = exports['default'];
+
+/***/ },
+/* 206 */
+/*!****************************************************************************!*\
+  !*** ./assets/javascripts/components/Cards/SoundCloudCardComponent.js.jsx ***!
+  \****************************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _reactAddons = __webpack_require__(/*! react/addons */ 4);
+	
+	var _reactAddons2 = _interopRequireDefault(_reactAddons);
+	
+	var SoundCloudCardComponent = (function (_React$Component) {
+	  _inherits(SoundCloudCardComponent, _React$Component);
+	
+	  _createClass(SoundCloudCardComponent, null, [{
+	    key: 'displayName',
+	    value: 'SoundCloud Card Component',
+	    enumerable: true
+	  }, {
+	    key: 'propTypes',
+	    value: {
+	      media: _reactAddons2['default'].PropTypes.string,
+	      url: _reactAddons2['default'].PropTypes.string,
+	      user: _reactAddons2['default'].PropTypes.string,
+	      title: _reactAddons2['default'].PropTypes.string,
+	      changePlayer: _reactAddons2['default'].PropTypes.func
+	    },
+	    enumerable: true
+	  }, {
+	    key: 'defaultProps',
+	    value: {},
+	    enumerable: true
+	  }]);
+	
+	  function SoundCloudCardComponent(props) {
+	    _classCallCheck(this, SoundCloudCardComponent);
+	
+	    _get(Object.getPrototypeOf(SoundCloudCardComponent.prototype), 'constructor', this).call(this, props);
+	  }
+	
+	  _createClass(SoundCloudCardComponent, [{
+	    key: 'render',
+	    value: function render() {
+	      return _reactAddons2['default'].createElement(
+	        'div',
+	        { className: 'card -card', onClick: this.props.changePlayer.bind(null, this.props.url) },
+	        _reactAddons2['default'].createElement('img', { src: this.props.media }),
+	        _reactAddons2['default'].createElement(
+	          'span',
+	          null,
+	          this.props.title
+	        ),
+	        _reactAddons2['default'].createElement(
+	          'span',
+	          null,
+	          this.props.user
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return SoundCloudCardComponent;
+	})(_reactAddons2['default'].Component);
+	
+	exports['default'] = SoundCloudCardComponent;
 	module.exports = exports['default'];
 
 /***/ }
