@@ -16,7 +16,7 @@ export default class TwitterCardComponent extends React.Component {
 
   render() {
     return (
-      <div className="card image-card">
+      <div className="card twitter-card">
         {this.props.media &&
           <img src={this.props.media}/>
         }

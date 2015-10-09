@@ -1,4 +1,5 @@
 import React from 'react/addons';
+
 import ColumnComponent from './Columns/ColumnComponent';
 import BlogColumnComponent from './Columns/BlogColumnComponent';
 import ImagesColumnComponent from './Columns/ImagesColumnComponent';
@@ -7,10 +8,7 @@ import GithubColumnComponent from './Columns/GithubColumnComponent';
 import PocketColumnComponent from './Columns/PocketColumnComponent';
 import TwitterColumnComponent from './Columns/TwitterColumnComponent';
 import SoundCloudColumnComponent from './Columns/SoundCloudColumnComponent';
-
-// TODO:
-//E RecommendedLinksColumnComponent,
-//E RecommendedVideosColumnComponent
+import YoutubeColumnComponent from './Columns/YoutubeColumnComponent';
 
 export default class GridComponent extends React.Component {
   static displayName = 'Grid Component';
@@ -41,7 +39,8 @@ export default class GridComponent extends React.Component {
       <td key={3} className="desktop"><PocketColumnComponent/></td>,
       <td key={4} className="desktop"><InstagramColumnComponent/></td>,
       <td key={5} className="desktop"><GithubColumnComponent/></td>,
-      <td key={6} className="desktop"><SoundCloudColumnComponent/></td>
+      <td key={6} className="desktop"><SoundCloudColumnComponent/></td>,
+      <td key={7} className="desktop"><YoutubeColumnComponent/></td>
     ];
   }
 
