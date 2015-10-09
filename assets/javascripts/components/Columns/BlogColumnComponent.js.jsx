@@ -44,7 +44,8 @@ export default class BlogColumnComponent extends ColumnComponent {
     if(this.state.posts !== undefined) {
       this.state.posts.forEach((post) => {
         postCards.push(<BlogCardComponent title={post.title} id={post.id}
-          subtitle={post.subtitle} key={this.state.posts.indexOf(post)}/>);
+          subtitle={post.subtitle} key={this.state.posts.indexOf(post)}
+          content={post.content}/>);
       });
     }
     return postCards;
