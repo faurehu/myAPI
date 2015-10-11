@@ -56,10 +56,6 @@ export default class YoutubeColumnComponent extends ColumnComponent {
   }
 
   renderColumnHeader() {
-    return (
-      <div className="column-header">
-        My Youtube Playlist
-      </div>
-    );
+    return;
   }
 }

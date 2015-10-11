@@ -43,10 +43,6 @@ export default class ImageColumnComponent extends ColumnComponent {
   }
 
   renderColumnHeader() {
-    return (
-      <div className="column-header">
-        My Photography
-      </div>
-    );
+    return;
   }
 }

@@ -32,11 +32,7 @@ export default class GithubColumnComponent extends ColumnComponent {
   }
 
   renderColumnHeader() {
-    return (
-      <div className="column-header">
-        My Repos
-      </div>
-    );
+    return;
   }
 
   renderCards() {

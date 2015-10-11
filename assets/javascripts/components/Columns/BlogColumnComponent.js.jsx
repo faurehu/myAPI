@@ -32,11 +32,7 @@ export default class BlogColumnComponent extends ColumnComponent {
   }
 
   renderColumnHeader() {
-    return (
-      <div className="column-header">
-        My Posts
-      </div>
-    );
+    return;
   }
 
   renderCards() {

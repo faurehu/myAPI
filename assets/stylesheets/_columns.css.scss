@@ -1,81 +1,26 @@
-@import './colors.css.scss';
 @import './globals.css.scss';
 
 .column {
-
-  width: 100%;
+  background-color: $white;
   height: 100%;
-  position: relative;
   overflow-x: hidden;
-  background-color: #fff;
-
-  .column-header {
-    display: none;
-    position: absolute;
-    z-index: 10;
-    text-align: center;
-    font-family: 'Share', sans-serif;
-    font-size: 1.5em;
-    padding: 5px;
-    color: $light-blue;
-    background-color: $pastel-background;
-    border: 2px solid $border-grey;
-    border-radius: 5px;
-  }
+  position: relative;
+  width: 100%;
 
   .column-content {
     height: 100%;
     overflow-x: hidden;
   }
-
-  @media screen and (min-width: 800px) {
-    &:hover {
-      .column-header {
-        display: block;
-      }
-    }
-  }
 }
 
 .soundcloud-column {
   .column-header {
-    border: none;
-    background-color: transparent;
-    position: initial;
-    display: block;
-    padding: 0;
-    margin-left: -10px;
-  }
-}
+    margin-top: 5px;
 
-.blog-column {
-  .column-header {
-    margin-left: 98px;
-    width: 100px;
-  }
-}
-
-.twitter-column {
-  .column-header {
-    margin-left: 111px;
-    width: 100px;
-  }
-}
-
-.instagram-column {
-  .column-header {
-    margin-left: 155px;
-  }
-}
-
-.pocket-column {
-  .column-header {
-    margin-left: 52px;
-  }
-}
-
-.github-column {
-  .column-header {
-    margin-left: 103px;
+    iframe {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 }

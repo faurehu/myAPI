@@ -43,10 +43,6 @@ export default class InstagramColumnComponent extends ColumnComponent {
   }
 
   renderColumnHeader() {
-    return (
-      <div className="column-header">
-        Instagram
-      </div>
-    );
+    return;
   }
 }

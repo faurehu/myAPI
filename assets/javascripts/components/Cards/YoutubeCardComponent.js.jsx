@@ -18,7 +18,9 @@ export default class YoutubeCardComponent extends React.Component {
     return (
       <div className="card youtube-card" onClick={this.redirect}>
         <img src={this.props.media}/>
-        <h1>{this.props.title}</h1>
+        <div className="card-bottom">
+          <h2>{this.props.title}</h2>
+        </div>
       </div>
     );
   }

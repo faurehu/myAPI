@@ -67,14 +67,14 @@ html {
       @media screen and (min-width: 800px) {
         .grid-container .grid-sidebar .header-image {
           display: block;
-          margin-top: 10px;
           margin-left: 0;
+          margin-top: 10px;
+          text-align: center;
           -moz-transition: margin-left 0.3s;
           -webkit-transition: margin-left 0.3s;
           transition: margin-left 0.3s;
           -webkit-transition-timing-function: ease-out;
           transition-timing-function: ease-out;
-          text-align: center;
           width: 100%; }
           .grid-container .grid-sidebar .header-image img {
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -112,12 +112,12 @@ html {
         vertical-align: middle; }
       .grid-container .grid-sidebar .toggler-container .toggle-button {
         display: inline-block;
+        text-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
         -moz-transition: transform 0.3s;
         -webkit-transition: transform 0.3s;
         transition: transform 0.3s;
         -webkit-transition-timing-function: ease-out;
-        transition-timing-function: ease-out;
-        text-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+        transition-timing-function: ease-out; }
       @media screen and (min-width: 800px) {
         .grid-container .grid-sidebar .toggler-container {
           display: inline; } }
@@ -135,7 +135,10 @@ html {
       .grid-container .grid-sidebar .contact-links a {
         margin-left: 2px;
         margin-right: 2px; }
-        .grid-container .grid-sidebar .contact-links a:hover, .grid-container .grid-sidebar .contact-links a:visited, .grid-container .grid-sidebar .contact-links a:active, .grid-container .grid-sidebar .contact-links a:link {
+        .grid-container .grid-sidebar .contact-links a:hover,
+        .grid-container .grid-sidebar .contact-links a:visited,
+        .grid-container .grid-sidebar .contact-links a:active,
+        .grid-container .grid-sidebar .contact-links a:link {
           color: #fff;
           text-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
       @media screen and (min-width: 800px) {
@@ -196,34 +199,34 @@ html {
       .grid-container .firefox-sidebar .subs h1 {
         font-size: 1.3em; }
     .grid-container .firefox-sidebar .firefox-message {
-      position: absolute;
-      width: 100%;
       bottom: 80px;
+      color: rgba(51, 51, 52, 0.89);
+      font-family: 'Inconsolata', sans-serif;
       margin-left: 5px;
       margin-right: 5px;
-      text-align: center;
-      color: rgba(51, 51, 52, 0.89);
-      font-family: 'Inconsolata', sans-serif; }
-    .grid-container .firefox-sidebar .contact-links {
       position: absolute;
-      width: 100%;
-      bottom: 20px; }
+      text-align: center;
+      width: 100%; }
+    .grid-container .firefox-sidebar .contact-links {
+      bottom: 20px;
+      position: absolute;
+      width: 100%; }
     @media screen and (min-width: 800px) {
       .grid-container .firefox-sidebar {
         width: 100%; } }
   .grid-container .grid-content {
-    width: 100%;
     height: 100%;
-    padding-top: 155px; }
+    padding-top: 155px;
+    width: 100%; }
     .grid-container .grid-content table {
-      width: 100%;
-      height: 100%; }
+      height: 100%;
+      width: 100%; }
       .grid-container .grid-content table tr {
         vertical-align: top; }
         @media screen and (min-width: 800px) {
           .grid-container .grid-content table tr td {
-            width: 250px;
-            min-width: 250px; } }
+            min-width: 250px;
+            width: 250px; } }
         .grid-container .grid-content table tr .desktop {
           display: none; }
           @media screen and (min-width: 800px) {
@@ -231,12 +234,12 @@ html {
               display: table-cell; } }
     @media screen and (min-width: 800px) {
       .grid-container .grid-content {
+        height: 100%;
         margin-left: 355px;
+        padding-top: 0;
         -moz-transition: margin-left 0.3s;
         -webkit-transition: margin-left 0.3s;
-        transition: margin-left 0.3s;
-        padding-top: 0px;
-        height: 100%; } }
+        transition: margin-left 0.3s; } }
   @media screen and (min-width: 800px) {
     .grid-container .collapsed-content {
       margin-left: 45px;
@@ -245,70 +248,37 @@ html {
       transition: margin-left 0.3s; } }
 
 .column {
-  width: 100%;
+  background-color: #fff;
   height: 100%;
-  position: relative;
   overflow-x: hidden;
-  background-color: #fff; }
-  .column .column-header {
-    display: none;
-    position: absolute;
-    z-index: 10;
-    text-align: center;
-    font-family: 'Share', sans-serif;
-    font-size: 1.5em;
-    padding: 5px;
-    color: #448aff;
-    background-color: #edf3fc;
-    border: 2px solid rgba(20, 52, 124, 0.4);
-    border-radius: 5px; }
+  position: relative;
+  width: 100%; }
   .column .column-content {
     height: 100%;
     overflow-x: hidden; }
-  @media screen and (min-width: 800px) {
-    .column:hover .column-header {
-      display: block; } }
 
 .soundcloud-column .column-header {
-  border: none;
-  background-color: transparent;
-  position: initial;
-  display: block;
-  padding: 0;
-  margin-left: -10px; }
-
-.blog-column .column-header {
-  margin-left: 98px;
-  width: 100px; }
-
-.twitter-column .column-header {
-  margin-left: 111px;
-  width: 100px; }
-
-.instagram-column .column-header {
-  margin-left: 155px; }
-
-.pocket-column .column-header {
-  margin-left: 52px; }
-
-.github-column .column-header {
-  margin-left: 103px; }
+  margin-top: 5px; }
+  .soundcloud-column .column-header iframe {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; }
 
 .card {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   background-color: #fff;
   font-family: 'Chivo', sans-serif;
   margin: 10px; }
   .card .card-header {
-    padding: 5px;
     background-color: #b2dfdb;
-    text-align: center;
-    color: rgba(51, 51, 52, 0.89); }
+    color: rgba(51, 51, 52, 0.89);
+    padding: 5px;
+    text-align: center; }
     .card .card-header h1 {
       margin: 0; }
     .card .card-header h2 {
-      margin-top: 5px;
-      margin: 0; }
+      margin: 0;
+      margin-top: 5px; }
   .card .card-bottom {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
     .card .card-bottom p {
@@ -317,9 +287,7 @@ html {
       padding: 5px; }
 
 .instagram-card {
-  max-width: 400px;
-  border: 2px solid rgba(82, 89, 92, 0.1);
-  margin: 5px; }
+  width: 400px; }
 
 @media screen and (min-width: 800px) {
   .blog-card {
@@ -347,13 +315,20 @@ html {
       width: 100%; }
 
 .image-card {
-  position: relative; }
+  color: #fff;
+  position: relative;
+  text-align: center; }
   .image-card img {
     max-width: 400px;
     vertical-align: top; }
   .image-card h1 {
+    background: linear-gradient(to top, black, transparent);
+    bottom: 0;
+    height: 100px;
+    line-height: 100px;
+    margin-bottom: 0;
     position: absolute;
-    bottom: 0; }
+    width: 100%; }
 
 .pocket-card {
   width: 300px; }
@@ -362,17 +337,35 @@ html {
   width: 300px; }
   .github-card h1 {
     word-wrap: break-word; }
+  .github-card .card-bottom .language {
+    color: #00796b; }
 
 .soundcloud-card {
-  width: 300px;
-  position: relative; }
+  position: relative;
+  width: 300px; }
+  .soundcloud-card img {
+    vertical-align: top; }
   .soundcloud-card .soundcloud-titles {
-    padding: 10px;
-    max-width: 180px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     display: inline;
-    position: absolute; }
-    .soundcloud-card .soundcloud-titles span {
+    height: 100%;
+    position: absolute;
+    width: 200px; }
+    .soundcloud-card .soundcloud-titles p {
+      margin-bottom: 5px;
+      margin-left: 5px;
+      margin-top: 5px;
       word-wrap: break-word; }
+    .soundcloud-card .soundcloud-titles .title {
+      color: #00796b; }
+
+.youtube-card img {
+  vertical-align: top; }
+
+.youtube-card .card-bottom {
+  padding: 5px; }
+  .youtube-card .card-bottom h2 {
+    margin: 0; }
 
 .header {
   width: 100%;

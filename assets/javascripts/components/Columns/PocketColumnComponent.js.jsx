@@ -32,11 +32,7 @@ export default class PocketColumnComponent extends ColumnComponent {
   }
 
   renderColumnHeader() {
-    return (
-      <div className="column-header">
-        My Pocket favorites
-      </div>
-    );
+    return;
   }
 
   renderCards() {

@@ -1,0 +1,19 @@
+scss_files: "**/*.scss"
+plugin_directories: ['.scss-linters']
+
+linters:
+
+  NestingDepth:
+    enabled: false
+
+  VendorPrefix:
+    enabled: false
+
+  ImportPath:
+    enabled: false
+
+  IdSelector:
+    enabled: false
+
+  SelectorDepth:
+    enabled: false

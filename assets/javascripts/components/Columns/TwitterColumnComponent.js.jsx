@@ -32,11 +32,7 @@ export default class TwitterColumnComponent extends ColumnComponent {
   }
 
   renderColumnHeader() {
-    return (
-      <div className="column-header">
-        Twitter
-      </div>
-    );
+    return;
   }
 
   renderCards() {

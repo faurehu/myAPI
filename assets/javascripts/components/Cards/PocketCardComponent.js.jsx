@@ -20,7 +20,9 @@ export default class PocketCardComponent extends React.Component {
         <div className="card-header">
           <h1>{this.props.title}</h1>
         </div>
+        <div className="card-bottom">
           <p>{this.props.excerpt}</p>
+        </div>
       </div>
     );
   }

@@ -23590,11 +23590,7 @@
 	  }, {
 	    key: 'renderColumnHeader',
 	    value: function renderColumnHeader() {
-	      return React.createElement(
-	        'div',
-	        { className: 'column-header' },
-	        'My Posts'
-	      );
+	      return;
 	    }
 	  }, {
 	    key: 'renderCards',
@@ -30540,11 +30536,7 @@
 	  }, {
 	    key: 'renderColumnHeader',
 	    value: function renderColumnHeader() {
-	      return React.createElement(
-	        'div',
-	        { className: 'column-header' },
-	        'My Photography'
-	      );
+	      return;
 	    }
 	  }]);
 	
@@ -30722,11 +30714,7 @@
 	  }, {
 	    key: 'renderColumnHeader',
 	    value: function renderColumnHeader() {
-	      return React.createElement(
-	        'div',
-	        { className: 'column-header' },
-	        'Instagram'
-	      );
+	      return;
 	    }
 	  }]);
 	
@@ -30798,7 +30786,7 @@
 	  _createClass(InstagramCardComponent, [{
 	    key: 'render',
 	    value: function render() {
-	      return _reactAddons2['default'].createElement('img', { className: 'instagram-card', src: this.props.url, onClick: this.redirect });
+	      return _reactAddons2['default'].createElement('img', { className: 'card instagram-card', src: this.props.url, onClick: this.redirect });
 	    }
 	  }]);
 	
@@ -30886,11 +30874,7 @@
 	  }, {
 	    key: 'renderColumnHeader',
 	    value: function renderColumnHeader() {
-	      return React.createElement(
-	        'div',
-	        { className: 'column-header' },
-	        'My Repos'
-	      );
+	      return;
 	    }
 	  }, {
 	    key: 'renderCards',
@@ -30992,11 +30976,20 @@
 	          )
 	        ),
 	        _reactAddons2['default'].createElement(
-	          'p',
-	          null,
-	          this.props.description,
-	          ' | ',
-	          this.props.language
+	          'div',
+	          { className: 'card-bottom' },
+	          _reactAddons2['default'].createElement(
+	            'p',
+	            null,
+	            this.props.description,
+	            ' |',
+	            _reactAddons2['default'].createElement(
+	              'b',
+	              { className: 'language' },
+	              ' ',
+	              this.props.language
+	            )
+	          )
 	        )
 	      );
 	    }
@@ -31086,11 +31079,7 @@
 	  }, {
 	    key: 'renderColumnHeader',
 	    value: function renderColumnHeader() {
-	      return React.createElement(
-	        'div',
-	        { className: 'column-header' },
-	        'My Pocket favorites'
-	      );
+	      return;
 	    }
 	  }, {
 	    key: 'renderCards',
@@ -31190,9 +31179,13 @@
 	          )
 	        ),
 	        _reactAddons2['default'].createElement(
-	          'p',
-	          null,
-	          this.props.excerpt
+	          'div',
+	          { className: 'card-bottom' },
+	          _reactAddons2['default'].createElement(
+	            'p',
+	            null,
+	            this.props.excerpt
+	          )
 	        )
 	      );
 	    }
@@ -31282,11 +31275,7 @@
 	  }, {
 	    key: 'renderColumnHeader',
 	    value: function renderColumnHeader() {
-	      return React.createElement(
-	        'div',
-	        { className: 'column-header' },
-	        'Twitter'
-	      );
+	      return;
 	    }
 	  }, {
 	    key: 'renderCards',
@@ -31612,14 +31601,13 @@
 	          'div',
 	          { className: 'soundcloud-titles' },
 	          _reactAddons2['default'].createElement(
-	            'span',
+	            'p',
 	            null,
 	            this.props.title
 	          ),
-	          _reactAddons2['default'].createElement('br', null),
 	          _reactAddons2['default'].createElement(
-	            'span',
-	            null,
+	            'p',
+	            { className: 'title' },
 	            this.props.user
 	          )
 	        )
@@ -31738,11 +31726,7 @@
 	  }, {
 	    key: 'renderColumnHeader',
 	    value: function renderColumnHeader() {
-	      return React.createElement(
-	        'div',
-	        { className: 'column-header' },
-	        'My Youtube Playlist'
-	      );
+	      return;
 	    }
 	  }]);
 	
@@ -31820,9 +31804,13 @@
 	        { className: 'card youtube-card', onClick: this.redirect },
 	        _reactAddons2['default'].createElement('img', { src: this.props.media }),
 	        _reactAddons2['default'].createElement(
-	          'h1',
-	          null,
-	          this.props.title
+	          'div',
+	          { className: 'card-bottom' },
+	          _reactAddons2['default'].createElement(
+	            'h2',
+	            null,
+	            this.props.title
+	          )
 	        )
 	      );
 	    }

@@ -1,25 +1,24 @@
-@import './colors.css.scss';
 @import './globals.css.scss';
 
 .card {
-  @include shadow-helper(1);
-  background-color: #fff;
+  @include shadow-helper(2);
+  background-color: $white;
   font-family: 'Chivo', sans-serif;
   margin: 10px;
 
   .card-header {
-    padding: 5px;
     background-color: $teal-100;
-    text-align: center;
     color: $dark-blue;
+    padding: 5px;
+    text-align: center;
 
     h1 {
       margin: 0;
     }
 
     h2 {
-      margin-top: 5px;
       margin: 0;
+      margin-top: 5px;
     }
   }
 
@@ -35,13 +34,10 @@
 }
 
 .instagram-card {
-  max-width: 400px;
-  border: 2px solid $blue-grey;
-  margin: 5px;
+  width: 400px;
 }
 
 .blog-card {
-
   @media screen and (min-width: 800px) {
     width: 300px;
   }
@@ -76,14 +72,23 @@
 }
 
 .image-card {
+  color: $white;
   position: relative;
+  text-align: center;
+
   img {
     max-width: 400px;
     vertical-align: top;
   }
+
   h1 {
-    position: absolute;
+    background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
     bottom: 0;
+    height: 100px;
+    line-height: 100px;
+    margin-bottom: 0;
+    position: absolute;
+    width: 100%;
   }
 }
 
@@ -97,20 +102,53 @@
   h1 {
     word-wrap: break-word;
   }
+
+  .card-bottom {
+    .language {
+      color: $teal-700;
+    }
+  }
 }
 
 .soundcloud-card {
-  width: 300px;
   position: relative;
+  width: 300px;
+
+  img {
+    vertical-align: top;
+  }
 
   .soundcloud-titles {
-    padding: 10px;
-    max-width: 180px;
+    @include shadow-helper(1);
     display: inline;
+    height: 100%;
     position: absolute;
+    width: 200px;
 
-    span {
+    p {
+      margin-bottom: 5px;
+      margin-left: 5px;
+      margin-top: 5px;
       word-wrap: break-word;
+    }
+
+    .title {
+      color: $teal-700;
+    }
+  }
+}
+
+.youtube-card {
+
+  img {
+    vertical-align: top;
+  }
+
+  .card-bottom {
+    padding: 5px;
+
+    h2 {
+      margin: 0;
     }
   }
 }

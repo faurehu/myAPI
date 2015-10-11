@@ -21,7 +21,9 @@ export default class GithubCardComponent extends React.Component {
         <div className="card-header">
           <h1>{this.props.name}</h1>
         </div>
-        <p>{this.props.description} | {this.props.language}</p>
+        <div className="card-bottom">
+          <p>{this.props.description} |<b className="language"> {this.props.language}</b></p>
+        </div>
       </div>
     );
   }
