@@ -326,12 +326,25 @@ html {
     width: 300px; } }
 
 .twitter-card {
-  width: 328px; }
+  width: 400px; }
   .twitter-card .card-header {
-    color: rgba(51, 51, 52, 0.89); }
+    color: rgba(51, 51, 52, 0.89);
+    font-size: 1.2em;
+    padding: 0;
+    position: relative; }
     .twitter-card .card-header img {
-      max-width: 300px;
-      border: 2px solid rgba(51, 51, 52, 0.89); }
+      display: inline;
+      vertical-align: top;
+      width: 100%; }
+    .twitter-card .card-header .gradient-image {
+      background: linear-gradient(to top, black, transparent);
+      bottom: 0;
+      color: #fff;
+      height: 50px;
+      left: 0;
+      line-height: 50px;
+      position: absolute;
+      width: 100%; }
 
 .image-card {
   position: relative; }

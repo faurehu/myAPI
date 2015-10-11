@@ -31382,15 +31382,19 @@
 	          this.props.media && _reactAddons2['default'].createElement('img', { src: this.props.media }),
 	          this.props.author && _reactAddons2['default'].createElement(
 	            'span',
-	            { onClick: this.redirect },
-	            'RT @',
-	            this.props.author
+	            { onClick: this.redirect,
+	              className: this.props.media !== undefined ? 'gradient-image' : '' },
+	            'RT @' + this.props.author
 	          )
 	        ),
 	        _reactAddons2['default'].createElement(
-	          'p',
-	          null,
-	          this.props.text
+	          'div',
+	          { className: 'card-bottom' },
+	          _reactAddons2['default'].createElement(
+	            'p',
+	            null,
+	            this.props.text
+	          )
 	        )
 	      );
 	    }

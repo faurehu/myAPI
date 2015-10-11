@@ -48,16 +48,29 @@
 }
 
 .twitter-card {
-
-  width: 328px;
+  width: 400px;
 
   .card-header {
-
     color: $dark-blue;
+    font-size: 1.2em;
+    padding: 0;
+    position: relative;
 
     img {
-      max-width: 300px;
-      border: 2px solid $dark-blue;
+      display: inline;
+      vertical-align: top;
+      width: 100%;
+    }
+
+    .gradient-image {
+      background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+      bottom: 0;
+      color: $white;
+      height: 50px;
+      left: 0;
+      line-height: 50px;
+      position: absolute;
+      width: 100%;
     }
   }
 }
