@@ -50,9 +50,20 @@ export default class SoundCloudColumnComponent extends ColumnComponent {
       return (
         <div className="column-header soundcloud-header">
           <iframe id="sc-widget" src={src}
-            width="100%" height="120" scrolling="no" frameBorder="no"></iframe>
+            width="300" height="120" scrolling="no" frameBorder="no"></iframe>
         </div>
       );
     }
+  }
+
+  render() {
+    return (
+      <div className={`column ${this.getColumnClass()}`}>
+        <div className="column-content">
+          {this.renderColumnHeader()}
+          {this.renderCards()}
+        </div>
+      </div>
+    );
   }
 }

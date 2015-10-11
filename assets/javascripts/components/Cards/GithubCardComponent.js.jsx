@@ -18,9 +18,10 @@ export default class GithubCardComponent extends React.Component {
   render() {
     return (
       <div className="card github-card" onClick={this.redirect}>
-        <h1>{this.props.name}</h1>
-        <p>{this.props.description}</p>
-        <span>{this.props.language}</span>
+        <div className="card-header">
+          <h1>{this.props.name}</h1>
+        </div>
+        <p>{this.props.description} | {this.props.language}</p>
       </div>
     );
   }

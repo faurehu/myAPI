@@ -14,7 +14,7 @@
       -webkit-transition: width 0.3s;
       transition: width 0.3s;
       height: 155px;
-      border-bottom: 4px solid #607D8B;
+      border-bottom: 4px solid $border-grey;
       background-color: $pastel-background;
       z-index: 20;
 
@@ -150,7 +150,7 @@
               margin-right: 2px;
 
               &:hover, &:visited, &:active, &:link {
-                  color: #607D8B;
+                  color: $border-grey;
                   text-shadow: 2px 2px 1px $dark-blue;
               }
           }
@@ -180,7 +180,7 @@
         position: fixed;
         width: 350px;
         height: 100%;
-        border-right: 4px solid #607D8B;
+        border-right: 4px solid $border-grey;
       }
     }
 

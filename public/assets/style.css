@@ -240,15 +240,18 @@ body, html {
     border-radius: 5px; }
   .column .column-content {
     height: 100%;
-    overflow-x: scroll; }
+    overflow-x: hidden; }
   @media screen and (min-width: 800px) {
     .column:hover .column-header {
       display: block; } }
 
-.soundcloud-column .column-content::before {
-  content: '';
+.soundcloud-column .column-header {
+  border: none;
+  background-color: transparent;
+  position: initial;
   display: block;
-  height: 120px; }
+  padding: 0;
+  margin-left: -10px; }
 
 .blog-column .column-header {
   margin-left: 98px;
@@ -262,7 +265,10 @@ body, html {
   margin-left: 155px; }
 
 .pocket-column .column-header {
-  margin-left: 51px; }
+  margin-left: 52px; }
+
+.github-column .column-header {
+  margin-left: 103px; }
 
 .card {
   margin: 5px;
@@ -302,13 +308,30 @@ body, html {
 .image-card {
   position: relative; }
   .image-card img {
-    max-width: 400px; }
+    max-width: 400px;
+    vertical-align: top; }
   .image-card h1 {
     position: absolute;
     bottom: 0; }
 
 .pocket-card {
   width: 300px; }
+
+.github-card {
+  width: 300px; }
+  .github-card h1 {
+    word-wrap: break-word; }
+
+.soundcloud-card {
+  width: 300px;
+  position: relative; }
+  .soundcloud-card .soundcloud-titles {
+    padding: 10px;
+    max-width: 180px;
+    display: inline;
+    position: absolute; }
+    .soundcloud-card .soundcloud-titles span {
+      word-wrap: break-word; }
 
 .header {
   width: 100%;

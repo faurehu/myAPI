@@ -8,7 +8,7 @@
 
   .card-header {
     padding: 5px;
-    background-color: #B0BEC5;
+    background-color: $card-header;
     text-align: center;
     color: $dark-blue;
 
@@ -59,6 +59,7 @@
   position: relative;
   img {
     max-width: 400px;
+    vertical-align: top;
   }
   h1 {
     position: absolute;
@@ -68,4 +69,28 @@
 
 .pocket-card {
   width: 300px;
+}
+
+.github-card {
+  width: 300px;
+
+  h1 {
+    word-wrap: break-word;
+  }
+}
+
+.soundcloud-card {
+  width: 300px;
+  position: relative;
+
+  .soundcloud-titles {
+    padding: 10px;
+    max-width: 180px;
+    display: inline;
+    position: absolute;
+
+    span {
+      word-wrap: break-word;
+    }
+  }
 }

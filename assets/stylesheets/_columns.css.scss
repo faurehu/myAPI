@@ -6,7 +6,7 @@
   height: 100%;
   position: relative;
   overflow-x: hidden;
-  background-color: #ECEFF1;
+  background-color: $column-background;
   padding: 5px;
 
   .column-header {
@@ -19,13 +19,13 @@
     padding: 5px;
     color: $light-blue;
     background-color: $pastel-background;
-    border: 2px solid #607D8B;
+    border: 2px solid $border-grey;
     border-radius: 5px;
   }
 
   .column-content {
     height: 100%;
-    overflow-x: scroll;
+    overflow-x: hidden;
   }
 
   @media screen and (min-width: 800px) {
@@ -38,10 +38,13 @@
 }
 
 .soundcloud-column {
-  .column-content::before {
-    content: '';
+  .column-header {
+    border: none;
+    background-color: transparent;
+    position: initial;
     display: block;
-    height: 120px;
+    padding: 0;
+    margin-left: -10px;
   }
 }
 
@@ -67,6 +70,12 @@
 
 .pocket-column {
   .column-header {
-    margin-left: 51px;
+    margin-left: 52px;
+  }
+}
+
+.github-column {
+  .column-header {
+    margin-left: 103px;
   }
 }

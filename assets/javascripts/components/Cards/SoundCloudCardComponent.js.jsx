@@ -20,8 +20,11 @@ export default class SoundCloudCardComponent extends React.Component {
     return (
       <div className="card soundcloud-card" onClick={this.changePlayer}>
         <img src={this.props.media}/>
-        <span>{this.props.title}</span>
-        <span>{this.props.user}</span>
+        <div className="soundcloud-titles">
+          <span>{this.props.title}</span>
+          <br />
+          <span>{this.props.user}</span>
+        </div>
       </div>
     );
   }

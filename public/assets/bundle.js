@@ -30794,7 +30794,7 @@
 	  _createClass(InstagramCardComponent, [{
 	    key: 'render',
 	    value: function render() {
-	      return _reactAddons2['default'].createElement('img', { className: 'instagram-card', src: this.props.url });
+	      return _reactAddons2['default'].createElement('img', { className: 'instagram-card', src: this.props.url, onClick: this.redirect });
 	    }
 	  }]);
 	
@@ -30979,18 +30979,19 @@
 	        'div',
 	        { className: 'card github-card', onClick: this.redirect },
 	        _reactAddons2['default'].createElement(
-	          'h1',
-	          null,
-	          this.props.name
+	          'div',
+	          { className: 'card-header' },
+	          _reactAddons2['default'].createElement(
+	            'h1',
+	            null,
+	            this.props.name
+	          )
 	        ),
 	        _reactAddons2['default'].createElement(
 	          'p',
 	          null,
-	          this.props.description
-	        ),
-	        _reactAddons2['default'].createElement(
-	          'span',
-	          null,
+	          this.props.description,
+	          ' | ',
 	          this.props.language
 	        )
 	      );
@@ -31497,9 +31498,23 @@
 	          'div',
 	          { className: 'column-header soundcloud-header' },
 	          React.createElement('iframe', { id: 'sc-widget', src: src,
-	            width: '100%', height: '120', scrolling: 'no', frameBorder: 'no' })
+	            width: '300', height: '120', scrolling: 'no', frameBorder: 'no' })
 	        );
 	      }
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return React.createElement(
+	        'div',
+	        { className: 'column ' + this.getColumnClass() },
+	        React.createElement(
+	          'div',
+	          { className: 'column-content' },
+	          this.renderColumnHeader(),
+	          this.renderCards()
+	        )
+	      );
 	    }
 	  }]);
 	
@@ -31586,14 +31601,19 @@
 	        { className: 'card soundcloud-card', onClick: this.changePlayer },
 	        _reactAddons2['default'].createElement('img', { src: this.props.media }),
 	        _reactAddons2['default'].createElement(
-	          'span',
-	          null,
-	          this.props.title
-	        ),
-	        _reactAddons2['default'].createElement(
-	          'span',
-	          null,
-	          this.props.user
+	          'div',
+	          { className: 'soundcloud-titles' },
+	          _reactAddons2['default'].createElement(
+	            'span',
+	            null,
+	            this.props.title
+	          ),
+	          _reactAddons2['default'].createElement('br', null),
+	          _reactAddons2['default'].createElement(
+	            'span',
+	            null,
+	            this.props.user
+	          )
 	        )
 	      );
 	    }
