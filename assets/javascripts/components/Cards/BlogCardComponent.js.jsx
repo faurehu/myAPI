@@ -28,7 +28,9 @@ export default class BlogCardComponent extends React.Component {
           <h1>{this.props.title}</h1>
           <h2>{this.props.subtitle}</h2>
         </div>
-        <p>{`${snippet.substring(0, 150)}...`}</p>
+        <div className="card-bottom">
+          <p>{`${snippet.substring(0, 150)}...`}</p>
+        </div>
       </div>
     );
   }

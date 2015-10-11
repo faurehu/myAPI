@@ -29135,9 +29135,13 @@
 	          )
 	        ),
 	        _reactAddons2['default'].createElement(
-	          'p',
-	          null,
-	          snippet.substring(0, 150) + '...'
+	          'div',
+	          { className: 'card-bottom' },
+	          _reactAddons2['default'].createElement(
+	            'p',
+	            null,
+	            snippet.substring(0, 150) + '...'
+	          )
 	        )
 	      );
 	    }
