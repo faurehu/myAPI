@@ -6,6 +6,10 @@
   font-family: 'Chivo', sans-serif;
   margin: 10px;
 
+  &:hover {
+    @include shadow-helper(3);
+  }
+
   .card-header {
     background-color: $teal-100;
     color: $dark-blue;

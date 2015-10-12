@@ -36,7 +36,7 @@ export default class TwitterColumnComponent extends ColumnComponent {
   }
 
   renderCards() {
-    let tweetCards = [];
+    let tweetCards = [<h1 className="column-title">Twitter</h1>];
     if(this.state.tweets !== undefined) {
       this.state.tweets.forEach((tweet) => {
         tweetCards.push(<TwitterCardComponent text={tweet.text || tweet.myText}

@@ -1,7 +1,7 @@
 @import './globals.css.scss';
 
 .column {
-  background-color: $white;
+  background-color: $background-grey;
   height: 100%;
   overflow-x: hidden;
   position: relative;
@@ -10,6 +10,14 @@
   .column-content {
     height: 100%;
     overflow-x: hidden;
+
+    .column-title {
+      color: $column-title-color;
+      font-family: 'Chivo', sans-serif;
+      font-size: 1em;
+      margin: 5px;
+      text-align: center;
+    }
   }
 }
 
@@ -18,9 +26,14 @@
     margin-top: 5px;
 
     iframe {
+      @include shadow-helper(2);
       display: block;
       margin-left: auto;
       margin-right: auto;
+
+      &:hover {
+        @include shadow-helper(3);
+      }
     }
   }
 }

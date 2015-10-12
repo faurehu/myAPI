@@ -36,7 +36,7 @@ export default class GithubColumnComponent extends ColumnComponent {
   }
 
   renderCards() {
-    let repos = [];
+    let repos = [<h1 className="column-title">Github Repos</h1>];
     if(this.state.repos !== undefined) {
       this.state.repos.forEach((repo) => {
         repos.push(<GithubCardComponent name={repo.name} url={repo.url}

@@ -36,7 +36,7 @@ export default class PocketColumnComponent extends ColumnComponent {
   }
 
   renderCards() {
-    let pocketCards = [];
+    let pocketCards = [<h1 className="column-title">Pocket Favorites</h1>];
     if(this.state.articles !== undefined) {
       this.state.articles.forEach((article) => {
         pocketCards.push(<PocketCardComponent url={article.url}

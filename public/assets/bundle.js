@@ -23597,7 +23597,11 @@
 	    value: function renderCards() {
 	      var _this2 = this;
 	
-	      var postCards = [];
+	      var postCards = [React.createElement(
+	        'h1',
+	        { className: 'column-title' },
+	        'Blog posts'
+	      )];
 	      if (this.state.posts !== undefined) {
 	        this.state.posts.forEach(function (post) {
 	          postCards.push(React.createElement(_CardsBlogCardComponent2['default'], { title: post.title, id: post.id,
@@ -30524,7 +30528,11 @@
 	    value: function renderCards() {
 	      var _this2 = this;
 	
-	      var imageCards = [];
+	      var imageCards = [React.createElement(
+	        'h1',
+	        { className: 'column-title' },
+	        'Photography'
+	      )];
 	      if (this.state.images !== undefined) {
 	        this.state.images.forEach(function (image) {
 	          imageCards.push(React.createElement(_CardsImageCardComponent2['default'], { caption: image.caption, id: image.id,
@@ -30702,7 +30710,11 @@
 	    value: function renderCards() {
 	      var _this2 = this;
 	
-	      var imageCards = [];
+	      var imageCards = [React.createElement(
+	        'h1',
+	        { className: 'column-title' },
+	        'Instagram'
+	      )];
 	      if (this.state.images !== undefined) {
 	        this.state.images.forEach(function (image) {
 	          imageCards.push(React.createElement(_CardsInstagramCardComponent2['default'], { link: image.link,
@@ -30881,7 +30893,11 @@
 	    value: function renderCards() {
 	      var _this2 = this;
 	
-	      var repos = [];
+	      var repos = [React.createElement(
+	        'h1',
+	        { className: 'column-title' },
+	        'Github Repos'
+	      )];
 	      if (this.state.repos !== undefined) {
 	        this.state.repos.forEach(function (repo) {
 	          repos.push(React.createElement(_CardsGithubCardComponent2['default'], { name: repo.name, url: repo.url,
@@ -31086,7 +31102,11 @@
 	    value: function renderCards() {
 	      var _this2 = this;
 	
-	      var pocketCards = [];
+	      var pocketCards = [React.createElement(
+	        'h1',
+	        { className: 'column-title' },
+	        'Pocket Favorites'
+	      )];
 	      if (this.state.articles !== undefined) {
 	        this.state.articles.forEach(function (article) {
 	          pocketCards.push(React.createElement(_CardsPocketCardComponent2['default'], { url: article.url,
@@ -31282,7 +31302,11 @@
 	    value: function renderCards() {
 	      var _this2 = this;
 	
-	      var tweetCards = [];
+	      var tweetCards = [React.createElement(
+	        'h1',
+	        { className: 'column-title' },
+	        'Twitter'
+	      )];
 	      if (this.state.tweets !== undefined) {
 	        this.state.tweets.forEach(function (tweet) {
 	          tweetCards.push(React.createElement(_CardsTwitterCardComponent2['default'], { text: tweet.text || tweet.myText,
@@ -31714,7 +31738,11 @@
 	    value: function renderCards() {
 	      var _this2 = this;
 	
-	      var videoCards = [];
+	      var videoCards = [React.createElement(
+	        'h1',
+	        { className: 'column-title' },
+	        'Youtube Playlist'
+	      )];
 	      if (this.state.videos !== undefined) {
 	        this.state.videos.forEach(function (video) {
 	          videoCards.push(React.createElement(_CardsYoutubeCardComponent2['default'], { media: video.media,

@@ -32,7 +32,7 @@ export default class InstagramColumnComponent extends ColumnComponent {
   }
 
   renderCards() {
-    let imageCards = [];
+    let imageCards = [<h1 className="column-title">Instagram</h1>];
     if(this.state.images !== undefined) {
       this.state.images.forEach((image) => {
         imageCards.push(<InstagramCardComponent link={image.link}

@@ -45,7 +45,7 @@ export default class YoutubeColumnComponent extends ColumnComponent {
   }
 
   renderCards() {
-    let videoCards = [];
+    let videoCards = [<h1 className="column-title">Youtube Playlist</h1>];
     if(this.state.videos !== undefined) {
       this.state.videos.forEach((video) => {
         videoCards.push(<YoutubeCardComponent media={video.media}

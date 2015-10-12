@@ -36,7 +36,7 @@ export default class BlogColumnComponent extends ColumnComponent {
   }
 
   renderCards() {
-    let postCards = [];
+    let postCards = [<h1 className="column-title">Blog posts</h1>];
     if(this.state.posts !== undefined) {
       this.state.posts.forEach((post) => {
         postCards.push(<BlogCardComponent title={post.title} id={post.id}

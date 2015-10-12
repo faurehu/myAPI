@@ -32,7 +32,7 @@ export default class ImageColumnComponent extends ColumnComponent {
   }
 
   renderCards() {
-    let imageCards = [];
+    let imageCards = [<h1 className="column-title">Photography</h1>];
     if(this.state.images !== undefined) {
       this.state.images.forEach((image) => {
         imageCards.push(<ImageCardComponent caption={image.caption} id={image.id}

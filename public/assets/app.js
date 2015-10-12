@@ -1,1 +1,1 @@
-React.render(React.createElement(GridComponent, {}), document.getElementById('container'))
+React.render(React.createElement(GridComponent, {}), document.getElementById('container'));
