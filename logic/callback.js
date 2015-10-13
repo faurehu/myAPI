@@ -1,11 +1,11 @@
 import request from 'request';
 import { keys } from '../config/config';
 
-let error = (err) => { console.log(err); };
+let handleError = (err) => { res.status = 500; return next(err); }
 
 module.exports = (app) => {
   return {
-    loginInstagram: (req, res) => {
+    loginInstagram: (req, res, next) => {
 
       let options = {
         client_id: keys.instagram.clientID,
@@ -28,11 +28,11 @@ module.exports = (app) => {
           });
         }
 
-        if (err) { console.log(err); }
-        app.get('models').AccessToken.findOrCreate({where: {service: 'instagram'}}).then(saveToken).catch(error);
+        if (err) { handleError(err); }
+        app.get('models').AccessToken.findOrCreate({where: {service: 'instagram'}}).then(saveToken).catch(handleError);
       });
     },
-    loginGithub: (req, res) => {
+    loginGithub: (req, res, next) => {
 
       let options = {
         client_id: keys.github.clientID,
@@ -53,8 +53,8 @@ module.exports = (app) => {
           });
         }
 
-        if (err) { console.log(err); }
-        app.get('models').AccessToken.findOrCreate({where: {service: 'github'}}).then(saveToken).catch(error);
+        if (err) { handleError(err); }
+        app.get('models').AccessToken.findOrCreate({where: {service: 'github'}}).then(saveToken).catch(handleError);
       });
     }
   }

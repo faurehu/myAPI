@@ -7,10 +7,11 @@ let monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
 
+let handleError = (err) => { res.status = 500; return next(err); }
+
 module.exports = (app) => {
   return {
-    getPost: (req, res) => {
-
+    getPost: (req, res, next) => {
       let response = (data) => {
 
         let date = new Date(data.createdAt);
@@ -26,11 +27,11 @@ module.exports = (app) => {
             commentlink: `https://twitter.com/intent/tweet?text=Hi @faurehu, here's what I thought about ${shortURL}:`
           }
           res.render('post', {md: md, post: post});
-        })
+        }).catch(handleError);
       }
 
       app.get('models').Post.findById(req.params.post)
-      .then(response).catch((err) => { console.log(err); });
+      .then(response).catch(handleError);
     }
   }
 }
