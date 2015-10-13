@@ -23572,7 +23572,7 @@
 	
 	      XHR.send({
 	        method: 'GET',
-	        url: window.location.href + 'api/blog'
+	        url: window.location.origin + '/api/blog'
 	      }).then(function (response) {
 	        _this.setState({
 	          posts: JSON.parse(response.responseText)
@@ -23599,13 +23599,13 @@
 	
 	      var postCards = [React.createElement(
 	        'h1',
-	        { className: 'column-title' },
+	        { key: 0, className: 'column-title' },
 	        'Blog posts'
 	      )];
 	      if (this.state.posts !== undefined) {
 	        this.state.posts.forEach(function (post) {
 	          postCards.push(React.createElement(_CardsBlogCardComponent2['default'], { title: post.title, id: post.id,
-	            subtitle: post.subtitle, key: _this2.state.posts.indexOf(post),
+	            subtitle: post.subtitle, key: _this2.state.posts.indexOf(post) + 1,
 	            content: post.content }));
 	        });
 	      }
@@ -29105,7 +29105,7 @@
 	    _get(Object.getPrototypeOf(BlogCardComponent.prototype), 'constructor', this).call(this, props);
 	
 	    this.redirect = function () {
-	      window.location = window.location.href + 'blog/' + _this.props.id;
+	      window.location = window.location.origin + '/blog/' + _this.props.id;
 	    };
 	  }
 	
@@ -30455,6 +30455,8 @@
   \****************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
+	/*eslint camelcase: 0*/
+	
 	'use strict';
 	
 	Object.defineProperty(exports, '__esModule', {
@@ -30495,25 +30497,76 @@
 	  }]);
 	
 	  function ImageColumnComponent(props) {
+	    var _this = this;
+	
 	    _classCallCheck(this, ImageColumnComponent);
 	
 	    _get(Object.getPrototypeOf(ImageColumnComponent.prototype), 'constructor', this).call(this, props);
+	
+	    this.photoSwipe = function (index) {
+	
+	      var pswpElement = document.querySelectorAll('.pswp')[0];
+	
+	      var items = _this.state.images.map(function (image) {
+	        return {
+	          src: image.large,
+	          w: image.width,
+	          h: image.height,
+	          msrc: image.small,
+	          title: image.caption
+	        };
+	      });
+	
+	      var options = {
+	        index: index,
+	        barsSize: { top: 44, bottom: 'auto' },
+	        timeToIdle: 4000,
+	        timeToIdleOutside: 1000,
+	        loadingIndicatorDelay: 1000,
+	        addCaptionHTMLFn: function addCaptionHTMLFn(item, captionEl, isFake) {
+	          if (!item.title) {
+	            captionEl.children[0].innerHTML = '';
+	            return false;
+	          }
+	          captionEl.children[0].innerHTML = item.title;
+	          return true;
+	        },
+	        loop: true,
+	        closeEl: true,
+	        captionEl: true,
+	        fullscreenEl: true,
+	        zoomEl: true,
+	        shareEl: true,
+	        counterEl: true,
+	        arrowEl: true,
+	        preloaderEl: true,
+	        tapToClose: false,
+	        tapToToggleControls: true,
+	        clickToCloseNonZoomable: true,
+	        closeElClasses: ['item', 'caption', 'zoom-wrap', 'ui', 'top-bar'],
+	        indexIndicatorSep: ' / '
+	      };
+	
+	      var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+	      gallery.init();
+	    };
+	
 	    this.state = {};
 	  }
 	
 	  _createClass(ImageColumnComponent, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      var _this = this;
+	      var _this2 = this;
 	
 	      XHR.send({
 	        method: 'GET',
-	        url: window.location.href + 'api/photo'
+	        url: window.location.origin + '/api/photo'
 	      }).then(function (response) {
-	        _this.setState({
+	        _this2.setState({
 	          images: JSON.parse(response.responseText)
 	        });
-	        _this.forceUpdate();
+	        _this2.forceUpdate();
 	      })['catch'](function (error) {
 	        console.log(error);
 	      });
@@ -30526,17 +30579,18 @@
 	  }, {
 	    key: 'renderCards',
 	    value: function renderCards() {
-	      var _this2 = this;
+	      var _this3 = this;
 	
 	      var imageCards = [React.createElement(
 	        'h1',
-	        { className: 'column-title' },
+	        { key: 0, className: 'column-title' },
 	        'Photography'
 	      )];
 	      if (this.state.images !== undefined) {
 	        this.state.images.forEach(function (image) {
+	          var index = _this3.state.images.indexOf(image);
 	          imageCards.push(React.createElement(_CardsImageCardComponent2['default'], { caption: image.caption, id: image.id,
-	            url: image.medium, key: _this2.state.images.indexOf(image) }));
+	            url: image.medium, key: index + 1, index: index, ps: _this3.photoSwipe }));
 	        });
 	      }
 	      return imageCards;
@@ -30593,7 +30647,9 @@
 	    value: {
 	      caption: _reactAddons2['default'].PropTypes.string,
 	      url: _reactAddons2['default'].PropTypes.string,
-	      id: _reactAddons2['default'].PropTypes.number
+	      id: _reactAddons2['default'].PropTypes.number,
+	      index: _reactAddons2['default'].PropTypes.number,
+	      ps: _reactAddons2['default'].PropTypes.func
 	    },
 	    enumerable: true
 	  }, {
@@ -30613,13 +30669,8 @@
 	    value: function render() {
 	      return _reactAddons2['default'].createElement(
 	        'div',
-	        { className: 'card image-card' },
-	        _reactAddons2['default'].createElement('img', { src: this.props.url }),
-	        _reactAddons2['default'].createElement(
-	          'h1',
-	          null,
-	          this.props.caption
-	        )
+	        { className: 'card image-card', onClick: this.props.ps.bind(null, this.props.index) },
+	        _reactAddons2['default'].createElement('img', { src: this.props.url })
 	      );
 	    }
 	  }]);
@@ -30690,7 +30741,7 @@
 	
 	      XHR.send({
 	        method: 'GET',
-	        url: window.location.href + 'api/instagram'
+	        url: window.location.origin + '/api/instagram'
 	      }).then(function (response) {
 	        _this.setState({
 	          images: JSON.parse(response.responseText)
@@ -30712,13 +30763,13 @@
 	
 	      var imageCards = [React.createElement(
 	        'h1',
-	        { className: 'column-title' },
+	        { key: 0, className: 'column-title' },
 	        'Instagram'
 	      )];
 	      if (this.state.images !== undefined) {
 	        this.state.images.forEach(function (image) {
 	          imageCards.push(React.createElement(_CardsInstagramCardComponent2['default'], { link: image.link,
-	            url: image.url, key: _this2.state.images.indexOf(image) }));
+	            url: image.url, key: _this2.state.images.indexOf(image) + 1 }));
 	        });
 	      }
 	      return imageCards;
@@ -30868,7 +30919,7 @@
 	
 	      XHR.send({
 	        method: 'GET',
-	        url: window.location.href + 'api/github'
+	        url: window.location.origin + '/api/github'
 	      }).then(function (response) {
 	        _this.setState({
 	          repos: JSON.parse(response.responseText)
@@ -30895,14 +30946,14 @@
 	
 	      var repos = [React.createElement(
 	        'h1',
-	        { className: 'column-title' },
+	        { key: 0, className: 'column-title' },
 	        'Github Repos'
 	      )];
 	      if (this.state.repos !== undefined) {
 	        this.state.repos.forEach(function (repo) {
 	          repos.push(React.createElement(_CardsGithubCardComponent2['default'], { name: repo.name, url: repo.url,
 	            language: repo.language, description: repo.description,
-	            key: _this2.state.repos.indexOf(repo) }));
+	            key: _this2.state.repos.indexOf(repo) + 1 }));
 	        });
 	      }
 	      return repos;
@@ -31077,7 +31128,7 @@
 	
 	      XHR.send({
 	        method: 'GET',
-	        url: window.location.href + 'api/pocket/0'
+	        url: window.location.origin + '/api/pocket/0'
 	      }).then(function (response) {
 	        _this.setState({
 	          articles: JSON.parse(response.responseText)
@@ -31104,13 +31155,13 @@
 	
 	      var pocketCards = [React.createElement(
 	        'h1',
-	        { className: 'column-title' },
+	        { key: 0, className: 'column-title' },
 	        'Pocket Favorites'
 	      )];
 	      if (this.state.articles !== undefined) {
 	        this.state.articles.forEach(function (article) {
 	          pocketCards.push(React.createElement(_CardsPocketCardComponent2['default'], { url: article.url,
-	            title: article.title, excerpt: article.excerpt, key: _this2.state.articles.indexOf(article) }));
+	            title: article.title, excerpt: article.excerpt, key: _this2.state.articles.indexOf(article) + 1 }));
 	        });
 	      }
 	      return pocketCards;
@@ -31277,7 +31328,7 @@
 	
 	      XHR.send({
 	        method: 'GET',
-	        url: window.location.href + 'api/twitter'
+	        url: window.location.origin + '/api/twitter'
 	      }).then(function (response) {
 	        _this.setState({
 	          tweets: JSON.parse(response.responseText)
@@ -31304,13 +31355,13 @@
 	
 	      var tweetCards = [React.createElement(
 	        'h1',
-	        { className: 'column-title' },
+	        { key: 0, className: 'column-title' },
 	        'Twitter'
 	      )];
 	      if (this.state.tweets !== undefined) {
 	        this.state.tweets.forEach(function (tweet) {
 	          tweetCards.push(React.createElement(_CardsTwitterCardComponent2['default'], { text: tweet.text || tweet.myText,
-	            author: tweet.author, media: tweet.imgUrl, key: _this2.state.tweets.indexOf(tweet) }));
+	            author: tweet.author, media: tweet.imgUrl, key: _this2.state.tweets.indexOf(tweet) + 1 }));
 	        });
 	      }
 	      return tweetCards;
@@ -31479,7 +31530,7 @@
 	
 	      XHR.send({
 	        method: 'GET',
-	        url: window.location.href + 'api/soundcloud'
+	        url: window.location.origin + '/api/soundcloud'
 	      }).then(function (response) {
 	        var tracks = JSON.parse(response.responseText);
 	        _this.setState({
@@ -31718,7 +31769,7 @@
 	      };
 	      XHR.send({
 	        method: 'GET',
-	        url: window.location.href + 'api/youtube'
+	        url: window.location.origin + '/api/youtube'
 	      }).then(function (response) {
 	        _this.setState({
 	          videos: JSON.parse(response.responseText)
@@ -31740,13 +31791,13 @@
 	
 	      var videoCards = [React.createElement(
 	        'h1',
-	        { className: 'column-title' },
+	        { key: 0, className: 'column-title' },
 	        'Youtube Playlist'
 	      )];
 	      if (this.state.videos !== undefined) {
 	        this.state.videos.forEach(function (video) {
 	          videoCards.push(React.createElement(_CardsYoutubeCardComponent2['default'], { media: video.media,
-	            id: video.id, title: video.title, key: _this2.state.videos.indexOf(video) }));
+	            id: video.id, title: video.title, key: _this2.state.videos.indexOf(video) + 1 }));
 	        });
 	      }
 	      return videoCards;

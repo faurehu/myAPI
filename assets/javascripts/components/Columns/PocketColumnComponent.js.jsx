@@ -14,7 +14,7 @@ export default class PocketColumnComponent extends ColumnComponent {
   componentDidMount() {
     XHR.send({
       method: 'GET',
-      url: `${window.location.href}api/pocket/0`
+      url: `${window.location.origin}/api/pocket/0`
     })
     .then((response) => {
       this.setState({
@@ -36,11 +36,11 @@ export default class PocketColumnComponent extends ColumnComponent {
   }
 
   renderCards() {
-    let pocketCards = [<h1 className="column-title">Pocket Favorites</h1>];
+    let pocketCards = [<h1 key={0} className="column-title">Pocket Favorites</h1>];
     if(this.state.articles !== undefined) {
       this.state.articles.forEach((article) => {
         pocketCards.push(<PocketCardComponent url={article.url}
-          title={article.title} excerpt={article.excerpt} key={this.state.articles.indexOf(article)}/>);
+          title={article.title} excerpt={article.excerpt} key={this.state.articles.indexOf(article)+1}/>);
       });
     }
     return pocketCards;

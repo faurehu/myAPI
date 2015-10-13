@@ -14,7 +14,7 @@ export default class TwitterColumnComponent extends ColumnComponent {
   componentDidMount() {
     XHR.send({
       method: 'GET',
-      url: `${window.location.href}api/twitter`
+      url: `${window.location.origin}/api/twitter`
     })
     .then((response) => {
       this.setState({
@@ -36,11 +36,11 @@ export default class TwitterColumnComponent extends ColumnComponent {
   }
 
   renderCards() {
-    let tweetCards = [<h1 className="column-title">Twitter</h1>];
+    let tweetCards = [<h1 key={0} className="column-title">Twitter</h1>];
     if(this.state.tweets !== undefined) {
       this.state.tweets.forEach((tweet) => {
         tweetCards.push(<TwitterCardComponent text={tweet.text || tweet.myText}
-          author={tweet.author} media={tweet.imgUrl} key={this.state.tweets.indexOf(tweet)}/>);
+          author={tweet.author} media={tweet.imgUrl} key={this.state.tweets.indexOf(tweet)+1}/>);
       });
     }
     return tweetCards;

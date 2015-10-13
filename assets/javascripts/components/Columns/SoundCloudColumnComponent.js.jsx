@@ -14,7 +14,7 @@ export default class SoundCloudColumnComponent extends ColumnComponent {
   componentDidMount() {
     XHR.send({
       method: 'GET',
-      url: `${window.location.href}api/soundcloud`
+      url: `${window.location.origin}/api/soundcloud`
     })
     .then((response) => {
       let tracks = JSON.parse(response.responseText);

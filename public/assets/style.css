@@ -251,6 +251,11 @@ html {
       -webkit-transition: margin-left 0.3s;
       transition: margin-left 0.3s; } }
 
+.pswp__ui {
+  font-family: 'Roboto', sans-serif; }
+  .pswp__ui .pswp__caption__center {
+    text-align: center; }
+
 .column {
   background-color: #eceff1;
   height: 100%;
@@ -329,21 +334,9 @@ html {
       position: absolute;
       width: 100%; }
 
-.image-card {
-  color: #fff;
-  position: relative;
-  text-align: center; }
-  .image-card img {
-    max-width: 400px;
-    vertical-align: top; }
-  .image-card h1 {
-    background: linear-gradient(to top, black, transparent);
-    bottom: 0;
-    height: 100px;
-    line-height: 100px;
-    margin-bottom: 0;
-    position: absolute;
-    width: 100%; }
+.image-card img {
+  max-width: 400px;
+  vertical-align: top; }
 
 .pocket-card {
   width: 300px; }
@@ -364,6 +357,7 @@ html {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     display: inline;
     height: 100%;
+    overflow: hidden;
     position: absolute;
     width: 200px; }
     .soundcloud-card .soundcloud-titles p {

@@ -36,6 +36,6 @@ export default class BlogCardComponent extends React.Component {
   }
 
   redirect = () => {
-    window.location = `${window.location.href}blog/${this.props.id}`
+    window.location = `${window.location.origin}/blog/${this.props.id}`
   }
 }

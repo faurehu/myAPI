@@ -5,7 +5,9 @@ export default class ImageCardComponent extends React.Component {
   static propTypes = {
     caption: React.PropTypes.string,
     url: React.PropTypes.string,
-    id: React.PropTypes.number
+    id: React.PropTypes.number,
+    index: React.PropTypes.number,
+    ps: React.PropTypes.func
   };
 
   static defaultProps = {}
@@ -16,9 +18,8 @@ export default class ImageCardComponent extends React.Component {
 
   render() {
     return (
-      <div className="card image-card">
+      <div className="card image-card" onClick={this.props.ps.bind(null, this.props.index)}>
         <img src={this.props.url}/>
-        <h1>{this.props.caption}</h1>
       </div>
     );
   }

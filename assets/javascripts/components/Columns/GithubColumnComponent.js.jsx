@@ -14,7 +14,7 @@ export default class GithubColumnComponent extends ColumnComponent {
   componentDidMount() {
     XHR.send({
       method: 'GET',
-      url: `${window.location.href}api/github`
+      url: `${window.location.origin}/api/github`
     })
     .then((response) => {
       this.setState({
@@ -36,12 +36,12 @@ export default class GithubColumnComponent extends ColumnComponent {
   }
 
   renderCards() {
-    let repos = [<h1 className="column-title">Github Repos</h1>];
+    let repos = [<h1 key={0} className="column-title">Github Repos</h1>];
     if(this.state.repos !== undefined) {
       this.state.repos.forEach((repo) => {
         repos.push(<GithubCardComponent name={repo.name} url={repo.url}
           language={repo.language} description={repo.description}
-          key={this.state.repos.indexOf(repo)}/>);
+          key={this.state.repos.indexOf(repo)+1}/>);
       });
     }
     return repos;

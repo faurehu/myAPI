@@ -14,7 +14,7 @@ export default class BlogColumnComponent extends ColumnComponent {
   componentDidMount() {
     XHR.send({
       method: 'GET',
-      url: `${window.location.href}api/blog`
+      url: `${window.location.origin}/api/blog`
     })
     .then((response) => {
       this.setState({
@@ -36,11 +36,11 @@ export default class BlogColumnComponent extends ColumnComponent {
   }
 
   renderCards() {
-    let postCards = [<h1 className="column-title">Blog posts</h1>];
+    let postCards = [<h1 key={0} className="column-title">Blog posts</h1>];
     if(this.state.posts !== undefined) {
       this.state.posts.forEach((post) => {
         postCards.push(<BlogCardComponent title={post.title} id={post.id}
-          subtitle={post.subtitle} key={this.state.posts.indexOf(post)}
+          subtitle={post.subtitle} key={this.state.posts.indexOf(post)+1}
           content={post.content}/>);
       });
     }

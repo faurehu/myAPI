@@ -27,7 +27,7 @@ export default class YoutubeColumnComponent extends ColumnComponent {
     }
     XHR.send({
       method: 'GET',
-      url: `${window.location.href}api/youtube`
+      url: `${window.location.origin}/api/youtube`
     })
     .then((response) => {
       this.setState({
@@ -45,11 +45,11 @@ export default class YoutubeColumnComponent extends ColumnComponent {
   }
 
   renderCards() {
-    let videoCards = [<h1 className="column-title">Youtube Playlist</h1>];
+    let videoCards = [<h1 key={0} className="column-title">Youtube Playlist</h1>];
     if(this.state.videos !== undefined) {
       this.state.videos.forEach((video) => {
         videoCards.push(<YoutubeCardComponent media={video.media}
-          id={video.id} title={video.title} key={this.state.videos.indexOf(video)}/>);
+          id={video.id} title={video.title} key={this.state.videos.indexOf(video)+1}/>);
       });
     }
     return videoCards;

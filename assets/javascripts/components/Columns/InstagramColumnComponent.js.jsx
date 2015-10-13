@@ -14,7 +14,7 @@ export default class InstagramColumnComponent extends ColumnComponent {
   componentDidMount() {
     XHR.send({
       method: 'GET',
-      url: `${window.location.href}api/instagram`
+      url: `${window.location.origin}/api/instagram`
     })
     .then((response) => {
       this.setState({
@@ -32,11 +32,11 @@ export default class InstagramColumnComponent extends ColumnComponent {
   }
 
   renderCards() {
-    let imageCards = [<h1 className="column-title">Instagram</h1>];
+    let imageCards = [<h1 key={0} className="column-title">Instagram</h1>];
     if(this.state.images !== undefined) {
       this.state.images.forEach((image) => {
         imageCards.push(<InstagramCardComponent link={image.link}
-          url={image.url} key={this.state.images.indexOf(image)}/>);
+          url={image.url} key={this.state.images.indexOf(image)+1}/>);
       });
     }
     return imageCards;
