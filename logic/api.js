@@ -100,7 +100,7 @@ module.exports = (app) => {
             'X-Accept': 'application/json'
           },
           form: {
-            'consumer_key': process.env.POCKET_KEY || keys.pocket.consumerKey,
+            'consumer_key': keys.pocket.consumerKey,
             'access_token': data.dataValues.token,
             'favorite': 1,
             'sort': 'newest',
@@ -134,9 +134,7 @@ module.exports = (app) => {
 
       let handleError = (err) => { res.status(500); return next(err); };
 
-      let soundcloudID = process.env.SOUNDCLOUD_ID || keys.soundcloud.clientID;
-
-      request.get(`http://api.soundcloud.com/users/22982175/favorites?client_id=${soundcloudID}`
+      request.get(`http://api.soundcloud.com/users/22982175/favorites?client_id=${keys.soundcloud.clientID}`
       , (err, response, body) => {
         if(err) handleError(err);
         res.json(JSON.parse(body).map((node) => {
@@ -176,9 +174,7 @@ module.exports = (app) => {
 
       let handleError = (err) => { res.status(500); return next(err); };
 
-      let googleKey = process.env.GOOGLE_KEY || keys.google.key;
-
-      request.get(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLKuiYq4-bq_xbGq09B8u76cJCfek0bm9N&key=${googleKey}&maxResults=50`,
+      request.get(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLKuiYq4-bq_xbGq09B8u76cJCfek0bm9N&key=${keys.google.key}&maxResults=50`,
       (err, response, body) => {
         if(err) handleError(err);
         res.json(JSON.parse(body).items.map((node) => {
@@ -204,9 +200,7 @@ module.exports = (app) => {
         });
       }
 
-      let pocketSecret = process.env.POCKET_SECRET || keys.pocket.myOwnSecret;
-
-      if(req.query.secret === pocketSecret) {
+      if(req.query.secret === keys.pocket.myOwnSecret) {
         app.get('models').AccessToken.findOrCreate({where: {service: 'pocket'}}).then(saveToken).catch(error);
       } else {
         if(err) handleError(err);

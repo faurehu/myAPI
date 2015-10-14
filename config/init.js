@@ -5,7 +5,7 @@ import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import express from 'express';
 import request from 'request';
-import { keys } from './config';
+import { keys } from './prodConfig';
 
 module.exports = (app) => {
 
@@ -19,10 +19,7 @@ module.exports = (app) => {
   app.use(cookieParser());
   app.use(express.static(path.join(__dirname, '/../public')));
 
-  let twitterConsumerKey = process.env.TWITTER_KEY || keys.twitter.consumerKey;
-  let twitterConsumerSecret = process.env.TWITTER_SECRET || keys.twitter.consumerSecret;
-
-  let toEncode = `${twitterConsumerKey}:${twitterConsumerSecret}`;
+  let toEncode = `${keys.twitter.consumerKey}:${keys.twitter.consumerSecret}`;
   let buffer = new Buffer(toEncode);
 
   let options = {

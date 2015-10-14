@@ -8,8 +8,8 @@ module.exports = (app) => {
       let handleError = (err) => { res.status(500); return next(err); }
 
       let options = {
-        client_id: process.env.INSTAGRAM_ID || keys.instagram.clientID,
-        client_secret: process.env.INSTAGRAM_SECRET || keys.instagram.clientSecret,
+        client_id: keys.instagram.clientID,
+        client_secret: keys.instagram.clientSecret,
         grant_type: 'authorization_code',
         redirect_uri: 'http://faure.hu/callback/instagram',
         code: req.query.code
@@ -37,8 +37,8 @@ module.exports = (app) => {
       let handleError = (err) => { res.status(500); return next(err); }
 
       let options = {
-        client_id: process.env.GITHUB_ID || keys.github.clientID,
-        client_secret: process.env.GITHUB_SECRET || keys.github.clientSecret,
+        client_id: keys.github.clientID,
+        client_secret: keys.github.clientSecret,
         grant_type: 'authorization_code',
         redirect_uri: 'http://faure.hu/callback/github',
         code: req.query.code
