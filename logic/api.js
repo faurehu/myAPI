@@ -60,10 +60,9 @@ module.exports = (app) => {
     },
     getGithub: (req, res, next) => {
 
-      let handleError = (err) => { console.log('at error:', err); res.status(500); return next(err); };
+      let handleError = (err) => { res.status(500); return next(err); };
 
       let response = (data) => {
-        console.log('at response:', data);
         let options = {
           url: `https://api.github.com/user/repos?access_token=${data.dataValues.token}&visibility=public&affiliation=owner,collaborator&sort=updated`,
           headers: {
@@ -83,7 +82,6 @@ module.exports = (app) => {
           }));
         });
       }
-      console.log('at getGitub', app.get('models').AccessToken);
       app.get('models').AccessToken.findOrCreate({where: {service: 'github'}})
       .then(response).catch(handleError);
     },
@@ -153,11 +151,9 @@ module.exports = (app) => {
       let handleError = (err) => { res.status(500); return next(err); };
 
       let response = (data) => {
-        console.log(data);
         request.get(`https://api.instagram.com/v1/users/6669726/media/recent/?access_token=${data.dataValues.token}&count=50`,
         (err, response, body) => {
           if (err) handleError(err);
-          console.log(body);
           let photos = JSON.parse(body).data;
           res.json(photos.map((photo) => {
             return {
@@ -195,7 +191,6 @@ module.exports = (app) => {
       let saveToken = (data, created) => {
         app.get('models').AccessToken.findById(data[0].dataValues.id).then((token) => {
           token.update({token: req.query.token});
-          console.log('Saved new token');
         });
         res.json({
           status: 'SUCCESS'

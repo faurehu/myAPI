@@ -14,7 +14,6 @@ export default class YoutubeColumnComponent extends ColumnComponent {
   componentDidMount() {
     let player;
     let onYouTubeIframeAPIReady = () => {
-      console.log('yo');
       player = new YT.Player('player', {
         height: '390',
         width: '640',
