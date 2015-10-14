@@ -1,9 +1,11 @@
 {
-  "name": "api",
-  "version": "0.0.0",
+  "name": "Faure Hu's website",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "DEBUG=boilerplate:* babel-node --debug ./bin/www"
+    /*"start": "DEBUG=boilerplate:* babel-node --debug ./bin/www",*/
+    "start": "babel-node ./bin/www",
+    "postinstall": "webpack --config webpack.production.config.js --bail"
   },
   "dependencies": {
     "autoprefixer-core": "^5.2.1",
@@ -28,19 +30,19 @@
     "morgan": "~1.6.1",
     "node-libs-browser": "^0.5.2",
     "node-sass": "^3.2.0",
-    "oauth-signature": "^1.3.0",
     "pg": "^4.4.1",
     "pg-hstore": "^2.3.2",
     "postcss-loader": "^0.6.0",
-    "randomstring": "^1.1.0",
     "react": "^0.13.3",
     "request": "^2.64.0",
     "sass-loader": "^1.0.2",
     "sequelize": "^3.8.0",
-    "sequelize-cli": "^1.9.1",
     "serve-favicon": "~2.3.0",
     "style-loader": "^0.12.3",
     "webpack": "^1.12.2",
     "xhr-promise": "^1.2.0"
+  },
+  "devDependeinces": {
+    "sequelize-cli": "^1.9.1"
   }
 }

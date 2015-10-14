@@ -58,7 +58,13 @@ module.exports = {
     failOnError: true
   },
   plugins: [
-    new ExtractTextPlugin("style.css", { allChunks: true })
+    new ExtractTextPlugin("style.css", { allChunks: true }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      },
+      sourceMap: false
+    })
   ],
   stats: {
     children: false
