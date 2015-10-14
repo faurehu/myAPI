@@ -14,9 +14,9 @@ let sequelize = new Sequelize(config.db.name, config.db.user, config.db.password
 });
 
 let models = [
-  'Post',
-  'Image',
-  'AccessToken'
+  'Post.js',
+  'Image.js',
+  'AccessToken.js'
 ];
 
 models.forEach(model => {
