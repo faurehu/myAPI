@@ -2,11 +2,12 @@ import { keys } from '../config/config';
 import request from 'request';
 import https from 'https';
 
-let handleError = (err) => { res.status(500); return next(err); };
-
 module.exports = (app) => {
   return {
     getBlog: (req, res, next) => {
+
+      let handleError = (err) => { res.status(500); return next(err); };
+
       let response = (data) => {
         res.json(data.map((node) => {
           return node.dataValues;
@@ -18,6 +19,8 @@ module.exports = (app) => {
     },
     getImages: (req, res, next) => {
 
+      let handleError = (err) => { res.status(500); return next(err); };
+
       let response = (data) => {
         res.json(data.map((node) => {
           return node.dataValues;
@@ -28,6 +31,8 @@ module.exports = (app) => {
       .then(response).catch(handleError);
     },
     getTwitter: (req, res, next) => {
+
+      let handleError = (err) => { res.status(500); return next(err); };
 
       var options = { hostname: 'api.twitter.com',
                       path: 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=faurehu&count=50&include_rts=true',
@@ -54,6 +59,8 @@ module.exports = (app) => {
       }).on('error', handleError);
     },
     getGithub: (req, res, next) => {
+
+      let handleError = (err) => { res.status(500); return next(err); };
 
       let response = (data) => {
 
@@ -82,6 +89,8 @@ module.exports = (app) => {
     },
     getPocket: (req, res, next) => {
 
+      let handleError = (err) => { res.status(500); return next(err); };
+
       let response = (data) => {
 
         let options = {
@@ -91,7 +100,7 @@ module.exports = (app) => {
             'X-Accept': 'application/json'
           },
           form: {
-            'consumer_key': keys.pocket.consumerKey,
+            'consumer_key': process.env.POCKET_KEY || keys.pocket.consumerKey,
             'access_token': data.dataValues.token,
             'favorite': 1,
             'sort': 'newest',
@@ -102,7 +111,7 @@ module.exports = (app) => {
         }
 
         request.post(options, (err, httpResponse, body) => {
-          if(err) handleError(err);
+          if(err) {handleError(err)};
           let articles = [];
           let parsedBody = JSON.parse(body).list;
           for(var article in parsedBody) {
@@ -122,7 +131,12 @@ module.exports = (app) => {
       .then(response).catch(handleError);
     },
     getSoundcloud: (req, res, next) => {
-      request.get(`http://api.soundcloud.com/users/22982175/favorites?client_id=${keys.soundcloud.clientID}`
+
+      let handleError = (err) => { res.status(500); return next(err); };
+
+      let soundcloudID = process.env.SOUNDCLOUD_ID || keys.soundcloud.clientID;
+
+      request.get(`http://api.soundcloud.com/users/22982175/favorites?client_id=${soundcloudID}`
       , (err, response, body) => {
         if(err) handleError(err);
         res.json(JSON.parse(body).map((node) => {
@@ -136,7 +150,10 @@ module.exports = (app) => {
         }));
       });
     },
-    getInstagram: (req, res) => {
+    getInstagram: (req, res, next) => {
+
+      let handleError = (err) => { res.status(500); return next(err); };
+
       let response = (data) => {
         request.get(`https://api.instagram.com/v1/users/${data.dataValues.userID}/media/recent/?access_token=${data.dataValues.token}&count=50`,
         (err, response, body) => {
@@ -156,7 +173,12 @@ module.exports = (app) => {
       .then(response).catch(handleError);
     },
     getYoutube: (req, res) => {
-      request.get(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLKuiYq4-bq_xbGq09B8u76cJCfek0bm9N&key=${keys.google.key}&maxResults=50`,
+
+      let handleError = (err) => { res.status(500); return next(err); };
+
+      let googleKey = process.env.GOOGLE_KEY || keys.google.key;
+
+      request.get(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLKuiYq4-bq_xbGq09B8u76cJCfek0bm9N&key=${googleKey}&maxResults=50`,
       (err, response, body) => {
         if(err) handleError(err);
         res.json(JSON.parse(body).items.map((node) => {
@@ -168,16 +190,23 @@ module.exports = (app) => {
         }));
       });
     },
-    pocketLogin: (req, res) => {
+    pocketLogin: (req, res, next) => {
+
+      let handleError = (err) => { res.status(500); return next(err); };
+
       let saveToken = (data, created) => {
         app.get('models').AccessToken.findById(data[0].dataValues.id).then((token) => {
           token.update({token: req.query.token});
           console.log('Saved new token');
         });
-        res.status(200);
+        res.json({
+          status: 'SUCCESS'
+        });
       }
 
-      if(req.query.secret === keys.pocket.myOwnSecret) {
+      let pocketSecret = process.env.POCKET_SECRET || keys.pocket.myOwnSecret;
+
+      if(req.query.secret === pocketSecret) {
         app.get('models').AccessToken.findOrCreate({where: {service: 'pocket'}}).then(saveToken).catch(error);
       } else {
         if(err) handleError(err);

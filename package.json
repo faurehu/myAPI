@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    /*"start": "DEBUG=boilerplate:* babel-node --debug ./bin/www",*/
     "start": "babel-node ./bin/www",
     "postinstall": "webpack --config webpack.production.config.js --bail"
   },

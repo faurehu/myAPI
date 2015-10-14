@@ -1,17 +1,19 @@
 import md from 'marked';
 import googl from 'goo.gl';
 import { keys } from '../config/config';
+let googleKey = process.env.GOOGLE_KEY || keys.google.key;
 googl.setKey(keys.google.key);
 
 let monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
 
-let handleError = (err) => { res.status(500); return next(err); }
-
 module.exports = (app) => {
   return {
     getPost: (req, res, next) => {
+
+      let handleError = (err) => { res.status(500); return next(err); }
+
       let response = (data) => {
 
         let date = new Date(data.createdAt);

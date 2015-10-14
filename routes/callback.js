@@ -7,5 +7,6 @@ module.exports = (app) => {
   let callbackLogic = callback(app);
   router.get(apiRoute.instagram, callbackLogic.loginInstagram);
   router.get(apiRoute.github, callbackLogic.loginGithub);
+  router.get(apiRoute.pocketCallback, callbackLogic.loginPocket);
   return router;
 }

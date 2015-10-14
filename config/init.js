@@ -19,7 +19,10 @@ module.exports = (app) => {
   app.use(cookieParser());
   app.use(express.static(path.join(__dirname, '/../public')));
 
-  let toEncode = `${keys.twitter.consumerKey}:${keys.twitter.consumerSecret}`;
+  let twitterConsumerKey = process.env.TWITTER_KEY || keys.twitter.consumerKey;
+  let twitterConsumerSecret = process.env.TWITTER_SECRET || keys.twitter.consumerSecret;
+
+  let toEncode = `${twitterConsumerKey}:${twitterConsumerSecret}`;
   let buffer = new Buffer(toEncode);
 
   let options = {
