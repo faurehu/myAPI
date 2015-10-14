@@ -84,7 +84,7 @@ module.exports = (app) => {
         });
       }
       console.log('at getGitub', app.get('models').AccessToken);
-      app.get('models').AccessToken.find({where: {service: 'github'}})
+      app.get('models').AccessToken.findOrCreate({where: {service: 'github'}})
       .then(response).catch(handleError);
     },
     getPocket: (req, res, next) => {
@@ -153,7 +153,7 @@ module.exports = (app) => {
       let handleError = (err) => { res.status(500); return next(err); };
 
       let response = (data) => {
-        request.get(`https://api.instagram.com/v1/users/${data.dataValues.userID}/media/recent/?access_token=${data.dataValues.token}&count=50`,
+        request.get(`https://api.instagram.com/v1/users/6669726/media/recent/?access_token=${data.dataValues.token}&count=50`,
         (err, response, body) => {
           if (err) handleError(err);
           let photos = JSON.parse(body).data;

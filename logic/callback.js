@@ -20,7 +20,7 @@ module.exports = (app) => {
         let saveToken = (data, created) => {
           app.get('models').AccessToken.findById(data[0].dataValues.id).then((token) => {
             let info = JSON.parse(body);
-            token.update({token: info.access_token, userID: info.user.id});
+            token.update({token: info.access_token});
             console.log('Saved new token');
           });
           res.json({
