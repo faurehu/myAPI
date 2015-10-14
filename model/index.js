@@ -2,7 +2,7 @@ import Sequelize from 'sequelize';
 import configFile from '../config/prodConfig';
 
 let env = process.env.NODE_ENV || 'development';
-let config = configFile[env];
+let config = env === configFile[env];
 
 let sequelize = new Sequelize(config.db.name, config.db.user, config.db.password, {
   host: config.db.host,
@@ -14,13 +14,13 @@ let sequelize = new Sequelize(config.db.name, config.db.user, config.db.password
 });
 
 let models = [
-  'Post.js',
-  'Image.js',
-  'AccessToken.js'
+  'Post',
+  'Image',
+  'AccessToken'
 ];
 
 models.forEach(model => {
-  module.exports[model] = sequelize.import(`${__dirname}/${model}`);
+  module.exports[model] = sequelize.import(`./${model}`);
 });
 
 
