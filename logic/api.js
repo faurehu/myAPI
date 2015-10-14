@@ -60,10 +60,9 @@ module.exports = (app) => {
     },
     getGithub: (req, res, next) => {
 
-      let handleError = (err) => { console.log('error', err); res.status(500); return next(err); };
+      let handleError = (err) => { res.status(500); return next(err); };
 
       let response = (data) => {
-        console.log('data', data);
         let options = {
           url: `https://api.github.com/user/repos?access_token=${data.dataValues.token}&visibility=public&affiliation=owner,collaborator&sort=updated`,
           headers: {
@@ -72,8 +71,6 @@ module.exports = (app) => {
         }
         request(options, (err, response, body) => {
           if(err) handleError(err);
-          console.log('response', response);
-          console.log('body', body);
           let repos = JSON.parse(body);
           res.json(repos.map((repo) => {
             return {
