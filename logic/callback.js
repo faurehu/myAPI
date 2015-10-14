@@ -1,7 +1,7 @@
 import request from 'request';
 import { keys } from '../config/config';
 
-let handleError = (err) => { res.status = 500; return next(err); }
+let handleError = (err) => { res.status(500); return next(err); }
 
 module.exports = (app) => {
   return {

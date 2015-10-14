@@ -12,20 +12,7 @@ export default class SoundCloudColumnComponent extends ColumnComponent {
   }
 
   componentDidMount() {
-    XHR.send({
-      method: 'GET',
-      url: `${window.location.origin}/api/soundcloud`
-    })
-    .then((response) => {
-      let tracks = JSON.parse(response.responseText);
-      this.setState({
-        tracks: tracks
-      });
-      this.forceUpdate();
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+    this.reload();
   }
 
   getColumnClass() {
@@ -34,7 +21,9 @@ export default class SoundCloudColumnComponent extends ColumnComponent {
 
   renderCards() {
     let trackCards = [];
-    if(this.state.tracks !== undefined) {
+    if(this.state.empty) {
+      trackCards.push(<div className="reload"/>);
+    } else if (this.state.tracks !== undefined) {
       this.state.tracks.forEach((track) => {
         trackCards.push(<SoundCloudCardComponent title={track.title}
           media={track.media} user={track.user} url={track.url}
@@ -45,7 +34,10 @@ export default class SoundCloudColumnComponent extends ColumnComponent {
   }
 
   renderColumnHeader() {
-    if(this.state.tracks !== undefined) {
+    if (this.state.empty) {
+      return [<h1 key={0} className="column-title">Soundcloud favorites</h1>,
+              <div className="reload-div"><h2>There has been a disconnection</h2><h2 className="reload-click" onClick={this.reload}>Try again?</h2></div>];
+    } else if (this.state.tracks !== undefined) {
       let src = `https://w.soundcloud.com/player/?url=${this.state.tracks[0].url}&amp;auto_play=false&amp;buying=false&amp;liking=false&amp;download=false&amp;sharing=false&amp;show_artwork=false&amp;show_comments=false&amp;show_playcount=false&amp;show_user=true&amp;hide_related=false&amp;visual=false&amp;start_track=0&amp;callback=true`
       return (
         <div className="column-header soundcloud-header">
@@ -65,5 +57,25 @@ export default class SoundCloudColumnComponent extends ColumnComponent {
         </div>
       </div>
     );
+  }
+
+  reload = () => {
+    XHR.send({
+      method: 'GET',
+      url: `${window.location.origin}/api/soundcloud`
+    })
+    .then((response) => {
+      let tracks = JSON.parse(response.responseText);
+      this.setState({
+        tracks: tracks,
+        empty: response.status === 500
+      });
+      this.forceUpdate();
+    })
+    .catch((error) => {
+      this.setState({
+        empty: true
+      })
+    });
   }
 }

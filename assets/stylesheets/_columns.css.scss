@@ -18,6 +18,22 @@
       margin: 5px;
       text-align: center;
     }
+
+    .reload-div {
+      margin: 20px;
+
+      h2 {
+        color: $column-title-color;
+        font-family: 'Chivo', sans-serif;
+        font-size: 1em;
+        margin: 5px;
+        text-align: center;
+      }
+
+      .reload-click:hover {
+        color: $light-blue;
+      }
+    }
   }
 }
 

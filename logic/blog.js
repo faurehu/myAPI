@@ -7,7 +7,7 @@ let monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
 
-let handleError = (err) => { res.status = 500; return next(err); }
+let handleError = (err) => { res.status(500); return next(err); }
 
 module.exports = (app) => {
   return {

@@ -23559,28 +23559,36 @@
 	  }]);
 	
 	  function BlogColumnComponent(props) {
+	    var _this = this;
+	
 	    _classCallCheck(this, BlogColumnComponent);
 	
 	    _get(Object.getPrototypeOf(BlogColumnComponent.prototype), 'constructor', this).call(this, props);
+	
+	    this.reload = function () {
+	      XHR.send({
+	        method: 'GET',
+	        url: window.location.origin + '/api/blog'
+	      }).then(function (response) {
+	        _this.setState({
+	          empty: response.status === 500,
+	          posts: JSON.parse(response.responseText)
+	        });
+	        _this.forceUpdate();
+	      })['catch'](function (error) {
+	        _this.setState({
+	          empty: true
+	        });
+	      });
+	    };
+	
 	    this.state = {};
 	  }
 	
 	  _createClass(BlogColumnComponent, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      var _this = this;
-	
-	      XHR.send({
-	        method: 'GET',
-	        url: window.location.origin + '/api/blog'
-	      }).then(function (response) {
-	        _this.setState({
-	          posts: JSON.parse(response.responseText)
-	        });
-	        _this.forceUpdate();
-	      })['catch'](function (error) {
-	        console.log(error);
-	      });
+	      this.reload();
 	    }
 	  }, {
 	    key: 'getColumnClass',
@@ -23602,7 +23610,23 @@
 	        { key: 0, className: 'column-title' },
 	        'Blog posts'
 	      )];
-	      if (this.state.posts !== undefined) {
+	
+	      if (this.state.empty) {
+	        postCards.push(React.createElement(
+	          'div',
+	          { className: 'reload-div' },
+	          React.createElement(
+	            'h2',
+	            null,
+	            'There has been a disconnection'
+	          ),
+	          React.createElement(
+	            'h2',
+	            { className: 'reload-click', onClick: this.reload },
+	            'Try again?'
+	          )
+	        ));
+	      } else if (this.state.posts !== undefined) {
 	        this.state.posts.forEach(function (post) {
 	          postCards.push(React.createElement(_CardsBlogCardComponent2['default'], { title: post.title, id: post.id,
 	            subtitle: post.subtitle, key: _this2.state.posts.indexOf(post) + 1,
@@ -30551,25 +30575,30 @@
 	      gallery.init();
 	    };
 	
+	    this.reload = function () {
+	      XHR.send({
+	        method: 'GET',
+	        url: window.location.origin + '/api/photo'
+	      }).then(function (response) {
+	        _this.setState({
+	          images: JSON.parse(response.responseText),
+	          empty: response.status === 500
+	        });
+	        _this.forceUpdate();
+	      })['catch'](function (error) {
+	        _this.setState({
+	          empty: true
+	        });
+	      });
+	    };
+	
 	    this.state = {};
 	  }
 	
 	  _createClass(ImageColumnComponent, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      var _this2 = this;
-	
-	      XHR.send({
-	        method: 'GET',
-	        url: window.location.origin + '/api/photo'
-	      }).then(function (response) {
-	        _this2.setState({
-	          images: JSON.parse(response.responseText)
-	        });
-	        _this2.forceUpdate();
-	      })['catch'](function (error) {
-	        console.log(error);
-	      });
+	      this.reload();
 	    }
 	  }, {
 	    key: 'getColumnClass',
@@ -30579,18 +30608,33 @@
 	  }, {
 	    key: 'renderCards',
 	    value: function renderCards() {
-	      var _this3 = this;
+	      var _this2 = this;
 	
 	      var imageCards = [React.createElement(
 	        'h1',
 	        { key: 0, className: 'column-title' },
 	        'Photography'
 	      )];
-	      if (this.state.images !== undefined) {
+	      if (this.state.empty) {
+	        imageCards.push(React.createElement(
+	          'div',
+	          { className: 'reload-div' },
+	          React.createElement(
+	            'h2',
+	            null,
+	            'There has been a disconnection'
+	          ),
+	          React.createElement(
+	            'h2',
+	            { className: 'reload-click', onClick: this.reload },
+	            'Try again?'
+	          )
+	        ));
+	      } else if (this.state.images !== undefined) {
 	        this.state.images.forEach(function (image) {
-	          var index = _this3.state.images.indexOf(image);
+	          var index = _this2.state.images.indexOf(image);
 	          imageCards.push(React.createElement(_CardsImageCardComponent2['default'], { caption: image.caption, id: image.id,
-	            url: image.medium, key: index + 1, index: index, ps: _this3.photoSwipe }));
+	            url: image.medium, key: index + 1, index: index, ps: _this2.photoSwipe }));
 	        });
 	      }
 	      return imageCards;
@@ -30728,28 +30772,36 @@
 	  }]);
 	
 	  function InstagramColumnComponent(props) {
+	    var _this = this;
+	
 	    _classCallCheck(this, InstagramColumnComponent);
 	
 	    _get(Object.getPrototypeOf(InstagramColumnComponent.prototype), 'constructor', this).call(this, props);
+	
+	    this.reload = function () {
+	      XHR.send({
+	        method: 'GET',
+	        url: window.location.origin + '/api/instagram'
+	      }).then(function (response) {
+	        _this.setState({
+	          images: JSON.parse(response.responseText),
+	          empty: response.status === 500
+	        });
+	        _this.forceUpdate();
+	      })['catch'](function (error) {
+	        _this.setState({
+	          empty: true
+	        });
+	      });
+	    };
+	
 	    this.state = {};
 	  }
 	
 	  _createClass(InstagramColumnComponent, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      var _this = this;
-	
-	      XHR.send({
-	        method: 'GET',
-	        url: window.location.origin + '/api/instagram'
-	      }).then(function (response) {
-	        _this.setState({
-	          images: JSON.parse(response.responseText)
-	        });
-	        _this.forceUpdate();
-	      })['catch'](function (error) {
-	        console.log(error);
-	      });
+	      this.reload();
 	    }
 	  }, {
 	    key: 'getColumnClass',
@@ -30766,7 +30818,22 @@
 	        { key: 0, className: 'column-title' },
 	        'Instagram'
 	      )];
-	      if (this.state.images !== undefined) {
+	      if (this.state.empty) {
+	        imageCards.push(React.createElement(
+	          'div',
+	          { className: 'reload-div' },
+	          React.createElement(
+	            'h2',
+	            null,
+	            'There has been a disconnection'
+	          ),
+	          React.createElement(
+	            'h2',
+	            { className: 'reload-click', onClick: this.reload },
+	            'Try again?'
+	          )
+	        ));
+	      } else if (this.state.images !== undefined) {
 	        this.state.images.forEach(function (image) {
 	          imageCards.push(React.createElement(_CardsInstagramCardComponent2['default'], { link: image.link,
 	            url: image.url, key: _this2.state.images.indexOf(image) + 1 }));
@@ -30906,28 +30973,36 @@
 	  }]);
 	
 	  function GithubColumnComponent(props) {
+	    var _this = this;
+	
 	    _classCallCheck(this, GithubColumnComponent);
 	
 	    _get(Object.getPrototypeOf(GithubColumnComponent.prototype), 'constructor', this).call(this, props);
+	
+	    this.reload = function () {
+	      XHR.send({
+	        method: 'GET',
+	        url: window.location.origin + '/api/github'
+	      }).then(function (response) {
+	        _this.setState({
+	          repos: JSON.parse(response.responseText),
+	          empty: response.status === 500
+	        });
+	        _this.forceUpdate();
+	      })['catch'](function (error) {
+	        _this.setState({
+	          empty: true
+	        });
+	      });
+	    };
+	
 	    this.state = {};
 	  }
 	
 	  _createClass(GithubColumnComponent, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      var _this = this;
-	
-	      XHR.send({
-	        method: 'GET',
-	        url: window.location.origin + '/api/github'
-	      }).then(function (response) {
-	        _this.setState({
-	          repos: JSON.parse(response.responseText)
-	        });
-	        _this.forceUpdate();
-	      })['catch'](function (error) {
-	        console.log(error);
-	      });
+	      this.reload();
 	    }
 	  }, {
 	    key: 'getColumnClass',
@@ -30949,7 +31024,22 @@
 	        { key: 0, className: 'column-title' },
 	        'Github Repos'
 	      )];
-	      if (this.state.repos !== undefined) {
+	      if (this.state.empty) {
+	        repos.push(React.createElement(
+	          'div',
+	          { className: 'reload-div' },
+	          React.createElement(
+	            'h2',
+	            null,
+	            'There has been a disconnection'
+	          ),
+	          React.createElement(
+	            'h2',
+	            { className: 'reload-click', onClick: this.reload },
+	            'Try again?'
+	          )
+	        ));
+	      } else if (this.state.repos !== undefined) {
 	        this.state.repos.forEach(function (repo) {
 	          repos.push(React.createElement(_CardsGithubCardComponent2['default'], { name: repo.name, url: repo.url,
 	            language: repo.language, description: repo.description,
@@ -31115,28 +31205,36 @@
 	  }]);
 	
 	  function PocketColumnComponent(props) {
+	    var _this = this;
+	
 	    _classCallCheck(this, PocketColumnComponent);
 	
 	    _get(Object.getPrototypeOf(PocketColumnComponent.prototype), 'constructor', this).call(this, props);
+	
+	    this.reload = function () {
+	      XHR.send({
+	        method: 'GET',
+	        url: window.location.origin + '/api/pocket/0'
+	      }).then(function (response) {
+	        _this.setState({
+	          articles: JSON.parse(response.responseText),
+	          empty: response.status === 500
+	        });
+	        _this.forceUpdate();
+	      })['catch'](function (error) {
+	        _this.setState({
+	          empty: true
+	        });
+	      });
+	    };
+	
 	    this.state = {};
 	  }
 	
 	  _createClass(PocketColumnComponent, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      var _this = this;
-	
-	      XHR.send({
-	        method: 'GET',
-	        url: window.location.origin + '/api/pocket/0'
-	      }).then(function (response) {
-	        _this.setState({
-	          articles: JSON.parse(response.responseText)
-	        });
-	        _this.forceUpdate();
-	      })['catch'](function (error) {
-	        console.log(error);
-	      });
+	      this.reload();
 	    }
 	  }, {
 	    key: 'getColumnClass',
@@ -31158,7 +31256,22 @@
 	        { key: 0, className: 'column-title' },
 	        'Pocket Favorites'
 	      )];
-	      if (this.state.articles !== undefined) {
+	      if (this.state.empty) {
+	        pocketCards.push(React.createElement(
+	          'div',
+	          { className: 'reload-div' },
+	          React.createElement(
+	            'h2',
+	            null,
+	            'There has been a disconnection'
+	          ),
+	          React.createElement(
+	            'h2',
+	            { className: 'reload-click', onClick: this.reload },
+	            'Try again?'
+	          )
+	        ));
+	      } else if (this.state.articles !== undefined) {
 	        this.state.articles.forEach(function (article) {
 	          pocketCards.push(React.createElement(_CardsPocketCardComponent2['default'], { url: article.url,
 	            title: article.title, excerpt: article.excerpt, key: _this2.state.articles.indexOf(article) + 1 }));
@@ -31315,28 +31428,36 @@
 	  }]);
 	
 	  function TwitterColumnComponent(props) {
+	    var _this = this;
+	
 	    _classCallCheck(this, TwitterColumnComponent);
 	
 	    _get(Object.getPrototypeOf(TwitterColumnComponent.prototype), 'constructor', this).call(this, props);
+	
+	    this.reload = function () {
+	      XHR.send({
+	        method: 'GET',
+	        url: window.location.origin + '/api/twitter'
+	      }).then(function (response) {
+	        _this.setState({
+	          tweets: JSON.parse(response.responseText),
+	          empty: response.status === 500
+	        });
+	        _this.forceUpdate();
+	      })['catch'](function (error) {
+	        _this.setState({
+	          empty: true
+	        });
+	      });
+	    };
+	
 	    this.state = {};
 	  }
 	
 	  _createClass(TwitterColumnComponent, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      var _this = this;
-	
-	      XHR.send({
-	        method: 'GET',
-	        url: window.location.origin + '/api/twitter'
-	      }).then(function (response) {
-	        _this.setState({
-	          tweets: JSON.parse(response.responseText)
-	        });
-	        _this.forceUpdate();
-	      })['catch'](function (error) {
-	        console.log(error);
-	      });
+	      this.reload();
 	    }
 	  }, {
 	    key: 'getColumnClass',
@@ -31358,7 +31479,22 @@
 	        { key: 0, className: 'column-title' },
 	        'Twitter'
 	      )];
-	      if (this.state.tweets !== undefined) {
+	      if (this.state.empty) {
+	        tweetCards.push(React.createElement(
+	          'div',
+	          { className: 'reload-div' },
+	          React.createElement(
+	            'h2',
+	            null,
+	            'There has been a disconnection'
+	          ),
+	          React.createElement(
+	            'h2',
+	            { className: 'reload-click', onClick: this.reload },
+	            'Try again?'
+	          )
+	        ));
+	      } else if (this.state.tweets !== undefined) {
 	        this.state.tweets.forEach(function (tweet) {
 	          tweetCards.push(React.createElement(_CardsTwitterCardComponent2['default'], { text: tweet.text || tweet.myText,
 	            author: tweet.author, media: tweet.imgUrl, key: _this2.state.tweets.indexOf(tweet) + 1 }));
@@ -31517,29 +31653,37 @@
 	  }]);
 	
 	  function SoundCloudColumnComponent(props) {
+	    var _this = this;
+	
 	    _classCallCheck(this, SoundCloudColumnComponent);
 	
 	    _get(Object.getPrototypeOf(SoundCloudColumnComponent.prototype), 'constructor', this).call(this, props);
-	    this.state = {};
-	  }
 	
-	  _createClass(SoundCloudColumnComponent, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      var _this = this;
-	
+	    this.reload = function () {
 	      XHR.send({
 	        method: 'GET',
 	        url: window.location.origin + '/api/soundcloud'
 	      }).then(function (response) {
 	        var tracks = JSON.parse(response.responseText);
 	        _this.setState({
-	          tracks: tracks
+	          tracks: tracks,
+	          empty: response.status === 500
 	        });
 	        _this.forceUpdate();
 	      })['catch'](function (error) {
-	        console.log(error);
+	        _this.setState({
+	          empty: true
+	        });
 	      });
+	    };
+	
+	    this.state = {};
+	  }
+	
+	  _createClass(SoundCloudColumnComponent, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.reload();
 	    }
 	  }, {
 	    key: 'getColumnClass',
@@ -31552,7 +31696,9 @@
 	      var _this2 = this;
 	
 	      var trackCards = [];
-	      if (this.state.tracks !== undefined) {
+	      if (this.state.empty) {
+	        trackCards.push(React.createElement('div', { className: 'reload' }));
+	      } else if (this.state.tracks !== undefined) {
 	        this.state.tracks.forEach(function (track) {
 	          trackCards.push(React.createElement(_CardsSoundCloudCardComponent2['default'], { title: track.title,
 	            media: track.media, user: track.user, url: track.url,
@@ -31564,7 +31710,26 @@
 	  }, {
 	    key: 'renderColumnHeader',
 	    value: function renderColumnHeader() {
-	      if (this.state.tracks !== undefined) {
+	      if (this.state.empty) {
+	        return [React.createElement(
+	          'h1',
+	          { key: 0, className: 'column-title' },
+	          'Soundcloud favorites'
+	        ), React.createElement(
+	          'div',
+	          { className: 'reload-div' },
+	          React.createElement(
+	            'h2',
+	            null,
+	            'There has been a disconnection'
+	          ),
+	          React.createElement(
+	            'h2',
+	            { className: 'reload-click', onClick: this.reload },
+	            'Try again?'
+	          )
+	        )];
+	      } else if (this.state.tracks !== undefined) {
 	        var src = 'https://w.soundcloud.com/player/?url=' + this.state.tracks[0].url + '&amp;auto_play=false&amp;buying=false&amp;liking=false&amp;download=false&amp;sharing=false&amp;show_artwork=false&amp;show_comments=false&amp;show_playcount=false&amp;show_user=true&amp;hide_related=false&amp;visual=false&amp;start_track=0&amp;callback=true';
 	        return React.createElement(
 	          'div',
@@ -31738,22 +31903,40 @@
 	
 	  _createClass(YoutubeColumnComponent, null, [{
 	    key: 'displayName',
-	    value: 'Image Column Component',
+	    value: 'Youtube Column Component',
 	    enumerable: true
 	  }]);
 	
 	  function YoutubeColumnComponent(props) {
+	    var _this = this;
+	
 	    _classCallCheck(this, YoutubeColumnComponent);
 	
 	    _get(Object.getPrototypeOf(YoutubeColumnComponent.prototype), 'constructor', this).call(this, props);
+	
+	    this.reload = function () {
+	      XHR.send({
+	        method: 'GET',
+	        url: window.location.origin + '/api/youtube'
+	      }).then(function (response) {
+	        _this.setState({
+	          videos: JSON.parse(response.responseText),
+	          empty: response.status === 500
+	        });
+	        _this.forceUpdate();
+	      })['catch'](function (error) {
+	        _this.setState({
+	          emptty: true
+	        });
+	      });
+	    };
+	
 	    this.state = {};
 	  }
 	
 	  _createClass(YoutubeColumnComponent, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      var _this = this;
-	
 	      var player = undefined;
 	      var onYouTubeIframeAPIReady = function onYouTubeIframeAPIReady() {
 	        console.log('yo');
@@ -31767,17 +31950,7 @@
 	          }
 	        });
 	      };
-	      XHR.send({
-	        method: 'GET',
-	        url: window.location.origin + '/api/youtube'
-	      }).then(function (response) {
-	        _this.setState({
-	          videos: JSON.parse(response.responseText)
-	        });
-	        _this.forceUpdate();
-	      })['catch'](function (error) {
-	        console.log(error);
-	      });
+	      this.reload();
 	    }
 	  }, {
 	    key: 'getColumnClass',
@@ -31794,7 +31967,22 @@
 	        { key: 0, className: 'column-title' },
 	        'Youtube Playlist'
 	      )];
-	      if (this.state.videos !== undefined) {
+	      if (this.state.empty) {
+	        videoCards.push(React.createElement(
+	          'div',
+	          { className: 'reload-div' },
+	          React.createElement(
+	            'h2',
+	            null,
+	            'There has been a disconnection'
+	          ),
+	          React.createElement(
+	            'h2',
+	            { className: 'reload-click', onClick: this.reload },
+	            'Try again?'
+	          )
+	        ));
+	      } else if (this.state.videos !== undefined) {
 	        this.state.videos.forEach(function (video) {
 	          videoCards.push(React.createElement(_CardsYoutubeCardComponent2['default'], { media: video.media,
 	            id: video.id, title: video.title, key: _this2.state.videos.indexOf(video) + 1 }));

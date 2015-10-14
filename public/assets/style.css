@@ -271,6 +271,16 @@ html {
       font-size: 1em;
       margin: 5px;
       text-align: center; }
+    .column .column-content .reload-div {
+      margin: 20px; }
+      .column .column-content .reload-div h2 {
+        color: #B0BEC5;
+        font-family: 'Chivo', sans-serif;
+        font-size: 1em;
+        margin: 5px;
+        text-align: center; }
+      .column .column-content .reload-div .reload-click:hover {
+        color: #448aff; }
 
 .soundcloud-column .column-header {
   margin-top: 5px; }

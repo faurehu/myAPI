@@ -14,19 +14,7 @@ export default class ImageColumnComponent extends ColumnComponent {
   }
 
   componentDidMount() {
-    XHR.send({
-      method: 'GET',
-      url: `${window.location.origin}/api/photo`
-    })
-    .then((response) => {
-      this.setState({
-        images: JSON.parse(response.responseText)
-      });
-      this.forceUpdate();
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+    this.reload();
   }
 
   getColumnClass() {
@@ -35,7 +23,9 @@ export default class ImageColumnComponent extends ColumnComponent {
 
   renderCards() {
     let imageCards = [<h1 key={0} className="column-title">Photography</h1>];
-    if(this.state.images !== undefined) {
+    if(this.state.empty) {
+      imageCards.push(<div className="reload-div"><h2>There has been a disconnection</h2><h2 className="reload-click" onClick={this.reload}>Try again?</h2></div>);
+    } else if (this.state.images !== undefined) {
       this.state.images.forEach((image) => {
         let index =this.state.images.indexOf(image);
         imageCards.push(<ImageCardComponent caption={image.caption} id={image.id}
@@ -95,5 +85,24 @@ export default class ImageColumnComponent extends ColumnComponent {
 
     let gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
     gallery.init();
+  }
+
+  reload = () => {
+    XHR.send({
+      method: 'GET',
+      url: `${window.location.origin}/api/photo`
+    })
+    .then((response) => {
+      this.setState({
+        images: JSON.parse(response.responseText),
+        empty: response.status === 500
+      });
+      this.forceUpdate();
+    })
+    .catch((error) => {
+      this.setState({
+        empty: true
+      });
+    });
   }
 }
