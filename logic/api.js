@@ -1,4 +1,4 @@
-import { keys } from '../config/config';
+import { keys } from '../config/prodConfig';
 import request from 'request';
 import https from 'https';
 
