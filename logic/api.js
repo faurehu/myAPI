@@ -153,9 +153,11 @@ module.exports = (app) => {
       let handleError = (err) => { res.status(500); return next(err); };
 
       let response = (data) => {
+        console.log(data);
         request.get(`https://api.instagram.com/v1/users/6669726/media/recent/?access_token=${data.dataValues.token}&count=50`,
         (err, response, body) => {
           if (err) handleError(err);
+          console.log(body);
           let photos = JSON.parse(body).data;
           res.json(photos.map((photo) => {
             return {
