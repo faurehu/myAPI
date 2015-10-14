@@ -14,7 +14,7 @@ module.exports = (app) => {
         }));
       }
 
-      app.get('models').Post.findAll({order: '"createdAt" DESC'})
+      app.get('models').post.findAll({order: '"createdAt" DESC'})
       .then(response).catch(handleError);
     },
     getImages: (req, res, next) => {
