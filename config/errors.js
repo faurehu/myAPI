@@ -2,7 +2,7 @@ module.exports = (app) => {
   app.use((req, res, next) => {
     let err = new Error('Not Found');
     err.status = 404;
-    next(err);
+    res.render('404');
   });
 
   if (app.get('env') === 'development') {
@@ -17,9 +17,6 @@ module.exports = (app) => {
 
   app.use((err, req, res, next) => {
     res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: {}
-    });
+    res.render('500');
   });
 }

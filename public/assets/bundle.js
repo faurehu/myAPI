@@ -295,7 +295,7 @@
 	            ),
 	            _reactAddons2['default'].createElement(
 	              'a',
-	              { href: 'mailto:faurehu@gmail.com' },
+	              { href: 'mailto:hi@faure.hu' },
 	              _reactAddons2['default'].createElement('i', { className: 'fa fa-envelope-square fa-3x' })
 	            )
 	          )
