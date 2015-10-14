@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
 
-  var AccessToken = sequelize.define('accesstoken', {
+  var AccessToken = sequelize.define('accessToken', {
 
     id: {
       type: DataTypes.INTEGER,

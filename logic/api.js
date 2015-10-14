@@ -60,9 +60,10 @@ module.exports = (app) => {
     },
     getGithub: (req, res, next) => {
 
-      let handleError = (err) => { res.status(500); return next(err); };
+      let handleError = (err) => { console.log('at error:', err); res.status(500); return next(err); };
 
       let response = (data) => {
+        console.log('at response:', data);
         let options = {
           url: `https://api.github.com/user/repos?access_token=${data.dataValues.token}&visibility=public&affiliation=owner,collaborator&sort=updated`,
           headers: {
@@ -82,7 +83,7 @@ module.exports = (app) => {
           }));
         });
       }
-      
+      console.log('at getGitub', app.get('models').AccessToken);
       app.get('models').AccessToken.find({where: {service: 'github'}})
       .then(response).catch(handleError);
     },
