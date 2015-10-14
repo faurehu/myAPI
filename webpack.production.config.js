@@ -13,13 +13,6 @@ module.exports = {
     extensions: ["", ".js", ".jsx", ".js.jsx"]
   },
   module: {
-    preLoaders: [
-      {
-        test: /\.jsx?$/,
-        loader: "eslint-loader",
-        exclude: /(node_modules)/
-      }
-    ],
     loaders: [
       {
         test: /\.jsx?$/,
@@ -50,12 +43,6 @@ module.exports = {
         loader: "expose?React"
       }
     ]
-  },
-  eslint: {
-    emitWarning: true,
-    emitError: true,
-    failOnWarning: true,
-    failOnError: true
   },
   plugins: [
     new ExtractTextPlugin("style.css", { allChunks: true }),
