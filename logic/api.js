@@ -63,6 +63,7 @@ module.exports = (app) => {
       let handleError = (err) => { console.log('error', err); res.status(500); return next(err); };
 
       let response = (data) => {
+        console.log('data', data);
         let options = {
           url: `https://api.github.com/user/repos?access_token=${data.dataValues.token}&visibility=public&affiliation=owner,collaborator&sort=updated`,
           headers: {
@@ -84,7 +85,7 @@ module.exports = (app) => {
           }));
         });
       }
-      app.get('models').AccessToken.findOrCreate({where: {service: 'github'}})
+      app.get('models').AccessToken.find({where: {service: 'github'}})
       .then(response).catch(handleError);
     },
     getPocket: (req, res, next) => {
