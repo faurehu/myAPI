@@ -11,7 +11,7 @@ module.exports = {
       key: process.env.GOOGLE_KEY
     },
     instagram: {
-      clientID: process.env.INSTAGRAM_KEY,
+      clientID: process.env.INSTAGRAM_ID,
       clientSecret: process.env.INSTAGRAM_SECRET
     },
     github: {
