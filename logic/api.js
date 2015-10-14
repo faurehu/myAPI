@@ -60,7 +60,7 @@ module.exports = (app) => {
     },
     getGithub: (req, res, next) => {
 
-      let handleError = (err) => { res.status(500); return next(err); };
+      let handleError = (err) => { console.log('error', err); res.status(500); return next(err); };
 
       let response = (data) => {
         let options = {
@@ -71,6 +71,8 @@ module.exports = (app) => {
         }
         request(options, (err, response, body) => {
           if(err) handleError(err);
+          console.log('response', response);
+          console.log('body', body);
           let repos = JSON.parse(body);
           res.json(repos.map((repo) => {
             return {
@@ -151,7 +153,7 @@ module.exports = (app) => {
       let handleError = (err) => { res.status(500); return next(err); };
 
       let response = (data) => {
-        request.get(`https://api.instagram.com/v1/users/6669726/media/recent/?access_token=${data.dataValues.token}&count=50`,
+        request.get(`https://api.instagram.com/v1/users/${data.dataValues.userID}/media/recent/?access_token=${data.dataValues.token}&count=50`,
         (err, response, body) => {
           if (err) handleError(err);
           let photos = JSON.parse(body).data;
