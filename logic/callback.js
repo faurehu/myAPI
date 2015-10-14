@@ -11,7 +11,7 @@ module.exports = (app) => {
         client_id: keys.instagram.clientID,
         client_secret: keys.instagram.clientSecret,
         grant_type: 'authorization_code',
-        redirect_uri: 'http://faure.hu/callback/instagram',
+        redirect_uri: 'http://faurehomepage.herokuapp.com/callback/instagram',
         code: req.query.code
       };
 
@@ -19,8 +19,10 @@ module.exports = (app) => {
 
         let saveToken = (data, created) => {
           app.get('models').AccessToken.findById(data[0].dataValues.id).then((token) => {
+            console.log(info);
             let info = JSON.parse(body);
-            token.update({token: info.access_token});
+            console.log(info);
+            token.update({token: info.access_token, userID: info.user.id});
             console.log('Saved new token');
           });
           res.json({
@@ -40,7 +42,7 @@ module.exports = (app) => {
         client_id: keys.github.clientID,
         client_secret: keys.github.clientSecret,
         grant_type: 'authorization_code',
-        redirect_uri: 'http://faure.hu/callback/github',
+        redirect_uri: 'http://http://faurehomepage.herokuapp.com/callback/github',
         code: req.query.code
       }
 
