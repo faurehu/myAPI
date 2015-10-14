@@ -84,7 +84,7 @@ module.exports = (app) => {
         });
       }
       console.log(app.get('models'));
-      app.get('models').AccessToken.find({where: {service: 'github'}})
+      app.get('models').accessToken.find({where: {service: 'github'}})
       .then(response).catch(handleError);
     },
     getPocket: (req, res, next) => {
@@ -127,7 +127,7 @@ module.exports = (app) => {
         });
       }
 
-      app.get('models').AccessToken.find({where: {service: 'pocket'}})
+      app.get('models').accessToken.find({where: {service: 'pocket'}})
       .then(response).catch(handleError);
     },
     getSoundcloud: (req, res, next) => {
@@ -167,7 +167,7 @@ module.exports = (app) => {
       );
       }
 
-      app.get('models').AccessToken.find({where: {service: 'instagram'}})
+      app.get('models').accessToken.find({where: {service: 'instagram'}})
       .then(response).catch(handleError);
     },
     getYoutube: (req, res) => {
@@ -191,7 +191,7 @@ module.exports = (app) => {
       let handleError = (err) => { res.status(500); return next(err); };
 
       let saveToken = (data, created) => {
-        app.get('models').AccessToken.findById(data[0].dataValues.id).then((token) => {
+        app.get('models').accessToken.findById(data[0].dataValues.id).then((token) => {
           token.update({token: req.query.token});
           console.log('Saved new token');
         });
@@ -201,7 +201,7 @@ module.exports = (app) => {
       }
 
       if(req.query.secret === keys.pocket.myOwnSecret) {
-        app.get('models').AccessToken.findOrCreate({where: {service: 'pocket'}}).then(saveToken).catch(error);
+        app.get('models').accessToken.findOrCreate({where: {service: 'pocket'}}).then(saveToken).catch(error);
       } else {
         if(err) handleError(err);
       }
