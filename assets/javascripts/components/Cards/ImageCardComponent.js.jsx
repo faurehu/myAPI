@@ -19,7 +19,8 @@ export default class ImageCardComponent extends React.Component {
   render() {
     return (
       <div className="card image-card" onClick={this.props.ps.bind(null, this.props.index)}>
-        <img src={this.props.url}/>
+        <img src={this.props.url} alt={this.props.caption}/>
+        <h1>{this.props.caption}</h1>
       </div>
     );
   }

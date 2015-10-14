@@ -30714,7 +30714,12 @@
 	      return _reactAddons2['default'].createElement(
 	        'div',
 	        { className: 'card image-card', onClick: this.props.ps.bind(null, this.props.index) },
-	        _reactAddons2['default'].createElement('img', { src: this.props.url })
+	        _reactAddons2['default'].createElement('img', { src: this.props.url, alt: this.props.caption }),
+	        _reactAddons2['default'].createElement(
+	          'h1',
+	          null,
+	          this.props.caption
+	        )
 	      );
 	    }
 	  }]);
@@ -30916,7 +30921,7 @@
 	  _createClass(InstagramCardComponent, [{
 	    key: 'render',
 	    value: function render() {
-	      return _reactAddons2['default'].createElement('img', { className: 'card instagram-card', src: this.props.url, onClick: this.redirect });
+	      return _reactAddons2['default'].createElement('img', { alt: 'Instragram picture', className: 'card instagram-card', src: this.props.url, onClick: this.redirect });
 	    }
 	  }]);
 	
@@ -32069,7 +32074,7 @@
 	      return _reactAddons2['default'].createElement(
 	        'div',
 	        { className: 'card youtube-card', onClick: this.redirect },
-	        _reactAddons2['default'].createElement('img', { src: this.props.media }),
+	        _reactAddons2['default'].createElement('img', { alt: this.props.title, src: this.props.media }),
 	        _reactAddons2['default'].createElement(
 	          'div',
 	          { className: 'card-bottom' },
