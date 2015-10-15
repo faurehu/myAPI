@@ -32,7 +32,7 @@ module.exports = (app) => {
         }).catch(handleError);
       }
 
-      app.get('models').Post.findById(req.params.post)
+      app.get('models').post.findById(req.params.post)
       .then(response).catch(handleError);
     }
   }
