@@ -11,7 +11,8 @@ module.exports = (app) => {
   return {
     getPost: (req, res, next) => {
 
-      let handleError = (err) => { res.status(500); return next(err); }
+      let handleError = (err) => { console.log(err); res.status(500); return next(err); }
+
 
       let response = (data) => {
 
