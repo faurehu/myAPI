@@ -9,6 +9,7 @@ module.exports = {
     pocket: '/pocket/:page',
     soundcloud: '/soundcloud',
     photo: '/photo',
-    instagram: '/instagram'
+    instagram: '/instagram',
+    subscribe: '/subscribe'
   }
 }
