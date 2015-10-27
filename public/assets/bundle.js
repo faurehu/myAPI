@@ -30714,12 +30714,7 @@
 	      return _reactAddons2['default'].createElement(
 	        'div',
 	        { className: 'card image-card', onClick: this.props.ps.bind(null, this.props.index) },
-	        _reactAddons2['default'].createElement('img', { src: this.props.url, alt: this.props.caption }),
-	        _reactAddons2['default'].createElement(
-	          'h1',
-	          null,
-	          this.props.caption
-	        )
+	        _reactAddons2['default'].createElement('img', { src: this.props.url, alt: this.props.caption })
 	      );
 	    }
 	  }]);
@@ -31944,7 +31939,6 @@
 	    value: function componentDidMount() {
 	      var player = undefined;
 	      var onYouTubeIframeAPIReady = function onYouTubeIframeAPIReady() {
-	        console.log('yo');
 	        player = new YT.Player('player', {
 	          height: '390',
 	          width: '640',

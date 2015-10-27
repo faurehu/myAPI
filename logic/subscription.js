@@ -30,11 +30,10 @@ module.exports = (app) => {
           to: subscription.email,
           subject: "Please confirm your subscription to Faure's posts",
           text: `Hi!\n\nYou just put down your email to subscribe to my blog. Go to the following link:\n\n${link}\n\nBest wishes,\n\nFaure`,
-          html: `<p>Hi!</p><p>You just put down your email to subscribe to my blog. You can click <a href="${link}">here</a> to confirm your subscription. Alternatively, go to the following link:</p><p><a href="${link}">${link}</a></p><p>Best wishes,</p><p>Faure</p>`
+          html: `<p>Hi!</p><p>You just put down your email to subscribe to my blog. You can click <a href="${link}">here</a> to confirm your subscription. Alternatively, copy the following link and paste it in your url bar:</p><p><a href="${link}">${link}</a></p><p>Best wishes,</p><p>Faure</p>`
         };
 
         if(!subscription.confirmed) {
-          // Not confirmed, so send email.
           app.get('mailer').sendMail(mailOptions, function(error, info) {
             if(error) {
               handleError(error);
@@ -42,9 +41,7 @@ module.exports = (app) => {
               console.log(`Message sent: ${info.response}`);
             }
           });
-
         } else {
-          // Confirmed, so notify this email is already subscribed.
           res.json({
             confirmed: true
           });

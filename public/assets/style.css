@@ -267,10 +267,14 @@ html {
     overflow-x: hidden; }
     .column .column-content .column-title {
       color: #B0BEC5;
+      display: none;
       font-family: 'Chivo', sans-serif;
       font-size: 1em;
       margin: 5px;
       text-align: center; }
+      @media screen and (min-width: 800px) {
+        .column .column-content .column-title {
+          display: block; } }
     .column .column-content .reload-div {
       margin: 20px; }
       .column .column-content .reload-div h2 {
@@ -389,6 +393,8 @@ html {
 .header {
   width: 100%;
   height: 50px;
+  position: fixed;
+  z-index: 100;
   background-color: #ecf0f1;
   border-bottom: 4px solid #34495e; }
   .header a:link, .header a:visited, .header a:hover, .header a:active {
@@ -414,15 +420,17 @@ html {
   max-width: 800px;
   margin: auto; }
   .content .postHeader {
+    padding-top: 60px;
     font-family: 'Chivo', sans-serif;
     margin-left: 5px;
     margin-right: 5px;
     border-bottom: 5px solid #34495e;
-    margin-top: 10px; }
+    margin-top: 0; }
     .content .postHeader .postTitle {
       color: #336E7B;
       text-align: center;
       margin-bottom: 0;
+      margin-top: 0;
       font-size: 4em;
       text-shadow: 1px 1px #95a5a6; }
     .content .postHeader .postSubtitle {
@@ -441,7 +449,7 @@ html {
     .content .markdown a:link, .content .markdown a:visited, .content .markdown a:hover, .content .markdown a:active {
       text-decoration: none;
       color: #3498db; }
-    .content .markdown h3, .content .markdown p > strong {
+    .content .markdown h3, .content .markdown h2, .content .markdown h1, .content .markdown p > strong {
       color: #336E7B; }
     .content .markdown .quote {
       margin-top: 30px;
@@ -456,6 +464,7 @@ html {
     .content .markdown code {
       border: 4px solid #34495e;
       border-radius: 10px;
+      font-size: .7em;
       margin-top: 10px;
       margin-bottom: 10px; }
     .content .markdown iframe {
@@ -497,5 +506,32 @@ html {
         color: #3498db; }
         .content .postFooter p a:link, .content .postFooter p a:visited, .content .postFooter p a:hover, .content .postFooter p a:active {
           text-decoration: none; }
+    .content .postFooter .input {
+      margin: 10px;
+      box-sizing: border-box;
+      font-family: 'Chivo', sans-serif;
+      padding: 2px;
+      padding-left: 5px;
+      border-radius: 5px;
+      background-color: white; }
+      .content .postFooter .input input {
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        height: 30px; }
+        .content .postFooter .input input:focus {
+          outline: 0; }
+    .content .postFooter button {
+      display: block;
+      width: 30%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 0px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: none;
+      font-family: 'Chivo', sans-serif;
+      background-color: #3498db;
+      color: white; }
 
 /*# sourceMappingURL=style.css.map*/
