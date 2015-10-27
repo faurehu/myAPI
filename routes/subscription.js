@@ -5,7 +5,7 @@ import { apiRoute } from '../config/routes';
 
 module.exports = (app) => {
   let subscriptionLogic = subscription(app);
-  router.post('/', subscriptionLogic.subscribe);
   router.get('/', subscriptionLogic.confirm);
+  router.post('/', subscriptionLogic.subscribe);
   return router;
 }
