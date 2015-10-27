@@ -6,6 +6,7 @@ import bodyParser from 'body-parser';
 import express from 'express';
 import request from 'request';
 import config from './config';
+import mailer from './mailer';
 let keys = config().keys;
 
 module.exports = (app) => {
@@ -19,6 +20,8 @@ module.exports = (app) => {
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(cookieParser());
   app.use(express.static(path.join(__dirname, '/../public')));
+
+  app.set('mailer', require('./mailer'));
 
   let toEncode = `${keys.twitter.consumerKey}:${keys.twitter.consumerSecret}`;
   let buffer = new Buffer(toEncode);

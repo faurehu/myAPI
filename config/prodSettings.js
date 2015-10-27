@@ -1,4 +1,5 @@
 module.exports = {
+  // TODO: insert mail credentials
   keys: {
     twitter: {
       consumerKey: process.env.TWITTER_KEY,
