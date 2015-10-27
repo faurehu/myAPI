@@ -5,7 +5,8 @@ import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import express from 'express';
 import request from 'request';
-import { keys } from './prodConfig';
+import config from './config';
+let keys = config().keys;
 
 module.exports = (app) => {
 

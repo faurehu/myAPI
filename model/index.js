@@ -1,8 +1,9 @@
 import Sequelize from 'sequelize';
-import configFile from '../config/prodConfig';
+import configF from '../config/config';
+let keys = configF().keys;
 
 let env = process.env.NODE_ENV || 'development';
-let config = configFile[env];
+let config = configF()[env];
 
 let sequelize = new Sequelize(config.db.name, config.db.user, config.db.password, {
   host: config.db.host,

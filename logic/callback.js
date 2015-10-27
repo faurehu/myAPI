@@ -1,5 +1,6 @@
 import request from 'request';
-import { keys } from '../config/prodConfig';
+import config from '../config/config';
+let keys = config().keys;
 
 module.exports = (app) => {
   return {

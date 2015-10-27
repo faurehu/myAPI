@@ -1,6 +1,3 @@
-import path from 'path'
-let rootPath = path.normalize(`${__dirname}/..`);
-
 module.exports = {
   keys: {
     twitter: {

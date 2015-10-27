@@ -1,6 +1,7 @@
 import md from 'marked';
 import googl from 'goo.gl';
-import { keys } from '../config/prodConfig';
+import config from '../config/config';
+let keys = config().keys;
 googl.setKey(keys.google.key);
 
 let monthNames = ["January", "February", "March", "April", "May", "June",

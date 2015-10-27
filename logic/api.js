@@ -1,6 +1,7 @@
-import { keys } from '../config/prodConfig';
+import config from '../config/config';
 import request from 'request';
 import https from 'https';
+let keys = config().keys;
 
 module.exports = (app) => {
   return {
