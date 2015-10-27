@@ -19,11 +19,13 @@ module.exports = (app) => {
     },
     subscribe: (req, res, next) => {
 
+      let re = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i;
+
       let handleError = (err) => { res.status(500); return next(err); };
 
       let found = (data, created) => {
         let subscription = data[0].dataValues;
-        let link = `http://localhost:3000/subscribe?token=${subscription.token}`
+        let link = `http://localhost:3000/subscribe?token=${subscription.token}`;
 
         var mailOptions = {
           from: 'Faure Hu Blog <subscription@faure.hu>',
@@ -39,11 +41,14 @@ module.exports = (app) => {
               handleError(error);
             } else {
               console.log(`Message sent: ${info.response}`);
+              res.json({
+                message: 'Please check your inbox and confirm your email.'
+              })
             }
           });
         } else {
           res.json({
-            confirmed: true
+            message: 'This email is already subscribed!'
           });
         }
       }
@@ -53,8 +58,12 @@ module.exports = (app) => {
         defaults: {token: randomstring.generate()}
       }
 
-      app.get('models').Subscription.findOrCreate(findOrCreateOptions)
-      .then(found).catch(handleError);
+      if(re.test(req.query.email)) {
+        app.get('models').Subscription.findOrCreate(findOrCreateOptions)
+        .then(found).catch(handleError);
+      } else {
+        res.json('nice try');
+      }
     }
   }
 }
