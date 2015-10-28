@@ -1,0 +1,24 @@
+html {
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+p {
+  width: 80%;
+  text-align: center;
+  display: block;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 3em;
+}
+
+a {
+  color: green;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+}

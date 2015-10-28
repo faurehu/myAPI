@@ -4,7 +4,7 @@ module.exports = (app) => {
   return {
     confirm: (req, res, next) => {
 
-      let handleError = (err) => { res.status(404); console.log(err); return next(err); };
+      let handleError = (err) => { res.status(404); return next(err); };
 
       let success = () => { res.render('confirmed'); };
 
