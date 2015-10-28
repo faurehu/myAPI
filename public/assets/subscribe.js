@@ -34,7 +34,7 @@
         notify.style.color = 'green';
       };
 
-      req.open('POST', 'http://localhost:3000/subscribe?email=' + email);
+      req.open('POST', 'http://faure.hu/subscribe?email=' + email);
       req.responseType = 'json';
       req.send();
     }
