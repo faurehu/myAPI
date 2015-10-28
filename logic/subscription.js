@@ -4,7 +4,7 @@ module.exports = (app) => {
   return {
     confirm: (req, res, next) => {
 
-      let handleError = (err) => { res.status(500); return next(err); };
+      let handleError = (err) => { res.status(404); console.log(err); return next(err); };
 
       let success = () => { res.render('confirmed'); };
 
@@ -25,7 +25,7 @@ module.exports = (app) => {
 
       let found = (data, created) => {
         let subscription = data[0].dataValues;
-        let link = `http://localhost:3000/subscribe?token=${subscription.token}`;
+        let link = `http://www.faure.hu/subscribe?token=${subscription.token}`;
 
         var mailOptions = {
           from: 'Faure Hu Blog <subscription@faure.hu>',
