@@ -30598,7 +30598,7 @@
 	  _createClass(ImageColumnComponent, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      this.reload();
+	      !isMobile() && this.reload();
 	    }
 	  }, {
 	    key: 'getColumnClass',
@@ -30801,7 +30801,7 @@
 	  _createClass(InstagramColumnComponent, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      this.reload();
+	      !isMobile() && this.reload();
 	    }
 	  }, {
 	    key: 'getColumnClass',
@@ -31002,7 +31002,7 @@
 	  _createClass(GithubColumnComponent, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      this.reload();
+	      !isMobile() && this.reload();
 	    }
 	  }, {
 	    key: 'getColumnClass',
@@ -31234,7 +31234,7 @@
 	  _createClass(PocketColumnComponent, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      this.reload();
+	      !isMobile() && this.reload();
 	    }
 	  }, {
 	    key: 'getColumnClass',
@@ -31457,7 +31457,7 @@
 	  _createClass(TwitterColumnComponent, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      this.reload();
+	      !isMobile() && this.reload();
 	    }
 	  }, {
 	    key: 'getColumnClass',
@@ -31683,7 +31683,7 @@
 	  _createClass(SoundCloudColumnComponent, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      this.reload();
+	      !isMobile() && this.reload();
 	    }
 	  }, {
 	    key: 'getColumnClass',
@@ -31949,7 +31949,7 @@
 	          }
 	        });
 	      };
-	      this.reload();
+	      !isMobile() && this.reload();
 	    }
 	  }, {
 	    key: 'getColumnClass',

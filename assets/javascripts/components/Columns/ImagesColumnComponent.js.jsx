@@ -14,7 +14,7 @@ export default class ImageColumnComponent extends ColumnComponent {
   }
 
   componentDidMount() {
-    this.reload();
+    !isMobile() && this.reload();
   }
 
   getColumnClass() {

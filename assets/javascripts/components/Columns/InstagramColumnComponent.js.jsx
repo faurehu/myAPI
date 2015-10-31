@@ -12,7 +12,7 @@ export default class InstagramColumnComponent extends ColumnComponent {
   }
 
   componentDidMount() {
-    this.reload();
+    !isMobile() && this.reload();
   }
 
   getColumnClass() {

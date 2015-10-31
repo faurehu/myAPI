@@ -532,6 +532,7 @@ html {
       border: none;
       font-family: 'Chivo', sans-serif;
       background-color: #3498db;
-      color: white; }
+      color: white;
+      outline: 0; }
 
 /*# sourceMappingURL=style.css.map*/

@@ -24,7 +24,7 @@ export default class YoutubeColumnComponent extends ColumnComponent {
         }
       });
     }
-    this.reload();
+    !isMobile() && this.reload();
   }
 
   getColumnClass() {
