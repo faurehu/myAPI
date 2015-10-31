@@ -31,6 +31,7 @@ html {
       text-align: center; }
       .grid-container .grid-sidebar .link-limiter .link--mallki {
         color: #fff;
+        cursor: pointer;
         font-family: 'Share', cursive;
         font-size: 4.5em;
         text-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -299,6 +300,7 @@ html {
 .card {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   background-color: #fff;
+  cursor: pointer;
   font-family: 'Chivo', sans-serif;
   margin: 10px; }
   .card:hover {

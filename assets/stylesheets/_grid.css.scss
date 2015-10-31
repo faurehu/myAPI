@@ -40,6 +40,7 @@ html {
 
       .link--mallki {
         color: $white;
+        cursor: pointer;
         font-family: 'Share', cursive;
         font-size: 4.5em;
         text-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23);
@@ -351,7 +352,7 @@ html {
 
 .pswp__ui {
   font-family: 'Roboto', sans-serif;
-  
+
   .pswp__caption__center {
     text-align: center;
   }
