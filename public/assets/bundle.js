@@ -251,7 +251,7 @@
 	          _reactAddons2['default'].createElement(
 	            'div',
 	            { className: 'header-image' },
-	            _reactAddons2['default'].createElement('img', { src: './assets/picture.png' })
+	            _reactAddons2['default'].createElement('img', { src: './assets/picture.jpg' })
 	          ),
 	          _reactAddons2['default'].createElement(
 	            'div',

@@ -488,6 +488,10 @@ html {
     .content .markdown .reference {
       padding-left: 20px;
       border-left: 4px solid #336E7B; }
+    .content .markdown .caption {
+      margin-top: -15px;
+      font-size: smaller;
+      text-align: center; }
     .content .markdown code {
       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
       border: 1px solid #00796b;
