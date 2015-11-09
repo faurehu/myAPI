@@ -1,20 +1,25 @@
+@import './globals.css.scss';
+
 .header {
+    @include shadow-helper(3);
     width: 100%;
     height: 50px;
     position: fixed;
     z-index: 100;
-    background-color: #ecf0f1;
-    border-bottom: 4px solid #34495e;
+    // background-color: #ecf0f1;
+    background-color: $teal-500;
+    // border-bottom: 4px solid #34495e;
 
     a {
 
         &:link, &:visited, &:hover, &:active {
             text-decoration: none;
-            color: #34495e
+            text-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
+            color: $white;
         }
 
         &:hover {
-            color: #3498db;
+          text-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23);
         }
 
         span {
@@ -44,20 +49,22 @@
     margin: auto;
 
     .postHeader {
-        padding-top: 60px;
+        background-color: #ecf0f1;
+        padding: 60px 5px 0 5px;
         font-family: 'Proxima', sans-serif;
         margin-left: 5px;
         margin-right: 5px;
-        border-bottom: 5px solid #34495e;
+        border-bottom: 5px solid $teal-700;
         margin-top: 0;
 
         .postTitle {
-            color: #336E7B;
+            // color: #336E7B;
+            color: $teal-700;
             text-align: center;
             margin-bottom: 0;
             margin-top: 0;
             font-size: 4em;
-            text-shadow: 3px 3px 2px #95a5a6;
+            text-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23);
         }
 
         .postSubtitle {
@@ -86,8 +93,13 @@
         }
       }
 
-      h3, h2, h1, p > strong {
-        color: #336E7B;
+      h3, h2, h1 {
+        color: $teal-700;
+        border-bottom: 2px solid;
+      }
+
+      p > strong {
+        color: $teal-700;
       }
 
       .quote {
@@ -105,7 +117,8 @@
       }
 
       code {
-        border: 4px solid #34495e;
+        @include shadow-helper(2);
+        border: 1px solid $teal-700;
         border-radius: 10px;
         font-size: .7em;
         margin-top: 10px;
@@ -125,7 +138,7 @@
       }
 
       img {
-        border: 4px solid #34495e;
+        @include shadow-helper(2);
         max-width: 90%;
         display: block;
         margin-left: auto;
@@ -147,12 +160,11 @@
 
     .postFooter {
 
-        border: 4px solid #34495e;
-        border-radius: 10px;
+        border-top: 5px solid $teal-700;
         background-color: #ecf0f1;
+        padding-bottom: 5px;
         margin: 5px;
-        margin-bottom: 40px;
-        margin-top: 24px;
+        margin-bottom: 0;
 
         p {
             font-family: 'Proxima', sans-serif;
@@ -191,6 +203,7 @@
         }
 
         button {
+          @include shadow-helper(2);
           display: block;
           width: 30%;
           margin-left: auto;
@@ -200,9 +213,13 @@
           border-radius: 5px;
           border: none;
           font-family: 'Proxima', sans-serif;
-          background-color: #3498db;
+          background-color: $teal-500;
           color: white;
           outline: 0;
+
+          &:hover {
+            @include shadow-helper(3);
+          }
         }
     }
 }
