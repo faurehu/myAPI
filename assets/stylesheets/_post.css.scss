@@ -116,6 +116,12 @@
         border-left: 4px solid #336E7B;
       }
 
+      .caption {
+        margin-top: -15px;
+        font-size: smaller;
+        text-align: center;
+      }
+
       code {
         @include shadow-helper(2);
         border: 1px solid $teal-700;
