@@ -16,6 +16,11 @@
   }
 }
 
+@font-face {
+  font-family: Proxima;
+  src: url("/assets/Proxima.otf") format("opentype");
+}
+
 // Material Colors
 $teal-100: #b2dfdb;
 $teal-500: #009688;

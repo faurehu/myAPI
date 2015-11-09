@@ -1,3 +1,11 @@
+@font-face {
+  font-family: Proxima;
+  src: url("/assets/Proxima.otf") format("opentype"); }
+
+@font-face {
+  font-family: Proxima;
+  src: url("/assets/Proxima.otf") format("opentype"); }
+
 body,
 html {
   height: 100%; }
@@ -257,6 +265,10 @@ html {
   .pswp__ui .pswp__caption__center {
     text-align: center; }
 
+@font-face {
+  font-family: Proxima;
+  src: url("/assets/Proxima.otf") format("opentype"); }
+
 .column {
   background-color: #eceff1;
   height: 100%;
@@ -296,6 +308,10 @@ html {
     margin-right: auto; }
     .soundcloud-column .column-header iframe:hover {
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
+
+@font-face {
+  font-family: Proxima;
+  src: url("/assets/Proxima.otf") format("opentype"); }
 
 .card {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -410,7 +426,7 @@ html {
   .header a .title-div {
     display: inline;
     height: 100%;
-    font-family: 'Chivo', sans-serif;
+    font-family: 'Proxima', sans-serif;
     margin-left: 5px;
     line-height: 50px;
     font-size: 0.8em; }
@@ -423,7 +439,7 @@ html {
   margin: auto; }
   .content .postHeader {
     padding-top: 60px;
-    font-family: 'Chivo', sans-serif;
+    font-family: 'Proxima', sans-serif;
     margin-left: 5px;
     margin-right: 5px;
     border-bottom: 5px solid #34495e;
@@ -434,7 +450,7 @@ html {
       margin-bottom: 0;
       margin-top: 0;
       font-size: 4em;
-      text-shadow: 1px 1px #95a5a6; }
+      text-shadow: 3px 3px 2px #95a5a6; }
     .content .postHeader .postSubtitle {
       text-align: center;
       margin-top: 10px;
@@ -445,7 +461,7 @@ html {
   .content .markdown {
     margin-left: 15px;
     margin-right: 15px;
-    font-family: 'Chivo', sans-serif;
+    font-family: 'Proxima', sans-serif;
     text-align: justify;
     font-size: 1.5em; }
     .content .markdown a:link, .content .markdown a:visited, .content .markdown a:hover, .content .markdown a:active {
@@ -500,7 +516,7 @@ html {
     margin-bottom: 40px;
     margin-top: 24px; }
     .content .postFooter p {
-      font-family: 'Chivo', sans-serif;
+      font-family: 'Proxima', sans-serif;
       text-align: justify;
       margin: 10px;
       font-size: 1.5em; }
@@ -511,7 +527,7 @@ html {
     .content .postFooter .input {
       margin: 10px;
       box-sizing: border-box;
-      font-family: 'Chivo', sans-serif;
+      font-family: 'Proxima', sans-serif;
       padding: 2px;
       padding-left: 5px;
       border-radius: 5px;
@@ -532,7 +548,7 @@ html {
       margin-bottom: 10px;
       border-radius: 5px;
       border: none;
-      font-family: 'Chivo', sans-serif;
+      font-family: 'Proxima', sans-serif;
       background-color: #3498db;
       color: white;
       outline: 0; }
