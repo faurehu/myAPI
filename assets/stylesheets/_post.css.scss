@@ -193,6 +193,11 @@
         margin: 5px;
         margin-bottom: 0;
 
+        @media screen and (max-width: 414px) {
+          margin-left: 0;
+          margin-right: 0;
+        }
+
         p {
             font-family: 'Proxima', sans-serif;
             text-align: justify;
@@ -205,6 +210,10 @@
                  &:link, &:visited, &:hover, &:active {
                       text-decoration: none;
                  }
+            }
+
+            @media screen and (max-width: 414px) {
+              font-size: 1em;
             }
         }
 
