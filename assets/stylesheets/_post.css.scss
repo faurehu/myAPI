@@ -65,6 +65,10 @@
             margin-top: 0;
             font-size: 4em;
             text-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23);
+
+            @media screen and (max-width: 414px) {
+              font-size: 2em;
+            }
         }
 
         .postSubtitle {
@@ -72,10 +76,23 @@
             margin-top: 10px;
             margin-bottom: 15px;
             font-size: 2em;
+
+            @media screen and (max-width: 414px) {
+              font-size: 1.2em;
+            }
         }
 
         span {
           margin-bottom: 5px;
+
+          @media screen and (max-width: 414px) {
+            font-size: 0.8em;
+          }
+        }
+
+        @media screen and (max-width: 414px) {
+          margin-left: 0;
+          margin-right: 0;
         }
     }
 
@@ -85,6 +102,10 @@
       font-family: 'Proxima', sans-serif;
       text-align: justify;
       font-size: 1.5em;
+
+      @media screen and (max-width: 414px) {
+        font-size: 1em;
+      }
 
       a {
         &:link, &:visited, &:hover, &:active {
