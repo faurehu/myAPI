@@ -62,7 +62,7 @@ export default class GridComponent extends React.Component {
       <div className="grid-container">
         <div className={sidebarClass}>
             <div className="link-limiter">
-                <a id="link" className="link link--mallki"
+                <a href="http://about.faure.hu" id="link" className="link link--mallki"
                   dangerouslySetInnerHTML={{__html:innerHtml}}/>
             </div>
             <div className="header-image">
