@@ -116,6 +116,7 @@ module.exports = (app) => {
           for(var article in parsedBody) {
             articles.push(parsedBody[article]);
           }
+          articles.reverse();
           res.json(articles.map((article) => {
             return {
               title: article.resolved_title,
