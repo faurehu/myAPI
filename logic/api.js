@@ -177,7 +177,9 @@ module.exports = (app) => {
       request.get(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLKuiYq4-bq_xbGq09B8u76cJCfek0bm9N&key=${keys.google.key}&maxResults=50`,
       (err, response, body) => {
         if(err) handleError(err);
-        res.json(JSON.parse(body).items.map((node) => {
+        let responseArray = JSON.parse(body).items;
+        responseArray.reverse();
+        res.json(responseArray.map((node) => {
           return {
             title: node.snippet.title,
             id: node.snippet.resourceId.videoId,
