@@ -66,7 +66,7 @@ export default class GridComponent extends React.Component {
                   dangerouslySetInnerHTML={{__html:innerHtml}}/>
             </div>
             <div className="header-image">
-              <img src="./assets/picture.jpg"/>
+              <a href="http://about.faure.hu"><img src="./assets/picture.jpg"/></a>
             </div>
             <div className="subs">
               <h1>Computer Science with Management U.G. @ KCL</h1>
