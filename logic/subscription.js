@@ -4,7 +4,7 @@ module.exports = (app) => {
   return {
     confirm: (req, res, next) => {
 
-      let handleError = (err) => { res.status(404); return next(err); };
+      let handleError = (err) => { res.status(500); return next(err); };
 
       let success = () => { res.render('confirmed'); };
 
@@ -12,6 +12,21 @@ module.exports = (app) => {
         data.updateAttributes({
           confirmed: true
         }).then(success).catch(handleError);
+      }
+
+      app.get('models').Subscription.findOne({where: {token: req.query.token}})
+      .then(found).catch(handleError);
+    },
+    unsubscribe: (req, res, next) => {
+console.log('yo');
+      let handleError = (err) => { res.status(500); return next(err); };
+
+      let success =  () => { res.render('unsubscribed'); };
+
+      let found = (data) => {
+          data.updateAttributes({
+              confirmed: false
+          }).then(success).catch(handleError);
       }
 
       app.get('models').Subscription.findOne({where: {token: req.query.token}})

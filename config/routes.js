@@ -10,6 +10,6 @@ module.exports = {
     soundcloud: '/soundcloud',
     photo: '/photo',
     instagram: '/instagram',
-    subscribe: '/subscribe'
+    subscribe: '/subscribe',
   }
 }
