@@ -18,15 +18,14 @@ module.exports = (app) => {
       .then(found).catch(handleError);
     },
     unsubscribe: (req, res, next) => {
-console.log('yo');
       let handleError = (err) => { res.status(500); return next(err); };
 
-      let success =  () => { res.render('unsubscribed'); };
+      let success =  () => { res.render('cancelled'); };
 
       let found = (data) => {
-          data.updateAttributes({
-              confirmed: false
-          }).then(success).catch(handleError);
+        data.updateAttributes({
+          confirmed: false
+        }).then(success).catch(handleError);
       }
 
       app.get('models').Subscription.findOne({where: {token: req.query.token}})
