@@ -16,7 +16,9 @@ module.exports = (app) => {
 
 
       let response = (data) => {
-
+        if(data == null && typeof data  === "object") {
+          next();
+        }
         let date = new Date(data.createdAt);
         let link = req.protocol + '://' + req.get('host') + req.originalUrl;
 
