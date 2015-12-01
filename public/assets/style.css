@@ -296,8 +296,10 @@ html {
         font-size: 1em;
         margin: 5px;
         text-align: center; }
-      .column .column-content .reload-div .reload-click:hover {
-        color: #448aff; }
+      .column .column-content .reload-div .reload-click {
+        cursor: pointer; }
+        .column .column-content .reload-div .reload-click:hover {
+          color: #448aff; }
 
 .soundcloud-column .column-header {
   margin-top: 5px; }

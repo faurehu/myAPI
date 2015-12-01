@@ -1,4 +1,5 @@
 import https from 'https';
+import request from 'request';
 
 let store = {};
 let timeCheck = 0;
@@ -53,17 +54,42 @@ let photoAPI = () => new Promise((resolve, reject) => {
   .catch(reject);
 })
 
-let callAPIs = (res, app) => {
-  return new Promise((resolve, reject) => {
-    let promises = [twitterAPI, blogAPI, photoAPI];
-    Promise.all(promises).then(resolve).catch(reject);
-  });
-}
+let githubAPI = () => new Promise((resolve, reject) => {
+  let response = (data) => {
+    let options = {
+      url: `https://api.github.com/user/repos?access_token=${data.dataValues.token}&visibility=public&affiliation=owner,collaborator&sort=updated`,
+      headers: {
+        'User-Agent': 'faurehu'
+      }
+    }
+    request(options, (err, response, body) => {
+      if(err) reject(err);
+      let repos = JSON.parse(body);
+      store.repos = repos.map((repo) => {
+        return {
+          name: repo.name,
+          description: repo.description,
+          language: repo.language,
+          url: repo.html_url
+        }
+      });
+      resolve();
+    });
+  }
+  app.get('models').AccessToken.find({where: {service: 'github'}})
+  .then(response)
+  .catch(reject);
+});
+
+let callAPIs = (res, app) => new Promise((resolve, reject) => {
+  let promises = [twitterAPI(), blogAPI(), photoAPI(), githubAPI()];
+  Promise.all(promises).then(resolve).catch(reject);
+});
 
 let memoCheck = (key, res) => {
   let handleError = (err) => { res.status(500); console.log(err); return next(err); };
   let success = () => { timeCheck = Date.now(); res.json(store[key]); };
-  if (Date.now() > timeCheck + ( 5 * 60 * 1000 )) {
+  if (Date.now() > timeCheck + ( 10 * 60 * 1000 )) {
     callAPIs(res, app).then(success).catch(handleError);
   } else { success(); }
 }

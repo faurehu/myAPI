@@ -35,8 +35,11 @@
         text-align: center;
       }
 
-      .reload-click:hover {
-        color: $light-blue;
+      .reload-click {
+        cursor: pointer;
+        &:hover {
+          color: $light-blue;
+        }
       }
     }
   }

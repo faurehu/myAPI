@@ -17,29 +17,7 @@ module.exports = (app) => {
       memoCheck("tweets", res);
     },
     getGithub: (req, res, next) => {
-      let handleError = (err) => { res.status(500); return next(err); };
-      let response = (data) => {
-        let options = {
-          url: `https://api.github.com/user/repos?access_token=${data.dataValues.token}&visibility=public&affiliation=owner,collaborator&sort=updated`,
-          headers: {
-            'User-Agent': 'faurehu'
-          }
-        }
-        request(options, (err, response, body) => {
-          if(err) handleError(err);
-          let repos = JSON.parse(body);
-          res.json(repos.map((repo) => {
-            return {
-              name: repo.name,
-              description: repo.description,
-              language: repo.language,
-              url: repo.html_url
-            }
-          }));
-        });
-      }
-      app.get('models').AccessToken.find({where: {service: 'github'}})
-      .then(response).catch(handleError);
+      memoCheck("repos", res);
     },
     getPocket: (req, res, next) => {
 
