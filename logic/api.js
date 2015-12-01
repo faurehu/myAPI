@@ -20,106 +20,16 @@ module.exports = (app) => {
       memoCheck("repos", res);
     },
     getPocket: (req, res, next) => {
-
-      let handleError = (err) => { res.status(500); return next(err); };
-
-      let response = (data) => {
-
-        let options = {
-          url: `https://getpocket.com/v3/get`,
-          headers: {
-            'Content-Type': 'application/json; charset=UTF-8',
-            'X-Accept': 'application/json'
-          },
-          form: {
-            'consumer_key': keys.pocket.consumerKey,
-            'access_token': data.dataValues.token,
-            'favorite': 1,
-            'sort': 'newest',
-            'detailType': 'simple',
-            'count': 20,
-            'offset': req.params.page*20
-          }
-        }
-
-        request.post(options, (err, httpResponse, body) => {
-          if(err) {handleError(err)};
-          let articles = [];
-          let parsedBody = JSON.parse(body).list;
-          for(var article in parsedBody) {
-            articles.push(parsedBody[article]);
-          }
-          articles.reverse();
-          res.json(articles.map((article) => {
-            return {
-              title: article.resolved_title,
-              excerpt: article.excerpt,
-              url: article.given_url
-            }
-          }));
-        });
-      }
-
-      app.get('models').AccessToken.find({where: {service: 'pocket'}})
-      .then(response).catch(handleError);
+      memoCheck("articles", res);
     },
     getSoundcloud: (req, res, next) => {
-
-      let handleError = (err) => { res.status(500); return next(err); };
-
-      request.get(`http://api.soundcloud.com/users/22982175/favorites?client_id=${keys.soundcloud.clientID}`
-      , (err, response, body) => {
-        if(err) handleError(err);
-        res.json(JSON.parse(body).map((node) => {
-          return {
-            title: node.title,
-            user: node.user.username,
-            media: node.artwork_url,
-            url: node.permalink_url,
-            id: node.id
-          }
-        }));
-      });
+      memoCheck("tracks", res);
     },
     getInstagram: (req, res, next) => {
-
-      let handleError = (err) => { res.status(500); return next(err); };
-
-      let response = (data) => {
-        request.get(`https://api.instagram.com/v1/users/${data.dataValues.userID}/media/recent/?access_token=${data.dataValues.token}&count=50`,
-        (err, response, body) => {
-          if (err) handleError(err);
-          let photos = JSON.parse(body).data;
-          res.json(photos.map((photo) => {
-            return {
-              link: photo.link,
-              url: photo.images.standard_resolution.url
-            }
-          }));
-        }
-      );
-      }
-
-      app.get('models').AccessToken.find({where: {service: 'instagram'}})
-      .then(response).catch(handleError);
+      memoCheck("images", res);
     },
     getYoutube: (req, res) => {
-
-      let handleError = (err) => { res.status(500); return next(err); };
-
-      request.get(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLKuiYq4-bq_xbGq09B8u76cJCfek0bm9N&key=${keys.google.key}&maxResults=50`,
-      (err, response, body) => {
-        if(err) handleError(err);
-        let responseArray = JSON.parse(body).items;
-        responseArray.reverse();
-        res.json(responseArray.map((node) => {
-          return {
-            title: node.snippet.title,
-            id: node.snippet.resourceId.videoId,
-            media: node.snippet.thumbnails.medium.url
-          }
-        }));
-      });
+      memoCheck("videos", res);
     },
     pocketLogin: (req, res, next) => {
 
