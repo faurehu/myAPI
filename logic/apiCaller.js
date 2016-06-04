@@ -182,9 +182,9 @@ let instagramAPI = () => new Promise((resolve, reject) => {
 
 let callAPIs = () => new Promise((resolve, reject) => {
   let promises = [
-    // twitterAPI(), 
+    twitterAPI(),
     blogAPI(), photoAPI(), githubAPI(), pocketAPI(),
-    soundCloudAPI(), instagramAPI(), youtubeAPI()];
+    soundCloudAPI(), instagramAPI()];
   Promise.all(promises).then(resolve).catch(reject);
 });
 
