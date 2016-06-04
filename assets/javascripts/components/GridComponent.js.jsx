@@ -34,13 +34,12 @@ export default class GridComponent extends React.Component {
   renderColumns() {
     return [
       <td key={0}><BlogColumnComponent/></td>,
-      // <td key={1} className="desktop"><TwitterColumnComponent/></td>,
+      <td key={1} className="desktop"><TwitterColumnComponent/></td>,
       <td key={2} className="desktop"><ImagesColumnComponent/></td>,
       <td key={3} className="desktop"><PocketColumnComponent/></td>,
       <td key={4} className="desktop"><InstagramColumnComponent/></td>,
       <td key={5} className="desktop"><GithubColumnComponent/></td>,
-      <td key={6} className="desktop"><SoundCloudColumnComponent/></td>,
-      <td key={7} className="desktop"><YoutubeColumnComponent/></td>
+      <td key={6} className="desktop"><SoundCloudColumnComponent/></td>
     ];
   }
 
