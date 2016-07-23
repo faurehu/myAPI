@@ -1,3 +1,4 @@
+/* eslint-disable react/no-did-mount-set-state */
 import React from 'react/addons';
 
 import ColumnComponent from './Columns/ColumnComponent';
@@ -39,7 +40,8 @@ export default class GridComponent extends React.Component {
       <td key={3} className="desktop"><PocketColumnComponent/></td>,
       <td key={4} className="desktop"><InstagramColumnComponent/></td>,
       <td key={5} className="desktop"><GithubColumnComponent/></td>,
-      <td key={6} className="desktop"><SoundCloudColumnComponent/></td>
+      <td key={6} className="desktop"><SoundCloudColumnComponent/></td>,
+      <td key={7} className="desktop"><YoutubeColumnComponent/></td>
     ];
   }
 
@@ -82,7 +84,7 @@ export default class GridComponent extends React.Component {
               </div>
             }
             <div className="contact-links">
-                {/*<a href="http://twitter.com/faurehu"><i className="fa fa-twitter-square fa-3x"/></a>*/}
+                <a href="http://twitter.com/faurehu"><i className="fa fa-twitter-square fa-3x"/></a>
                 <a href="http://github.com/faurehu"><i className="fa fa-github-square fa-3x"/></a>
                 <a href="http://uk.linkedin.com/in/faurehu"><i className="fa fa-linkedin-square fa-3x"/></a>
                 <a href="mailto:hi@faure.hu"><i className="fa fa-envelope-square fa-3x"/></a>

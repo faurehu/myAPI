@@ -148,7 +148,9 @@ let youtubeAPI = () => new Promise((resolve, reject) => {
     if(err) reject(err);
     let responseArray = JSON.parse(body).items;
     responseArray.reverse();
-    store.videos = responseArray.map((node) => {
+    store.videos = responseArray.filter((node) => {
+    return node.snippet.title != 'Deleted video' })
+      .map((node) => {
       return {
         title: node.snippet.title,
         id: node.snippet.resourceId.videoId,
@@ -184,7 +186,7 @@ let callAPIs = () => new Promise((resolve, reject) => {
   let promises = [
     twitterAPI(),
     blogAPI(), photoAPI(), githubAPI(), pocketAPI(),
-    soundCloudAPI(), instagramAPI()];
+    soundCloudAPI(), instagramAPI(), youtubeAPI()];
   Promise.all(promises).then(resolve).catch(reject);
 });
 

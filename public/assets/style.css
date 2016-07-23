@@ -23,9 +23,9 @@ html {
     background-color: #009688;
     height: 155px;
     position: fixed;
-    -moz-transition: width 0.3s;
-    -webkit-transition: width 0.3s;
-    transition: width 0.3s;
+    -moz-transition: width .3s;
+    -webkit-transition: width .3s;
+    transition: width .3s;
     -webkit-transition-timing-function: ease-out;
     transition-timing-function: ease-out;
     width: 100%;
@@ -43,7 +43,7 @@ html {
         font-family: 'Share', cursive;
         font-size: 4.5em;
         text-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-        transition: color 0.5s 0.25s, text-shadow 0.5s 0.25s;
+        transition: color .5s .25s, text-shadow .5s .25s;
         -webkit-transition-timing-function: ease-out;
         transition-timing-function: ease-out; }
         .grid-container .grid-sidebar .link-limiter .link--mallki:hover {
@@ -64,9 +64,9 @@ html {
           margin-right: 0;
           margin-top: 90px;
           max-width: none;
-          -moz-transition: margin-left 0.3s;
-          -webkit-transition: margin-left 0.3s;
-          transition: margin-left 0.3s;
+          -moz-transition: margin-left .3s;
+          -webkit-transition: margin-left .3s;
+          transition: margin-left .3s;
           -webkit-transition-timing-function: ease-out;
           transition-timing-function: ease-out; }
           .grid-container .grid-sidebar .link-limiter .link--mallki {
@@ -79,9 +79,9 @@ html {
           margin-left: 0;
           margin-top: 10px;
           text-align: center;
-          -moz-transition: margin-left 0.3s;
-          -webkit-transition: margin-left 0.3s;
-          transition: margin-left 0.3s;
+          -moz-transition: margin-left .3s;
+          -webkit-transition: margin-left .3s;
+          transition: margin-left .3s;
           -webkit-transition-timing-function: ease-out;
           transition-timing-function: ease-out;
           width: 100%; }
@@ -104,9 +104,9 @@ html {
         .grid-container .grid-sidebar .subs {
           display: block;
           margin-left: 0;
-          -moz-transition: margin-left 0.3s;
-          -webkit-transition: margin-left 0.3s;
-          transition: margin-left 0.3s;
+          -moz-transition: margin-left .3s;
+          -webkit-transition: margin-left .3s;
+          transition: margin-left .3s;
           -webkit-transition-timing-function: ease-out;
           transition-timing-function: ease-out; } }
     .grid-container .grid-sidebar .toggler-container {
@@ -124,9 +124,9 @@ html {
       .grid-container .grid-sidebar .toggler-container .toggle-button {
         display: inline-block;
         text-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-        -moz-transition: transform 0.3s;
-        -webkit-transition: transform 0.3s;
-        transition: transform 0.3s;
+        -moz-transition: transform .3s;
+        -webkit-transition: transform .3s;
+        transition: transform .3s;
         -webkit-transition-timing-function: ease-out;
         transition-timing-function: ease-out; }
         .grid-container .grid-sidebar .toggler-container .toggle-button:hover {
@@ -139,19 +139,16 @@ html {
       margin-right: auto;
       margin-top: 5px;
       text-align: center;
-      -moz-transition: margin-left 0.3s;
-      -webkit-transition: margin-left 0.3s;
-      transition: margin-left 0.3s;
+      -moz-transition: margin-left .3s;
+      -webkit-transition: margin-left .3s;
+      transition: margin-left .3s;
       -webkit-transition-timing-function: ease-out;
       transition-timing-function: ease-out;
       width: 250px; }
       .grid-container .grid-sidebar .contact-links a {
         margin-left: 2px;
         margin-right: 2px; }
-        .grid-container .grid-sidebar .contact-links a:hover,
-        .grid-container .grid-sidebar .contact-links a:visited,
-        .grid-container .grid-sidebar .contact-links a:active,
-        .grid-container .grid-sidebar .contact-links a:link {
+        .grid-container .grid-sidebar .contact-links a:hover, .grid-container .grid-sidebar .contact-links a:visited, .grid-container .grid-sidebar .contact-links a:active, .grid-container .grid-sidebar .contact-links a:link {
           color: #fff;
           text-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
       @media screen and (min-width: 800px) {
@@ -160,9 +157,9 @@ html {
           margin-left: 0;
           margin-right: 0;
           position: absolute;
-          -moz-transition: margin-left 0.3s;
-          -webkit-transition: margin-left 0.3s;
-          transition: margin-left 0.3s;
+          -moz-transition: margin-left .3s;
+          -webkit-transition: margin-left .3s;
+          transition: margin-left .3s;
           -webkit-transition-timing-function: ease-out;
           transition-timing-function: ease-out;
           width: 100%; }
@@ -178,9 +175,9 @@ html {
         width: 350px; } }
   @media screen and (min-width: 800px) {
     .grid-container .collapsed-sidebar {
-      -moz-transition: width 0.3s;
-      -webkit-transition: width 0.3s;
-      transition: width 0.3s;
+      -moz-transition: width .3s;
+      -webkit-transition: width .3s;
+      transition: width .3s;
       -webkit-transition-timing-function: ease-out;
       transition-timing-function: ease-out;
       width: 40px; }
@@ -189,18 +186,18 @@ html {
       .grid-container .collapsed-sidebar .header-image,
       .grid-container .collapsed-sidebar .contact-links {
         margin-left: -342px;
-        -moz-transition: margin-left 0.3s;
-        -webkit-transition: margin-left 0.3s;
-        transition: margin-left 0.3s;
+        -moz-transition: margin-left .3s;
+        -webkit-transition: margin-left .3s;
+        transition: margin-left .3s;
         -webkit-transition-timing-function: ease-out;
         transition-timing-function: ease-out; }
       .grid-container .collapsed-sidebar .toggler-container .toggle-button {
         -ms-transform: rotate(180deg);
         -webkit-transform: rotate(180deg);
         transform: rotate(180deg);
-        -moz-transition: transform 0.3s;
-        -webkit-transition: transform 0.3s;
-        transition: transform 0.3s;
+        -moz-transition: transform .3s;
+        -webkit-transition: transform .3s;
+        transition: transform .3s;
         -webkit-transition-timing-function: ease-out;
         transition-timing-function: ease-out; } }
   .grid-container .firefox-sidebar {
@@ -250,15 +247,15 @@ html {
         height: 100%;
         margin-left: 350px;
         padding-top: 0;
-        -moz-transition: margin-left 0.3s;
-        -webkit-transition: margin-left 0.3s;
-        transition: margin-left 0.3s; } }
+        -moz-transition: margin-left .3s;
+        -webkit-transition: margin-left .3s;
+        transition: margin-left .3s; } }
   @media screen and (min-width: 800px) {
     .grid-container .collapsed-content {
       margin-left: 40px;
-      -moz-transition: margin-left 0.3s;
-      -webkit-transition: margin-left 0.3s;
-      transition: margin-left 0.3s; } }
+      -moz-transition: margin-left .3s;
+      -webkit-transition: margin-left .3s;
+      transition: margin-left .3s; } }
 
 .pswp__ui {
   font-family: 'Roboto', sans-serif; }
@@ -593,3 +590,5 @@ html {
       outline: 0; }
       .content .postFooter button:hover {
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
+
+/*# sourceMappingURL=style.css.map*/

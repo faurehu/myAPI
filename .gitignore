@@ -4,3 +4,6 @@ public/assets/bundle.js
 public/assets/bundle.js.map
 public/assets/style.css
 public/assets/style.css.map
+.DS_Store
+*.swp
+*.log
