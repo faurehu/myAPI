@@ -13,18 +13,23 @@ module.exports = {
     },
     instagram: {
       clientID: process.env.INSTAGRAM_ID,
-      clientSecret: process.env.INSTAGRAM_SECRET
+      clientSecret: process.env.INSTAGRAM_SECRET,
+      userID: process.env.INSTAGRAM_USERID,
+      token: process.env.INSTAGRAM_TOKEN
     },
     github: {
       clientID: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET
+      clientSecret: process.env.GITHUB_SECRET,
+      token: process.env.GITHUB_TOKEN
     },
     pocket: {
       consumerKey: process.env.POCKET_KEY,
-      myOwnSecret: process.env.POCKET_SECRET
+      myOwnSecret: process.env.POCKET_SECRET,
+      token: process.env.POCKET_TOKEN
     },
     soundcloud: {
-      clientID: process.env.SOUNDCLOUD_ID
+      clientID: process.env.SOUNDCLOUD_ID,
+      clientSecret: process.env.SOUNDCLOUD_SECRET
     }
   },
   development: {
