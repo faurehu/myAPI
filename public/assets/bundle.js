@@ -25849,8 +25849,8 @@
 	        'Twitter'
 	      )];
 	      this.state.tweets.forEach(function (tweet) {
-	        tweetCards.push(React.createElement(_CardsTwitterCardComponent2['default'], { text: tweet.text || tweet.myText,
-	          author: tweet.author, media: tweet.imgUrl, key: _this.state.tweets.indexOf(tweet) + 1 }));
+	        tweetCards.push(React.createElement(_CardsTwitterCardComponent2['default'], { text: tweet.text,
+	          rt: tweet.rt, img: tweet.img, key: _this.state.tweets.indexOf(tweet) + 1 }));
 	      });
 	      return tweetCards;
 	    }
@@ -25900,8 +25900,8 @@
 	    key: 'propTypes',
 	    value: {
 	      text: _reactAddons2['default'].PropTypes.string,
-	      author: _reactAddons2['default'].PropTypes.string,
-	      media: _reactAddons2['default'].PropTypes.string
+	      rt: _reactAddons2['default'].PropTypes.object,
+	      img: _reactAddons2['default'].PropTypes.string
 	    },
 	    enumerable: true
 	  }, {
@@ -25918,7 +25918,7 @@
 	    _get(Object.getPrototypeOf(TwitterCardComponent.prototype), 'constructor', this).call(this, props);
 	
 	    this.redirect = function () {
-	      window.location = 'http://www.twitter.com/' + _this.props.author;
+	      window.location = 'http://www.twitter.com/' + _this.props.rt.author;
 	    };
 	  }
 	
@@ -25928,15 +25928,15 @@
 	      return _reactAddons2['default'].createElement(
 	        'div',
 	        { className: 'card twitter-card' },
-	        (this.props.media !== undefined || this.props.author !== undefined) && _reactAddons2['default'].createElement(
+	        (this.props.img !== undefined || this.props.rt !== undefined) && _reactAddons2['default'].createElement(
 	          'div',
 	          { className: 'card-header' },
-	          this.props.media && _reactAddons2['default'].createElement('img', { src: this.props.media }),
-	          this.props.author && _reactAddons2['default'].createElement(
+	          this.props.img && _reactAddons2['default'].createElement('img', { src: this.props.img }),
+	          this.props.rt && _reactAddons2['default'].createElement(
 	            'span',
 	            { onClick: this.redirect,
-	              className: this.props.media !== undefined ? 'gradient-image' : '' },
-	            'RT @' + this.props.author
+	              className: this.props.img !== undefined ? 'gradient-image' : '' },
+	            'RT @' + this.props.rt.author
 	          )
 	        ),
 	        _reactAddons2['default'].createElement(

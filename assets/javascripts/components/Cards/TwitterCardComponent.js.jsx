@@ -4,8 +4,8 @@ export default class TwitterCardComponent extends React.Component {
   static displayName = 'Twitter Card Component';
   static propTypes = {
     text: React.PropTypes.string,
-    author: React.PropTypes.string,
-    media: React.PropTypes.string
+    rt: React.PropTypes.object,
+    img: React.PropTypes.string
   };
 
   static defaultProps = {}
@@ -17,15 +17,15 @@ export default class TwitterCardComponent extends React.Component {
   render() {
     return (
       <div className="card twitter-card">
-        {(this.props.media !== undefined || this.props.author !== undefined) &&
+        {(this.props.img !== undefined || this.props.rt !== undefined) &&
           <div className="card-header">
-            {this.props.media &&
-              <img src={this.props.media}/>
+            {this.props.img &&
+              <img src={this.props.img}/>
             }
-            {this.props.author &&
+            {this.props.rt &&
               <span onClick={this.redirect}
-                className={this.props.media !== undefined ? 'gradient-image' : ''}>
-                {`RT @${this.props.author}`}
+                className={this.props.img !== undefined ? 'gradient-image' : ''}>
+                {`RT @${this.props.rt.author}`}
               </span>
             }
           </div>
@@ -38,6 +38,6 @@ export default class TwitterCardComponent extends React.Component {
   }
 
   redirect = () => {
-    window.location = `http://www.twitter.com/${this.props.author}`;
+    window.location = `http://www.twitter.com/${this.props.rt.author}`;
   }
 }
