@@ -1,6 +1,8 @@
+import fetchStore from '../logic/store'
+
 module.exports = (app) => {
   app.get('/', (req, res) => {
-    res.render('grid');
+    fetchStore().then(x => res.render('grid', { assets: x}));
   });
   app.use('/blog', require('./blog')(app));
   app.use('/api', require('./api')(app));

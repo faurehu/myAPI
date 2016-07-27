@@ -1,17 +1,30 @@
 import express from 'express';
 import { apiRoute } from '../config/routes';
-import api from '../logic/api';
+import blog from '../logic/apis/blog';
+import twitter from '../logic/apis/twitter';
+import photo  from '../logic/apis/photography';
+import github from '../logic/apis/github';
+import youtube from '../logic/apis/youtube';
+import pocket from '../logic/apis/pocket';
+import instagram from '../logic/apis/instagram';
+import soundcloud from '../logic/apis/soundcloud';
 let router = express.Router();
 
+let fetchInjector = (fetcher) => {
+  return (req, res, next) => {
+    fetcher().then(x => res.json(x));
+  }
+}
+
+
 module.exports = (app) => {
-  let apiLogic = api(app);
-  router.get(apiRoute.blog, apiLogic.getBlog);
-  router.get(apiRoute.twitter, apiLogic.getTwitter);
-  router.get(apiRoute.youtube, apiLogic.getYoutube);
-  router.get(apiRoute.github, apiLogic.getGithub);
-  router.get(apiRoute.pocket, apiLogic.getPocket);
-  router.get(apiRoute.soundcloud, apiLogic.getSoundcloud);
-  router.get(apiRoute.photo, apiLogic.getImages);
-  router.get(apiRoute.instagram, apiLogic.getInstagram);
+  router.get(apiRoute.blog, fetchInjector(blog));
+  router.get(apiRoute.twitter, fetchInjector(twitter));
+  router.get(apiRoute.youtube, fetchInjector(youtube));
+  router.get(apiRoute.github, fetchInjector(github));
+  router.get(apiRoute.pocket, fetchInjector(pocket));
+  router.get(apiRoute.soundcloud, fetchInjector(soundcloud));
+  router.get(apiRoute.photo, fetchInjector(photo));
+  router.get(apiRoute.instagram, fetchInjector(instagram));
   return router;
 }

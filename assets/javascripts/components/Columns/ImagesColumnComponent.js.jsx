@@ -1,20 +1,15 @@
 /*eslint camelcase: 0*/
-
-import XHRpromise from 'xhr-promise';
 import ColumnComponent from './ColumnComponent';
 import ImageCardComponent from '../Cards/ImageCardComponent';
-let XHR = new XHRpromise;
 
 export default class ImageColumnComponent extends ColumnComponent {
   static displayName = 'Image Column Component';
 
   constructor(props) {
     super(props);
-    this.state = {};
-  }
-
-  componentDidMount() {
-    !isMobile() && this.reload();
+    this.state = {
+      images: props.images
+    };
   }
 
   getColumnClass() {
@@ -23,15 +18,11 @@ export default class ImageColumnComponent extends ColumnComponent {
 
   renderCards() {
     let imageCards = [<h1 key={0} className="column-title">Photography</h1>];
-    if(this.state.empty) {
-      imageCards.push(<div className="reload-div"><h2>There has been a disconnection</h2><h2 className="reload-click" onClick={this.reload}>Try again?</h2></div>);
-    } else if (this.state.images !== undefined) {
-      this.state.images.forEach((image) => {
-        let index =this.state.images.indexOf(image);
-        imageCards.push(<ImageCardComponent caption={image.caption} id={image.id}
-          url={image.medium} key={index+1} index={index} ps={this.photoSwipe}/>);
-      });
-    }
+    this.state.images.forEach((image) => {
+      let index =this.state.images.indexOf(image);
+      imageCards.push(<ImageCardComponent caption={image.caption} id={image.id}
+        url={image.medium} key={index+1} index={index} ps={this.photoSwipe}/>);
+    });
     return imageCards;
   }
 
@@ -85,24 +76,5 @@ export default class ImageColumnComponent extends ColumnComponent {
 
     let gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
     gallery.init();
-  }
-
-  reload = () => {
-    XHR.send({
-      method: 'GET',
-      url: `${window.location.origin}/api/photo`
-    })
-    .then((response) => {
-      this.setState({
-        images: JSON.parse(response.responseText),
-        empty: response.status === 500
-      });
-      this.forceUpdate();
-    })
-    .catch((error) => {
-      this.setState({
-        empty: true
-      });
-    });
   }
 }

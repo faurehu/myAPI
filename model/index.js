@@ -33,3 +33,6 @@ sequelize.sync()
   });
 
 module.exports.sequelize = sequelize;
+module.exports.query = function(table, queryParams) {
+  return sequelize[table].findAll(queryParams);
+}

@@ -12,7 +12,7 @@ var isMobile = function() {
   if (document.body) {
     width = document.body.clientWidth;
   }
-  
+
   return width < 800;
 }
 

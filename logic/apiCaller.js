@@ -2,13 +2,14 @@ import config from '../config/config';
 import https from 'https';
 import request from 'request';
 let keys = config().keys;
+import sequelize from '../model';
 
 let store = {};
 let timeCheck = 0;
 let app;
 
 let blogAPI = () => new Promise((resolve, reject) => {
-  app.get('models').post.findAll({order: '"createdAt" DESC'})
+  sequelize.post.findAll({order: '"createdAt" DESC'})
   .then((data) => {
     store.posts = data.map((node) => {
       return node.dataValues;
@@ -85,6 +86,7 @@ let githubAPI = () => new Promise((resolve, reject) => {
 
 let pocketAPI = () => new Promise((resolve, reject) => {
   let response = (data) => {
+    console.log('token', data.dataValues.token);
     let options = {
       url: `https://getpocket.com/v3/get`,
       headers: {

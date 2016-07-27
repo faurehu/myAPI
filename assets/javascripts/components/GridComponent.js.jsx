@@ -13,7 +13,16 @@ import YoutubeColumnComponent from './Columns/YoutubeColumnComponent';
 
 export default class GridComponent extends React.Component {
   static displayName = 'Grid Component';
-  static propTypes = {};
+  static propTypes = {
+    blog: React.PropTypes.array,
+    twitter: React.PropTypes.array,
+    photography: React.PropTypes.array,
+    pocket: React.PropTypes.array,
+    instagram: React.PropTypes.array,
+    github: React.PropTypes.array,
+    soundcloud: React.PropTypes.array,
+    youtube: React.PropTypes.array
+  };
   static defaultProps = {}
 
   constructor(props) {
@@ -33,15 +42,17 @@ export default class GridComponent extends React.Component {
   }
 
   renderColumns() {
+    let { blog, github, instagram, photography, pocket, soundcloud,
+      twitter, youtube } = this.props;
     return [
-      <td key={0}><BlogColumnComponent/></td>,
-      <td key={1} className="desktop"><TwitterColumnComponent/></td>,
-      <td key={2} className="desktop"><ImagesColumnComponent/></td>,
-      <td key={3} className="desktop"><PocketColumnComponent/></td>,
-      <td key={4} className="desktop"><InstagramColumnComponent/></td>,
-      <td key={5} className="desktop"><GithubColumnComponent/></td>,
-      <td key={6} className="desktop"><SoundCloudColumnComponent/></td>,
-      <td key={7} className="desktop"><YoutubeColumnComponent/></td>
+      <td key={0}><BlogColumnComponent posts={blog}/></td>,
+      <td key={1} className="desktop"><TwitterColumnComponent tweets={twitter}/></td>,
+      <td key={2} className="desktop"><ImagesColumnComponent images={photography}/></td>,
+      <td key={3} className="desktop"><PocketColumnComponent articles={pocket}/></td>,
+      <td key={4} className="desktop"><InstagramColumnComponent images={instagram}/></td>,
+      <td key={5} className="desktop"><GithubColumnComponent repos={github}/></td>,
+      <td key={6} className="desktop"><SoundCloudColumnComponent tracks={soundcloud}/></td>,
+      <td key={7} className="desktop"><YoutubeColumnComponent videos={youtube}/></td>
     ];
   }
 
@@ -67,7 +78,7 @@ export default class GridComponent extends React.Component {
                   dangerouslySetInnerHTML={{__html:innerHtml}}/>
             </div>
             <div className="header-image">
-              <a href="http://about.faure.hu"><img src="./assets/picture.jpg"/></a>
+              <a href="http://about.faure.hu"><img src="http://dc1v8vgdj2hdz.cloudfront.net/picture.jpg"/></a>
             </div>
             <div className="subs">
               <h1>Computer Science with Management U.G. @ KCL</h1>

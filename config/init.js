@@ -24,6 +24,7 @@ module.exports = (app) => {
   app.set('mailer', require('./mailer'));
 
   let toEncode = `${keys.twitter.consumerKey}:${keys.twitter.consumerSecret}`;
+
   let buffer = new Buffer(toEncode);
 
   let options = {
