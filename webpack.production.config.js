@@ -55,7 +55,7 @@ module.exports = {
       },
       sourceMap: false
     }),
-    new webpack.definePlugin({
+    new webpack.DefinePlugin({
       'process.env': {
         'NODE.ENV': '"production"'
       }
