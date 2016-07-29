@@ -10,11 +10,7 @@ module.exports = {
     filename: "bundle.js"
   },
   resolve: {
-    extensions: ["", ".js", ".jsx", ".js.jsx"],
-    alias: {
-       'react$': path.join(__dirname, 'node_modules', 'react','dist','react.min.js'),
-       'react-dom$': path.join(__dirname, 'node_modules', 'react-dom','dist','react-dom.min.js')
-    }
+    extensions: ["", ".js", ".jsx", ".js.jsx"]
   },
   module: {
     loaders: [
@@ -61,7 +57,7 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE.ENV': '"production"'
+        'NODE.ENV': JSON.stringify('production')
       }
     })
   ],
