@@ -365,9 +365,11 @@ html {
       position: absolute;
       width: 100%; }
 
-.image-card img {
-  max-width: 400px;
-  vertical-align: top; }
+.image-card {
+  min-height: 260px; }
+  .image-card img {
+    max-width: 400px;
+    vertical-align: top; }
 
 .pocket-card {
   width: 300px; }
