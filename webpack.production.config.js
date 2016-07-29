@@ -54,6 +54,11 @@ module.exports = {
         warnings: false
       },
       sourceMap: false
+    }),
+    new webpack.definePlugin({
+      'process.env': {
+        'NODE.ENV': '"production"'
+      }
     })
   ],
   stats: {
