@@ -1,14 +1,6 @@
-import React from 'react/addons';
+import React from 'react';
 
-export default class TwitterCardComponent extends React.Component {
-  static displayName = 'Twitter Card Component';
-  static propTypes = {
-    text: React.PropTypes.string,
-    rt: React.PropTypes.object,
-    img: React.PropTypes.string
-  };
-
-  static defaultProps = {}
+class TwitterCardComponent extends React.Component {
 
   constructor(props) {
     super(props);
@@ -23,7 +15,7 @@ export default class TwitterCardComponent extends React.Component {
               <img src={this.props.img}/>
             }
             {this.props.rt &&
-              <span onClick={this.redirect}
+              <span onClick={this.redirect.bind(this)}
                 className={this.props.img !== undefined ? 'gradient-image' : ''}>
                 {`RT @${this.props.rt.author}`}
               </span>
@@ -37,7 +29,18 @@ export default class TwitterCardComponent extends React.Component {
     );
   }
 
-  redirect = () => {
+  redirect() {
     window.location = `http://www.twitter.com/${this.props.rt.author}`;
   }
 }
+
+TwitterCardComponent.displayName = 'Twitter Card Component';
+TwitterCardComponent.propTypes = {
+  text: React.PropTypes.string,
+  rt: React.PropTypes.object,
+  img: React.PropTypes.string
+};
+
+TwitterCardComponent.defaultProps = {}
+
+export default TwitterCardComponent

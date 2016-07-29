@@ -1,9 +1,8 @@
+import React from 'react';
 import ColumnComponent from './ColumnComponent';
 import YoutubeCardComponent from '../Cards/YoutubeCardComponent';
 
-export default class YoutubeColumnComponent extends ColumnComponent {
-  static displayName = 'Youtube Column Component';
-
+class YoutubeColumnComponent extends ColumnComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -43,3 +42,6 @@ export default class YoutubeColumnComponent extends ColumnComponent {
     return;
   }
 }
+
+YoutubeColumnComponent.displayName = 'Youtube Column Component';
+export default YoutubeColumnComponent

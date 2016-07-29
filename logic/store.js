@@ -6,8 +6,12 @@ import instagram from './apis/instagram';
 import github from './apis/github';
 import soundcloud from './apis/soundcloud';
 import youtube from './apis/youtube';
+import React from 'react';
+import {renderToString} from 'react-dom/server';
+import GridComponent from '../assets/javascripts/components/GridComponent';
 
 let store = false;
+let saved_html = '';
 let timeStamp = Date.now();
 
 export default function fetchStore() {
@@ -22,11 +26,20 @@ export default function fetchStore() {
   promises.push(youtube().then(x => store.youtube = x));
   return new Promise((resolve, reject) => {
     let anHourSinceLastFetch = Date.now() > timeStamp + ( 60 * 60 * 1000);
-    if (anHourSinceLastFetch || !store) {
+    if (anHourSinceLastFetch || !store || !saved_html) {
       store = {};
-      Promise.all(promises).then(x => resolve(store));
+      Promise.all(promises)
+      .then(x => {
+          let Component = <GridComponent blog={store.blog} twitter={store.twitter}
+                            photography={store.photography} pocket={store.pocket}
+                            instagram={store.instagram} github={store.github}
+                            soundcloud={store.soundcloud} youtube={store.youtube} />
+          saved_html = renderToString(Component)
+      })
+      .then(x=> resolve({renderedHTML:saved_html, assets: store}))
+      .catch(reject);
     } else {
-      resolve(store);
+      resolve({renderedHTML: saved_html, assets: store});
     }
   });
 }

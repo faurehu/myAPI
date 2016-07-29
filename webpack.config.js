@@ -46,8 +46,12 @@ module.exports = {
         loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader!postcss-loader")
       },
       {
-        test: require.resolve("react/addons"),
+        test: require.resolve("react"),
         loader: "expose?React"
+      },
+      {
+        test: require.resolve("react-dom"),
+        loader: "expose?ReactDOM"
       }
     ]
   },

@@ -1,9 +1,8 @@
+import React from 'react'
 import BlogCardComponent from '../Cards/BlogCardComponent';
 import ColumnComponent from './ColumnComponent';
 
-export default class BlogColumnComponent extends ColumnComponent {
-  static displayName = 'Blog Column Component';
-
+class BlogColumnComponent extends ColumnComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -29,3 +28,7 @@ export default class BlogColumnComponent extends ColumnComponent {
     return postCards;
   }
 }
+
+BlogColumnComponent.displayName = 'Blog Column Component';
+
+export default BlogColumnComponent

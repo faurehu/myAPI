@@ -1,8 +1,8 @@
-import React from 'react/addons';
+import React from 'react';
 import CardComponent from '../Cards/CardComponent';
 
-export default class ColumnComponent extends React.Component {
-  static displayName = 'Column Component';
+class ColumnComponent extends React.Component {
+
   constructor(props) {
     super(props);
   }
@@ -38,3 +38,7 @@ export default class ColumnComponent extends React.Component {
     );
   }
 }
+
+ColumnComponent.displayName = 'Column Component';
+
+export default ColumnComponent

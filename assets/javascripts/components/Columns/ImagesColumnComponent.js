@@ -1,10 +1,9 @@
 /*eslint camelcase: 0*/
+import React from 'react';
 import ColumnComponent from './ColumnComponent';
 import ImageCardComponent from '../Cards/ImageCardComponent';
 
-export default class ImageColumnComponent extends ColumnComponent {
-  static displayName = 'Image Column Component';
-
+class ImageColumnComponent extends ColumnComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,7 +29,7 @@ export default class ImageColumnComponent extends ColumnComponent {
     return;
   }
 
-  photoSwipe = (index) => {
+  photoSwipe(index) {
 
     let pswpElement = document.querySelectorAll('.pswp')[0];
 
@@ -78,3 +77,7 @@ export default class ImageColumnComponent extends ColumnComponent {
     gallery.init();
   }
 }
+
+ImageColumnComponent.displayName = 'Image Column Component';
+
+export default ImageColumnComponent

@@ -1,5 +1,5 @@
 /* eslint-disable react/no-did-mount-set-state */
-import React from 'react/addons';
+import React from 'react';
 
 import ColumnComponent from './Columns/ColumnComponent';
 import BlogColumnComponent from './Columns/BlogColumnComponent';
@@ -11,19 +11,8 @@ import TwitterColumnComponent from './Columns/TwitterColumnComponent';
 import SoundCloudColumnComponent from './Columns/SoundCloudColumnComponent';
 import YoutubeColumnComponent from './Columns/YoutubeColumnComponent';
 
-export default class GridComponent extends React.Component {
-  static displayName = 'Grid Component';
-  static propTypes = {
-    blog: React.PropTypes.array,
-    twitter: React.PropTypes.array,
-    photography: React.PropTypes.array,
-    pocket: React.PropTypes.array,
-    instagram: React.PropTypes.array,
-    github: React.PropTypes.array,
-    soundcloud: React.PropTypes.array,
-    youtube: React.PropTypes.array
-  };
-  static defaultProps = {}
+class GridComponent extends React.Component {
+
 
   constructor(props) {
     super(props);
@@ -81,11 +70,12 @@ export default class GridComponent extends React.Component {
               <a href="http://about.faure.hu"><img src="http://dc1v8vgdj2hdz.cloudfront.net/profile.jpg"/></a>
             </div>
             <div className="subs">
-              <h1>Computer Science with Management U.G. @ KCL</h1>
+              <h1>Software Engineer</h1>
             </div>
             { !this.state.firefox ?
               <div className="toggler-container">
-                <a onClick={this.toggleCollapse} className="toggle-button">
+                <a onClick={this.toggleCollapse.bind(this)}
+                   className="toggle-button">
                   <i className="fa fa-chevron-left fa-2x"/>
                 </a>
               </div>
@@ -104,9 +94,11 @@ export default class GridComponent extends React.Component {
         {!this.state.firefox &&
           <div className={contentClass}>
             <table>
-              <tr>
-                {this.renderColumns()}
-              </tr>
+              <tbody>
+                <tr>
+                  {this.renderColumns()}
+                </tr>
+              </tbody>
             </table>
           </div>
         }
@@ -114,9 +106,24 @@ export default class GridComponent extends React.Component {
     );
   }
 
-  toggleCollapse = () => {
+  toggleCollapse() {
     this.setState({
       collapsed: !this.state.collapsed
     })
   }
 }
+
+GridComponent.displayName = 'Grid Component';
+GridComponent.propTypes = {
+  blog: React.PropTypes.array,
+  twitter: React.PropTypes.array,
+  photography: React.PropTypes.array,
+  pocket: React.PropTypes.array,
+  instagram: React.PropTypes.array,
+  github: React.PropTypes.array,
+  soundcloud: React.PropTypes.array,
+  youtube: React.PropTypes.array
+};
+GridComponent.defaultProps = {}
+
+export default GridComponent;

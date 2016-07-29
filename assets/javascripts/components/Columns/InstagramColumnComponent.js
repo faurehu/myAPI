@@ -1,9 +1,8 @@
+import React from 'react';
 import ColumnComponent from './ColumnComponent';
 import InstagramCardComponent from '../Cards/InstagramCardComponent';
 
-export default class InstagramColumnComponent extends ColumnComponent {
-  static displayName = 'Instagram Column Component';
-
+class InstagramColumnComponent extends ColumnComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,3 +27,6 @@ export default class InstagramColumnComponent extends ColumnComponent {
     return;
   }
 }
+
+InstagramColumnComponent.displayName = 'Instagram Column Component';
+export default InstagramColumnComponent

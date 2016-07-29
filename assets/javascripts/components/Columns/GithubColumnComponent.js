@@ -1,9 +1,8 @@
+import React from 'react';
 import GithubCardComponent from '../Cards/GithubCardComponent';
 import ColumnComponent from './ColumnComponent';
 
-export default class GithubColumnComponent extends ColumnComponent {
-  static displayName = 'Github Column Component';
-
+class GithubColumnComponent extends ColumnComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -29,3 +28,6 @@ export default class GithubColumnComponent extends ColumnComponent {
     return repos;
   }
 }
+
+GithubColumnComponent.displayName = 'Github Column Component';
+export default GithubColumnComponent

@@ -1,9 +1,8 @@
+import React from 'react';
 import TwitterCardComponent from '../Cards/TwitterCardComponent';
 import ColumnComponent from './ColumnComponent';
 
-export default class TwitterColumnComponent extends ColumnComponent {
-  static displayName = 'Twitter Column Component';
-
+class TwitterColumnComponent extends ColumnComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,3 +27,6 @@ export default class TwitterColumnComponent extends ColumnComponent {
     return tweetCards;
   }
 }
+
+TwitterColumnComponent.displayName = 'Twitter Column Component';
+export default TwitterColumnComponent

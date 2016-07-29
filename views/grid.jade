@@ -36,12 +36,17 @@ html(class=" js csstransitions")
               button.pswp__button.pswp__button--arrow--right(title="Next (arrow right)")
               .pswp__caption
                 .pswp__caption__center
+
       #container
+        !{renderedHTML}
+
       script(src='https://w.soundcloud.com/player/api.js')
       script(src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js")
       script(src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js")
       script(src="./assets/bundle.js")
       script.
+        var assets = !{JSON.stringify(assets)};
+        ReactDOM.render(React.createElement(GridComponent, assets), document.getElementById('container'));
         var isMobile = function() {
           var width;
 
@@ -59,12 +64,3 @@ html(class=" js csstransitions")
 
           return width < 800;
         }
-        var assets = !{JSON.stringify(assets)};
-        React.render(React.createElement(GridComponent, assets), document.getElementById('container'));
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-68888714-1', 'auto');
-        ga('send', 'pageview');
-

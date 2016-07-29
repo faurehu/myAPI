@@ -1,24 +1,14 @@
-import React from 'react/addons';
+import React from 'react';
 
-export default class SoundCloudCardComponent extends React.Component {
-  static displayName = 'SoundCloud Card Component';
-  static propTypes = {
-    media: React.PropTypes.string,
-    url: React.PropTypes.string,
-    user: React.PropTypes.string,
-    title: React.PropTypes.string,
-    id: React.PropTypes.number
-  };
-
-  static defaultProps = {}
-
+class SoundCloudCardComponent extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render() {
     return (
-      <div className="card soundcloud-card" onClick={this.changePlayer}>
+      <div className="card soundcloud-card"
+            onClick={this.changePlayer.bind(this)}>
         <img src={this.props.media}/>
         <div className="soundcloud-titles">
           <p>{this.props.title}</p>
@@ -28,7 +18,7 @@ export default class SoundCloudCardComponent extends React.Component {
     );
   }
 
-  changePlayer = () => {
+  changePlayer() {
     let widgetIframe = document.getElementById('sc-widget');
     let widget = SC.Widget(widgetIframe);
 
@@ -39,3 +29,16 @@ export default class SoundCloudCardComponent extends React.Component {
     });
   }
 }
+
+SoundCloudCardComponent.displayName = 'SoundCloud Card Component';
+SoundCloudCardComponent.propTypes = {
+  media: React.PropTypes.string,
+  url: React.PropTypes.string,
+  user: React.PropTypes.string,
+  title: React.PropTypes.string,
+  id: React.PropTypes.number
+};
+
+SoundCloudCardComponent.defaultProps = {}
+
+export default SoundCloudCardComponent

@@ -1,9 +1,8 @@
+import React from 'react';
 import ColumnComponent from './ColumnComponent';
 import SoundCloudCardComponent from '../Cards/SoundCloudCardComponent';
 
-export default class SoundCloudColumnComponent extends ColumnComponent {
-  static displayName = 'SoundCloud Column Component';
-
+class SoundCloudColumnComponent extends ColumnComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -46,3 +45,6 @@ export default class SoundCloudColumnComponent extends ColumnComponent {
     );
   }
 }
+
+SoundCloudColumnComponent.displayName = 'SoundCloud Column Component';
+export default SoundCloudColumnComponent

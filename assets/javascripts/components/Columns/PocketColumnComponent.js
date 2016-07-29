@@ -1,9 +1,8 @@
+import React from 'react';
 import PocketCardComponent from '../Cards/PocketCardComponent';
 import ColumnComponent from './ColumnComponent';
 
-export default class PocketColumnComponent extends ColumnComponent {
-  static displayName = 'Pocket Column Component';
-
+class PocketColumnComponent extends ColumnComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,3 +27,6 @@ export default class PocketColumnComponent extends ColumnComponent {
     return pocketCards;
   }
 }
+
+PocketColumnComponent.displayName = 'Pocket Column Component';
+export default PocketColumnComponent
