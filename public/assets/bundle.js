@@ -274,7 +274,7 @@
 	            _reactAddons2['default'].createElement(
 	              'a',
 	              { href: 'http://about.faure.hu' },
-	              _reactAddons2['default'].createElement('img', { src: 'http://dc1v8vgdj2hdz.cloudfront.net/picture.jpg' })
+	              _reactAddons2['default'].createElement('img', { src: 'http://dc1v8vgdj2hdz.cloudfront.net/profile.jpg' })
 	            )
 	          ),
 	          _reactAddons2['default'].createElement(
