@@ -17,7 +17,7 @@ export default function pocket() {
         'favorite': 1,
         'sort': 'newest',
         'detailType': 'simple',
-        'count': 8,
+        'count': 20,
         'offset': 0
       }
     }

@@ -9,7 +9,7 @@ export default function soundcloud() {
     }
     request.get(options, (err, response, body) => {
       if(err) reject(err);
-      resolve(JSON.parse(body).slice(0 ,10).map(node => {
+      resolve(JSON.parse(body).slice(0 ,20).map(node => {
         return {
           title: node.title,
           user: node.user.username,

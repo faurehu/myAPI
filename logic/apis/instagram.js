@@ -6,7 +6,7 @@ let keys = config().keys;
 export default function instagram() {
   return new Promise((resolve, reject) => {
     let options = {
-      url: `https://api.instagram.com/v1/users/${keys.instagram.userID}/media/recent/?access_token=${keys.instagram.token}&count=5`
+      url: `https://api.instagram.com/v1/users/${keys.instagram.userID}/media/recent/?access_token=${keys.instagram.token}&count=20`
     }
     request.get(options, (err, response, body) => {
       if(err) reject(err);

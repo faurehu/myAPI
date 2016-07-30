@@ -39,7 +39,7 @@ export default function fetchStore() {
       .then(x=> resolve({renderedHTML:savedHTML, assets: store}))
       .catch(reject);
     } else {
-      resolve({renderedHTML: saved_html, assets: store});
+      resolve({renderedHTML: savedHTML, assets: store});
     }
   });
 }

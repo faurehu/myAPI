@@ -5,7 +5,7 @@ let keys = config().keys;
 export default function youtube() {
   return new Promise((resolve, reject) => {
     let options = {
-      url: `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLKuiYq4-bq_xbGq09B8u76cJCfek0bm9N&maxResults=6&key=${keys.google.key}`
+      url: `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLKuiYq4-bq_xbGq09B8u76cJCfek0bm9N&maxResults=15&key=${keys.google.key}`
     };
     request.get(options, (err, response, body) => {
       if(err) reject(err);
