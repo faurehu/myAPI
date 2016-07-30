@@ -7,7 +7,7 @@ import github from './apis/github';
 import soundcloud from './apis/soundcloud';
 import youtube from './apis/youtube';
 import React from 'react';
-import {renderToString} from 'react/dist/react.min'
+import {renderToString} from 'react-dom/server'
 import GridComponent from '../assets/javascripts/components/GridComponent';
 
 let store = false;
