@@ -63,11 +63,11 @@ class GridComponent extends React.Component {
       <div className="grid-container">
         <div className={sidebarClass}>
             <div className="link-limiter">
-                <a href="http://about.faure.hu" id="link" className="link link--mallki"
+                <a id="link" className="link link--mallki"
                   dangerouslySetInnerHTML={{__html:innerHtml}}/>
             </div>
             <div className="header-image">
-              <a href="http://about.faure.hu"><img src="http://dc1v8vgdj2hdz.cloudfront.net/profile.jpg"/></a>
+              <img src="http://dc1v8vgdj2hdz.cloudfront.net/profile.jpg"/>
             </div>
             <div className="subs">
               <h1>Software Engineer</h1>
